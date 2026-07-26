@@ -352,7 +352,7 @@
     <div id="roleBaselineBar" style="margin-bottom:14px;"></div>
     <div class="row" style="margin-top:0; margin-bottom:14px;">
       <label class="status" style="min-height:auto;">Min. games:
-        <input id="minGames" type="number" min="1" value="3" style="width:50px; background:#0f1512; border:1px solid var(--line); color:var(--text); font-family:var(--mono); padding:4px 6px; margin-left:6px;">
+        <input id="minGames" type="number" min="1" style="width:50px; background:#0f1512; border:1px solid var(--line); color:var(--text); font-family:var(--mono); padding:4px 6px; margin-left:6px;">
       </label>
       <label class="status" style="min-height:auto;">Role:
         <select id="roleFilter" style="background:#0f1512; border:1px solid var(--line); color:var(--text); font-family:var(--mono); font-size:12px; padding:5px 8px; margin-left:6px;">
@@ -495,6 +495,12 @@
 
 <script>
 const API = "https://api.deadlock-api.com/v1";
+
+// Minimum games before a player is ranked or can be crowned a star. Single
+// source of truth for both the leaderboard filter and the Stars panel: these
+// were separate numbers once and silently disagreed, so the table ranked
+// one-game players at the top while Stars quietly required three.
+const DEFAULT_MIN_GAMES = 3;
 const SAMPLE_IDS = `# Night Shift #48 (July 22, 2026) North America
 95172627
 95180553
@@ -527,6 +533,7 @@ const aliasBox = document.getElementById("aliasBox");
 const saveAliasBtn = document.getElementById("saveAliasBtn");
 const aliasStatus = document.getElementById("aliasStatus");
 const minGamesInput = document.getElementById("minGames");
+minGamesInput.value = DEFAULT_MIN_GAMES;
 const roleFilter = document.getElementById("roleFilter");
 const teamBox = document.getElementById("teamBox");
 const saveTeamBtn = document.getElementById("saveTeamBtn");
@@ -1202,11 +1209,15 @@ function renderStars() {
 
   // Only players with enough games are eligible to be a "star", since a single
   // outlier game shouldn't crown anyone. Falls back to a lower bar if the
-  // dataset is too small for anyone to qualify.
-  let minG = 3;
+  // dataset is too small for anyone to qualify. Starts from the same
+  // DEFAULT_MIN_GAMES as the leaderboard filter so the two panels can't
+  // drift apart and disagree about who counts.
+  let minG = DEFAULT_MIN_GAMES;
   let eligible = leaderboard.filter(r => r.games.length >= minG);
-  if (eligible.length < 3) { minG = 2; eligible = leaderboard.filter(r => r.games.length >= minG); }
-  if (eligible.length < 3) { minG = 1; eligible = leaderboard; }
+  while (eligible.length < 3 && minG > 1) {
+    minG -= 1;
+    eligible = leaderboard.filter(r => r.games.length >= minG);
+  }
 
   grid.className = "stars-grid";
   grid.innerHTML = STAR_CATS.map(cat => {
@@ -2040,7 +2051,6 @@ async function runAnalysis() {
   gameCountEl.textContent = `${matchResults.filter(r => r.ok).length} matches, ${rows.length} players`;
   resultsPanel.style.display = "block";
   shareCardPanel.style.display = "block";
-  minGamesInput.value = 1;
   renderRows();
   renderStars();
   renderTeamView();

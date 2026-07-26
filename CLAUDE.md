@@ -40,9 +40,21 @@ All data comes from `https://api.deadlock-api.com/v1`. It is a community
 run, open source, unofficial API. CORS is wildcard-open, so the browser can
 call it directly with no key and no proxy.
 
-These field names were verified by reading the API's Rust source and the
-Steam protobuf definitions. **Do not guess at these.** If something looks
-wrong, check against the live response before changing it.
+**Do not guess at these.** If something looks wrong, check against the live
+response before changing it.
+
+Two different levels of confidence are recorded below, and the difference
+matters:
+
+- **Confirmed live** means checked against actual responses from this API,
+  including real Night Shift tournament matches, on July 26 2026.
+- **Source-read** means taken from the API's Rust source or the Steam
+  protobuf definitions but never observed in a tournament response. A field
+  existing in the schema does **not** mean it carries a usable value.
+
+That distinction cost real work once already. `average_badge_team0/team1`
+was source-read, is genuinely in the schema, and is hardcoded to `0` on
+every tournament match, which shipped a leaderboard column of zeros.
 
 ### Endpoints in use
 
@@ -60,26 +72,46 @@ wrong, check against the live response before changing it.
 
 Response is `{ match_info: { ... } }`. Relevant fields on `match_info`:
 
-- `duration_s`, `start_time` (unix seconds), `winning_team`
-- `average_badge_team0`, `average_badge_team1` (used for Opposition column)
-- `players[]` with: `account_id`, `team`, `hero_id`, `net_worth`, `kills`,
-  `deaths`, `assists`
-- **Damage is not a top-level player field.** It lives in `players[].stats[]`,
-  a time series. Take the entry with the highest `time_stamp_s` and read
-  `player_damage` from it.
+- **Confirmed live:** `duration_s`, `start_time` (unix seconds),
+  `winning_team`, `match_mode`
+- **Confirmed live:** `players[]` with `account_id`, `team`, `hero_id`,
+  `net_worth`, `kills`, `deaths`, `assists`. Twelve players per match.
+- **Confirmed live: damage is not a top-level player field.** It lives in
+  `players[].stats[]`, a time series. Take the entry with the highest
+  `time_stamp_s` and read `player_damage` from it. Checked on 144 of 144
+  player-games in the sample set, no misses. The highest `time_stamp_s`
+  equals `duration_s` exactly, so that really is the end-of-game snapshot.
+- **Do not use `average_badge_team0` / `average_badge_team1`.** The fields
+  exist, but on tournament matches (`match_mode: 2`) they are always `0`,
+  not null and not absent. Public matchmaking games (`match_mode: 1`) do
+  return real values such as `116`, so the field works, Valve simply never
+  populates it for custom lobbies. All Night Shift games are `match_mode: 2`.
+  Note that `?? null` will **not** catch this, because `0` is not nullish.
 
 ### Hero assets
 
 `hero_type` is Deadlock's own internal archetype (`m_eHeroType` in the game
-files), one of: `assassin`, `brawler`, `marksman`, `mystic`. It is optional
-and can be absent. Icons are at `images.icon_image_small` or
-`images.icon_hero_card`.
+files), one of: `assassin`, `brawler`, `marksman`, `mystic`. Icons are at
+`images.icon_image_small` or `images.icon_hero_card`.
+
+**Confirmed live and reliable.** Of 57 heroes, 37 carry a `hero_type`. The
+20 without one are almost all `disabled: true`, so among the 38 active
+heroes exactly one (Rem) is missing it. Across the sample match set, 143 of
+144 player-games resolve to a role. Treat it as optional in code, since it
+can be absent, but it is dense enough in practice to base Role Score on.
+Every active hero has `icon_image_small`.
 
 ### Steam profiles
 
-`personaname`, `profileurl`, `avatar`, `realname`, `last_team_avg_badge`.
-Note the endpoint takes **SteamID64**, but match data gives **account_id**
-(32-bit). Convert with `accountId + 76561197960265728n`.
+`personaname`, `profileurl`, `avatar`, `avatarmedium`, `avatarfull`,
+`realname`, `countrycode`, `last_team_avg_badge`, `matches_played_last_30d`.
+All confirmed live. Note the endpoint takes **SteamID64**, but match data
+gives **account_id** (32-bit). Convert with `accountId + 76561197960265728n`.
+
+`last_team_avg_badge` is populated, but it is not a usable stand-in for the
+old Opposition column: all 45 players across the sample tournament set came
+back as either 115 or 116. At Night Shift level everyone is Eternus V or VI,
+so badge cannot separate these teams no matter where the number comes from.
 
 ### Badge encoding
 
@@ -111,7 +143,19 @@ in one sentence is a hard requirement.
   against whichever role was actually played, so role-flexers are handled.
 - **KP%** = `(K + A) / team's total kills`, team-relative so it holds up
   whether a game had 20 kills or 80.
-- **Opposition** = average enemy team badge. See below for why this matters.
+
+**Minimum games.** Players below `DEFAULT_MIN_GAMES` (currently 3) are not
+ranked. Averages over one or two games are not scouting data, they are
+noise, and without this the board opened on whoever had a single good game.
+The constant is defined once at the top of the script and drives both the
+leaderboard filter and the Stars panel eligibility bar. Do not reintroduce
+a second hardcoded copy: the two used to disagree, and the table happily
+ranked one-game players while Stars quietly required three.
+
+**Removed: Opposition.** This was average enemy team badge, intended to
+expose the format bias described below. It shipped as a column of zeros
+because the underlying API field is never populated for tournament lobbies.
+See the match metadata notes above before considering any revival.
 
 ## Night Shift format, important context
 
@@ -122,8 +166,15 @@ the next edition's final; the loser drops to the next challenger match.
 
 **This creates a real stats bias.** Established teams play fewer but harder
 games. Up and comers accumulate more games, including easy qualifier
-stomps. That inflates newcomer averages. The Opposition column exists to
-expose this rather than silently correcting for it with invented math.
+stomps. That inflates newcomer averages.
+
+**This bias is currently unmitigated, and that is a known weakness.** The
+Opposition column was the intended fix and it did not work, because neither
+the match badge fields nor Steam's `last_team_avg_badge` can tell these
+teams apart (see the API notes above). Anything that replaces it has to be
+computed from data the app already trusts, for example bracket stage, or
+opponent quality derived from the loaded dataset such as the average Role
+Score of the enemy team. Do not reach for a badge field again.
 
 **Data window:** since there are no seasons, the meaningful boundary is the
 balance patch, not a number of weeks. The app pulls `/patches/big-days` and
@@ -141,6 +192,13 @@ warns when loaded games predate the current patch.
 - **No automatic team rosters.** Team tagging is manual for the same reason.
 - **Role Score needs volume.** Under roughly 10 games per role the
   baselines are noisy. The UI warns about this already.
+- **Role baselines include the player being scored.** Every player is part
+  of the average they are measured against, which biases scores toward 1.00x
+  for high-volume players. Measured on the 12-match sample: the largest
+  leave-one-out shift across all 45 players was +0.03x, with no change to
+  ranking order. Real but not currently worth fixing. Recheck if the dataset
+  ever gets small per role, since the bias grows as sample size falls.
+- **No opposition-strength adjustment.** See the Night Shift format section.
 
 ## Next steps, roughly prioritised
 
@@ -159,5 +217,18 @@ There is no test suite. Before considering a change done:
 2. Click Analyze with the default sample IDs and confirm the table populates
 3. Expand a player row and confirm the per-game detail matches
 4. Confirm colspan on the detail row still equals the main table's column
-   count. This has broken twice when adding columns.
+   count. This has broken twice when adding columns. Currently both are 14,
+   and the inner per-game table is 12 wide.
 5. Search the file for em dashes and remove any that crept in
+
+**Verify behaviour by running a full Analyze, not by poking the DOM.** A
+default that is correct in the HTML can still be overwritten at runtime.
+That exact bug shipped: `runAnalysis` reset the min-games input on every
+run, so the attribute said 3 and the app behaved as 1, and setting the
+field by hand before re-rendering hid it.
+
+`.claude/launch.json` defines a static server (`python -m http.server 8000`)
+for previewing. Opening the file over `file://` also works, since the API is
+wildcard-CORS. Note that `http.server` sends no cache headers, so after an
+edit the browser will happily serve a stale copy: hard-reload or append a
+`?v=N` query string before trusting what you see.
