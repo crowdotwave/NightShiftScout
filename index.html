@@ -1,0 +1,2069 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Barlow:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Night Shift Scout</title>
+<style>
+  :root {
+    --bg: #0a0d0b;
+    --bg-panel: #101512;
+    --bg-panel-2: #141b17;
+    --line: #1f2e27;
+    --text: #dcece3;
+    --text-dim: #6f9384;
+    --soul: #3eeb9e;
+    --soul-bright: #7dffc4;
+    --soul-dim: #1f5c42;
+    --blood: #c24b4b;
+    --win: #3eeb9e;
+    --mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+    --serif: "Barlow", "Helvetica Neue", Arial, sans-serif;
+    --display: "Chakra Petch", "Barlow", Arial, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background:
+      radial-gradient(ellipse 700px 500px at 15% -5%, rgba(62,235,158,0.10), transparent 60%),
+      radial-gradient(ellipse 500px 400px at 100% 20%, rgba(62,235,158,0.05), transparent 55%),
+      var(--bg);
+    color: var(--text);
+    font-family: var(--serif);
+    padding: 40px 24px 80px;
+  }
+
+  .wrap { max-width: 980px; margin: 0 auto; display: flex; flex-direction: column; }
+  .wrap > * { order: 5; } /* default order for anything not explicitly placed */
+
+  header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--line);
+    padding: 6px 0 20px;
+    margin-bottom: 26px;
+    flex-wrap: wrap;
+    gap: 10px;
+    box-shadow: 0 1px 0 rgba(62,235,158,0.16);
+  }
+
+  h1 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 30px;
+    margin: 0;
+    letter-spacing: -0.3px;
+    text-transform: uppercase;
+  }
+  h1 span {
+    color: var(--soul);
+    font-style: normal;
+    text-shadow: 0 0 24px rgba(62,235,158,0.45);
+  }
+  h1 span { color: var(--soul); font-style: italic; }
+
+  .subtitle {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+
+  .panel {
+    background: var(--bg-panel);
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    padding: 20px 22px;
+    margin-bottom: 20px;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
+  }
+
+  .panel-label {
+    font-family: var(--display);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--soul);
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  textarea {
+    width: 100%;
+    min-height: 190px;
+    background: #0f0d0b;
+    border: 1px solid var(--line);
+    color: var(--text);
+    font-family: var(--mono);
+    font-size: 13px;
+    line-height: 1.6;
+    padding: 14px;
+    border-radius: 2px;
+    resize: vertical;
+  }
+  textarea:focus { outline: 1px solid var(--soul); border-color: var(--soul); }
+
+  .row { display: flex; gap: 12px; align-items: center; margin-top: 14px; flex-wrap: wrap; }
+
+  button {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 11px 22px;
+    border-radius: 2px;
+    border: 1px solid var(--soul);
+    background: transparent;
+    color: var(--soul-bright);
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+  }
+  button:hover:not(:disabled) { background: var(--soul); color: #06110c; box-shadow: 0 0 18px rgba(62,235,158,0.35); }
+  button:disabled { opacity: 0.35; cursor: default; }
+
+  button.ghost {
+    border-color: var(--line);
+    color: var(--text-dim);
+  }
+  button.ghost:hover:not(:disabled) { background: var(--bg-panel-2); color: var(--text); }
+
+  .status {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-dim);
+    min-height: 18px;
+  }
+  .status.warn { color: var(--blood); }
+
+  /* Soul motes. Deliberately scoped to focus areas only (the Stars panel
+     and the header) rather than the whole page, so they pull the eye where
+     it matters instead of becoming visual noise everywhere. */
+  .copy-id {
+    cursor: pointer;
+    border-bottom: 1px dotted var(--text-dim);
+  }
+  .copy-id:hover { color: var(--soul-bright); border-color: var(--soul-bright); }
+
+  .particle-host { position: relative; }
+  .particle-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .particle-host > *:not(.particle-canvas) { position: relative; z-index: 1; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .particle-canvas { display: none; }
+  }
+
+  .stars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
+    gap: 12px;
+  }
+  .star-card {
+    background: linear-gradient(160deg, rgba(62,235,158,0.09), rgba(62,235,158,0.02) 60%, transparent);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 14px 16px;
+    position: relative;
+    overflow: hidden;
+  }
+  .star-card::after {
+    content: "";
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 110px; height: 110px;
+    background: radial-gradient(circle, rgba(62,235,158,0.16), transparent 70%);
+    pointer-events: none;
+  }
+  .star-cat {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    color: var(--soul);
+    display: block;
+    margin-bottom: 10px;
+  }
+  .star-val {
+    font-family: var(--mono);
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--soul-bright);
+    text-shadow: 0 0 20px rgba(125,255,196,0.5);
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+  .star-name {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--text);
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .star-sub {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-dim);
+    margin-top: 4px;
+  }
+  .star-runner {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-dim);
+    margin-top: 9px;
+    padding-top: 8px;
+    border-top: 1px solid var(--line);
+  }
+
+  .table-scroll { overflow-x: auto; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--mono);
+    font-size: 13px;
+  }
+  thead th {
+    text-align: left;
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-dim);
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--line);
+    cursor: pointer;
+    user-select: none;
+  }
+  thead th:hover { color: var(--soul); }
+  tbody tr {
+    border-bottom: 1px solid var(--line);
+    cursor: pointer;
+  }
+  tbody tr:hover { background: var(--bg-panel-2); }
+  tbody td { padding: 10px; }
+  .rank { color: var(--text-dim); width: 34px; }
+  .souls-val { color: var(--soul-bright); font-weight: 600; font-variant-numeric: tabular-nums; text-shadow: 0 0 12px rgba(125,255,196,0.45); }
+  .player-cell { display: flex; align-items: center; gap: 8px; }
+  .player-avatar { width: 24px; height: 24px; border-radius: 3px; border: 1px solid var(--line); display: block; }
+  .player-link { color: var(--text); text-decoration: none; border-bottom: 1px dotted var(--text-dim); }
+  .player-link:hover { color: var(--soul-bright); border-color: var(--soul-bright); }
+  .player-sub { color: var(--text-dim); font-size: 11px; }
+  .win-tag { color: var(--win); text-shadow: 0 0 10px rgba(62,235,158,0.35); }
+  .loss-tag { color: var(--blood); }
+
+  .detail-row td {
+    background: #0c100d;
+    padding: 4px 10px 14px 40px;
+    font-size: 12px;
+    color: var(--text-dim);
+  }
+  .detail-row table { margin-top: 6px; }
+  .detail-row th, .detail-row td { padding: 4px 8px; border-bottom: 1px solid #182420; }
+
+  .match-card {
+    background: var(--bg-panel-2);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    font-family: var(--mono);
+    font-size: 12px;
+  }
+  .match-card .match-rank {
+    color: var(--soul-bright);
+    font-weight: 700;
+    font-size: 14px;
+    margin-right: 8px;
+  }
+  .match-card .match-meta { color: var(--text-dim); margin: 4px 0 8px; }
+  .match-card .match-players { display: flex; flex-wrap: wrap; gap: 6px 14px; }
+  .match-card .match-players span { color: var(--text); }
+  .match-card .team1 { color: var(--soul-bright); }
+
+  .hidden { display: none; }
+
+  footer {
+    margin-top: 36px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: #3c5348;
+    line-height: 1.7;
+  }
+  footer a { color: var(--text-dim); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header style="order:0;" class="particle-host">
+    <div>
+      <h1>Night Shift <span>Scout</span></h1>
+      <div class="subtitle">Souls-per-minute leaderboard &middot; live from the Deadlock API</div>
+    </div>
+  </header>
+
+  <div class="panel" style="order:1;">
+    <span class="panel-label">Match IDs</span>
+    <textarea id="matchIds"></textarea>
+    <div class="row">
+      <button id="analyzeBtn">Analyze</button>
+      <button id="sampleBtn" class="ghost">Load Night Shift #46-48</button>
+      <button id="clearBtn" class="ghost">Clear</button>
+      <button id="csvBtn" class="ghost" disabled>Export CSV</button>
+    </div>
+    <div class="status" id="status"></div>
+  </div>
+
+  <div class="panel" style="order:6;">
+    <span class="panel-label">Player Aliases <span style="color:var(--text-dim); text-transform:none; letter-spacing:0;">(optional: override Steam names with tournament handles)</span></span>
+    <textarea id="aliasBox" style="min-height:100px;" placeholder="One per line: account_id = Handle&#10;e.g. 123456789 = ShadowFang"></textarea>
+    <div class="row">
+      <button id="saveAliasBtn" class="ghost">Save Aliases</button>
+      <span class="status" id="aliasStatus" style="min-height:auto;"></span>
+    </div>
+  </div>
+
+  <div class="panel particle-host" id="starsPanel" style="display:none; order:2;">
+    <span class="panel-label">Stars of the Show <span id="starsWindow" style="color:var(--text-dim); text-transform:none; letter-spacing:0;"></span></span>
+    <div id="starsGrid"></div>
+    <div class="status" id="patchNotice" style="margin-top:12px;"></div>
+  </div>
+
+  <div class="panel" id="resultsPanel" style="display:none; order:3;">
+    <span class="panel-label">Leaderboard <span id="gameCount" style="color:var(--text-dim);"></span></span>
+    <div id="roleBaselineBar" style="margin-bottom:14px;"></div>
+    <div class="row" style="margin-top:0; margin-bottom:14px;">
+      <label class="status" style="min-height:auto;">Min. games:
+        <input id="minGames" type="number" min="1" value="3" style="width:50px; background:#0f1512; border:1px solid var(--line); color:var(--text); font-family:var(--mono); padding:4px 6px; margin-left:6px;">
+      </label>
+      <label class="status" style="min-height:auto;">Role:
+        <select id="roleFilter" style="background:#0f1512; border:1px solid var(--line); color:var(--text); font-family:var(--mono); font-size:12px; padding:5px 8px; margin-left:6px;">
+          <option value="">All roles</option>
+          <option value="assassin">Assassin</option>
+          <option value="brawler">Brawler</option>
+          <option value="marksman">Marksman</option>
+          <option value="mystic">Mystic</option>
+        </select>
+      </label>
+    </div>
+    <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th class="rank">#</th>
+          <th data-sort="player">Player</th>
+          <th data-sort="role">Role</th>
+          <th data-sort="rolescore">Role Score</th>
+          <th data-sort="souls">Avg Souls / Min</th>
+          <th data-sort="share">Net Worth Share</th>
+          <th data-sort="teamshare">Team Share</th>
+          <th data-sort="dpm">Avg Dmg / Min</th>
+          <th data-sort="dmgshare">Dmg Share</th>
+          <th data-sort="kda">KDA</th>
+          <th data-sort="kp">KP%</th>
+          <th data-sort="games">Games</th>
+          <th data-sort="wr">Win Rate</th>
+          <th data-sort="heroes">Heroes Played</th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+    </div>
+  </div>
+
+  <div class="panel" style="order:7;">
+    <span class="panel-label">Team Tags <span style="color:var(--text-dim); text-transform:none; letter-spacing:0;">(tag players to teams, then see team-level rollups below)</span></span>
+    <textarea id="teamBox" style="min-height:100px;" placeholder="One per line: account_id = Team Name&#10;e.g. 123456789 = Six Gate"></textarea>
+    <div class="row">
+      <button id="saveTeamBtn" class="ghost">Save Team Tags</button>
+      <span class="status" id="teamStatus" style="min-height:auto;"></span>
+    </div>
+  </div>
+
+  <div class="panel" id="teamViewPanel" style="display:none; order:4;">
+    <span class="panel-label">Team View <span style="color:var(--text-dim); text-transform:none; letter-spacing:0;">(rolled up from tagged players in the leaderboard above)</span></span>
+    <div class="table-scroll" id="teamViewResults"></div>
+  </div>
+
+  <div class="panel" id="shareCardPanel" style="display:none; order:5;">
+    <span class="panel-label">Share Card <span style="color:var(--text-dim); text-transform:none; letter-spacing:0;">(shareable image for Reddit / Discord)</span></span>
+    <div class="row" style="margin-top:0;">
+      <label class="status" style="min-height:auto;">Metric:
+        <select id="cardMetric" style="background:#0f1512; border:1px solid var(--line); color:var(--text); font-family:var(--mono); font-size:12px; padding:6px 8px; margin-left:6px;">
+          <option value="pooledKda">KDA</option>
+          <option value="roleScore">Role Score (role-adjusted)</option>
+          <option value="avgTeamNetWorthShare">Team Share</option>
+          <option value="avgNetWorthShare">Net Worth Share (lobby)</option>
+          <option value="avgSoulsPerMin">Souls / Min</option>
+          <option value="avgDpm">Damage / Min</option>
+          <option value="avgDamageShare">Damage Share</option>
+          <option value="avgKp">Kill Participation</option>
+        </select>
+      </label>
+      <label class="status" style="min-height:auto;">Top:
+        <select id="cardTopN" style="background:#0f1512; border:1px solid var(--line); color:var(--text); font-family:var(--mono); font-size:12px; padding:6px 8px; margin-left:6px;">
+          <option value="5">5</option>
+          <option value="8" selected>8</option>
+          <option value="10">10</option>
+        </select>
+      </label>
+      <input id="cardTitle" type="text" placeholder="Card title" value="Night Shift Scout Report" style="flex:1; min-width:160px; background:#0f1512; border:1px solid var(--line); color:var(--text); font-family:var(--mono); font-size:12px; padding:6px 8px;">
+    </div>
+    <div class="row">
+      <button id="genCardBtn" class="ghost">Generate Card</button>
+      <button id="downloadCardBtn" disabled>Download PNG</button>
+    </div>
+    <div id="cardPreview" style="margin-top:16px; max-width:420px;"></div>
+  </div>
+
+  <div class="panel" style="order:8;">
+    <span class="panel-label">Watchlist <span style="color:var(--text-dim); text-transform:none; letter-spacing:0;">(track specific players' recent pub-game form, not just Night Shift)</span></span>
+    <div class="row" style="margin-top:0;">
+      <label class="status" style="min-height:auto;">Region:
+        <select id="leaderboardRegion" style="background:#0f1512; border:1px solid var(--line); color:var(--text); font-family:var(--mono); font-size:12px; padding:6px 8px; margin-left:6px;">
+          <option value="Europe">Europe</option>
+          <option value="NAmerica">North America</option>
+          <option value="Asia">Asia</option>
+          <option value="SAmerica">South America</option>
+          <option value="Oceania">Oceania</option>
+        </select>
+      </label>
+      <button id="scanEternusBtn" class="ghost">Scan Eternus VI Leaderboard</button>
+    </div>
+    <div class="status" style="margin-bottom:10px;">
+      Pulls the real, current top-of-ladder leaderboard for the selected region and keeps only Eternus VI players (badge 116), the smallest, highest tier the ladder has, one step above the pros. If the API turns out not to subdivide Eternus into subranks, this automatically falls back to all of Eternus and says so in the status line, rather than silently returning nothing.
+    </div>
+    <div class="status" id="scanStatus"></div>
+    <div class="status" style="margin-bottom:10px;">
+      Or paste specific IDs by hand below, e.g. Night Shift pros you want to see outside tournament play.
+    </div>
+    <textarea id="watchlistBox" style="min-height:80px;" placeholder="One per line, e.g.:&#10;123456789&#10;76561198083722345"></textarea>
+    <div class="row">
+      <button id="loadWatchlistBtn" class="ghost">Load Watchlist</button>
+    </div>
+    <div class="status" id="watchlistStatus"></div>
+    <div class="table-scroll" id="watchlistResults" style="margin-top:14px;"></div>
+  </div>
+
+  <div class="panel" style="order:9;">
+    <span class="panel-label">Top Elo Lobby <span style="color:var(--text-dim); text-transform:none; letter-spacing:0;">(the actual #1 live match, same ordering as the in-game Watch tab)</span></span>
+    <div class="status" style="margin-bottom:10px;">
+      "Scan Now" checks the live match feed and sorts by the game's own match score, the same value that puts a match in the #1 Watch slot in-game. It shows you the top 5 live right now, and quietly logs the #1 match's ID to a running list in your browser. Over days/weeks that list becomes a real sample of top-lobby games. Hit "Analyze Logged Matches" any time to see who performs best across everything logged so far. Only matches that have actually finished can be analyzed; ones still in progress are skipped until they wrap up.
+    </div>
+    <div class="row" style="margin-top:0;">
+      <button id="scanLiveBtn" class="ghost">Scan Now</button>
+      <button id="analyzeLoggedBtn" class="ghost">Analyze Logged Matches</button>
+      <button id="clearLogBtn" class="ghost">Clear Log</button>
+      <span class="status" id="topEloLogCount" style="min-height:auto;"></span>
+    </div>
+    <div class="status" id="topEloStatus"></div>
+
+    <div id="liveTopMatches" style="margin-top:14px;"></div>
+
+    <div class="table-scroll" id="topEloResults" style="margin-top:18px;"></div>
+  </div>
+
+  <footer style="order:10;">
+    <strong style="color:var(--soul-bright);">KDA</strong> = (kills + assists) &divide; deaths, pooled across every game rather than averaged per game, so a single lucky match cannot distort it. This is the formula Dota uses. It is preferred over raw K/D here because Deadlock is 6v6 and teamfight heavy, meaning assists carry real signal and pure K/D would undervalue setup players.<br>
+    <strong style="color:var(--soul-bright);">Role Score</strong> = how a player compares to the average player on their own archetype (Assassin, Brawler, Marksman, Mystic), using Deadlock's own internal hero classification read from the game files. 1.00x is exactly average for that role. Baselines are computed from the games you have actually loaded rather than invented in advance, so they self calibrate as your dataset grows.<br>
+    <strong style="color:var(--soul-bright);">Team Share</strong> = a player's net worth &divide; the average of their own five teammates, not the whole lobby. This isolates whether someone is the engine of their team from whether their team is simply winning. Hover any Team Share value to see it split by win and loss. A player whose Team Share barely drops in losses is carrying regardless of outcome, while one who only looks strong in wins may be riding the snowball.<br>
+    <strong>Net Worth Share</strong> compares a player to all 12 players in the match. It cancels out game length but not team dominance, since net worth inflates for everyone on a winning team.
+    <strong>Damage / Min</strong> and <strong>Dmg Share</strong> work the same way for hero damage, which counts damage to heroes only and not creeps or objectives, so it favours fight focused players by design. Read it alongside Team Share rather than alone.
+    <strong>KP%</strong> = (kills + assists) &divide; your team's total kills that game, a team relative measure of involvement that holds up whether a game had 20 total kills or 80.<br>
+    Data source: <a href="https://api.deadlock-api.com" target="_blank">api.deadlock-api.com</a>, a community run, open source, unofficial API.
+  </footer>
+
+</div>
+
+<script>
+const API = "https://api.deadlock-api.com/v1";
+const SAMPLE_IDS = `# Night Shift #48 (July 22, 2026) North America
+95172627
+95180553
+95187371
+# Night Shift #48 (July 22, 2026) Europe
+94767316
+94773487
+94779630
+# Night Shift #47 (July 15-16, 2026) North America
+94031068
+94038881
+94048508
+# Night Shift #47 (July 15-16, 2026) Europe
+94021619
+# Night Shift #46 (July 8-9, 2026) North America
+92912944
+# Night Shift #46 (July 8-9, 2026) Europe
+92902607`;
+
+const matchIdsEl = document.getElementById("matchIds");
+const statusEl = document.getElementById("status");
+const analyzeBtn = document.getElementById("analyzeBtn");
+const sampleBtn = document.getElementById("sampleBtn");
+const clearBtn = document.getElementById("clearBtn");
+const csvBtn = document.getElementById("csvBtn");
+const resultsPanel = document.getElementById("resultsPanel");
+const tbody = document.getElementById("tbody");
+const gameCountEl = document.getElementById("gameCount");
+const aliasBox = document.getElementById("aliasBox");
+const saveAliasBtn = document.getElementById("saveAliasBtn");
+const aliasStatus = document.getElementById("aliasStatus");
+const minGamesInput = document.getElementById("minGames");
+const roleFilter = document.getElementById("roleFilter");
+const teamBox = document.getElementById("teamBox");
+const saveTeamBtn = document.getElementById("saveTeamBtn");
+const teamStatus = document.getElementById("teamStatus");
+const teamViewPanel = document.getElementById("teamViewPanel");
+const teamViewResults = document.getElementById("teamViewResults");
+const shareCardPanel = document.getElementById("shareCardPanel");
+const cardMetric = document.getElementById("cardMetric");
+const cardTopN = document.getElementById("cardTopN");
+const cardTitle = document.getElementById("cardTitle");
+const genCardBtn = document.getElementById("genCardBtn");
+const downloadCardBtn = document.getElementById("downloadCardBtn");
+const cardPreview = document.getElementById("cardPreview");
+const watchlistBox = document.getElementById("watchlistBox");
+const loadWatchlistBtn = document.getElementById("loadWatchlistBtn");
+const watchlistStatus = document.getElementById("watchlistStatus");
+const watchlistResults = document.getElementById("watchlistResults");
+const leaderboardRegion = document.getElementById("leaderboardRegion");
+const scanEternusBtn = document.getElementById("scanEternusBtn");
+const scanStatus = document.getElementById("scanStatus");
+
+try {
+  const savedIds = localStorage.getItem("nightshift_match_ids");
+  matchIdsEl.value = savedIds || SAMPLE_IDS;
+} catch (e) {
+  matchIdsEl.value = SAMPLE_IDS;
+}
+
+let heroMap = {};        // hero_id -> { name, icon, role }
+
+// Deadlock's actual internal archetypes (m_eHeroType in the game files)
+// not a third-party guess, this is Valve's own categorization:
+//   Assassin  - burst / pick-off
+//   Brawler   - close-range fighter / durable
+//   Marksman  - ranged sustained damage, usually the farm priority
+//   Mystic    - spell/utility focused, closest thing to a "support"
+const ROLE_COLORS = {
+  assassin: "#e0687a",
+  brawler: "#e0a94a",
+  marksman: "#3eeb9e",
+  mystic: "#7a8cf5",
+};
+const ROLE_LABELS = {
+  assassin: "Assassin",
+  brawler: "Brawler",
+  marksman: "Marksman",
+  mystic: "Mystic",
+};
+
+function heroName(heroId) {
+  return (heroMap[heroId] && heroMap[heroId].name) || `Hero ${heroId}`;
+}
+function heroIconHtml(heroId, size = 22) {
+  const h = heroMap[heroId];
+  if (!h || !h.icon) return "";
+  return `<img src="${h.icon}" alt="" style="width:${size}px; height:${size}px; border-radius:4px; vertical-align:middle; margin-right:4px;">`;
+}
+// Standalone role badge (not tied to a specific hero) for the main table.
+// Flags role-flexers explicitly rather than silently averaging across
+// archetypes, since that's exactly the comparison that isn't meaningful.
+function roleBadgeHtml(role, purity) {
+  if (!role || !ROLE_LABELS[role]) {
+    return `<span style="color:var(--text-dim); font-family:var(--mono); font-size:11px;">Unknown</span>`;
+  }
+  const color = ROLE_COLORS[role];
+  const flex = (purity != null && purity < 0.7)
+    ? `<span style="color:var(--text-dim); font-size:10px; font-family:var(--mono); margin-left:4px;" title="Played multiple roles, so role score is computed per-game against whichever role they actually played">flex</span>`
+    : "";
+  return `<span style="display:inline-block; font-size:10px; font-family:var(--mono); text-transform:uppercase; letter-spacing:0.5px; padding:2px 7px; border-radius:3px; border:1px solid ${color}; color:${color}; background:${color}18; text-shadow:0 0 8px ${color}66;">${ROLE_LABELS[role]}</span>${flex}`;
+}
+
+function roleScoreTitle(row) {
+  if (row.roleScore == null) return "No role data available for this player's heroes";
+  const parts = Object.entries(row.roleCounts || {})
+    .map(([r, n]) => `${ROLE_LABELS[r] || r}: ${n}g`)
+    .join(", ");
+  return `1.00x = exactly average for this role in the loaded games. ${parts}`;
+}
+
+function heroRoleBadge(heroId) {
+  const h = heroMap[heroId];
+  if (!h || !h.role || !ROLE_LABELS[h.role]) return "";
+  const color = ROLE_COLORS[h.role];
+  return `<span style="display:inline-block; font-size:10px; font-family:var(--mono); text-transform:uppercase; letter-spacing:0.5px; padding:1px 6px; border-radius:3px; border:1px solid ${color}; color:${color}; margin-left:6px;">${ROLE_LABELS[h.role]}</span>`;
+}
+let leaderboard = [];     // current computed rows, for CSV export & sorting
+let sortState = { key: "rolescore", dir: -1 };
+let currentRoleBaselines = {};
+let teamMap = {}; // account_id (string) -> team name
+
+function parseTeamText(raw) {
+  const map = {};
+  raw.split("\n").forEach(line => {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith("#")) return;
+    const [idPart, ...rest] = trimmed.split("=");
+    const id = idPart && idPart.trim();
+    const team = rest.join("=").trim();
+    if (id && team) map[id] = team;
+  });
+  return map;
+}
+
+function loadTeamsFromStorage() {
+  try {
+    const saved = localStorage.getItem("nightshift_teams");
+    if (saved) {
+      teamBox.value = saved;
+      teamMap = parseTeamText(saved);
+    }
+  } catch (e) { /* ignore */ }
+}
+loadTeamsFromStorage();
+
+saveTeamBtn.addEventListener("click", () => {
+  teamMap = parseTeamText(teamBox.value);
+  try { localStorage.setItem("nightshift_teams", teamBox.value); } catch (e) { /* ignore */ }
+  const count = Object.keys(teamMap).length;
+  teamStatus.textContent = `Saved ${count} player-team tag${count === 1 ? "" : "s"}.`;
+  renderTeamView();
+});
+
+function renderTeamView() {
+  if (!leaderboard.length || Object.keys(teamMap).length === 0) {
+    teamViewPanel.style.display = "none";
+    return;
+  }
+
+  // Group players by team, then pool ALL their individual games together
+  // to compute team-wide averages, a straightforward rollup of
+  // the same per-game numbers already computed above, just grouped by
+  // team tag instead of by player.
+  const byTeam = {};
+  for (const row of leaderboard) {
+    const team = teamMap[String(row.accountId)];
+    if (!team) continue;
+    if (!byTeam[team]) byTeam[team] = { players: [], allGames: [] };
+    byTeam[team].players.push(row);
+    byTeam[team].allGames.push(...row.games);
+  }
+
+  const teamNames = Object.keys(byTeam);
+  if (teamNames.length === 0) {
+    teamViewPanel.style.display = "none";
+    return;
+  }
+
+  const avgOfGames = (games, key) => {
+    const vals = games.filter(g => g[key] != null && Number.isFinite(g[key]));
+    return vals.length ? vals.reduce((s, g) => s + g[key], 0) / vals.length : null;
+  };
+
+  const teamRows = teamNames.map(team => {
+    const { players, allGames } = byTeam[team];
+    // Series win rate: count distinct matches where a majority of this
+    // team's tracked players won, rather than double-counting per player.
+    const byMatch = {};
+    for (const g of allGames) {
+      if (!byMatch[g.matchId]) byMatch[g.matchId] = [];
+      byMatch[g.matchId].push(g.won);
+    }
+    const matchIds = Object.keys(byMatch);
+    const matchWins = matchIds.filter(mid => byMatch[mid].filter(Boolean).length >= byMatch[mid].length / 2).length;
+
+    return {
+      team,
+      playerCount: players.length,
+      players: players.map(p => playerDisplay(p.accountId).name),
+      avgTeamShare: avgOfGames(allGames, "teamNetWorthShare"),
+      avgDpm: avgOfGames(allGames, "dpm"),
+      avgKp: avgOfGames(allGames, "kp"),
+      matchesTracked: matchIds.length,
+      matchWinRate: matchIds.length ? matchWins / matchIds.length : null
+    };
+  });
+
+  teamRows.sort((a, b) => (b.avgTeamShare ?? -1) - (a.avgTeamShare ?? -1));
+
+  teamViewResults.innerHTML = `
+    <table>
+      <thead><tr><th>#</th><th>Team</th><th>Players Tagged</th><th>Avg Team Share</th><th>Avg DPM</th><th>Avg KP%</th><th>Matches Tracked</th><th>Match Win Rate</th></tr></thead>
+      <tbody>
+        ${teamRows.map((t, i) => `
+          <tr>
+            <td class="rank">${i + 1}</td>
+            <td>${t.team}</td>
+            <td title="${t.players.join(', ')}">${t.playerCount}</td>
+            <td class="souls-val">${t.avgTeamShare != null ? t.avgTeamShare.toFixed(2) + 'x' : '·'}</td>
+            <td>${t.avgDpm != null ? Math.round(t.avgDpm).toLocaleString() : '·'}</td>
+            <td>${t.avgKp != null ? (t.avgKp * 100).toFixed(0) + '%' : '·'}</td>
+            <td>${t.matchesTracked}</td>
+            <td class="${t.matchWinRate >= 0.5 ? 'win-tag' : 'loss-tag'}">${t.matchWinRate != null ? (t.matchWinRate * 100).toFixed(0) + '%' : '·'}</td>
+          </tr>`).join("")}
+      </tbody>
+    </table>
+    <div class="status" style="margin-top:8px;">Only players you've tagged count toward their team's numbers here, so an untagged player on a tagged team's roster won't be included, so this is only as complete as your tagging. Hover "Players Tagged" to see who's counted.</div>
+  `;
+  teamViewPanel.style.display = "block";
+}
+
+sampleBtn.addEventListener("click", () => { matchIdsEl.value = SAMPLE_IDS; });
+clearBtn.addEventListener("click", () => { matchIdsEl.value = ""; });
+
+function parseIds(raw) {
+  return [...new Set(
+    raw.split("\n")
+       .map(l => l.trim())
+       .filter(l => l && !l.startsWith("#"))
+       .map(l => l.replace(/[^0-9]/g, ""))
+       .filter(l => l.length > 0)
+  )];
+}
+
+async function fetchJson(url) {
+  const resp = await fetch(url);
+  if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+  return resp.json();
+}
+
+async function loadHeroMap() {
+  try {
+    const heroes = await fetchJson(`${API}/assets/heroes?only_active=false`);
+    heroMap = {};
+    for (const h of heroes) {
+      heroMap[h.id] = {
+        name: h.name,
+        icon: (h.images && (h.images.icon_image_small || h.images.icon_hero_card)) || null,
+        role: h.hero_type || null
+      };
+    }
+  } catch (e) {
+    console.warn("Hero name lookup failed, will show hero IDs instead:", e);
+  }
+}
+
+let aliasMap = {}; // account_id (string) -> custom handle
+
+function parseAliasText(raw) {
+  const map = {};
+  raw.split("\n").forEach(line => {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith("#")) return;
+    const [idPart, ...rest] = trimmed.split("=");
+    const id = idPart && idPart.trim();
+    const name = rest.join("=").trim();
+    if (id && name) map[id] = name;
+  });
+  return map;
+}
+
+function loadAliasesFromStorage() {
+  try {
+    const saved = localStorage.getItem("nightshift_aliases");
+    if (saved) {
+      aliasBox.value = saved;
+      aliasMap = parseAliasText(saved);
+    }
+  } catch (e) {
+    console.warn("Could not read saved aliases from local storage:", e);
+  }
+}
+
+saveAliasBtn.addEventListener("click", () => {
+  aliasMap = parseAliasText(aliasBox.value);
+  try {
+    localStorage.setItem("nightshift_aliases", aliasBox.value);
+  } catch (e) {
+    console.warn("Could not persist aliases to local storage:", e);
+  }
+  const count = Object.keys(aliasMap).length;
+  aliasStatus.textContent = `Saved ${count} alias${count === 1 ? "" : "es"}.`;
+  if (leaderboard.length) renderRows();
+});
+
+loadAliasesFromStorage();
+
+function steamId64(accountId) {
+  return (BigInt(accountId) + 76561197960265728n).toString();
+}
+
+let profileMap = {}; // account_id -> {personaname, avatar, profileurl}
+
+// The match data only has numeric Steam account IDs. This resolves them to
+// actual display names + avatars via the API's own Steam profile cache
+// (it proxies the Steam Web API server-side, so no key needed on our end).
+async function loadProfiles(accountIds) {
+  profileMap = {};
+  if (accountIds.length === 0) return;
+  const ids64 = accountIds.map(steamId64);
+  // batched at 100 per call to stay well inside the API's limits
+  const chunkSize = 100;
+  for (let i = 0; i < ids64.length; i += chunkSize) {
+    const chunk = ids64.slice(i, i + chunkSize);
+    try {
+      const profiles = await fetchJson(`${API}/players/steam?account_ids=${chunk.join(",")}`);
+      for (const p of profiles) profileMap[p.account_id] = p;
+    } catch (e) {
+      console.warn("Steam profile lookup failed for a batch, those players will show as IDs:", e);
+    }
+  }
+}
+
+// A surprising number of pros set their Steam persona name to something
+// unusable: a single dash, a dot, an emoji, or blank. But their profile
+// URL is often a vanity URL, and the slug in it is usually the handle they
+// actually go by (steamcommunity.com/id/Spookybuh -> "Spookybuh"). So when
+// the persona name carries no letters or digits, fall through to that.
+function isUsableName(name) {
+  if (!name) return false;
+  const stripped = String(name).replace(/[\s\p{P}\p{S}]/gu, "");
+  return stripped.length > 0;
+}
+
+function vanityFromProfileUrl(url) {
+  if (!url) return null;
+  // Vanity URLs look like /id/<handle>. Numeric /profiles/<steamid64>
+  // URLs carry no name information, so they are skipped.
+  const m = String(url).match(/steamcommunity\.com\/id\/([^\/\?#]+)/i);
+  if (!m) return null;
+  const slug = decodeURIComponent(m[1]);
+  return isUsableName(slug) ? slug : null;
+}
+
+// Small caption under a player name showing where the name came from, so
+// it is obvious at a glance which players still need a manual tournament
+// alias. Includes the account id ready to paste into the alias box.
+// Clicking an account id under a player name drops a ready-to-fill alias
+// line into the alias box and scrolls you to it, so correcting a name is a
+// couple of keystrokes rather than hunting for the number.
+document.addEventListener("click", (e) => {
+  const el = e.target.closest(".copy-id");
+  if (!el) return;
+  e.stopPropagation(); // don't also toggle the row's detail view
+  const id = el.dataset.id;
+  if (!id) return;
+  const existing = aliasBox.value;
+  if (new RegExp(`^\\s*${id}\\s*=`, "m").test(existing)) {
+    aliasBox.scrollIntoView({ behavior: "smooth", block: "center" });
+    aliasBox.focus();
+    return;
+  }
+  aliasBox.value = (existing ? existing.replace(/\s*$/, "") + "\n" : "") + `${id} = `;
+  aliasBox.scrollIntoView({ behavior: "smooth", block: "center" });
+  aliasBox.focus();
+  aliasBox.setSelectionRange(aliasBox.value.length, aliasBox.value.length);
+});
+
+function nameSourceHint(player, accountId) {
+  if (player.source === "alias") {
+    return player.steamName && player.steamName !== player.name
+      ? `<div class="player-sub">Steam: ${player.steamName}</div>`
+      : "";
+  }
+  if (player.source === "vanity") {
+    return `<div class="player-sub" title="Steam persona name was blank or symbols only, so this is the handle from their Steam profile URL">from Steam URL &middot; <span class="copy-id" data-id="${accountId}">${accountId}</span></div>`;
+  }
+  if (player.source === "realname") {
+    return `<div class="player-sub">Steam real name &middot; <span class="copy-id" data-id="${accountId}">${accountId}</span></div>`;
+  }
+  if (player.source === "id") {
+    return `<div class="player-sub" style="color:var(--blood);">no name found &middot; <span class="copy-id" data-id="${accountId}">${accountId}</span></div>`;
+  }
+  return "";
+}
+
+function playerDisplay(accountId) {
+  const alias = aliasMap[String(accountId)];
+  const p = profileMap[accountId];
+  const url = (p && p.profileurl) || `https://steamcommunity.com/profiles/${steamId64(accountId)}`;
+  const avatar = (p && p.avatar) || null;
+  const steamName = p && isUsableName(p.personaname) ? p.personaname : null;
+
+  // Priority: your manual tournament alias, then a usable Steam name,
+  // then the vanity URL handle, then real name, then the bare account id.
+  if (alias) {
+    return { name: alias, url, avatar, steamName, source: "alias" };
+  }
+  if (steamName) {
+    return { name: steamName, url, avatar, steamName, source: "steam" };
+  }
+  const vanity = vanityFromProfileUrl(p && p.profileurl);
+  if (vanity) {
+    return { name: vanity, url, avatar, steamName: null, source: "vanity" };
+  }
+  if (p && isUsableName(p.realname)) {
+    return { name: p.realname, url, avatar, steamName: null, source: "realname" };
+  }
+  return { name: `Account ${accountId}`, url, avatar, steamName: null, source: "id" };
+}
+
+// Fetch match metadata with limited concurrency so we don't hammer the API.
+async function fetchMatchesLimited(ids, concurrency, onProgress) {
+  const results = [];
+  let i = 0;
+  async function worker() {
+    while (i < ids.length) {
+      const idx = i++;
+      const id = ids[idx];
+      try {
+        const data = await fetchJson(`${API}/matches/${id}/metadata`);
+        results.push({ id, data, ok: true });
+      } catch (e) {
+        results.push({ id, error: e.message, ok: false });
+      }
+      onProgress(results.length, ids.length);
+    }
+  }
+  const workers = Array.from({ length: Math.min(concurrency, ids.length) }, worker);
+  await Promise.all(workers);
+  return results;
+}
+
+function computeRows(matchResults) {
+  const perPlayerGames = {}; // account_id -> [{soulsPerMin, netWorthShare, damage, dpm, damageShare, won, heroId, matchId}]
+  const failedIds = [];
+
+  for (const r of matchResults) {
+    if (!r.ok) { failedIds.push(r.id); continue; }
+    const mi = r.data && r.data.match_info;
+    if (!mi || !mi.duration_s || !mi.players) { failedIds.push(r.id); continue; }
+
+    const minutes = mi.duration_s / 60;
+    const winningTeam = mi.winning_team;
+    const matchStartTime = mi.start_time || null;
+
+    // There used to be an Opposition column here, built on
+    // average_badge_team0/team1. Verified against the live API: those fields
+    // are present but always 0 on tournament games (match_mode 2). Public
+    // matchmaking games (match_mode 1) return real values like 116, so the
+    // field works, Valve just never fills it in for custom lobbies. It was
+    // rendering a column of zeros, so it's gone. Steam's last_team_avg_badge
+    // is not a usable substitute either: every Night Shift player checked
+    // came back 115 or 116, so badge cannot separate teams at this level.
+
+    // Damage isn't a top-level field like net_worth is. It only lives in
+    // each player's `stats` array, a time-series snapshot taken periodically
+    // through the game. The final snapshot (highest time_stamp_s) has the
+    // cumulative player_damage for the whole match.
+    function finalDamage(p) {
+      if (!p.stats || !p.stats.length) return null;
+      const last = p.stats.reduce((a, b) => (b.time_stamp_s > a.time_stamp_s ? b : a));
+      return last.player_damage ?? null;
+    }
+
+    const withDamage = mi.players.map(p => ({ p, damage: finalDamage(p) }));
+
+    const validNetWorth = mi.players.filter(p => p.net_worth != null);
+    const lobbyAvgNetWorth = validNetWorth.length
+      ? validNetWorth.reduce((s, p) => s + p.net_worth, 0) / validNetWorth.length
+      : null;
+
+    // Team-relative net worth: this is the actual fix for the "was I good,
+    // or was my team just winning" problem. A stomp inflates net worth for
+    // everyone on the winning side roughly equally, so comparing a player
+    // to the WHOLE LOBBY still partly measures "did my team win," not "was
+    // I personally the reason." Comparing a player only to their own five
+    // teammates isolates "am I the engine of this team" from that.
+    const teamNetWorth = {};
+    for (const p of mi.players) {
+      if (p.team == null || p.net_worth == null) continue;
+      if (!teamNetWorth[p.team]) teamNetWorth[p.team] = { sum: 0, count: 0 };
+      teamNetWorth[p.team].sum += p.net_worth;
+      teamNetWorth[p.team].count += 1;
+    }
+    const teamAvgNetWorth = {};
+    for (const t of Object.keys(teamNetWorth)) {
+      teamAvgNetWorth[t] = teamNetWorth[t].sum / teamNetWorth[t].count;
+    }
+
+    const validDamage = withDamage.filter(x => x.damage != null);
+    const lobbyAvgDamage = validDamage.length
+      ? validDamage.reduce((s, x) => s + x.damage, 0) / validDamage.length
+      : null;
+    const teamDamage = {};
+    for (const { p, damage } of withDamage) {
+      if (p.team == null || damage == null) continue;
+      if (!teamDamage[p.team]) teamDamage[p.team] = { sum: 0, count: 0 };
+      teamDamage[p.team].sum += damage;
+      teamDamage[p.team].count += 1;
+    }
+    const teamAvgDamage = {};
+    for (const t of Object.keys(teamDamage)) {
+      teamAvgDamage[t] = teamDamage[t].sum / teamDamage[t].count;
+    }
+
+    // Kill Participation needs each team's total kills for the match,
+    // (your kills + assists) only means something relative to how many
+    // kills your team got overall. A team that wins in 15 minutes might
+    // only have 20 total kills; a 45-minute grind might have 80.
+    const teamKills = {};
+    for (const p of mi.players) {
+      if (p.team == null || p.kills == null) continue;
+      teamKills[p.team] = (teamKills[p.team] || 0) + p.kills;
+    }
+
+    for (const { p, damage } of withDamage) {
+      if (p.account_id == null || p.net_worth == null) continue;
+      const soulsPerMin = p.net_worth / minutes;
+      const netWorthShare = lobbyAvgNetWorth ? p.net_worth / lobbyAvgNetWorth : null;
+      const teamNetWorthShare = (p.team != null && teamAvgNetWorth[p.team]) ? p.net_worth / teamAvgNetWorth[p.team] : null;
+      const dpm = damage != null ? damage / minutes : null;
+      const damageShare = (damage != null && lobbyAvgDamage) ? damage / lobbyAvgDamage : null;
+      const teamDamageShare = (damage != null && p.team != null && teamAvgDamage[p.team]) ? damage / teamAvgDamage[p.team] : null;
+      const won = winningTeam != null && p.team === winningTeam;
+      const kills = p.kills ?? 0;
+      const assists = p.assists ?? 0;
+      const deaths = p.deaths ?? 0;
+      const teamTotal = teamKills[p.team];
+      const kp = teamTotal ? (kills + assists) / teamTotal : null;
+      const kpd = deaths > 0 ? (kills + assists) / deaths : (kills + assists > 0 ? Infinity : 0);
+      // KDA = (kills + assists) / deaths, the MOBA standard, same formula
+      // Dota/Dotabuff use. Preferred over raw K/D here because Deadlock is
+      // 6v6 and teamfight-heavy, so assists carry real signal; pure K/D
+      // would badly undervalue setup and utility players.
+      const kda = deaths > 0 ? (kills + assists) / deaths : (kills + assists);
+      if (!perPlayerGames[p.account_id]) perPlayerGames[p.account_id] = [];
+      perPlayerGames[p.account_id].push({
+        soulsPerMin, netWorthShare, teamNetWorthShare, damage, dpm, damageShare, teamDamageShare,
+        kp, kpd, kda, matchStartTime,
+        won, heroId: p.hero_id, matchId: r.id,
+        kills: p.kills, deaths: p.deaths, assists: p.assists
+      });
+    }
+  }
+
+  const avgOf = (games, key) => {
+    const vals = games.filter(g => g[key] != null && Number.isFinite(g[key]));
+    return vals.length ? vals.reduce((s, g) => s + g[key], 0) / vals.length : null;
+  };
+
+  const rows = Object.entries(perPlayerGames).map(([accountId, games]) => {
+    const avg = avgOf(games, "soulsPerMin");
+    const avgShare = avgOf(games, "netWorthShare");
+    const avgTeamShare = avgOf(games, "teamNetWorthShare");
+    const avgDpm = avgOf(games, "dpm");
+    const avgDamageShare = avgOf(games, "damageShare");
+    const avgTeamDamageShare = avgOf(games, "teamDamageShare");
+    const avgKp = avgOf(games, "kp");
+    const avgKpd = avgOf(games, "kpd");
+    const avgKda = avgOf(games, "kda");
+    const totalKills = games.reduce((s, g) => s + (g.kills || 0), 0);
+    const totalDeaths = games.reduce((s, g) => s + (g.deaths || 0), 0);
+    const totalAssists = games.reduce((s, g) => s + (g.assists || 0), 0);
+    // Pooled KDA across all games, more robust than averaging per-game
+    // ratios, which lets one lucky 12/1/9 game distort everything.
+    const pooledKda = totalDeaths > 0
+      ? (totalKills + totalAssists) / totalDeaths
+      : (totalKills + totalAssists);
+    const perfectGames = games.filter(g => g.kpd === Infinity).length;
+    const wins = games.filter(g => g.won).length;
+    const winGames = games.filter(g => g.won);
+    const lossGames = games.filter(g => !g.won);
+    const heroes = [...new Set(games.map(g => g.heroId))];
+
+    // A player's "primary role" = whichever archetype they played most in
+    // this dataset. Players who flex across roles get flagged, since
+    // averaging a Mystic game and a Marksman game together is exactly the
+    // apples-to-oranges problem role normalization is meant to fix.
+    const roleCounts = {};
+    for (const g of games) {
+      const role = (heroMap[g.heroId] && heroMap[g.heroId].role) || null;
+      if (role) roleCounts[role] = (roleCounts[role] || 0) + 1;
+    }
+    const roleEntries = Object.entries(roleCounts).sort((a, b) => b[1] - a[1]);
+    const primaryRole = roleEntries.length ? roleEntries[0][0] : null;
+    const rolePurity = primaryRole ? roleCounts[primaryRole] / games.length : null;
+
+    return {
+      accountId,
+      primaryRole,
+      rolePurity,
+      roleCounts,
+      avgSoulsPerMin: avg,
+      avgNetWorthShare: avgShare,
+      avgTeamNetWorthShare: avgTeamShare,
+      avgDpm,
+      avgDamageShare,
+      avgTeamDamageShare,
+      avgKp,
+      avgKpd,
+      avgKda,
+      pooledKda,
+      totalKills,
+      totalDeaths,
+      totalAssists,
+      perfectGames,
+      games,
+      wins,
+      winRate: wins / games.length,
+      // Team Share broken out by result. This is the real answer to
+      // "is this a farming god, or just riding a stomp." A player whose
+      // Team Share barely drops in losses is consistently the engine of
+      // their team regardless of outcome; one who's only impressive in
+      // wins may just be along for the ride.
+      teamShareInWins: winGames.length ? avgOf(winGames, "teamNetWorthShare") : null,
+      teamShareInLosses: lossGames.length ? avgOf(lossGames, "teamNetWorthShare") : null,
+      heroes
+    };
+  });
+
+  // ---- Role normalization ----
+  // Rather than hardcoding "a good Mystic does X damage" (numbers I'd be
+  // inventing), baselines are computed FROM THE LOADED DATASET: for each
+  // archetype, what did an average player on that archetype actually do
+  // in these games? Every player is then scored against their own role's
+  // baseline. This self-calibrates as you load more matches, and it means
+  // a Mystic is never judged on a Marksman's damage curve.
+  const roleBaselines = {};
+  const gamesByRole = {};
+  for (const [, games] of Object.entries(perPlayerGames)) {
+    for (const g of games) {
+      const role = (heroMap[g.heroId] && heroMap[g.heroId].role) || null;
+      if (!role) continue;
+      if (!gamesByRole[role]) gamesByRole[role] = [];
+      gamesByRole[role].push(g);
+    }
+  }
+  for (const [role, games] of Object.entries(gamesByRole)) {
+    roleBaselines[role] = {
+      sampleGames: games.length,
+      teamNetWorthShare: avgOf(games, "teamNetWorthShare"),
+      dpm: avgOf(games, "dpm"),
+      teamDamageShare: avgOf(games, "teamDamageShare"),
+      kp: avgOf(games, "kp"),
+      kpd: avgOf(games, "kpd"),
+    };
+  }
+
+  // Score each player against their own role's baseline, per game, then
+  // average. Doing it per-game (not on their overall average) means a
+  // role-flexing player is correctly judged against whichever archetype
+  // they were actually playing in each individual game.
+  for (const row of rows) {
+    const perGameScores = [];
+    for (const g of row.games) {
+      const role = (heroMap[g.heroId] && heroMap[g.heroId].role) || null;
+      const base = role ? roleBaselines[role] : null;
+      if (!base) continue;
+      const parts = [];
+      if (g.teamNetWorthShare != null && base.teamNetWorthShare) parts.push(g.teamNetWorthShare / base.teamNetWorthShare);
+      if (g.teamDamageShare != null && base.teamDamageShare) parts.push(g.teamDamageShare / base.teamDamageShare);
+      if (g.kp != null && base.kp) parts.push(g.kp / base.kp);
+      if (parts.length) perGameScores.push(parts.reduce((s, v) => s + v, 0) / parts.length);
+    }
+    row.roleScore = perGameScores.length
+      ? perGameScores.reduce((s, v) => s + v, 0) / perGameScores.length
+      : null;
+  }
+
+  return { rows, failedIds, roleBaselines };
+}
+
+// The four headline stats. Deliberately kept to things that need no
+// explanation: KDA is the MOBA standard (same formula Dota/Dotabuff use),
+// and the rest are plain rates. The fairness-corrected metrics still exist
+// in the table below, but these are what leads.
+const STAR_CATS = [
+  { key: "pooledKda", label: "Best KDA", fmt: v => v.toFixed(2),
+    sub: r => `${r.totalKills}/${r.totalDeaths}/${r.totalAssists} across ${r.games.length} games` },
+  { key: "avgSoulsPerMin", label: "Most Souls / Min", fmt: v => Math.round(v).toLocaleString(),
+    sub: r => `${r.games.length} games · ${(r.winRate * 100).toFixed(0)}% win rate` },
+  { key: "avgDpm", label: "Most Damage / Min", fmt: v => Math.round(v).toLocaleString(),
+    sub: r => `${r.games.length} games · ${(r.winRate * 100).toFixed(0)}% win rate` },
+  { key: "avgKp", label: "Highest Kill Participation", fmt: v => (v * 100).toFixed(0) + "%",
+    sub: r => `involved in ${(r.avgKp * 100).toFixed(0)}% of team kills` },
+];
+
+function renderStars() {
+  const starsPanel = document.getElementById("starsPanel");
+  const grid = document.getElementById("starsGrid");
+  const windowEl = document.getElementById("starsWindow");
+  if (!leaderboard.length) { starsPanel.style.display = "none"; return; }
+
+  // Only players with enough games are eligible to be a "star", since a single
+  // outlier game shouldn't crown anyone. Falls back to a lower bar if the
+  // dataset is too small for anyone to qualify.
+  let minG = 3;
+  let eligible = leaderboard.filter(r => r.games.length >= minG);
+  if (eligible.length < 3) { minG = 2; eligible = leaderboard.filter(r => r.games.length >= minG); }
+  if (eligible.length < 3) { minG = 1; eligible = leaderboard; }
+
+  grid.className = "stars-grid";
+  grid.innerHTML = STAR_CATS.map(cat => {
+    const ranked = eligible
+      .filter(r => r[cat.key] != null && Number.isFinite(r[cat.key]))
+      .sort((a, b) => b[cat.key] - a[cat.key]);
+    if (!ranked.length) return "";
+    const top = ranked[0];
+    const second = ranked[1];
+    const p = playerDisplay(top.accountId);
+    const topHero = top.heroes[0];
+    return `
+      <div class="star-card">
+        <span class="star-cat">${cat.label}</span>
+        <div class="star-val">${cat.fmt(top[cat.key])}</div>
+        <div class="star-name">${heroIconHtml(topHero, 22)}${p.name}</div>
+        <div class="star-sub">${cat.sub(top)}</div>
+        ${second ? `<div class="star-runner">2nd · ${playerDisplay(second.accountId).name}: ${cat.fmt(second[cat.key])}</div>` : ""}
+      </div>`;
+  }).join("");
+
+  // Describe the actual date span of the loaded games, so the headline
+  // always states what window it's talking about.
+  const times = leaderboard.flatMap(r => r.games.map(g => g.matchStartTime)).filter(Boolean);
+  if (times.length) {
+    const min = new Date(Math.min(...times) * 1000);
+    const max = new Date(Math.max(...times) * 1000);
+    const f = d => d.toLocaleDateString(undefined, { month: "short", day: "numeric" });
+    const matchCount = new Set(leaderboard.flatMap(r => r.games.map(g => g.matchId))).size;
+    windowEl.textContent = `${matchCount} games, ${f(min)} to ${f(max)} · min ${minG} game${minG === 1 ? "" : "s"} to qualify`;
+  } else {
+    windowEl.textContent = `min ${minG} game${minG === 1 ? "" : "s"} to qualify`;
+  }
+
+  starsPanel.style.display = "block";
+  checkPatchWindow(times);
+}
+
+// Deadlock ships big balance patches every few weeks, and stats from
+// before one aren't really comparable to stats after it. This pulls the
+// live patch list and flags loaded matches that predate the current one,
+// so the window question is answered automatically instead of guessed.
+async function checkPatchWindow(times) {
+  const notice = document.getElementById("patchNotice");
+  if (!times || !times.length) { notice.textContent = ""; return; }
+  try {
+    const days = await fetchJson(`${API}/patches/big-days`);
+    const patchTimes = days.map(d => Math.floor(new Date(d).getTime() / 1000)).sort((a, b) => b - a);
+    const latest = patchTimes[0];
+    if (!latest) { notice.textContent = ""; return; }
+    const latestDate = new Date(latest * 1000).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" });
+    const stale = times.filter(t => t < latest).length;
+    if (stale > 0) {
+      notice.className = "status warn";
+      notice.textContent = `${stale} of ${times.length} loaded games were played before the current balance patch (${latestDate}). Pre-patch games reflect a different meta. Consider dropping them for a cleaner read.`;
+    } else {
+      notice.className = "status";
+      notice.textContent = `All loaded games are from the current balance patch (since ${latestDate}), no stale-meta data mixed in.`;
+    }
+  } catch (e) {
+    notice.textContent = "";
+  }
+}
+
+function renderRoleBaselines() {
+  const bar = document.getElementById("roleBaselineBar");
+  const roles = Object.keys(currentRoleBaselines || {});
+  if (roles.length === 0) {
+    bar.innerHTML = `<div class="status warn">No hero role data came back. Role Score can't be computed. Every player will show "Unknown". This means the hero asset lookup failed or these heroes have no archetype set.</div>`;
+    return;
+  }
+  const thin = roles.filter(r => currentRoleBaselines[r].sampleGames < 10);
+  bar.innerHTML = `
+    <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center;">
+      <span class="status" style="min-height:auto; margin-right:4px;">Role baselines from this dataset:</span>
+      ${roles.map(r => {
+        const b = currentRoleBaselines[r];
+        const color = ROLE_COLORS[r] || "#888";
+        return `<span style="font-family:var(--mono); font-size:11px; padding:3px 8px; border-radius:3px; border:1px solid ${color}55; color:${color}; background:${color}12;"
+          title="Avg for this role across loaded games. Team Share ${b.teamNetWorthShare != null ? b.teamNetWorthShare.toFixed(2) : '·'}, DPM ${b.dpm != null ? Math.round(b.dpm) : '·'}, KP ${b.kp != null ? (b.kp*100).toFixed(0)+'%' : '·'}">
+          ${ROLE_LABELS[r] || r} · ${b.sampleGames}g</span>`;
+      }).join("")}
+    </div>
+    ${thin.length ? `<div class="status warn" style="margin-top:6px;">Thin sample for ${thin.map(r => ROLE_LABELS[r] || r).join(", ")} (&lt;10 games). Role scores for those are noisy. Load more matches before trusting them.</div>` : ""}
+  `;
+}
+
+function renderRows() {
+  renderRoleBaselines();
+  const minGames = Math.max(1, parseInt(minGamesInput.value, 10) || 1);
+  const roleFilterVal = roleFilter ? roleFilter.value : "";
+  const filtered = leaderboard.filter(r =>
+    r.games.length >= minGames &&
+    (!roleFilterVal || r.primaryRole === roleFilterVal)
+  );
+
+  const sorted = [...filtered].sort((a, b) => {
+    let av, bv;
+    switch (sortState.key) {
+      case "souls": av = a.avgSoulsPerMin; bv = b.avgSoulsPerMin; break;
+      case "share": av = a.avgNetWorthShare ?? -1; bv = b.avgNetWorthShare ?? -1; break;
+      case "teamshare": av = a.avgTeamNetWorthShare ?? -1; bv = b.avgTeamNetWorthShare ?? -1; break;
+      case "role": av = a.primaryRole || "zzz"; bv = b.primaryRole || "zzz"; break;
+      case "rolescore": av = a.roleScore ?? -1; bv = b.roleScore ?? -1; break;
+      case "dpm": av = a.avgDpm ?? -1; bv = b.avgDpm ?? -1; break;
+      case "dmgshare": av = a.avgDamageShare ?? -1; bv = b.avgDamageShare ?? -1; break;
+      case "kp": av = a.avgKp ?? -1; bv = b.avgKp ?? -1; break;
+      case "kda": av = a.pooledKda ?? -1; bv = b.pooledKda ?? -1; break;
+      case "games": av = a.games.length; bv = b.games.length; break;
+      case "wr": av = a.winRate; bv = b.winRate; break;
+      case "player": av = playerDisplay(a.accountId).name.toLowerCase(); bv = playerDisplay(b.accountId).name.toLowerCase(); break;
+      case "heroes": av = a.heroes.length; bv = b.heroes.length; break;
+      default: av = a.avgSoulsPerMin; bv = b.avgSoulsPerMin;
+    }
+    if (av < bv) return -1 * sortState.dir;
+    if (av > bv) return 1 * sortState.dir;
+    return 0;
+  });
+
+  const maxSouls = Math.max(...sorted.map(r => r.avgSoulsPerMin), 1);
+  const maxDpm = Math.max(...sorted.map(r => r.avgDpm || 0), 1);
+  const barBg = (val, max) => {
+    const pct = Math.max(2, Math.min(100, (val / max) * 100));
+    return `background: linear-gradient(to right, rgba(62,235,158,0.16) ${pct}%, transparent ${pct}%);`;
+  };
+
+  tbody.innerHTML = "";
+  sorted.forEach((row, idx) => {
+    const player = playerDisplay(row.accountId);
+    const shareText = row.avgNetWorthShare != null ? `${row.avgNetWorthShare.toFixed(2)}x` : "·";
+    const shareClass = row.avgNetWorthShare == null ? "" : (row.avgNetWorthShare >= 1 ? "win-tag" : "loss-tag");
+    const teamShareText = row.avgTeamNetWorthShare != null ? `${row.avgTeamNetWorthShare.toFixed(2)}x` : "·";
+    const teamShareClass = row.avgTeamNetWorthShare == null ? "" : (row.avgTeamNetWorthShare >= 1 ? "win-tag" : "loss-tag");
+    const splitParts = [];
+    if (row.teamShareInWins != null) splitParts.push(`Wins: ${row.teamShareInWins.toFixed(2)}x`);
+    if (row.teamShareInLosses != null) splitParts.push(`Losses: ${row.teamShareInLosses.toFixed(2)}x`);
+    const teamShareTitle = splitParts.length ? splitParts.join(" | ") : "Not enough games to split by result";
+    const dpmText = row.avgDpm != null ? Math.round(row.avgDpm).toLocaleString() : "·";
+    const dmgShareText = row.avgDamageShare != null ? `${row.avgDamageShare.toFixed(2)}x` : "·";
+    const dmgShareClass = row.avgDamageShare == null ? "" : (row.avgDamageShare >= 1 ? "win-tag" : "loss-tag");
+    const kpText = row.avgKp != null ? `${(row.avgKp * 100).toFixed(0)}%` : "·";
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td class="rank">${idx + 1}</td>
+      <td>
+        <div class="player-cell">
+          ${player.avatar ? `<img class="player-avatar" src="${player.avatar}" alt="">` : ""}
+          <div>
+            <a class="player-link" target="_blank" href="${player.url}">${player.name}</a>
+            ${nameSourceHint(player, row.accountId)}
+          </div>
+        </div>
+      </td>
+      <td>${roleBadgeHtml(row.primaryRole, row.rolePurity)}</td>
+      <td class="souls-val" title="${roleScoreTitle(row)}">${row.roleScore != null ? row.roleScore.toFixed(2) + "x" : "·"}</td>
+      <td class="souls-val" style="${barBg(row.avgSoulsPerMin, maxSouls)}">${row.avgSoulsPerMin.toFixed(1)}</td>
+      <td class="${shareClass}">${shareText}</td>
+      <td class="${teamShareClass}" title="${teamShareTitle}">${teamShareText}</td>
+      <td class="souls-val" style="${barBg(row.avgDpm || 0, maxDpm)}">${dpmText}</td>
+      <td class="${dmgShareClass}">${dmgShareText}</td>
+      <td class="souls-val">${row.pooledKda != null ? row.pooledKda.toFixed(2) : "·"}</td>
+      <td>${kpText}</td>
+      <td>${row.games.length}</td>
+      <td class="${row.winRate >= 0.5 ? 'win-tag' : 'loss-tag'}">${(row.winRate * 100).toFixed(0)}% (${row.wins}/${row.games.length})</td>
+      <td>${row.heroes.map(hid => `${heroIconHtml(hid, 18)}${heroName(hid)}`).join(", ")}</td>
+    `;
+    const detail = document.createElement("tr");
+    detail.className = "detail-row hidden";
+    detail.innerHTML = `<td colspan="14">
+      <table>
+        <thead><tr><th>Match</th><th>Hero</th><th>Souls/Min</th><th>NW Share</th><th>Team Share</th><th>Dmg</th><th>DPM</th><th>Dmg Share</th><th>KP%</th><th>KDA</th><th>K/D/A</th><th>Result</th></tr></thead>
+        <tbody>
+          ${row.games.map(g => `
+            <tr>
+              <td>${g.matchId}</td>
+              <td>${heroIconHtml(g.heroId, 20)}${heroName(g.heroId)}${heroRoleBadge(g.heroId)}</td>
+              <td>${g.soulsPerMin.toFixed(1)}</td>
+              <td>${g.netWorthShare != null ? g.netWorthShare.toFixed(2) + 'x' : '·'}</td>
+              <td>${g.teamNetWorthShare != null ? g.teamNetWorthShare.toFixed(2) + 'x' : '·'}</td>
+              <td>${g.damage != null ? g.damage.toLocaleString() : '·'}</td>
+              <td>${g.dpm != null ? Math.round(g.dpm).toLocaleString() : '·'}</td>
+              <td>${g.damageShare != null ? g.damageShare.toFixed(2) + 'x' : '·'}</td>
+              <td>${g.kp != null ? (g.kp * 100).toFixed(0) + '%' : '·'}</td>
+              <td>${g.kda != null ? g.kda.toFixed(2) : '·'}</td>
+              <td>${g.kills ?? '-'}/${g.deaths ?? '-'}/${g.assists ?? '-'}</td>
+              <td class="${g.won ? 'win-tag' : 'loss-tag'}">${g.won ? 'Win' : 'Loss'}</td>
+            </tr>`).join("")}
+        </tbody>
+      </table>
+    </td>`;
+    tr.addEventListener("click", () => detail.classList.toggle("hidden"));
+    tbody.appendChild(tr);
+    tbody.appendChild(detail);
+  });
+
+  gameCountEl.textContent = `showing ${sorted.length} of ${leaderboard.length} players (min ${minGames} game${minGames === 1 ? '' : 's'})`;
+}
+
+minGamesInput.addEventListener("input", () => { if (leaderboard.length) renderRows(); });
+roleFilter.addEventListener("change", () => { if (leaderboard.length) renderRows(); });
+
+document.querySelectorAll("th[data-sort]").forEach(th => {
+  th.addEventListener("click", () => {
+    const key = th.dataset.sort;
+    if (sortState.key === key) sortState.dir *= -1;
+    else { sortState.key = key; sortState.dir = -1; }
+    renderRows();
+  });
+});
+
+function toCsv(rows) {
+  const lines = ["rank,player,account_id,role,role_score,avg_souls_per_min,avg_net_worth_share,avg_team_share,team_share_wins,team_share_losses,avg_dpm,avg_damage_share,avg_kp_pct,avg_kpd,games,win_rate,heroes"];
+  rows
+    .slice()
+    .sort((a, b) => (b.roleScore ?? -1) - (a.roleScore ?? -1))
+    .forEach((r, i) => {
+      const name = playerDisplay(r.accountId).name;
+      const role = r.primaryRole ? (ROLE_LABELS[r.primaryRole] || r.primaryRole) : "";
+      const roleScore = r.roleScore != null ? r.roleScore.toFixed(2) : "";
+      const share = r.avgNetWorthShare != null ? r.avgNetWorthShare.toFixed(2) : "";
+      const teamShare = r.avgTeamNetWorthShare != null ? r.avgTeamNetWorthShare.toFixed(2) : "";
+      const tsWins = r.teamShareInWins != null ? r.teamShareInWins.toFixed(2) : "";
+      const tsLosses = r.teamShareInLosses != null ? r.teamShareInLosses.toFixed(2) : "";
+      const dpm = r.avgDpm != null ? Math.round(r.avgDpm) : "";
+      const dmgShare = r.avgDamageShare != null ? r.avgDamageShare.toFixed(2) : "";
+      const kp = r.avgKp != null ? (r.avgKp * 100).toFixed(0) : "";
+      const kpd = r.avgKpd != null ? r.avgKpd.toFixed(1) : (r.perfectGames > 0 ? "Inf" : "");
+      lines.push([i + 1, `"${name}"`, r.accountId, role, roleScore, r.avgSoulsPerMin.toFixed(1), share, teamShare, tsWins, tsLosses, dpm, dmgShare, kp, kpd, r.games.length,
+                  (r.winRate * 100).toFixed(0) + "%", `"${r.heroes.map(heroName).join("; ")}"`].join(","));
+    });
+  return lines.join("\n");
+}
+
+csvBtn.addEventListener("click", () => {
+  const csv = toCsv(leaderboard);
+  const blob = new Blob([csv], { type: "text/csv" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "souls_per_min_leaderboard.csv";
+  a.click();
+  URL.revokeObjectURL(url);
+});
+
+// ---------------- Soul motes ----------------
+// Ambient particles, kept intentionally restrained: low count, low opacity,
+// slow drift. They exist to draw the eye to the two areas that matter (the
+// header and the Stars panel), not to decorate the whole page. Animation
+// pauses when the host scrolls out of view so it costs nothing while you
+// are reading the tables further down.
+function initParticles(host, opts = {}) {
+  if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  if (host.querySelector(".particle-canvas")) return;
+
+  const count = opts.count || 22;
+  const canvas = document.createElement("canvas");
+  canvas.className = "particle-canvas";
+  host.prepend(canvas);
+  const ctx = canvas.getContext("2d");
+
+  let w = 0, h = 0, motes = [], visible = true, raf = null;
+
+  function resize() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const rect = host.getBoundingClientRect();
+    w = rect.width;
+    h = rect.height;
+    canvas.width = w * dpr;
+    canvas.height = h * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  function seed() {
+    motes = Array.from({ length: count }, () => ({
+      x: Math.random() * w,
+      y: Math.random() * h,
+      r: 0.6 + Math.random() * 1.8,
+      vy: -(0.08 + Math.random() * 0.22),
+      vx: (Math.random() - 0.5) * 0.10,
+      a: 0.10 + Math.random() * 0.35,
+      pulse: Math.random() * Math.PI * 2,
+    }));
+  }
+
+  function frame() {
+    if (!visible) { raf = null; return; }
+    ctx.clearRect(0, 0, w, h);
+    for (const m of motes) {
+      m.y += m.vy;
+      m.x += m.vx;
+      m.pulse += 0.012;
+      if (m.y < -6) { m.y = h + 6; m.x = Math.random() * w; }
+      if (m.x < -6) m.x = w + 6;
+      if (m.x > w + 6) m.x = -6;
+      const alpha = m.a * (0.65 + 0.35 * Math.sin(m.pulse));
+      const grad = ctx.createRadialGradient(m.x, m.y, 0, m.x, m.y, m.r * 4);
+      grad.addColorStop(0, `rgba(125, 255, 196, ${alpha})`);
+      grad.addColorStop(1, "rgba(125, 255, 196, 0)");
+      ctx.fillStyle = grad;
+      ctx.beginPath();
+      ctx.arc(m.x, m.y, m.r * 4, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    raf = requestAnimationFrame(frame);
+  }
+
+  function start() { if (!raf) { raf = requestAnimationFrame(frame); } }
+
+  resize();
+  seed();
+  start();
+
+  // Only animate while the host is actually on screen.
+  if (window.IntersectionObserver) {
+    new IntersectionObserver(entries => {
+      visible = entries[0].isIntersecting;
+      if (visible) start();
+    }, { threshold: 0 }).observe(host);
+  }
+
+  let resizeTimer = null;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => { resize(); seed(); }, 150);
+  });
+
+  // The Stars panel starts hidden and has no height until results load,
+  // so re-measure once it becomes visible.
+  if (window.ResizeObserver) {
+    new ResizeObserver(() => {
+      const rect = host.getBoundingClientRect();
+      if (Math.abs(rect.width - w) > 2 || Math.abs(rect.height - h) > 2) {
+        resize();
+        seed();
+      }
+    }).observe(host);
+  }
+}
+
+document.querySelectorAll(".particle-host").forEach(host => {
+  initParticles(host, { count: host.tagName === "HEADER" ? 14 : 26 });
+});
+
+// ---------------- Soul motes end ----------------
+
+const CARD_METRIC_META = {
+  pooledKda: { label: "KDA", format: v => v.toFixed(2) },
+  roleScore: { label: "Role Score", format: v => v.toFixed(2) + "x" },
+  avgTeamNetWorthShare: { label: "Team Share", format: v => v.toFixed(2) + "x" },
+  avgSoulsPerMin: { label: "Souls / Min", format: v => v.toFixed(1) },
+  avgNetWorthShare: { label: "Net Worth Share", format: v => v.toFixed(2) + "x" },
+  avgDpm: { label: "Damage / Min", format: v => Math.round(v).toLocaleString() },
+  avgDamageShare: { label: "Damage Share", format: v => v.toFixed(2) + "x" },
+  avgKp: { label: "Kill Participation", format: v => (v * 100).toFixed(0) + "%" },
+};
+
+function buildShareCardSvg(rows, metricKey, title, topN) {
+  const meta = CARD_METRIC_META[metricKey];
+  const ranked = rows
+    .filter(r => r[metricKey] != null)
+    .sort((a, b) => b[metricKey] - a[metricKey])
+    .slice(0, topN);
+
+  const W = 1080, H = 140 + ranked.length * 118 + 90;
+  const maxVal = Math.max(...ranked.map(r => r[metricKey]), 1);
+  const barMaxWidth = 620;
+
+  const rowsSvg = ranked.map((r, i) => {
+    const y = 160 + i * 118;
+    const player = playerDisplay(r.accountId);
+    const barW = Math.max(8, (r[metricKey] / maxVal) * barMaxWidth);
+    const initials = player.name.replace(/[^A-Za-z0-9]/g, "").slice(0, 2).toUpperCase() || "?";
+    const rankColor = i === 0 ? "#f5d76e" : i === 1 ? "#c9d6df" : i === 2 ? "#d99a5c" : "#3eeb9e";
+    return `
+      <text x="60" y="${y + 46}" font-family="JetBrains Mono, monospace" font-size="34" font-weight="700" fill="${rankColor}">${i + 1}</text>
+      <circle cx="150" cy="${y + 30}" r="28" fill="#152019" stroke="#2a4436" stroke-width="2"/>
+      <text x="150" y="${y + 40}" font-family="JetBrains Mono, monospace" font-size="20" font-weight="600" fill="#7dffc4" text-anchor="middle">${initials}</text>
+      <text x="200" y="${y + 22}" font-family="Chakra Petch, Arial, sans-serif" font-size="26" font-weight="600" fill="#dcece3">${escapeXml(player.name)}</text>
+      <text x="200" y="${y + 46}" font-family="JetBrains Mono, monospace" font-size="15" fill="#6f9384">${r.games.length} game${r.games.length === 1 ? "" : "s"} &middot; ${(r.winRate * 100).toFixed(0)}% WR</text>
+      <rect x="200" y="${y + 56}" width="${barMaxWidth}" height="14" rx="3" fill="#141b17"/>
+      <rect x="200" y="${y + 56}" width="${barW}" height="14" rx="3" fill="#3eeb9e"/>
+      <text x="${200 + barMaxWidth + 20}" y="${y + 68}" font-family="JetBrains Mono, monospace" font-size="24" font-weight="700" fill="#7dffc4" text-anchor="end">${meta.format(r[metricKey])}</text>
+    `;
+  }).join("");
+
+  return `
+    <svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="glow" cx="15%" cy="0%" r="60%">
+          <stop offset="0%" stop-color="#3eeb9e" stop-opacity="0.14"/>
+          <stop offset="100%" stop-color="#3eeb9e" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <rect width="${W}" height="${H}" fill="#0a0d0b"/>
+      <rect width="${W}" height="${H}" fill="url(#glow)"/>
+      <text x="60" y="70" font-family="Chakra Petch, Arial, sans-serif" font-size="46" font-weight="700" fill="#dcece3">${escapeXml(title)}</text>
+      <text x="60" y="102" font-family="JetBrains Mono, monospace" font-size="18" letter-spacing="2" fill="#3eeb9e">RANKED BY ${meta.label.toUpperCase()}</text>
+      <line x1="60" y1="122" x2="${W - 60}" y2="122" stroke="#1f2e27" stroke-width="2"/>
+      ${rowsSvg}
+      <text x="60" y="${H - 34}" font-family="JetBrains Mono, monospace" font-size="14" fill="#3c5348">Data: api.deadlock-api.com (community, unofficial)</text>
+    </svg>
+  `;
+}
+
+function escapeXml(str) {
+  return String(str).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&apos;" }[c]));
+}
+
+genCardBtn.addEventListener("click", () => {
+  if (!leaderboard.length) return;
+  const metricKey = cardMetric.value;
+  const topN = parseInt(cardTopN.value, 10);
+  const title = cardTitle.value.trim() || "Night Shift Scout Report";
+  const svg = buildShareCardSvg(leaderboard, metricKey, title, topN);
+  cardPreview.innerHTML = svg;
+  downloadCardBtn.disabled = false;
+});
+
+downloadCardBtn.addEventListener("click", () => {
+  const svgEl = cardPreview.querySelector("svg");
+  if (!svgEl) return;
+  const svgData = new XMLSerializer().serializeToString(svgEl);
+  const svgBlob = new Blob([svgData], { type: "image/svg+xml;charset=utf-8" });
+  const url = URL.createObjectURL(svgBlob);
+  const img = new Image();
+  img.onload = () => {
+    const scale = 2; // render at 2x for a crisp Reddit upload
+    const w = parseInt(svgEl.getAttribute("width"), 10);
+    const h = parseInt(svgEl.getAttribute("height"), 10);
+    const canvas = document.createElement("canvas");
+    canvas.width = w * scale;
+    canvas.height = h * scale;
+    const ctx = canvas.getContext("2d");
+    ctx.scale(scale, scale);
+    ctx.drawImage(img, 0, 0, w, h);
+    URL.revokeObjectURL(url);
+    canvas.toBlob(blob => {
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "nightshift_scout_card.png";
+      a.click();
+    }, "image/png");
+  };
+  img.src = url;
+});
+
+// ---------------- Watchlist ----------------
+
+function loadWatchlistFromStorage() {
+  try {
+    const saved = localStorage.getItem("nightshift_watchlist");
+    if (saved) watchlistBox.value = saved;
+  } catch (e) { /* ignore */ }
+}
+loadWatchlistFromStorage();
+
+function parseWatchlistIds(raw) {
+  return [...new Set(
+    raw.split("\n").map(l => l.trim()).filter(l => l && !l.startsWith("#")).map(l => l.replace(/[^0-9]/g, "")).filter(Boolean)
+  )];
+}
+
+// Accepts either a 32-bit account_id or a 17-digit SteamID64 and normalizes to account_id.
+function toAccountId(idStr) {
+  if (idStr.length >= 15) {
+    const big = BigInt(idStr) - 76561197960265728n;
+    return big > 0n ? big.toString() : idStr;
+  }
+  return idStr;
+}
+
+async function runWatchlist(accountIds, statusEl2) {
+  loadWatchlistBtn.disabled = true;
+  scanEternusBtn.disabled = true;
+  statusEl2.classList.remove("warn");
+  watchlistResults.innerHTML = "";
+
+  await loadProfiles(accountIds.map(id => Number(id)));
+
+  const results = [];
+  for (let i = 0; i < accountIds.length; i++) {
+    const id = accountIds[i];
+    statusEl2.textContent = `Loading ${i + 1} / ${accountIds.length}...`;
+    try {
+      const history = await fetchJson(`${API}/players/${id}/match-history`);
+      const recent = history.slice(0, 20); // most recent 20 matches
+      if (recent.length === 0) { results.push({ id, error: "No match history found" }); continue; }
+      const avgSoulsPerMin = recent.reduce((s, m) => s + (m.net_worth / (m.match_duration_s / 60)), 0) / recent.length;
+      const wins = recent.filter(m => m.match_result === m.player_team).length;
+      const avgKills = recent.reduce((s, m) => s + m.player_kills, 0) / recent.length;
+      const avgDeaths = recent.reduce((s, m) => s + m.player_deaths, 0) / recent.length;
+      const avgAssists = recent.reduce((s, m) => s + m.player_assists, 0) / recent.length;
+      results.push({
+        id, avgSoulsPerMin, winRate: wins / recent.length, gamesConsidered: recent.length,
+        avgKills, avgDeaths, avgAssists
+      });
+    } catch (e) {
+      results.push({ id, error: e.message });
+    }
+  }
+
+  // sort so the standouts float to the top: highest souls/min first
+  results.sort((a, b) => (b.avgSoulsPerMin ?? -1) - (a.avgSoulsPerMin ?? -1));
+  renderWatchlist(results);
+  statusEl2.textContent = `Done. ${results.filter(r => !r.error).length} of ${accountIds.length} players loaded.`;
+  loadWatchlistBtn.disabled = false;
+  scanEternusBtn.disabled = false;
+}
+
+loadWatchlistBtn.addEventListener("click", async () => {
+  const rawIds = parseWatchlistIds(watchlistBox.value);
+  if (rawIds.length === 0) {
+    watchlistStatus.textContent = "Paste at least one account ID or SteamID64 first.";
+    watchlistStatus.classList.add("warn");
+    return;
+  }
+  try {
+    localStorage.setItem("nightshift_watchlist", watchlistBox.value);
+  } catch (e) { /* ignore */ }
+  const accountIds = rawIds.map(toAccountId);
+  await runWatchlist(accountIds, watchlistStatus);
+});
+
+// Eternus is tier 11 in the API's badge math (tier * 10 + subrank), so
+// Eternus VI is badge 116. This is locked. No other tier is selectable
+// here on purpose.
+const ETERNUS_TIER = 11;
+const ETERNUS_VI_BADGE = 116;
+
+scanEternusBtn.addEventListener("click", async () => {
+  scanEternusBtn.disabled = true;
+  scanStatus.classList.remove("warn");
+  scanStatus.textContent = "Fetching leaderboard...";
+  try {
+    const region = leaderboardRegion.value;
+    const board = await fetchJson(`${API}/leaderboard/${region}`);
+    const entries = board.entries || board; // handle either a wrapper object or a bare array
+
+    let filtered = entries.filter(e => e.badge_level === ETERNUS_VI_BADGE);
+    let fellBack = false;
+    if (filtered.length === 0) {
+      // Eternus may not actually subdivide into I-VI in this game build,
+      // rather than return nothing, widen to the whole Eternus tier and
+      // say so plainly instead of pretending the strict filter worked.
+      filtered = entries.filter(e => e.badge_level != null && Math.floor(e.badge_level / 10) === ETERNUS_TIER);
+      fellBack = true;
+    }
+
+    // Only entries with exactly one resolved account ID are safe to use,
+    // Steam names aren't unique, so "possible_account_ids" with more than
+    // one entry means the API itself isn't sure which account this is.
+    const resolved = filtered.filter(e => e.possible_account_ids && e.possible_account_ids.length === 1);
+    const ambiguous = filtered.length - resolved.length;
+
+    if (resolved.length === 0) {
+      scanStatus.textContent = `Found ${filtered.length} matching players on the leaderboard, but none resolved to a single confident account ID (all ambiguous or unresolved).`;
+      scanStatus.classList.add("warn");
+      scanEternusBtn.disabled = false;
+      return;
+    }
+
+    const capped = resolved.slice(0, 60); // keep this to a sane number of API calls
+    const accountIds = capped.map(e => String(e.possible_account_ids[0]));
+
+    // Seed the alias box with resolved leaderboard names so results are
+    // immediately readable, without clobbering aliases you've already set.
+    const existingAliasIds = new Set(Object.keys(aliasMap));
+    const newAliasLines = capped
+      .filter(e => !existingAliasIds.has(String(e.possible_account_ids[0])) && e.account_name)
+      .map(e => `${e.possible_account_ids[0]} = ${e.account_name}`);
+    if (newAliasLines.length) {
+      aliasBox.value = (aliasBox.value ? aliasBox.value + "\n" : "") + newAliasLines.join("\n");
+      aliasMap = parseAliasText(aliasBox.value);
+      try { localStorage.setItem("nightshift_aliases", aliasBox.value); } catch (e) { /* ignore */ }
+    }
+
+    watchlistBox.value = accountIds.join("\n");
+    const tierLabel = fellBack ? "all of Eternus (VI subrank returned nothing, fell back)" : "Eternus VI";
+    scanStatus.textContent = `${filtered.length} matched (${tierLabel}, ${ambiguous} skipped as ambiguous). Pulling recent form for ${capped.length}...`;
+    await runWatchlist(accountIds, scanStatus);
+    scanStatus.textContent += ` Done, sorted by souls/min, highest first.`;
+  } catch (e) {
+    scanStatus.textContent = `Leaderboard fetch failed: ${e.message}`;
+    scanStatus.classList.add("warn");
+  }
+  scanEternusBtn.disabled = false;
+});
+
+function renderWatchlist(results) {
+  const nightShiftIds = new Set(leaderboard.map(r => String(r.accountId)));
+  const rowsHtml = results.map(r => {
+    const player = playerDisplay(Number(r.id));
+    if (r.error) {
+      return `<tr><td>${player.name}</td><td colspan="7" class="loss-tag">${r.error}</td></tr>`;
+    }
+    const currentBadge = profileMap[Number(r.id)] && profileMap[Number(r.id)].last_team_avg_badge;
+    const inNightShift = nightShiftIds.has(String(r.id));
+    return `<tr>
+      <td>
+        <div class="player-cell">
+          ${player.avatar ? `<img class="player-avatar" src="${player.avatar}" alt="">` : ""}
+          <a class="player-link" target="_blank" href="${player.url}">${player.name}</a>
+        </div>
+      </td>
+      <td class="souls-val">${r.avgSoulsPerMin.toFixed(1)}</td>
+      <td>${r.avgKills.toFixed(1)}/${r.avgDeaths.toFixed(1)}/${r.avgAssists.toFixed(1)}</td>
+      <td class="${r.winRate >= 0.5 ? 'win-tag' : 'loss-tag'}">${(r.winRate * 100).toFixed(0)}%</td>
+      <td>${r.gamesConsidered}</td>
+      <td>${currentBadge != null ? currentBadge : "·"}</td>
+      <td class="${inNightShift ? 'win-tag' : ''}">${inNightShift ? 'Yes' : '·'}</td>
+    </tr>`;
+  }).join("");
+
+  watchlistResults.innerHTML = `
+    <table>
+      <thead><tr><th>Player</th><th>Souls/Min (last 20)</th><th>Avg K/D/A</th><th>Win Rate</th><th>Games</th><th>Badge (raw)</th><th>In loaded Night Shift set</th></tr></thead>
+      <tbody>${rowsHtml}</tbody>
+    </table>
+    <div class="status" style="margin-top:8px;">Badge is the API's raw numeric badge value (tier &times; 10 + subrank, so Eternus is tier 11, so 110-116). Souls/min and K/D/A are averaged over each player's most recent 20 matches. "In loaded Night Shift set" checks against whatever match IDs are currently loaded in the leaderboard above.</div>
+  `;
+}
+
+// ---------------- Top Elo Lobby ----------------
+
+const scanLiveBtn = document.getElementById("scanLiveBtn");
+const analyzeLoggedBtn = document.getElementById("analyzeLoggedBtn");
+const clearLogBtn = document.getElementById("clearLogBtn");
+const topEloLogCount = document.getElementById("topEloLogCount");
+const topEloStatus = document.getElementById("topEloStatus");
+const liveTopMatches = document.getElementById("liveTopMatches");
+const topEloResults = document.getElementById("topEloResults");
+
+const TOP_ELO_LOG_KEY = "nightshift_top_elo_log";
+
+function getTopEloLog() {
+  try {
+    const raw = localStorage.getItem(TOP_ELO_LOG_KEY);
+    return raw ? JSON.parse(raw) : [];
+  } catch (e) {
+    return [];
+  }
+}
+
+function saveTopEloLog(log) {
+  try { localStorage.setItem(TOP_ELO_LOG_KEY, JSON.stringify(log)); } catch (e) { /* ignore */ }
+}
+
+function refreshLogCount() {
+  const log = getTopEloLog();
+  if (log.length === 0) {
+    topEloLogCount.textContent = "No matches logged yet.";
+  } else {
+    const first = new Date(log[0].loggedAt).toLocaleDateString();
+    topEloLogCount.textContent = `${log.length} match(es) logged since ${first}.`;
+  }
+}
+refreshLogCount();
+
+clearLogBtn.addEventListener("click", () => {
+  saveTopEloLog([]);
+  refreshLogCount();
+  topEloResults.innerHTML = "";
+  topEloStatus.textContent = "Log cleared.";
+});
+
+function renderLiveTopMatches(matches) {
+  liveTopMatches.innerHTML = matches.slice(0, 5).map((m, i) => {
+    const started = m.start_time ? new Date(m.start_time * 1000) : null;
+    const elapsedMin = started ? Math.max(0, Math.round((Date.now() - started.getTime()) / 60000)) : null;
+    const team0 = m.players.filter(p => p.team_parsed === 0 || p.team === 0);
+    const team1 = m.players.filter(p => p.team_parsed === 1 || p.team === 1);
+    const nameFor = p => p.account_id != null ? playerDisplay(p.account_id).name : "Unknown";
+    return `
+      <div class="match-card">
+        <span class="match-rank">#${i + 1}</span>Match ${m.match_id} &middot; score ${m.match_score ?? "·"}
+        <div class="match-meta">${elapsedMin != null ? elapsedMin + " min elapsed" : "elapsed unknown"} &middot; ${m.spectators ?? 0} spectators &middot; net worth ${m.net_worth_team_0 ?? "?"} vs ${m.net_worth_team_1 ?? "?"}</div>
+        <div class="match-players">
+          ${team0.map(p => `<span>${nameFor(p)}</span>`).join("")}
+        </div>
+        <div class="match-players team1" style="margin-top:4px;">
+          ${team1.map(p => `<span>${nameFor(p)}</span>`).join("")}
+        </div>
+      </div>
+    `;
+  }).join("");
+}
+
+scanLiveBtn.addEventListener("click", async () => {
+  scanLiveBtn.disabled = true;
+  topEloStatus.classList.remove("warn");
+  topEloStatus.textContent = "Fetching live matches...";
+  try {
+    const matches = await fetchJson(`${API}/matches/active`);
+    if (!Array.isArray(matches) || matches.length === 0) {
+      topEloStatus.textContent = "No live matches returned right now. Try again in a bit.";
+      topEloStatus.classList.add("warn");
+      scanLiveBtn.disabled = false;
+      return;
+    }
+
+    // Sort by the game's own match_score, which is what determines the
+    // in-game Watch tab order, so index 0 here should be the same match
+    // sitting in the #1 slot in the client right now.
+    matches.sort((a, b) => (b.match_score ?? -1) - (a.match_score ?? -1));
+
+    const allAccountIds = matches.slice(0, 5).flatMap(m => m.players.map(p => p.account_id).filter(x => x != null));
+    await loadProfiles(allAccountIds);
+    renderLiveTopMatches(matches);
+
+    const top = matches[0];
+    const log = getTopEloLog();
+    if (!log.some(entry => entry.matchId === String(top.match_id))) {
+      log.push({ matchId: String(top.match_id), loggedAt: Date.now(), matchScore: top.match_score ?? null });
+      saveTopEloLog(log);
+      refreshLogCount();
+      topEloStatus.textContent = `Scanned. Logged match ${top.match_id} (new, wasn't seen before).`;
+    } else {
+      topEloStatus.textContent = `Scanned. Match ${top.match_id} was already logged (still the #1 lobby).`;
+    }
+  } catch (e) {
+    topEloStatus.textContent = `Scan failed: ${e.message}`;
+    topEloStatus.classList.add("warn");
+  }
+  scanLiveBtn.disabled = false;
+});
+
+analyzeLoggedBtn.addEventListener("click", async () => {
+  const log = getTopEloLog();
+  if (log.length === 0) {
+    topEloStatus.textContent = "Nothing logged yet. Hit Scan Now a few times over the coming days first.";
+    topEloStatus.classList.add("warn");
+    return;
+  }
+
+  analyzeLoggedBtn.disabled = true;
+  topEloStatus.classList.remove("warn");
+  topEloResults.innerHTML = "";
+
+  const ids = log.map(entry => entry.matchId);
+  const matchResults = await fetchMatchesLimited(ids, 4, (done, total) => {
+    topEloStatus.textContent = `Fetching ${done} / ${total} logged matches...`;
+  });
+
+  const stillLive = matchResults.filter(r => !r.ok).length;
+  const { rows } = computeRows(matchResults);
+
+  if (rows.length === 0) {
+    topEloStatus.textContent = `None of the ${ids.length} logged matches could be analyzed yet (likely all still in progress). Try again later.`;
+    topEloStatus.classList.add("warn");
+    analyzeLoggedBtn.disabled = false;
+    return;
+  }
+
+  await loadProfiles(rows.map(r => Number(r.accountId)));
+
+  const sorted = [...rows].sort((a, b) => b.avgSoulsPerMin - a.avgSoulsPerMin);
+  const rowsHtml = sorted.map((row, idx) => {
+    const player = playerDisplay(row.accountId);
+    const shareText = row.avgNetWorthShare != null ? `${row.avgNetWorthShare.toFixed(2)}x` : "·";
+    const dpmText = row.avgDpm != null ? Math.round(row.avgDpm).toLocaleString() : "·";
+    const dmgShareText = row.avgDamageShare != null ? `${row.avgDamageShare.toFixed(2)}x` : "·";
+    const kpText = row.avgKp != null ? `${(row.avgKp * 100).toFixed(0)}%` : "·";
+    const kpdText = row.pooledKda != null ? row.pooledKda.toFixed(2) : "·";
+    return `<tr>
+      <td class="rank">${idx + 1}</td>
+      <td>
+        <div class="player-cell">
+          ${player.avatar ? `<img class="player-avatar" src="${player.avatar}" alt="">` : ""}
+          <a class="player-link" target="_blank" href="${player.url}">${player.name}</a>
+        </div>
+      </td>
+      <td class="souls-val">${row.avgSoulsPerMin.toFixed(1)}</td>
+      <td>${shareText}</td>
+      <td class="souls-val">${dpmText}</td>
+      <td>${dmgShareText}</td>
+      <td>${kpText}</td>
+      <td>${kpdText}</td>
+      <td>${row.games.length}</td>
+      <td class="${row.winRate >= 0.5 ? 'win-tag' : 'loss-tag'}">${(row.winRate * 100).toFixed(0)}%</td>
+    </tr>`;
+  }).join("");
+
+  topEloResults.innerHTML = `
+    <table>
+      <thead><tr><th>#</th><th>Player</th><th>Souls/Min</th><th>NW Share</th><th>DPM</th><th>Dmg Share</th><th>KP%</th><th>KDA</th><th>Games</th><th>Win Rate</th></tr></thead>
+      <tbody>${rowsHtml}</tbody>
+    </table>
+  `;
+
+  topEloStatus.textContent = `Analyzed ${matchResults.filter(r => r.ok).length} of ${ids.length} logged matches (${stillLive} still in progress or unavailable, skipped). ${rows.length} players ranked by consistency in top-elo lobbies.`;
+  analyzeLoggedBtn.disabled = false;
+});
+
+async function runAnalysis() {
+  const ids = parseIds(matchIdsEl.value);
+  if (ids.length === 0) {
+    statusEl.textContent = "Paste at least one match ID first.";
+    statusEl.classList.add("warn");
+    return;
+  }
+
+  try { localStorage.setItem("nightshift_match_ids", matchIdsEl.value); } catch (e) { /* ignore */ }
+
+  analyzeBtn.disabled = true;
+  csvBtn.disabled = true;
+  resultsPanel.style.display = "none";
+  statusEl.classList.remove("warn");
+  statusEl.textContent = "Loading hero list...";
+
+  await loadHeroMap();
+
+  statusEl.textContent = `Fetching 0 / ${ids.length} matches...`;
+  const matchResults = await fetchMatchesLimited(ids, 4, (done, total) => {
+    statusEl.textContent = `Fetching ${done} / ${total} matches...`;
+  });
+
+  const { rows, failedIds, roleBaselines } = computeRows(matchResults);
+  currentRoleBaselines = roleBaselines;
+  leaderboard = rows;
+
+  if (rows.length === 0) {
+    statusEl.textContent = "No usable data came back. Every match failed or had no player data. Double check the IDs.";
+    statusEl.classList.add("warn");
+    analyzeBtn.disabled = false;
+    return;
+  }
+
+  statusEl.textContent = "Looking up player names...";
+  await loadProfiles(rows.map(r => r.accountId));
+
+  gameCountEl.textContent = `${matchResults.filter(r => r.ok).length} matches, ${rows.length} players`;
+  resultsPanel.style.display = "block";
+  shareCardPanel.style.display = "block";
+  minGamesInput.value = 1;
+  renderRows();
+  renderStars();
+  renderTeamView();
+  csvBtn.disabled = false;
+
+  statusEl.textContent = failedIds.length
+    ? `Done. ${failedIds.length} match ID(s) failed to load: ${failedIds.join(", ")}`
+    : "Done.";
+  statusEl.classList.toggle("warn", failedIds.length > 0);
+  analyzeBtn.disabled = false;
+}
+
+analyzeBtn.addEventListener("click", runAnalysis);
+
+// "Default to the last few weeks of Night Shift": once you've run this
+// with a real match ID list, it's remembered, so reopening the file
+// re-analyzes automatically instead of starting blank. Update the Match
+// IDs box with newer weeks whenever you want the default to move forward.
+try {
+  if (localStorage.getItem("nightshift_match_ids")) {
+    runAnalysis();
+  }
+} catch (e) { /* ignore */ }
+</script>
+</body>
+</html>
