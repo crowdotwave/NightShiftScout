@@ -1,5 +1,28 @@
 {
   "schema_version": 1,
-  "_note": "Hand curated. No team identities have been invented. Add entries keyed by a permanent slug, then reference them from nights/*.json.",
-  "teams": {}
+  "_note": "Hand curated. No team identities have been invented. Names and rosters for curated nights come from Liquipedia and carry an attribution block, which the site generator requires before it will publish them.",
+  "teams": {
+    "melee-creeps": {
+      "name": "Melee Creeps",
+      "tag": null,
+      "region": "na",
+      "active": true,
+      "notes": "Name as written on Liquipedia for #48. Team identity across renames is unresolved, see TEAM-IDENTITY-PROPOSAL.md.",
+      "attribution": {
+        "provider": "liquipedia",
+        "url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/48/NA"
+      }
+    },
+    "poppers-pupils": {
+      "name": "Poppers' Pupils",
+      "tag": null,
+      "region": "na",
+      "active": true,
+      "notes": "Fielded as FPS Lounge up to #46 with five of these six players. Treated as a separate team_id for now because team identity across renames is unresolved, see TEAM-IDENTITY-PROPOSAL.md.",
+      "attribution": {
+        "provider": "liquipedia",
+        "url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/48/NA"
+      }
+    }
+  }
 }

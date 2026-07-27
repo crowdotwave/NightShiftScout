@@ -11,12 +11,16 @@
       "_hint_vanity": "emptydreams9"
     },
     "25821887": {
-      "handle": null,
+      "handle": "Saiah",
       "aka": [],
-      "identified": "guess",
-      "notes": "",
+      "identified": "confirmed",
+      "notes": "Liquipedia steam64ID (single page) and played 3/3 on the Melee Creeps side",
       "_hint_steam_persona": "Saiah",
-      "_hint_vanity": "SinonvsKirito"
+      "_hint_vanity": "SinonvsKirito",
+      "handle_attribution": {
+        "provider": "liquipedia",
+        "url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/48/NA"
+      }
     },
     "35187362": {
       "handle": null,
@@ -83,12 +87,16 @@
       "_hint_vanity": "dewamoon"
     },
     "114943410": {
-      "handle": null,
+      "handle": "Lefaa",
       "aka": [],
-      "identified": "guess",
-      "notes": "",
+      "identified": "confirmed",
+      "notes": "Liquipedia steam64ID (single page) and played 3/3 on the Poppers' Pupils side",
       "_hint_steam_persona": "FPSL Lefaa",
-      "_hint_vanity": null
+      "_hint_vanity": null,
+      "handle_attribution": {
+        "provider": "liquipedia",
+        "url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/48/NA"
+      }
     },
     "124540485": {
       "handle": null,
@@ -107,12 +115,16 @@
       "_hint_vanity": "irezum1"
     },
     "244109796": {
-      "handle": null,
+      "handle": "JonJon",
       "aka": [],
-      "identified": "guess",
-      "notes": "",
+      "identified": "confirmed",
+      "notes": "Liquipedia steam64ID (single page) and played 3/3 on the Melee Creeps side",
       "_hint_steam_persona": "JonJon69",
-      "_hint_vanity": null
+      "_hint_vanity": null,
+      "handle_attribution": {
+        "provider": "liquipedia",
+        "url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/48/NA"
+      }
     },
     "298155885": {
       "handle": null,
@@ -147,12 +159,16 @@
       "_hint_vanity": "vraic"
     },
     "399289886": {
-      "handle": null,
+      "handle": "AVG",
       "aka": [],
-      "identified": "guess",
-      "notes": "",
-      "_hint_steam_persona": "\u039b",
-      "_hint_vanity": null
+      "identified": "probable",
+      "notes": "Steam persona is a single Greek letter and gives no signal. Established by closed-set elimination twice over: in match 74191976 the other five Floormen accounts all carry single-page wiki ids, leaving AVG, and the same elimination holds independently on the #48 Poppers' Pupils side. The wiki's own AVG steam64ID points at an account (persona 'mrbob40') that appears in no cached match, so it is contradicted by play data",
+      "_hint_steam_persona": "Λ",
+      "_hint_vanity": null,
+      "handle_attribution": {
+        "provider": "liquipedia",
+        "url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/48/NA"
+      }
     },
     "407786402": {
       "handle": null,
@@ -175,7 +191,7 @@
       "aka": [],
       "identified": "guess",
       "notes": "",
-      "_hint_steam_persona": "\u043f\u043b\u043e\u0442\u043d\u044f\u0447\u043e\u043a",
+      "_hint_steam_persona": "плотнячок",
       "_hint_vanity": null
     },
     "911856667": {
@@ -195,12 +211,16 @@
       "_hint_vanity": "mayaniz"
     },
     "924812291": {
-      "handle": null,
+      "handle": "snakes",
       "aka": [],
-      "identified": "guess",
-      "notes": "",
+      "identified": "probable",
+      "notes": "Steam persona 'Snakes'. Wiki page exists but steam64ID is blank. Corroborated: recorded as the substitute in for Braeden, and played all 3 finals games",
       "_hint_steam_persona": "Snakes",
-      "_hint_vanity": null
+      "_hint_vanity": null,
+      "handle_attribution": {
+        "provider": "liquipedia",
+        "url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/48/NA"
+      }
     },
     "984254212": {
       "handle": null,
@@ -267,12 +287,16 @@
       "_hint_vanity": "zxcbobi"
     },
     "1285605078": {
-      "handle": null,
+      "handle": "Goober",
       "aka": [],
-      "identified": "guess",
-      "notes": "",
+      "identified": "confirmed",
+      "notes": "Liquipedia steam64ID (single page) and played 3/3 on the Melee Creeps side",
       "_hint_steam_persona": "EVIL MLC Goober",
-      "_hint_vanity": null
+      "_hint_vanity": null,
+      "handle_attribution": {
+        "provider": "liquipedia",
+        "url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/48/NA"
+      }
     },
     "1444662928": {
       "handle": null,
@@ -283,12 +307,16 @@
       "_hint_vanity": null
     },
     "1477660209": {
-      "handle": null,
+      "handle": "League",
       "aka": [],
-      "identified": "guess",
-      "notes": "",
+      "identified": "confirmed",
+      "notes": "Liquipedia steam64ID (single page) and played 3/3 on the Poppers' Pupils side",
       "_hint_steam_persona": "League",
-      "_hint_vanity": null
+      "_hint_vanity": null,
+      "handle_attribution": {
+        "provider": "liquipedia",
+        "url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/48/NA"
+      }
     },
     "1591197043": {
       "handle": null,
@@ -315,20 +343,28 @@
       "_hint_vanity": null
     },
     "1730032433": {
-      "handle": null,
+      "handle": "Zeno",
       "aka": [],
-      "identified": "guess",
-      "notes": "",
+      "identified": "confirmed",
+      "notes": "NOT from the wiki id, which collides: Zeno and Rocaine both carry steam64ID 76561199690298161. Settled by match 74191976 (#33 NA, Floormen vs FPS Lounge), where this account is on the side also holding rocker, Dimov, DMB and League, all Floormen. Rocaine played for FPS Lounge, the other side",
       "_hint_steam_persona": "abcd_fg",
-      "_hint_vanity": null
+      "_hint_vanity": null,
+      "handle_attribution": {
+        "provider": "liquipedia",
+        "url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/48/NA"
+      }
     },
     "1840902834": {
-      "handle": null,
+      "handle": "oses",
       "aka": [],
-      "identified": "guess",
-      "notes": "",
+      "identified": "confirmed",
+      "notes": "Liquipedia steam64ID (single page) and played 3/3 on the Melee Creeps side. Same account also played the #48 Europe qualifier for Silence",
       "_hint_steam_persona": "Michael Jackson prime",
-      "_hint_vanity": null
+      "_hint_vanity": null,
+      "handle_attribution": {
+        "provider": "liquipedia",
+        "url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/48/NA"
+      }
     },
     "1868100596": {
       "handle": null,
@@ -339,28 +375,40 @@
       "_hint_vanity": null
     },
     "1871021649": {
-      "handle": null,
+      "handle": "Lomein",
       "aka": [],
-      "identified": "guess",
-      "notes": "",
+      "identified": "probable",
+      "notes": "Steam persona 'fpsl lomein'. The wiki lists a different account for Lomein (persona 'Lomein') which appears in no cached match, so he competes on this second account. Closed-set consistent across #33, #46, #47 and #48",
       "_hint_steam_persona": "fpsl lomein",
-      "_hint_vanity": null
+      "_hint_vanity": null,
+      "handle_attribution": {
+        "provider": "liquipedia",
+        "url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/48/NA"
+      }
     },
     "1871217631": {
-      "handle": null,
+      "handle": "Birdee",
       "aka": [],
-      "identified": "guess",
-      "notes": "",
+      "identified": "probable",
+      "notes": "Steam persona 'birdee'. No Liquipedia page at all. Only remaining Melee Creeps roster slot once the other five are assigned",
       "_hint_steam_persona": "birdee",
-      "_hint_vanity": null
+      "_hint_vanity": null,
+      "handle_attribution": {
+        "provider": "liquipedia",
+        "url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/48/NA"
+      }
     },
     "1929248273": {
-      "handle": null,
+      "handle": "Poppers",
       "aka": [],
-      "identified": "guess",
-      "notes": "",
+      "identified": "confirmed",
+      "notes": "Liquipedia steam64ID (single page) and played 3/3 on the Poppers' Pupils side",
       "_hint_steam_persona": "Draven",
-      "_hint_vanity": null
+      "_hint_vanity": null,
+      "handle_attribution": {
+        "provider": "liquipedia",
+        "url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/48/NA"
+      }
     }
   }
 }

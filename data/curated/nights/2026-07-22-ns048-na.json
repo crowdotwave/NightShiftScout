@@ -4,21 +4,80 @@
   "series": "night-shift",
   "edition": 48,
   "region": "na",
+  "region_confirmed": true,
   "date": "2026-07-22",
   "date_note": "Local broadcast date, derived from match start_time. NA = UTC-4, EU = UTC+2 in July 2026.",
-  "source": null,
-  "_scaffold": "Generated from cached matches. team_id, stage and rosters are NOT filled in: they are hand curation and were deliberately left null rather than guessed. _observed_account_ids is a curation aid and is ignored by the builder.",
-  "rosters": [],
+  "source": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/48/NA",
+  "rosters": [
+    {
+      "team_id": "melee-creeps",
+      "players": [
+        {
+          "account_id": "25821887",
+          "status": "starter"
+        },
+        {
+          "account_id": "244109796",
+          "status": "starter"
+        },
+        {
+          "account_id": "1285605078",
+          "status": "starter"
+        },
+        {
+          "account_id": "1840902834",
+          "status": "starter"
+        },
+        {
+          "account_id": "1871217631",
+          "status": "starter"
+        },
+        {
+          "account_id": "924812291",
+          "status": "sub"
+        }
+      ]
+    },
+    {
+      "team_id": "poppers-pupils",
+      "players": [
+        {
+          "account_id": "114943410",
+          "status": "starter"
+        },
+        {
+          "account_id": "1477660209",
+          "status": "starter"
+        },
+        {
+          "account_id": "1929248273",
+          "status": "starter"
+        },
+        {
+          "account_id": "1730032433",
+          "status": "starter"
+        },
+        {
+          "account_id": "1871021649",
+          "status": "starter"
+        },
+        {
+          "account_id": "399289886",
+          "status": "starter"
+        }
+      ]
+    }
+  ],
   "matches": [
     {
       "match_id": "95172627",
-      "stage": null,
-      "series_label": null,
-      "game_in_series": null,
+      "stage": "Finals",
+      "series_label": "Finals, best of 3",
+      "game_in_series": 1,
       "sides": [
         {
           "match_team_index": 0,
-          "team_id": null,
+          "team_id": "melee-creeps",
           "_observed_account_ids": [
             25821887,
             244109796,
@@ -30,7 +89,7 @@
         },
         {
           "match_team_index": 1,
-          "team_id": null,
+          "team_id": "poppers-pupils",
           "_observed_account_ids": [
             114943410,
             399289886,
@@ -44,13 +103,13 @@
     },
     {
       "match_id": "95180553",
-      "stage": null,
-      "series_label": null,
-      "game_in_series": null,
+      "stage": "Finals",
+      "series_label": "Finals, best of 3",
+      "game_in_series": 2,
       "sides": [
         {
           "match_team_index": 0,
-          "team_id": null,
+          "team_id": "poppers-pupils",
           "_observed_account_ids": [
             114943410,
             399289886,
@@ -62,7 +121,7 @@
         },
         {
           "match_team_index": 1,
-          "team_id": null,
+          "team_id": "melee-creeps",
           "_observed_account_ids": [
             25821887,
             244109796,
@@ -76,13 +135,13 @@
     },
     {
       "match_id": "95187371",
-      "stage": null,
-      "series_label": null,
-      "game_in_series": null,
+      "stage": "Finals",
+      "series_label": "Finals, best of 3",
+      "game_in_series": 3,
       "sides": [
         {
           "match_team_index": 0,
-          "team_id": null,
+          "team_id": "melee-creeps",
           "_observed_account_ids": [
             25821887,
             244109796,
@@ -94,7 +153,7 @@
         },
         {
           "match_team_index": 1,
-          "team_id": null,
+          "team_id": "poppers-pupils",
           "_observed_account_ids": [
             114943410,
             399289886,
@@ -106,5 +165,10 @@
         }
       ]
     }
-  ]
+  ],
+  "attribution": {
+    "provider": "liquipedia",
+    "url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/48/NA"
+  },
+  "roster_note": "Six per side, being the players present in all three cached games. Liquipedia lists Braeden as a Melee Creeps starter and records {{Substitution|out=Braeden|in=snakes}} for this final. Braeden appears in none of the three games, so he is recorded here as absent rather than given an account id we cannot verify against play data."
 }

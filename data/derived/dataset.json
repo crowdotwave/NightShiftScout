@@ -1,64 +1,126 @@
 {
   "schema_version": 1,
-  "generated_utc": "2026-07-27T05:27:01+00:00",
+  "generated_utc": "2026-07-27T19:08:31+00:00",
   "source": {
     "generator": "scripts/build_dataset.py",
-    "git_commit": "90303f8",
+    "git_commit": "a1f0111",
     "matches_cached": 12,
     "matches_ingested": 12,
     "nights_ingested": 6,
     "outcome_rule": "winning_team_index is copied from match_info.winning_team. No win flag is stored. A player won if match_team_index == winning_team_index.",
     "team_index_rule": "match_team_index is meaningful only within its own match and is never a join key."
   },
-  "teams": [],
+  "teams": [
+    {
+      "team_id": "melee-creeps",
+      "name": "Melee Creeps",
+      "tag": null,
+      "region": "na",
+      "active": true,
+      "notes": "Name as written on Liquipedia for #48. Team identity across renames is unresolved, see TEAM-IDENTITY-PROPOSAL.md.",
+      "attribution": {
+        "provider": "liquipedia",
+        "name": "Liquipedia",
+        "url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/48/NA",
+        "licence": "CC-BY-SA 3.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "share_alike": true
+      }
+    },
+    {
+      "team_id": "poppers-pupils",
+      "name": "Poppers' Pupils",
+      "tag": null,
+      "region": "na",
+      "active": true,
+      "notes": "Fielded as FPS Lounge up to #46 with five of these six players. Treated as a separate team_id for now because team identity across renames is unresolved, see TEAM-IDENTITY-PROPOSAL.md.",
+      "attribution": {
+        "provider": "liquipedia",
+        "name": "Liquipedia",
+        "url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/48/NA",
+        "licence": "CC-BY-SA 3.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "share_alike": true
+      }
+    }
+  ],
   "nights": [
     {
       "night_id": "ns046-na",
       "series": "night-shift",
       "edition": 46,
       "region": "na",
+      "region_confirmed": true,
       "date": "2026-07-08",
-      "source": null
+      "source": null,
+      "attribution": null
     },
     {
       "night_id": "ns046-eu",
       "series": "night-shift",
       "edition": 46,
       "region": "eu",
+      "region_confirmed": true,
       "date": "2026-07-09",
-      "source": null
+      "source": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/46/EU",
+      "attribution": null
     },
     {
       "night_id": "ns047-na",
       "series": "night-shift",
       "edition": 47,
       "region": "na",
+      "region_confirmed": true,
       "date": "2026-07-15",
-      "source": null
+      "source": null,
+      "attribution": null
     },
     {
       "night_id": "ns047-eu",
       "series": "night-shift",
       "edition": 47,
       "region": "eu",
+      "region_confirmed": true,
       "date": "2026-07-16",
-      "source": null
+      "source": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/47/EU",
+      "attribution": null
     },
     {
       "night_id": "ns048-eu",
       "series": "night-shift",
       "edition": 48,
       "region": "eu",
+      "region_confirmed": true,
       "date": "2026-07-20",
-      "source": null
+      "source": null,
+      "attribution": null
     },
     {
       "night_id": "ns048-na",
       "series": "night-shift",
       "edition": 48,
       "region": "na",
+      "region_confirmed": true,
       "date": "2026-07-22",
-      "source": null
+      "source": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/48/NA",
+      "attribution": {
+        "provider": "liquipedia",
+        "name": "Liquipedia",
+        "url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/48/NA",
+        "licence": "CC-BY-SA 3.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "share_alike": true
+      }
+    }
+  ],
+  "attributions": [
+    {
+      "provider": "liquipedia",
+      "name": "Liquipedia",
+      "home": "https://liquipedia.net/deadlock/",
+      "licence": "CC-BY-SA 3.0",
+      "licence_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "share_alike": true
     }
   ],
   "players": [
@@ -66,6 +128,7 @@
       "account_id": "5278896",
       "handle": null,
       "identified": "guess",
+      "handle_attribution": null,
       "publishable": false,
       "steam": {
         "personaname": "empty dreams",
@@ -77,9 +140,17 @@
     },
     {
       "account_id": "25821887",
-      "handle": null,
-      "identified": "guess",
-      "publishable": false,
+      "handle": "Saiah",
+      "identified": "confirmed",
+      "handle_attribution": {
+        "provider": "liquipedia",
+        "name": "Liquipedia",
+        "url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/48/NA",
+        "licence": "CC-BY-SA 3.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "share_alike": true
+      },
+      "publishable": true,
       "steam": {
         "personaname": "Saiah",
         "profileurl": "https://steamcommunity.com/id/SinonvsKirito/",
@@ -92,6 +163,7 @@
       "account_id": "35187362",
       "handle": null,
       "identified": "guess",
+      "handle_attribution": null,
       "publishable": false,
       "steam": {
         "personaname": "Zerggy",
@@ -105,6 +177,7 @@
       "account_id": "44899168",
       "handle": null,
       "identified": "guess",
+      "handle_attribution": null,
       "publishable": false,
       "steam": {
         "personaname": "Boostio",
@@ -118,6 +191,7 @@
       "account_id": "81662458",
       "handle": null,
       "identified": "guess",
+      "handle_attribution": null,
       "publishable": false,
       "steam": {
         "personaname": "sh",
@@ -131,6 +205,7 @@
       "account_id": "87241154",
       "handle": null,
       "identified": "guess",
+      "handle_attribution": null,
       "publishable": false,
       "steam": {
         "personaname": "hoot",
@@ -144,6 +219,7 @@
       "account_id": "97533101",
       "handle": null,
       "identified": "guess",
+      "handle_attribution": null,
       "publishable": false,
       "steam": {
         "personaname": "lystic",
@@ -157,6 +233,7 @@
       "account_id": "102312863",
       "handle": null,
       "identified": "guess",
+      "handle_attribution": null,
       "publishable": false,
       "steam": {
         "personaname": "--",
@@ -170,6 +247,7 @@
       "account_id": "108672673",
       "handle": null,
       "identified": "guess",
+      "handle_attribution": null,
       "publishable": false,
       "steam": {
         "personaname": "Draven",
@@ -183,6 +261,7 @@
       "account_id": "108710262",
       "handle": null,
       "identified": "guess",
+      "handle_attribution": null,
       "publishable": false,
       "steam": {
         "personaname": "dew",
@@ -194,9 +273,17 @@
     },
     {
       "account_id": "114943410",
-      "handle": null,
-      "identified": "guess",
-      "publishable": false,
+      "handle": "Lefaa",
+      "identified": "confirmed",
+      "handle_attribution": {
+        "provider": "liquipedia",
+        "name": "Liquipedia",
+        "url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/48/NA",
+        "licence": "CC-BY-SA 3.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "share_alike": true
+      },
+      "publishable": true,
       "steam": {
         "personaname": "FPSL Lefaa",
         "profileurl": "https://steamcommunity.com/profiles/76561198075209138/",
@@ -209,6 +296,7 @@
       "account_id": "124540485",
       "handle": null,
       "identified": "guess",
+      "handle_attribution": null,
       "publishable": false,
       "steam": {
         "personaname": "arzo",
@@ -222,6 +310,7 @@
       "account_id": "136898005",
       "handle": null,
       "identified": "guess",
+      "handle_attribution": null,
       "publishable": false,
       "steam": {
         "personaname": "say it loud",
@@ -233,9 +322,17 @@
     },
     {
       "account_id": "244109796",
-      "handle": null,
-      "identified": "guess",
-      "publishable": false,
+      "handle": "JonJon",
+      "identified": "confirmed",
+      "handle_attribution": {
+        "provider": "liquipedia",
+        "name": "Liquipedia",
+        "url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/48/NA",
+        "licence": "CC-BY-SA 3.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "share_alike": true
+      },
+      "publishable": true,
       "steam": {
         "personaname": "JonJon69",
         "profileurl": "https://steamcommunity.com/profiles/76561198204375524/",
@@ -248,6 +345,7 @@
       "account_id": "298155885",
       "handle": null,
       "identified": "guess",
+      "handle_attribution": null,
       "publishable": false,
       "steam": {
         "personaname": "together",
@@ -261,6 +359,7 @@
       "account_id": "298305257",
       "handle": null,
       "identified": "guess",
+      "handle_attribution": null,
       "publishable": false,
       "steam": {
         "personaname": "Dimov",
@@ -274,6 +373,7 @@
       "account_id": "323142724",
       "handle": null,
       "identified": "guess",
+      "handle_attribution": null,
       "publishable": false,
       "steam": {
         "personaname": "balaclava",
@@ -287,6 +387,7 @@
       "account_id": "344946432",
       "handle": null,
       "identified": "guess",
+      "handle_attribution": null,
       "publishable": false,
       "steam": {
         "personaname": "vraic",
@@ -298,9 +399,17 @@
     },
     {
       "account_id": "399289886",
-      "handle": null,
-      "identified": "guess",
-      "publishable": false,
+      "handle": "AVG",
+      "identified": "probable",
+      "handle_attribution": {
+        "provider": "liquipedia",
+        "name": "Liquipedia",
+        "url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/48/NA",
+        "licence": "CC-BY-SA 3.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "share_alike": true
+      },
+      "publishable": true,
       "steam": {
         "personaname": "\u039b",
         "profileurl": "https://steamcommunity.com/profiles/76561198359555614/",
@@ -313,6 +422,7 @@
       "account_id": "407786402",
       "handle": null,
       "identified": "guess",
+      "handle_attribution": null,
       "publishable": false,
       "steam": {
         "personaname": "reyache",
@@ -326,6 +436,7 @@
       "account_id": "483770846",
       "handle": null,
       "identified": "guess",
+      "handle_attribution": null,
       "publishable": false,
       "steam": {
         "personaname": "invincible under the sun",
@@ -339,6 +450,7 @@
       "account_id": "906011648",
       "handle": null,
       "identified": "guess",
+      "handle_attribution": null,
       "publishable": false,
       "steam": {
         "personaname": "\u043f\u043b\u043e\u0442\u043d\u044f\u0447\u043e\u043a",
@@ -352,6 +464,7 @@
       "account_id": "911856667",
       "handle": null,
       "identified": "guess",
+      "handle_attribution": null,
       "publishable": false,
       "steam": {
         "personaname": "obikym",
@@ -365,6 +478,7 @@
       "account_id": "914913299",
       "handle": null,
       "identified": "guess",
+      "handle_attribution": null,
       "publishable": false,
       "steam": {
         "personaname": "T.TV Mayonesedl LIVE EVERY DAY",
@@ -376,9 +490,17 @@
     },
     {
       "account_id": "924812291",
-      "handle": null,
-      "identified": "guess",
-      "publishable": false,
+      "handle": "snakes",
+      "identified": "probable",
+      "handle_attribution": {
+        "provider": "liquipedia",
+        "name": "Liquipedia",
+        "url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/48/NA",
+        "licence": "CC-BY-SA 3.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "share_alike": true
+      },
+      "publishable": true,
       "steam": {
         "personaname": "Snakes",
         "profileurl": "https://steamcommunity.com/profiles/76561198885078019/",
@@ -391,6 +513,7 @@
       "account_id": "984254212",
       "handle": null,
       "identified": "guess",
+      "handle_attribution": null,
       "publishable": false,
       "steam": {
         "personaname": "overseas",
@@ -404,6 +527,7 @@
       "account_id": "1009703898",
       "handle": null,
       "identified": "guess",
+      "handle_attribution": null,
       "publishable": false,
       "steam": {
         "personaname": "freemok",
@@ -417,6 +541,7 @@
       "account_id": "1045169707",
       "handle": null,
       "identified": "guess",
+      "handle_attribution": null,
       "publishable": false,
       "steam": {
         "personaname": "8",
@@ -430,6 +555,7 @@
       "account_id": "1046192556",
       "handle": null,
       "identified": "guess",
+      "handle_attribution": null,
       "publishable": false,
       "steam": {
         "personaname": "w3aky",
@@ -443,6 +569,7 @@
       "account_id": "1049966963",
       "handle": null,
       "identified": "guess",
+      "handle_attribution": null,
       "publishable": false,
       "steam": {
         "personaname": "DMB",
@@ -456,6 +583,7 @@
       "account_id": "1055638874",
       "handle": null,
       "identified": "guess",
+      "handle_attribution": null,
       "publishable": false,
       "steam": {
         "personaname": "twitch.tv/saintmxsm",
@@ -469,6 +597,7 @@
       "account_id": "1090618511",
       "handle": null,
       "identified": "guess",
+      "handle_attribution": null,
       "publishable": false,
       "steam": {
         "personaname": "sister",
@@ -482,6 +611,7 @@
       "account_id": "1186801441",
       "handle": null,
       "identified": "guess",
+      "handle_attribution": null,
       "publishable": false,
       "steam": {
         "personaname": "zxcbobi",
@@ -493,9 +623,17 @@
     },
     {
       "account_id": "1285605078",
-      "handle": null,
-      "identified": "guess",
-      "publishable": false,
+      "handle": "Goober",
+      "identified": "confirmed",
+      "handle_attribution": {
+        "provider": "liquipedia",
+        "name": "Liquipedia",
+        "url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/48/NA",
+        "licence": "CC-BY-SA 3.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "share_alike": true
+      },
+      "publishable": true,
       "steam": {
         "personaname": "EVIL MLC Goober",
         "profileurl": "https://steamcommunity.com/profiles/76561199245870806/",
@@ -508,6 +646,7 @@
       "account_id": "1444662928",
       "handle": null,
       "identified": "guess",
+      "handle_attribution": null,
       "publishable": false,
       "steam": {
         "personaname": "Tas",
@@ -519,9 +658,17 @@
     },
     {
       "account_id": "1477660209",
-      "handle": null,
-      "identified": "guess",
-      "publishable": false,
+      "handle": "League",
+      "identified": "confirmed",
+      "handle_attribution": {
+        "provider": "liquipedia",
+        "name": "Liquipedia",
+        "url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/48/NA",
+        "licence": "CC-BY-SA 3.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "share_alike": true
+      },
+      "publishable": true,
       "steam": {
         "personaname": "League",
         "profileurl": "https://steamcommunity.com/profiles/76561199437925937/",
@@ -534,6 +681,7 @@
       "account_id": "1591197043",
       "handle": null,
       "identified": "guess",
+      "handle_attribution": null,
       "publishable": false,
       "steam": {
         "personaname": "theac",
@@ -547,6 +695,7 @@
       "account_id": "1676299122",
       "handle": null,
       "identified": "guess",
+      "handle_attribution": null,
       "publishable": false,
       "steam": {
         "personaname": "eidorian",
@@ -560,6 +709,7 @@
       "account_id": "1682391475",
       "handle": null,
       "identified": "guess",
+      "handle_attribution": null,
       "publishable": false,
       "steam": {
         "personaname": "adofan11",
@@ -571,9 +721,17 @@
     },
     {
       "account_id": "1730032433",
-      "handle": null,
-      "identified": "guess",
-      "publishable": false,
+      "handle": "Zeno",
+      "identified": "confirmed",
+      "handle_attribution": {
+        "provider": "liquipedia",
+        "name": "Liquipedia",
+        "url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/48/NA",
+        "licence": "CC-BY-SA 3.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "share_alike": true
+      },
+      "publishable": true,
       "steam": {
         "personaname": "abcd_fg",
         "profileurl": "https://steamcommunity.com/profiles/76561199690298161/",
@@ -584,9 +742,17 @@
     },
     {
       "account_id": "1840902834",
-      "handle": null,
-      "identified": "guess",
-      "publishable": false,
+      "handle": "oses",
+      "identified": "confirmed",
+      "handle_attribution": {
+        "provider": "liquipedia",
+        "name": "Liquipedia",
+        "url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/48/NA",
+        "licence": "CC-BY-SA 3.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "share_alike": true
+      },
+      "publishable": true,
       "steam": {
         "personaname": "Michael Jackson prime",
         "profileurl": "https://steamcommunity.com/profiles/76561199801168562/",
@@ -599,6 +765,7 @@
       "account_id": "1868100596",
       "handle": null,
       "identified": "guess",
+      "handle_attribution": null,
       "publishable": false,
       "steam": {
         "personaname": "Phosphophyllite",
@@ -610,9 +777,17 @@
     },
     {
       "account_id": "1871021649",
-      "handle": null,
-      "identified": "guess",
-      "publishable": false,
+      "handle": "Lomein",
+      "identified": "probable",
+      "handle_attribution": {
+        "provider": "liquipedia",
+        "name": "Liquipedia",
+        "url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/48/NA",
+        "licence": "CC-BY-SA 3.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "share_alike": true
+      },
+      "publishable": true,
       "steam": {
         "personaname": "fpsl lomein",
         "profileurl": "https://steamcommunity.com/profiles/76561199831287377/",
@@ -623,9 +798,17 @@
     },
     {
       "account_id": "1871217631",
-      "handle": null,
-      "identified": "guess",
-      "publishable": false,
+      "handle": "Birdee",
+      "identified": "probable",
+      "handle_attribution": {
+        "provider": "liquipedia",
+        "name": "Liquipedia",
+        "url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/48/NA",
+        "licence": "CC-BY-SA 3.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "share_alike": true
+      },
+      "publishable": true,
       "steam": {
         "personaname": "birdee",
         "profileurl": "https://steamcommunity.com/profiles/76561199831483359/",
@@ -636,9 +819,17 @@
     },
     {
       "account_id": "1929248273",
-      "handle": null,
-      "identified": "guess",
-      "publishable": false,
+      "handle": "Poppers",
+      "identified": "confirmed",
+      "handle_attribution": {
+        "provider": "liquipedia",
+        "name": "Liquipedia",
+        "url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/48/NA",
+        "licence": "CC-BY-SA 3.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "share_alike": true
+      },
+      "publishable": true,
       "steam": {
         "personaname": "Draven",
         "profileurl": "https://steamcommunity.com/profiles/76561199889514001/",
@@ -1039,20 +1230,20 @@
     {
       "match_id": "95172627",
       "night_id": "ns048-na",
-      "stage": null,
-      "series_label": null,
-      "game_in_series": null,
+      "stage": "Finals",
+      "series_label": "Finals, best of 3",
+      "game_in_series": 1,
       "start_time": 1784772175,
       "duration_s": 2075,
       "winning_team_index": 0,
       "sides": [
         {
           "match_team_index": 0,
-          "team_id": null
+          "team_id": "melee-creeps"
         },
         {
           "match_team_index": 1,
-          "team_id": null
+          "team_id": "poppers-pupils"
         }
       ],
       "totals": {
@@ -1082,20 +1273,20 @@
     {
       "match_id": "95180553",
       "night_id": "ns048-na",
-      "stage": null,
-      "series_label": null,
-      "game_in_series": null,
+      "stage": "Finals",
+      "series_label": "Finals, best of 3",
+      "game_in_series": 2,
       "start_time": 1784775647,
       "duration_s": 1955,
       "winning_team_index": 0,
       "sides": [
         {
           "match_team_index": 0,
-          "team_id": null
+          "team_id": "poppers-pupils"
         },
         {
           "match_team_index": 1,
-          "team_id": null
+          "team_id": "melee-creeps"
         }
       ],
       "totals": {
@@ -1125,20 +1316,20 @@
     {
       "match_id": "95187371",
       "night_id": "ns048-na",
-      "stage": null,
-      "series_label": null,
-      "game_in_series": null,
+      "stage": "Finals",
+      "series_label": "Finals, best of 3",
+      "game_in_series": 3,
       "start_time": 1784778811,
       "duration_s": 2296,
       "winning_team_index": 1,
       "sides": [
         {
           "match_team_index": 0,
-          "team_id": null
+          "team_id": "melee-creeps"
         },
         {
           "match_team_index": 1,
-          "team_id": null
+          "team_id": "poppers-pupils"
         }
       ],
       "totals": {
@@ -2791,8 +2982,8 @@
       "match_id": "95172627",
       "account_id": "244109796",
       "match_team_index": 0,
-      "team_id": null,
-      "roster_status": null,
+      "team_id": "melee-creeps",
+      "roster_status": "starter",
       "hero_id": 65,
       "kills": 9,
       "deaths": 2,
@@ -2806,8 +2997,8 @@
       "match_id": "95172627",
       "account_id": "1285605078",
       "match_team_index": 0,
-      "team_id": null,
-      "roster_status": null,
+      "team_id": "melee-creeps",
+      "roster_status": "starter",
       "hero_id": 80,
       "kills": 16,
       "deaths": 0,
@@ -2821,8 +3012,8 @@
       "match_id": "95172627",
       "account_id": "114943410",
       "match_team_index": 1,
-      "team_id": null,
-      "roster_status": null,
+      "team_id": "poppers-pupils",
+      "roster_status": "starter",
       "hero_id": 50,
       "kills": 3,
       "deaths": 7,
@@ -2836,8 +3027,8 @@
       "match_id": "95172627",
       "account_id": "1871021649",
       "match_team_index": 1,
-      "team_id": null,
-      "roster_status": null,
+      "team_id": "poppers-pupils",
+      "roster_status": "starter",
       "hero_id": 64,
       "kills": 4,
       "deaths": 12,
@@ -2851,8 +3042,8 @@
       "match_id": "95172627",
       "account_id": "1730032433",
       "match_team_index": 1,
-      "team_id": null,
-      "roster_status": null,
+      "team_id": "poppers-pupils",
+      "roster_status": "starter",
       "hero_id": 14,
       "kills": 2,
       "deaths": 5,
@@ -2866,8 +3057,8 @@
       "match_id": "95172627",
       "account_id": "1929248273",
       "match_team_index": 1,
-      "team_id": null,
-      "roster_status": null,
+      "team_id": "poppers-pupils",
+      "roster_status": "starter",
       "hero_id": 77,
       "kills": 2,
       "deaths": 9,
@@ -2881,8 +3072,8 @@
       "match_id": "95172627",
       "account_id": "924812291",
       "match_team_index": 0,
-      "team_id": null,
-      "roster_status": null,
+      "team_id": "melee-creeps",
+      "roster_status": "sub",
       "hero_id": 16,
       "kills": 10,
       "deaths": 4,
@@ -2896,8 +3087,8 @@
       "match_id": "95172627",
       "account_id": "1871217631",
       "match_team_index": 0,
-      "team_id": null,
-      "roster_status": null,
+      "team_id": "melee-creeps",
+      "roster_status": "starter",
       "hero_id": 35,
       "kills": 3,
       "deaths": 2,
@@ -2911,8 +3102,8 @@
       "match_id": "95172627",
       "account_id": "1477660209",
       "match_team_index": 1,
-      "team_id": null,
-      "roster_status": null,
+      "team_id": "poppers-pupils",
+      "roster_status": "starter",
       "hero_id": 4,
       "kills": 3,
       "deaths": 8,
@@ -2926,8 +3117,8 @@
       "match_id": "95172627",
       "account_id": "399289886",
       "match_team_index": 1,
-      "team_id": null,
-      "roster_status": null,
+      "team_id": "poppers-pupils",
+      "roster_status": "starter",
       "hero_id": 1,
       "kills": 2,
       "deaths": 14,
@@ -2941,8 +3132,8 @@
       "match_id": "95172627",
       "account_id": "25821887",
       "match_team_index": 0,
-      "team_id": null,
-      "roster_status": null,
+      "team_id": "melee-creeps",
+      "roster_status": "starter",
       "hero_id": 72,
       "kills": 6,
       "deaths": 5,
@@ -2956,8 +3147,8 @@
       "match_id": "95172627",
       "account_id": "1840902834",
       "match_team_index": 0,
-      "team_id": null,
-      "roster_status": null,
+      "team_id": "melee-creeps",
+      "roster_status": "starter",
       "hero_id": 63,
       "kills": 11,
       "deaths": 3,
@@ -2971,8 +3162,8 @@
       "match_id": "95180553",
       "account_id": "244109796",
       "match_team_index": 1,
-      "team_id": null,
-      "roster_status": null,
+      "team_id": "melee-creeps",
+      "roster_status": "starter",
       "hero_id": 25,
       "kills": 3,
       "deaths": 10,
@@ -2986,8 +3177,8 @@
       "match_id": "95180553",
       "account_id": "114943410",
       "match_team_index": 0,
-      "team_id": null,
-      "roster_status": null,
+      "team_id": "poppers-pupils",
+      "roster_status": "starter",
       "hero_id": 1,
       "kills": 3,
       "deaths": 4,
@@ -3001,8 +3192,8 @@
       "match_id": "95180553",
       "account_id": "1871021649",
       "match_team_index": 0,
-      "team_id": null,
-      "roster_status": null,
+      "team_id": "poppers-pupils",
+      "roster_status": "starter",
       "hero_id": 72,
       "kills": 7,
       "deaths": 9,
@@ -3016,8 +3207,8 @@
       "match_id": "95180553",
       "account_id": "1730032433",
       "match_team_index": 0,
-      "team_id": null,
-      "roster_status": null,
+      "team_id": "poppers-pupils",
+      "roster_status": "starter",
       "hero_id": 77,
       "kills": 12,
       "deaths": 7,
@@ -3031,8 +3222,8 @@
       "match_id": "95180553",
       "account_id": "1285605078",
       "match_team_index": 1,
-      "team_id": null,
-      "roster_status": null,
+      "team_id": "melee-creeps",
+      "roster_status": "starter",
       "hero_id": 80,
       "kills": 7,
       "deaths": 9,
@@ -3046,8 +3237,8 @@
       "match_id": "95180553",
       "account_id": "924812291",
       "match_team_index": 1,
-      "team_id": null,
-      "roster_status": null,
+      "team_id": "melee-creeps",
+      "roster_status": "sub",
       "hero_id": 27,
       "kills": 15,
       "deaths": 6,
@@ -3061,8 +3252,8 @@
       "match_id": "95180553",
       "account_id": "1871217631",
       "match_team_index": 1,
-      "team_id": null,
-      "roster_status": null,
+      "team_id": "melee-creeps",
+      "roster_status": "starter",
       "hero_id": 35,
       "kills": 2,
       "deaths": 5,
@@ -3076,8 +3267,8 @@
       "match_id": "95180553",
       "account_id": "1929248273",
       "match_team_index": 0,
-      "team_id": null,
-      "roster_status": null,
+      "team_id": "poppers-pupils",
+      "roster_status": "starter",
       "hero_id": 16,
       "kills": 6,
       "deaths": 8,
@@ -3091,8 +3282,8 @@
       "match_id": "95180553",
       "account_id": "1477660209",
       "match_team_index": 0,
-      "team_id": null,
-      "roster_status": null,
+      "team_id": "poppers-pupils",
+      "roster_status": "starter",
       "hero_id": 31,
       "kills": 7,
       "deaths": 6,
@@ -3106,8 +3297,8 @@
       "match_id": "95180553",
       "account_id": "25821887",
       "match_team_index": 1,
-      "team_id": null,
-      "roster_status": null,
+      "team_id": "melee-creeps",
+      "roster_status": "starter",
       "hero_id": 10,
       "kills": 5,
       "deaths": 7,
@@ -3121,8 +3312,8 @@
       "match_id": "95180553",
       "account_id": "399289886",
       "match_team_index": 0,
-      "team_id": null,
-      "roster_status": null,
+      "team_id": "poppers-pupils",
+      "roster_status": "starter",
       "hero_id": 4,
       "kills": 7,
       "deaths": 4,
@@ -3136,8 +3327,8 @@
       "match_id": "95180553",
       "account_id": "1840902834",
       "match_team_index": 1,
-      "team_id": null,
-      "roster_status": null,
+      "team_id": "melee-creeps",
+      "roster_status": "starter",
       "hero_id": 50,
       "kills": 6,
       "deaths": 5,
@@ -3151,8 +3342,8 @@
       "match_id": "95187371",
       "account_id": "1871021649",
       "match_team_index": 1,
-      "team_id": null,
-      "roster_status": null,
+      "team_id": "poppers-pupils",
+      "roster_status": "starter",
       "hero_id": 72,
       "kills": 4,
       "deaths": 5,
@@ -3166,8 +3357,8 @@
       "match_id": "95187371",
       "account_id": "114943410",
       "match_team_index": 1,
-      "team_id": null,
-      "roster_status": null,
+      "team_id": "poppers-pupils",
+      "roster_status": "starter",
       "hero_id": 50,
       "kills": 2,
       "deaths": 1,
@@ -3181,8 +3372,8 @@
       "match_id": "95187371",
       "account_id": "1285605078",
       "match_team_index": 0,
-      "team_id": null,
-      "roster_status": null,
+      "team_id": "melee-creeps",
+      "roster_status": "starter",
       "hero_id": 14,
       "kills": 11,
       "deaths": 3,
@@ -3196,8 +3387,8 @@
       "match_id": "95187371",
       "account_id": "1871217631",
       "match_team_index": 0,
-      "team_id": null,
-      "roster_status": null,
+      "team_id": "melee-creeps",
+      "roster_status": "starter",
       "hero_id": 20,
       "kills": 2,
       "deaths": 3,
@@ -3211,8 +3402,8 @@
       "match_id": "95187371",
       "account_id": "924812291",
       "match_team_index": 0,
-      "team_id": null,
-      "roster_status": null,
+      "team_id": "melee-creeps",
+      "roster_status": "sub",
       "hero_id": 16,
       "kills": 1,
       "deaths": 6,
@@ -3226,8 +3417,8 @@
       "match_id": "95187371",
       "account_id": "1929248273",
       "match_team_index": 1,
-      "team_id": null,
-      "roster_status": null,
+      "team_id": "poppers-pupils",
+      "roster_status": "starter",
       "hero_id": 77,
       "kills": 5,
       "deaths": 4,
@@ -3241,8 +3432,8 @@
       "match_id": "95187371",
       "account_id": "1730032433",
       "match_team_index": 1,
-      "team_id": null,
-      "roster_status": null,
+      "team_id": "poppers-pupils",
+      "roster_status": "starter",
       "hero_id": 10,
       "kills": 9,
       "deaths": 7,
@@ -3256,8 +3447,8 @@
       "match_id": "95187371",
       "account_id": "1477660209",
       "match_team_index": 1,
-      "team_id": null,
-      "roster_status": null,
+      "team_id": "poppers-pupils",
+      "roster_status": "starter",
       "hero_id": 31,
       "kills": 6,
       "deaths": 5,
@@ -3271,8 +3462,8 @@
       "match_id": "95187371",
       "account_id": "25821887",
       "match_team_index": 0,
-      "team_id": null,
-      "roster_status": null,
+      "team_id": "melee-creeps",
+      "roster_status": "starter",
       "hero_id": 27,
       "kills": 6,
       "deaths": 11,
@@ -3286,8 +3477,8 @@
       "match_id": "95187371",
       "account_id": "399289886",
       "match_team_index": 1,
-      "team_id": null,
-      "roster_status": null,
+      "team_id": "poppers-pupils",
+      "roster_status": "starter",
       "hero_id": 80,
       "kills": 10,
       "deaths": 6,
@@ -3301,8 +3492,8 @@
       "match_id": "95187371",
       "account_id": "1840902834",
       "match_team_index": 0,
-      "team_id": null,
-      "roster_status": null,
+      "team_id": "melee-creeps",
+      "roster_status": "starter",
       "hero_id": 52,
       "kills": 5,
       "deaths": 7,
@@ -3316,8 +3507,8 @@
       "match_id": "95187371",
       "account_id": "244109796",
       "match_team_index": 0,
-      "team_id": null,
-      "roster_status": null,
+      "team_id": "melee-creeps",
+      "roster_status": "starter",
       "hero_id": 4,
       "kills": 3,
       "deaths": 6,
