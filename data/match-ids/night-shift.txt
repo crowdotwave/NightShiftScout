@@ -1,27 +1,48 @@
 # Night Shift match IDs, collected by hand from lockblaze.com tournament pages.
 # Comments and blank lines are ignored. Append new editions at the bottom.
 #
-# This file is the input to scripts/fetch_matches.py. It is also the only
-# record of which edition a match belongs to, until the curated dataset in
-# step 3 takes that job over properly.
+# This file is the input to scripts/fetch_matches.py. Authoritative night
+# membership lives in data/curated/nights/, not here.
+#
+# Dates below are LOCAL BROADCAST dates, derived from each match's actual
+# start_time (July 2026: NA = UTC-4, EU = UTC+2). They were corrected against
+# the cached data on 2026-07-27. The previous "#48 Europe (July 22)" label was
+# wrong by two days: those matches start 2026-07-20.
+#
+# UNRESOLVED: see the region note at the bottom of this file.
 
-# Night Shift #46 (July 8-9, 2026) North America
+# Night Shift #46, North America, 2026-07-08 (local)
 92912944
-# Night Shift #46 (July 8-9, 2026) Europe
+# Night Shift #46, Europe, 2026-07-09 (local)
 92902607
 
-# Night Shift #47 (July 15-16, 2026) North America
+# Night Shift #47, North America, 2026-07-15 (local)
 94031068
 94038881
 94048508
-# Night Shift #47 (July 15-16, 2026) Europe
+# Night Shift #47, Europe, 2026-07-16 (local)
 94021619
 
-# Night Shift #48 (July 22, 2026) North America
-95172627
-95180553
-95187371
-# Night Shift #48 (July 22, 2026) Europe
+# Night Shift #48, Europe, 2026-07-20 (local)
 94767316
 94773487
 94779630
+# Night Shift #48, North America, 2026-07-22 (local)
+95172627
+95180553
+95187371
+
+# ---------------------------------------------------------------------------
+# UNRESOLVED region labels
+#
+# 92902607 and 94021619 are labelled Europe, but their start times are
+# 23:23 and 23:30 UTC, which is 01:23 and 01:30 Central European time. That is
+# an odd hour for a European broadcast. Read as North America they land at
+# 19:23 and 19:30 Eastern, which is an ordinary slot, and would pair naturally
+# with the North American matches on the same evening.
+#
+# By contrast the #48 Europe matches run 17:25 to 19:13 Central European time,
+# a normal European evening, so the pattern does not hold across editions.
+#
+# This has not been changed either way, since the source pages are the only
+# thing that can settle it. Check lockblaze for editions 46 and 47.
