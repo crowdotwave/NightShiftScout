@@ -1,1 +1,8 @@
 .claude/
+
+# Python bytecode from the scripts in scripts/
+__pycache__/
+*.pyc
+
+# Partial cache writes, if a fetch is interrupted mid-write
+*.part

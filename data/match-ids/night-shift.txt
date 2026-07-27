@@ -1,0 +1,27 @@
+# Night Shift match IDs, collected by hand from lockblaze.com tournament pages.
+# Comments and blank lines are ignored. Append new editions at the bottom.
+#
+# This file is the input to scripts/fetch_matches.py. It is also the only
+# record of which edition a match belongs to, until the curated dataset in
+# step 3 takes that job over properly.
+
+# Night Shift #46 (July 8-9, 2026) North America
+92912944
+# Night Shift #46 (July 8-9, 2026) Europe
+92902607
+
+# Night Shift #47 (July 15-16, 2026) North America
+94031068
+94038881
+94048508
+# Night Shift #47 (July 15-16, 2026) Europe
+94021619
+
+# Night Shift #48 (July 22, 2026) North America
+95172627
+95180553
+95187371
+# Night Shift #48 (July 22, 2026) Europe
+94767316
+94773487
+94779630
