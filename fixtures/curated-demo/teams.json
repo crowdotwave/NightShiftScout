@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "_fixture": "FIXTURE, NOT REAL DATA. Team names and roster assignments are invented placeholders used only to exercise the site generator. Nothing here should be published or copied into data/curated/.",
+  "teams": {
+    "demo-alpha": {
+      "name": "Demo Alpha",
+      "tag": "DMOA",
+      "region": "na",
+      "active": true,
+      "notes": "Placeholder team name, invented for the fixture."
+    },
+    "demo-bravo": {
+      "name": "Demo Bravo",
+      "tag": "DMOB",
+      "region": "na",
+      "active": true,
+      "notes": "Placeholder team name, invented for the fixture."
+    }
+  }
+}

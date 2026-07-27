@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "_fixture": "FIXTURE, NOT REAL DATA. Team names and roster assignments are invented placeholders used only to exercise the site generator. Nothing here should be published or copied into data/curated/.",
+  "night_id": "ns048-na",
+  "series": "night-shift",
+  "edition": 48,
+  "region": "na",
+  "region_confirmed": true,
+  "date": "2026-07-22",
+  "date_note": "Local broadcast date. Matches start 2026-07-23 UTC.",
+  "source": null,
+  "rosters": [
+    {
+      "team_id": "demo-alpha",
+      "players": [
+        {
+          "account_id": "25821887",
+          "status": "starter"
+        },
+        {
+          "account_id": "244109796",
+          "status": "starter"
+        },
+        {
+          "account_id": "924812291",
+          "status": "starter"
+        },
+        {
+          "account_id": "1285605078",
+          "status": "starter"
+        },
+        {
+          "account_id": "1840902834",
+          "status": "starter"
+        },
+        {
+          "account_id": "1871217631",
+          "status": "starter"
+        }
+      ]
+    },
+    {
+      "team_id": "demo-bravo",
+      "players": [
+        {
+          "account_id": "114943410",
+          "status": "starter"
+        },
+        {
+          "account_id": "399289886",
+          "status": "starter"
+        },
+        {
+          "account_id": "1477660209",
+          "status": "starter"
+        },
+        {
+          "account_id": "1730032433",
+          "status": "starter"
+        },
+        {
+          "account_id": "1871021649",
+          "status": "starter"
+        },
+        {
+          "account_id": "1929248273",
+          "status": "starter"
+        }
+      ]
+    }
+  ],
+  "matches": [
+    {
+      "match_id": "95172627",
+      "stage": "final",
+      "series_label": "Grand Final (Bo3)",
+      "game_in_series": 1,
+      "sides": [
+        {
+          "match_team_index": 0,
+          "team_id": "demo-alpha"
+        },
+        {
+          "match_team_index": 1,
+          "team_id": "demo-bravo"
+        }
+      ]
+    },
+    {
+      "match_id": "95180553",
+      "stage": "final",
+      "series_label": "Grand Final (Bo3)",
+      "game_in_series": 2,
+      "sides": [
+        {
+          "match_team_index": 0,
+          "team_id": "demo-bravo"
+        },
+        {
+          "match_team_index": 1,
+          "team_id": "demo-alpha"
+        }
+      ]
+    },
+    {
+      "match_id": "95187371",
+      "stage": "final",
+      "series_label": "Grand Final (Bo3)",
+      "game_in_series": 3,
+      "sides": [
+        {
+          "match_team_index": 0,
+          "team_id": "demo-alpha"
+        },
+        {
+          "match_team_index": 1,
+          "team_id": "demo-bravo"
+        }
+      ]
+    }
+  ]
+}

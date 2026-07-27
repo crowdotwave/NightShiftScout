@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "_fixture": "FIXTURE, NOT REAL DATA. Team names and roster assignments are invented placeholders used only to exercise the site generator. Nothing here should be published or copied into data/curated/. Only one team is curated; the opposing six are deliberately absent.",
+  "players": {
+    "25821887": {
+      "handle": "Saiah",
+      "aka": [],
+      "identified": "probable",
+      "notes": "FIXTURE. Handle is the account's public Steam persona, used as a stand-in. Not verified."
+    },
+    "244109796": {
+      "handle": "JonJon69",
+      "aka": [],
+      "identified": "probable",
+      "notes": "FIXTURE. Handle is the account's public Steam persona, used as a stand-in. Not verified."
+    },
+    "924812291": {
+      "handle": "Snakes",
+      "aka": [],
+      "identified": "probable",
+      "notes": "FIXTURE. Handle is the account's public Steam persona, used as a stand-in. Not verified."
+    },
+    "1285605078": {
+      "handle": "EVIL MLC Goober",
+      "aka": [],
+      "identified": "probable",
+      "notes": "FIXTURE. Handle is the account's public Steam persona, used as a stand-in. Not verified."
+    },
+    "1840902834": {
+      "handle": "Michael Jackson prime",
+      "aka": [],
+      "identified": "probable",
+      "notes": "FIXTURE. Handle is the account's public Steam persona, used as a stand-in. Not verified."
+    },
+    "1871217631": {
+      "handle": "birdee",
+      "aka": [],
+      "identified": "probable",
+      "notes": "FIXTURE. Handle is the account's public Steam persona, used as a stand-in. Not verified."
+    }
+  }
+}

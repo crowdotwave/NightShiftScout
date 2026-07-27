@@ -6,3 +6,7 @@ __pycache__/
 
 # Partial cache writes, if a fetch is interrupted mid-write
 *.part
+
+# Generated site output
+site/
+site_preview/
