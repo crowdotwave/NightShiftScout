@@ -39,6 +39,56 @@ from pathlib import Path
 SCHEMA_VERSION = 1
 BANNED_OUTCOME_KEYS = {"won", "is_win", "win", "result", "match_result", "outcome", "victor"}
 
+# Outside sources whose content carries a licence obligation. Anything curated
+# from one of these must name it, so the site generator can render the credit
+# the licence requires. Adding a provider here is the only way to make it
+# publishable: an unknown provider is an error, not a silent passthrough.
+ATTRIBUTION_PROVIDERS = {
+    "liquipedia": {
+        "name": "Liquipedia",
+        "licence": "CC-BY-SA 3.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "home": "https://liquipedia.net/deadlock/",
+        "share_alike": True,
+    },
+}
+
+
+def normalise_attribution(raw, where: str, report: "Report",
+                          sink: dict | None = None) -> dict | None:
+    """Validate one curated attribution block and return it normalised.
+
+    Returns None when nothing is claimed, which is the ordinary case for data
+    derived only from the match API. A claimed provider we do not know about,
+    or a claim with no source URL, is an error: publishing it would mean
+    crediting a source we cannot link to.
+    """
+    if not raw:
+        return None
+    if isinstance(raw, str):
+        raw = {"provider": raw}
+    provider = raw.get("provider")
+    known = ATTRIBUTION_PROVIDERS.get(provider)
+    if known is None:
+        report.add("error", "unknown-attribution",
+                   f"{where} claims attribution provider {provider!r}, which is not in "
+                   f"ATTRIBUTION_PROVIDERS, so its licence terms are unknown")
+        return None
+    url = raw.get("url")
+    if not url:
+        report.add("error", "attribution-no-url",
+                   f"{where} claims attribution to {known['name']} but gives no source url")
+        return None
+    out = {"provider": provider, "name": known["name"], "url": url,
+           "licence": known["licence"], "licence_url": known["licence_url"],
+           "share_alike": known["share_alike"]}
+    if sink is not None:
+        sink.setdefault(provider, {"provider": provider, "name": known["name"],
+                                   "home": known["home"], "licence": known["licence"],
+                                   "licence_url": known["licence_url"],
+                                   "share_alike": known["share_alike"]})
+    return out
+
 
 class Report:
     """Collects problems by severity. Nothing here alters the data."""
@@ -306,6 +356,7 @@ def main() -> int:
     # ---- player identity ---------------------------------------------------
     out_players = []
     unmapped, guesses = [], []
+    attributions: dict[str, dict] = {}
     for account_id in sorted(seen_accounts, key=int):
         curated = curated_players.get(account_id)
         if curated is None:
@@ -317,10 +368,17 @@ def main() -> int:
             if identified == "guess" or not handle:
                 guesses.append(account_id)
         steam = steam_by_id.get(account_id, {})
+        handle_attr = normalise_attribution(
+            (curated or {}).get("handle_attribution"),
+            f"player {account_id}", report, attributions)
         out_players.append({
             "account_id": account_id,
             "handle": handle,
             "identified": identified,
+            # Which outside source, if any, the handle came from. The site
+            # generator refuses to publish an attributable name without
+            # rendering the corresponding credit.
+            "handle_attribution": handle_attr,
             # Per the review decision, only confirmed and probable get a page.
             "publishable": bool(handle) and identified in ("confirmed", "probable"),
             "steam": {
@@ -342,6 +400,10 @@ def main() -> int:
                    f"and render as a bare account ID")
 
     for night in nights:
+        if night.get("region_confirmed") is False:
+            report.add("info", "region-unconfirmed",
+                       f"night {night['night_id']} has an unresolved region label, "
+                       f"its matches are excluded from region dependent output")
         if not night.get("rosters"):
             report.add("warning", "no-roster", f"night {night['night_id']} has no rosters, team attribution is unavailable")
         for entry in night.get("matches", []):
@@ -362,8 +424,19 @@ def main() -> int:
                             "A player won if match_team_index == winning_team_index.",
             "team_index_rule": "match_team_index is meaningful only within its own match and is never a join key.",
         },
-        "teams": [{"team_id": k, **v} for k, v in sorted(teams.items())],
-        "nights": [{k: n.get(k) for k in ("night_id", "series", "edition", "region", "date", "source")} for n in nights],
+        "teams": [{"team_id": k, **v,
+                   "attribution": normalise_attribution(
+                       v.get("attribution"), f"team {k}", report, attributions)}
+                  for k, v in sorted(teams.items())],
+        "nights": [{**{k: n.get(k) for k in
+                       ("night_id", "series", "edition", "region", "region_confirmed",
+                        "date", "source")},
+                    "attribution": normalise_attribution(
+                        n.get("attribution"), f"night {n['night_id']}", report, attributions)}
+                   for n in nights],
+        # Every distinct source credited anywhere in this dataset. The site
+        # generator renders one credit block per entry actually used.
+        "attributions": [attributions[k] for k in sorted(attributions)],
         "players": out_players,
         "matches": out_matches,
         "player_matches": out_player_matches,
