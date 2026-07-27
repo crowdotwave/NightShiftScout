@@ -159,16 +159,12 @@
       "_hint_vanity": "vraic"
     },
     "399289886": {
-      "handle": "AVG",
+      "handle": null,
       "aka": [],
-      "identified": "probable",
-      "notes": "Steam persona is a single Greek letter and gives no signal. Established by closed-set elimination twice over: in match 74191976 the other five Floormen accounts all carry single-page wiki ids, leaving AVG, and the same elimination holds independently on the #48 Poppers' Pupils side. The wiki's own AVG steam64ID points at an account (persona 'mrbob40') that appears in no cached match, so it is contradicted by play data",
+      "identified": "guess",
+      "notes": "Almost certainly AVG, but not named. Closed-set elimination in match 74191976 and again on the #48 Poppers' Pupils side both leave AVG as the only unassigned roster slot. That is still elimination rather than direct evidence, the Steam persona is a single Greek letter and gives no signal, and Liquipedia's own steam64ID for AVG points at a different account (persona 'mrbob40') that appears in no cached match. Left unnamed deliberately: there is no cost to an account rendering as a number, and an identity error lands on a real person.",
       "_hint_steam_persona": "Λ",
-      "_hint_vanity": null,
-      "handle_attribution": {
-        "provider": "liquipedia",
-        "url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/48/NA"
-      }
+      "_hint_vanity": null
     },
     "407786402": {
       "handle": null,

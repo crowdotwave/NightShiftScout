@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_utc": "2026-07-27T19:08:31+00:00",
+  "generated_utc": "2026-07-27T22:56:37+00:00",
   "source": {
     "generator": "scripts/build_dataset.py",
-    "git_commit": "a1f0111",
+    "git_commit": "9e32967",
     "matches_cached": 12,
     "matches_ingested": 12,
     "nights_ingested": 6,
@@ -399,17 +399,10 @@
     },
     {
       "account_id": "399289886",
-      "handle": "AVG",
-      "identified": "probable",
-      "handle_attribution": {
-        "provider": "liquipedia",
-        "name": "Liquipedia",
-        "url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/48/NA",
-        "licence": "CC-BY-SA 3.0",
-        "licence_url": "https://creativecommons.org/licenses/by-sa/3.0/",
-        "share_alike": true
-      },
-      "publishable": true,
+      "handle": null,
+      "identified": "guess",
+      "handle_attribution": null,
+      "publishable": false,
       "steam": {
         "personaname": "\u039b",
         "profileurl": "https://steamcommunity.com/profiles/76561198359555614/",

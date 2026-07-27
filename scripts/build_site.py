@@ -412,6 +412,18 @@ def main() -> int:
         (page_dir / "index.html").write_text(page, encoding="utf-8")
         published.append(account_id)
 
+    # Remove pages for accounts that are no longer publishable. Downgrading an
+    # identity is exactly the correction that must actually take effect: without
+    # this, retracting a name leaves the old page live on any deployed copy.
+    retracted = []
+    players_dir = args.out / "players"
+    if players_dir.is_dir():
+        keep = set(published)
+        for existing in players_dir.iterdir():
+            if existing.is_dir() and existing.name.isdigit() and existing.name not in keep:
+                shutil.rmtree(existing)
+                retracted.append(existing.name)
+
     # Only copy avatars for players who actually have a page.
     avatar_src = args.assets / "avatars"
     copied = 0
@@ -427,6 +439,9 @@ def main() -> int:
     print(f"  {len(skipped)} account(s) not published (unidentified or guess level); "
           f"they render as bare account IDs inside other pages")
     print(f"  {copied} avatar(s) copied, {len(ds['matches'])} match(es) represented")
+    if retracted:
+        print(f"  {len(retracted)} page(s) removed, no longer publishable: "
+              f"{', '.join(sorted(retracted))}")
     if credited:
         print(f"  credited on every page that uses them: {', '.join(sorted(credited))}")
     else:
