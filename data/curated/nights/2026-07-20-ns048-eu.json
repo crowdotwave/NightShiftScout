@@ -4,6 +4,7 @@
   "series": "night-shift",
   "edition": 48,
   "region": "eu",
+  "region_confirmed": true,
   "date": "2026-07-20",
   "date_note": "Local broadcast date, derived from match start_time. NA = UTC-4, EU = UTC+2 in July 2026.",
   "source": null,

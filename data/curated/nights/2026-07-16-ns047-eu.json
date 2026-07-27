@@ -4,9 +4,11 @@
   "series": "night-shift",
   "edition": 47,
   "region": "eu",
+  "region_confirmed": true,
+  "region_note": "RESOLVED 2026-07-27 against Liquipedia. Match 94021619 is game 3 of the Night Shift #47 Europe final. The series is scheduled 21:30 UTC, so game 3 starts 23:30 UTC, which is 01:30 CEST the following day. A late running European broadcast crossing local midnight, not a North American evening.",
   "date": "2026-07-16",
   "date_note": "Local broadcast date, derived from match start_time. NA = UTC-4, EU = UTC+2 in July 2026.",
-  "source": null,
+  "source": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/47/EU",
   "_scaffold": "Generated from cached matches. team_id, stage and rosters are NOT filled in: they are hand curation and were deliberately left null rather than guessed. _observed_account_ids is a curation aid and is ignored by the builder.",
   "rosters": [],
   "matches": [
