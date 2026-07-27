@@ -1,0 +1,5 @@
+{
+  "schema_version": 1,
+  "_note": "Hand curated. No team identities have been invented. Add entries keyed by a permanent slug, then reference them from nights/*.json.",
+  "teams": {}
+}

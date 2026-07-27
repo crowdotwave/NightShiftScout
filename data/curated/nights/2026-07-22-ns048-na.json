@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "night_id": "ns048-na",
+  "series": "night-shift",
+  "edition": 48,
+  "region": "na",
+  "date": "2026-07-22",
+  "date_note": "Local broadcast date, derived from match start_time. NA = UTC-4, EU = UTC+2 in July 2026.",
+  "source": null,
+  "_scaffold": "Generated from cached matches. team_id, stage and rosters are NOT filled in: they are hand curation and were deliberately left null rather than guessed. _observed_account_ids is a curation aid and is ignored by the builder.",
+  "rosters": [],
+  "matches": [
+    {
+      "match_id": "95172627",
+      "stage": null,
+      "series_label": null,
+      "game_in_series": null,
+      "sides": [
+        {
+          "match_team_index": 0,
+          "team_id": null,
+          "_observed_account_ids": [
+            25821887,
+            244109796,
+            924812291,
+            1285605078,
+            1840902834,
+            1871217631
+          ]
+        },
+        {
+          "match_team_index": 1,
+          "team_id": null,
+          "_observed_account_ids": [
+            114943410,
+            399289886,
+            1477660209,
+            1730032433,
+            1871021649,
+            1929248273
+          ]
+        }
+      ]
+    },
+    {
+      "match_id": "95180553",
+      "stage": null,
+      "series_label": null,
+      "game_in_series": null,
+      "sides": [
+        {
+          "match_team_index": 0,
+          "team_id": null,
+          "_observed_account_ids": [
+            114943410,
+            399289886,
+            1477660209,
+            1730032433,
+            1871021649,
+            1929248273
+          ]
+        },
+        {
+          "match_team_index": 1,
+          "team_id": null,
+          "_observed_account_ids": [
+            25821887,
+            244109796,
+            924812291,
+            1285605078,
+            1840902834,
+            1871217631
+          ]
+        }
+      ]
+    },
+    {
+      "match_id": "95187371",
+      "stage": null,
+      "series_label": null,
+      "game_in_series": null,
+      "sides": [
+        {
+          "match_team_index": 0,
+          "team_id": null,
+          "_observed_account_ids": [
+            25821887,
+            244109796,
+            924812291,
+            1285605078,
+            1840902834,
+            1871217631
+          ]
+        },
+        {
+          "match_team_index": 1,
+          "team_id": null,
+          "_observed_account_ids": [
+            114943410,
+            399289886,
+            1477660209,
+            1730032433,
+            1871021649,
+            1929248273
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,366 @@
+{
+  "schema_version": 1,
+  "_note": "Hand curated. Every entry starts as identified:guess with handle:null. Per the review decision, guess-level accounts get no player page and render as a bare account ID. Set handle and raise identified to probable or confirmed as you verify each one. _hint_* fields are curation aids, ignored by the builder and never published.",
+  "players": {
+    "5278896": {
+      "handle": null,
+      "aka": [],
+      "identified": "guess",
+      "notes": "",
+      "_hint_steam_persona": "empty dreams",
+      "_hint_vanity": "emptydreams9"
+    },
+    "25821887": {
+      "handle": null,
+      "aka": [],
+      "identified": "guess",
+      "notes": "",
+      "_hint_steam_persona": "Saiah",
+      "_hint_vanity": "SinonvsKirito"
+    },
+    "35187362": {
+      "handle": null,
+      "aka": [],
+      "identified": "guess",
+      "notes": "",
+      "_hint_steam_persona": "Zerggy",
+      "_hint_vanity": null
+    },
+    "44899168": {
+      "handle": null,
+      "aka": [],
+      "identified": "guess",
+      "notes": "",
+      "_hint_steam_persona": "Boostio",
+      "_hint_vanity": "kelden12345"
+    },
+    "81662458": {
+      "handle": null,
+      "aka": [],
+      "identified": "guess",
+      "notes": "",
+      "_hint_steam_persona": "sh",
+      "_hint_vanity": "3597236"
+    },
+    "87241154": {
+      "handle": null,
+      "aka": [],
+      "identified": "guess",
+      "notes": "",
+      "_hint_steam_persona": "hoot",
+      "_hint_vanity": null
+    },
+    "97533101": {
+      "handle": null,
+      "aka": [],
+      "identified": "guess",
+      "notes": "",
+      "_hint_steam_persona": "lystic",
+      "_hint_vanity": "uncletajj"
+    },
+    "102312863": {
+      "handle": null,
+      "aka": [],
+      "identified": "guess",
+      "notes": "",
+      "_hint_steam_persona": "--",
+      "_hint_vanity": "Spookybuh"
+    },
+    "108672673": {
+      "handle": null,
+      "aka": [],
+      "identified": "guess",
+      "notes": "",
+      "_hint_steam_persona": "Draven",
+      "_hint_vanity": "shwanfishcake"
+    },
+    "108710262": {
+      "handle": null,
+      "aka": [],
+      "identified": "guess",
+      "notes": "",
+      "_hint_steam_persona": "dew",
+      "_hint_vanity": "dewamoon"
+    },
+    "114943410": {
+      "handle": null,
+      "aka": [],
+      "identified": "guess",
+      "notes": "",
+      "_hint_steam_persona": "FPSL Lefaa",
+      "_hint_vanity": null
+    },
+    "124540485": {
+      "handle": null,
+      "aka": [],
+      "identified": "guess",
+      "notes": "",
+      "_hint_steam_persona": "arzo",
+      "_hint_vanity": "0arzo"
+    },
+    "136898005": {
+      "handle": null,
+      "aka": [],
+      "identified": "guess",
+      "notes": "",
+      "_hint_steam_persona": "say it loud",
+      "_hint_vanity": "irezum1"
+    },
+    "244109796": {
+      "handle": null,
+      "aka": [],
+      "identified": "guess",
+      "notes": "",
+      "_hint_steam_persona": "JonJon69",
+      "_hint_vanity": null
+    },
+    "298155885": {
+      "handle": null,
+      "aka": [],
+      "identified": "guess",
+      "notes": "",
+      "_hint_steam_persona": "together",
+      "_hint_vanity": "togetherdl"
+    },
+    "298305257": {
+      "handle": null,
+      "aka": [],
+      "identified": "guess",
+      "notes": "",
+      "_hint_steam_persona": "Dimov",
+      "_hint_vanity": "Dimov8"
+    },
+    "323142724": {
+      "handle": null,
+      "aka": [],
+      "identified": "guess",
+      "notes": "",
+      "_hint_steam_persona": "balaclava",
+      "_hint_vanity": "ba1ac1ava"
+    },
+    "344946432": {
+      "handle": null,
+      "aka": [],
+      "identified": "guess",
+      "notes": "",
+      "_hint_steam_persona": "vraic",
+      "_hint_vanity": "vraic"
+    },
+    "399289886": {
+      "handle": null,
+      "aka": [],
+      "identified": "guess",
+      "notes": "",
+      "_hint_steam_persona": "\u039b",
+      "_hint_vanity": null
+    },
+    "407786402": {
+      "handle": null,
+      "aka": [],
+      "identified": "guess",
+      "notes": "",
+      "_hint_steam_persona": "reyache",
+      "_hint_vanity": "reyache"
+    },
+    "483770846": {
+      "handle": null,
+      "aka": [],
+      "identified": "guess",
+      "notes": "",
+      "_hint_steam_persona": "invincible under the sun",
+      "_hint_vanity": "heavenlydelusions"
+    },
+    "906011648": {
+      "handle": null,
+      "aka": [],
+      "identified": "guess",
+      "notes": "",
+      "_hint_steam_persona": "\u043f\u043b\u043e\u0442\u043d\u044f\u0447\u043e\u043a",
+      "_hint_vanity": null
+    },
+    "911856667": {
+      "handle": null,
+      "aka": [],
+      "identified": "guess",
+      "notes": "",
+      "_hint_steam_persona": "obikym",
+      "_hint_vanity": "obikym"
+    },
+    "914913299": {
+      "handle": null,
+      "aka": [],
+      "identified": "guess",
+      "notes": "",
+      "_hint_steam_persona": "T.TV Mayonesedl LIVE EVERY DAY",
+      "_hint_vanity": "mayaniz"
+    },
+    "924812291": {
+      "handle": null,
+      "aka": [],
+      "identified": "guess",
+      "notes": "",
+      "_hint_steam_persona": "Snakes",
+      "_hint_vanity": null
+    },
+    "984254212": {
+      "handle": null,
+      "aka": [],
+      "identified": "guess",
+      "notes": "",
+      "_hint_steam_persona": "overseas",
+      "_hint_vanity": "overseasd"
+    },
+    "1009703898": {
+      "handle": null,
+      "aka": [],
+      "identified": "guess",
+      "notes": "",
+      "_hint_steam_persona": "freemok",
+      "_hint_vanity": null
+    },
+    "1045169707": {
+      "handle": null,
+      "aka": [],
+      "identified": "guess",
+      "notes": "",
+      "_hint_steam_persona": "8",
+      "_hint_vanity": "saijkeee"
+    },
+    "1046192556": {
+      "handle": null,
+      "aka": [],
+      "identified": "guess",
+      "notes": "",
+      "_hint_steam_persona": "w3aky",
+      "_hint_vanity": null
+    },
+    "1049966963": {
+      "handle": null,
+      "aka": [],
+      "identified": "guess",
+      "notes": "",
+      "_hint_steam_persona": "DMB",
+      "_hint_vanity": null
+    },
+    "1055638874": {
+      "handle": null,
+      "aka": [],
+      "identified": "guess",
+      "notes": "",
+      "_hint_steam_persona": "twitch.tv/saintmxsm",
+      "_hint_vanity": "saintmxsm"
+    },
+    "1090618511": {
+      "handle": null,
+      "aka": [],
+      "identified": "guess",
+      "notes": "",
+      "_hint_steam_persona": "sister",
+      "_hint_vanity": null
+    },
+    "1186801441": {
+      "handle": null,
+      "aka": [],
+      "identified": "guess",
+      "notes": "",
+      "_hint_steam_persona": "zxcbobi",
+      "_hint_vanity": "zxcbobi"
+    },
+    "1285605078": {
+      "handle": null,
+      "aka": [],
+      "identified": "guess",
+      "notes": "",
+      "_hint_steam_persona": "EVIL MLC Goober",
+      "_hint_vanity": null
+    },
+    "1444662928": {
+      "handle": null,
+      "aka": [],
+      "identified": "guess",
+      "notes": "",
+      "_hint_steam_persona": "Tas",
+      "_hint_vanity": null
+    },
+    "1477660209": {
+      "handle": null,
+      "aka": [],
+      "identified": "guess",
+      "notes": "",
+      "_hint_steam_persona": "League",
+      "_hint_vanity": null
+    },
+    "1591197043": {
+      "handle": null,
+      "aka": [],
+      "identified": "guess",
+      "notes": "",
+      "_hint_steam_persona": "theac",
+      "_hint_vanity": null
+    },
+    "1676299122": {
+      "handle": null,
+      "aka": [],
+      "identified": "guess",
+      "notes": "",
+      "_hint_steam_persona": "eidorian",
+      "_hint_vanity": null
+    },
+    "1682391475": {
+      "handle": null,
+      "aka": [],
+      "identified": "guess",
+      "notes": "",
+      "_hint_steam_persona": "adofan11",
+      "_hint_vanity": null
+    },
+    "1730032433": {
+      "handle": null,
+      "aka": [],
+      "identified": "guess",
+      "notes": "",
+      "_hint_steam_persona": "abcd_fg",
+      "_hint_vanity": null
+    },
+    "1840902834": {
+      "handle": null,
+      "aka": [],
+      "identified": "guess",
+      "notes": "",
+      "_hint_steam_persona": "Michael Jackson prime",
+      "_hint_vanity": null
+    },
+    "1868100596": {
+      "handle": null,
+      "aka": [],
+      "identified": "guess",
+      "notes": "",
+      "_hint_steam_persona": "Phosphophyllite",
+      "_hint_vanity": null
+    },
+    "1871021649": {
+      "handle": null,
+      "aka": [],
+      "identified": "guess",
+      "notes": "",
+      "_hint_steam_persona": "fpsl lomein",
+      "_hint_vanity": null
+    },
+    "1871217631": {
+      "handle": null,
+      "aka": [],
+      "identified": "guess",
+      "notes": "",
+      "_hint_steam_persona": "birdee",
+      "_hint_vanity": null
+    },
+    "1929248273": {
+      "handle": null,
+      "aka": [],
+      "identified": "guess",
+      "notes": "",
+      "_hint_steam_persona": "Draven",
+      "_hint_vanity": null
+    }
+  }
+}

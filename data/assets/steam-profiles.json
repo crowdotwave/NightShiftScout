@@ -1,0 +1,328 @@
+{
+  "schema_version": 1,
+  "note": "Filtered at ingestion. Raw Steam responses are never cached. See scripts/fetch_steam.py.",
+  "allowed_fields": [
+    "account_id",
+    "personaname",
+    "profileurl",
+    "countrycode",
+    "avatarmedium"
+  ],
+  "profiles": [
+    {
+      "account_id": 5278896,
+      "personaname": "empty dreams",
+      "profileurl": "https://steamcommunity.com/id/emptydreams9/",
+      "countrycode": null,
+      "avatarmedium": "https://avatars.steamstatic.com/d3f992159b724f030d465f9d56c6b69ac4f0afa3_medium.jpg"
+    },
+    {
+      "account_id": 25821887,
+      "personaname": "Saiah",
+      "profileurl": "https://steamcommunity.com/id/SinonvsKirito/",
+      "countrycode": "US",
+      "avatarmedium": "https://avatars.steamstatic.com/839ea97715184cf7e0c11ec1fcec84cfb6100455_medium.jpg"
+    },
+    {
+      "account_id": 35187362,
+      "personaname": "Zerggy",
+      "profileurl": "https://steamcommunity.com/profiles/76561197995453090/",
+      "countrycode": "VA",
+      "avatarmedium": "https://avatars.steamstatic.com/a2e09c233214534e5940b1c4c96b719e733537a2_medium.jpg"
+    },
+    {
+      "account_id": 44899168,
+      "personaname": "Boostio",
+      "profileurl": "https://steamcommunity.com/id/kelden12345/",
+      "countrycode": "US",
+      "avatarmedium": "https://avatars.steamstatic.com/9bfc650f4ac4e89dfbeecf9b1b2fb1ae851884db_medium.jpg"
+    },
+    {
+      "account_id": 81662458,
+      "personaname": "sh",
+      "profileurl": "https://steamcommunity.com/id/3597236/",
+      "countrycode": null,
+      "avatarmedium": "https://avatars.steamstatic.com/4f570497f69258a4c87a8094f20594402ddda138_medium.jpg"
+    },
+    {
+      "account_id": 87241154,
+      "personaname": "hoot",
+      "profileurl": "https://steamcommunity.com/profiles/76561198047506882/",
+      "countrycode": null,
+      "avatarmedium": "https://avatars.steamstatic.com/0a737cab57f87ee1cd841dbd8cc3970d1b40e9f1_medium.jpg"
+    },
+    {
+      "account_id": 97533101,
+      "personaname": "lystic",
+      "profileurl": "https://steamcommunity.com/id/uncletajj/",
+      "countrycode": null,
+      "avatarmedium": "https://avatars.steamstatic.com/e04f46a7921fa57ac493fb20b5547ad5f59c6b99_medium.jpg"
+    },
+    {
+      "account_id": 102312863,
+      "personaname": "--",
+      "profileurl": "https://steamcommunity.com/id/Spookybuh/",
+      "countrycode": null,
+      "avatarmedium": "https://avatars.steamstatic.com/bb73f880f49ef5685f92099fa7c7c24133e6e766_medium.jpg"
+    },
+    {
+      "account_id": 108672673,
+      "personaname": "Draven",
+      "profileurl": "https://steamcommunity.com/id/shwanfishcake/",
+      "countrycode": "US",
+      "avatarmedium": "https://avatars.steamstatic.com/1798cb8b396a6e030ac9932ab6fb09c922ac1ff5_medium.jpg"
+    },
+    {
+      "account_id": 108710262,
+      "personaname": "dew",
+      "profileurl": "https://steamcommunity.com/id/dewamoon/",
+      "countrycode": null,
+      "avatarmedium": "https://avatars.steamstatic.com/c1fd52f9b0cce8201c9c5c56c48db88762919c60_medium.jpg"
+    },
+    {
+      "account_id": 114943410,
+      "personaname": "FPSL Lefaa",
+      "profileurl": "https://steamcommunity.com/profiles/76561198075209138/",
+      "countrycode": null,
+      "avatarmedium": "https://avatars.steamstatic.com/0b12556149fd1c11549605a45f29af7e54d3dbcf_medium.jpg"
+    },
+    {
+      "account_id": 124540485,
+      "personaname": "arzo",
+      "profileurl": "https://steamcommunity.com/id/0arzo/",
+      "countrycode": null,
+      "avatarmedium": "https://avatars.steamstatic.com/3112b7be14b192b7da7447eed336f1b8f3a594e8_medium.jpg"
+    },
+    {
+      "account_id": 136898005,
+      "personaname": "say it loud",
+      "profileurl": "https://steamcommunity.com/id/irezum1/",
+      "countrycode": "SO",
+      "avatarmedium": "https://avatars.steamstatic.com/f6ad4e81576b8f77aac279a3c8708e0f1e3c8975_medium.jpg"
+    },
+    {
+      "account_id": 244109796,
+      "personaname": "JonJon69",
+      "profileurl": "https://steamcommunity.com/profiles/76561198204375524/",
+      "countrycode": "US",
+      "avatarmedium": "https://avatars.steamstatic.com/eb83ffb7c2977f8d93b7ed8c12773ddd4c81de93_medium.jpg"
+    },
+    {
+      "account_id": 298155885,
+      "personaname": "together",
+      "profileurl": "https://steamcommunity.com/id/togetherdl/",
+      "countrycode": null,
+      "avatarmedium": "https://avatars.steamstatic.com/d4de2ea0d0761bad2cf41ef158d1d4c0cfd0a04f_medium.jpg"
+    },
+    {
+      "account_id": 298305257,
+      "personaname": "Dimov",
+      "profileurl": "https://steamcommunity.com/id/Dimov8/",
+      "countrycode": null,
+      "avatarmedium": "https://avatars.steamstatic.com/ec72f9e97692d8a966a7138e130ce7c21d1f5ba6_medium.jpg"
+    },
+    {
+      "account_id": 323142724,
+      "personaname": "balaclava",
+      "profileurl": "https://steamcommunity.com/id/ba1ac1ava/",
+      "countrycode": null,
+      "avatarmedium": "https://avatars.steamstatic.com/ae5e7bf7f0fa347f34bf6ae38698c7f51116b2d3_medium.jpg"
+    },
+    {
+      "account_id": 344946432,
+      "personaname": "vraic",
+      "profileurl": "https://steamcommunity.com/id/vraic/",
+      "countrycode": null,
+      "avatarmedium": "https://avatars.steamstatic.com/ebe703862400290af5debfbda8c0015decaeabdd_medium.jpg"
+    },
+    {
+      "account_id": 399289886,
+      "personaname": "\u039b",
+      "profileurl": "https://steamcommunity.com/profiles/76561198359555614/",
+      "countrycode": null,
+      "avatarmedium": "https://avatars.steamstatic.com/e844d4501efaebfbb1119c96c031d09ad805825e_medium.jpg"
+    },
+    {
+      "account_id": 407786402,
+      "personaname": "reyache",
+      "profileurl": "https://steamcommunity.com/id/reyache/",
+      "countrycode": "JP",
+      "avatarmedium": "https://avatars.steamstatic.com/f28fdcf11bb803633cc9ad423835db73a38c3bf6_medium.jpg"
+    },
+    {
+      "account_id": 483770846,
+      "personaname": "invincible under the sun",
+      "profileurl": "https://steamcommunity.com/id/heavenlydelusions/",
+      "countrycode": null,
+      "avatarmedium": "https://avatars.steamstatic.com/1d0888516c1cd90079527a83910dfe5b632627a4_medium.jpg"
+    },
+    {
+      "account_id": 906011648,
+      "personaname": "\u043f\u043b\u043e\u0442\u043d\u044f\u0447\u043e\u043a",
+      "profileurl": "https://steamcommunity.com/profiles/76561198866277376/",
+      "countrycode": null,
+      "avatarmedium": "https://avatars.steamstatic.com/1a2c0e376662991a3eaeab84688cdbf4ac34a2e5_medium.jpg"
+    },
+    {
+      "account_id": 911856667,
+      "personaname": "obikym",
+      "profileurl": "https://steamcommunity.com/id/obikym/",
+      "countrycode": "RU",
+      "avatarmedium": "https://avatars.steamstatic.com/fb11545cbee6982519724d147a879e133762dc3c_medium.jpg"
+    },
+    {
+      "account_id": 914913299,
+      "personaname": "T.TV Mayonesedl LIVE EVERY DAY",
+      "profileurl": "https://steamcommunity.com/id/mayaniz/",
+      "countrycode": "AU",
+      "avatarmedium": "https://avatars.steamstatic.com/ba15a6cbc93cfcfc3862771b322827ee23627a2f_medium.jpg"
+    },
+    {
+      "account_id": 924812291,
+      "personaname": "Snakes",
+      "profileurl": "https://steamcommunity.com/profiles/76561198885078019/",
+      "countrycode": "US",
+      "avatarmedium": "https://avatars.steamstatic.com/0491e2e64418d9f02e2a5745df61d64c251d4444_medium.jpg"
+    },
+    {
+      "account_id": 984254212,
+      "personaname": "overseas",
+      "profileurl": "https://steamcommunity.com/id/overseasd/",
+      "countrycode": null,
+      "avatarmedium": "https://avatars.steamstatic.com/ff7a336a64a8edac6fe1329da307e0ca60a8ef12_medium.jpg"
+    },
+    {
+      "account_id": 1009703898,
+      "personaname": "freemok",
+      "profileurl": "https://steamcommunity.com/profiles/76561198969969626/",
+      "countrycode": null,
+      "avatarmedium": "https://avatars.steamstatic.com/d7d8c092e10b4b395993a40c880fa8c769e3ca77_medium.jpg"
+    },
+    {
+      "account_id": 1045169707,
+      "personaname": "8",
+      "profileurl": "https://steamcommunity.com/id/saijkeee/",
+      "countrycode": null,
+      "avatarmedium": "https://avatars.steamstatic.com/f9514ad0e283cf4299a3fed7c1d25aa5520ce6ae_medium.jpg"
+    },
+    {
+      "account_id": 1046192556,
+      "personaname": "w3aky",
+      "profileurl": "https://steamcommunity.com/profiles/76561199006458284/",
+      "countrycode": "PL",
+      "avatarmedium": "https://avatars.steamstatic.com/d2196dc4bb6464658cf8fd1c60b110ea597e92ab_medium.jpg"
+    },
+    {
+      "account_id": 1049966963,
+      "personaname": "DMB",
+      "profileurl": "https://steamcommunity.com/profiles/76561199010232691/",
+      "countrycode": null,
+      "avatarmedium": "https://avatars.steamstatic.com/ac4de706e91dd5dc1dcfa823f1e138d8d1204f41_medium.jpg"
+    },
+    {
+      "account_id": 1055638874,
+      "personaname": "twitch.tv/saintmxsm",
+      "profileurl": "https://steamcommunity.com/id/saintmxsm/",
+      "countrycode": "RU",
+      "avatarmedium": "https://avatars.steamstatic.com/c594939e8716c1b39ffc37e0ce08cfca1488b957_medium.jpg"
+    },
+    {
+      "account_id": 1090618511,
+      "personaname": "sister",
+      "profileurl": "https://steamcommunity.com/profiles/76561199050884239/",
+      "countrycode": null,
+      "avatarmedium": "https://avatars.steamstatic.com/2910bce12da7546b2784906398f326ca8e5f9534_medium.jpg"
+    },
+    {
+      "account_id": 1186801441,
+      "personaname": "zxcbobi",
+      "profileurl": "https://steamcommunity.com/id/zxcbobi/",
+      "countrycode": null,
+      "avatarmedium": "https://avatars.steamstatic.com/06100d69e9ef47021171b527a471e5a3b64f8b4d_medium.jpg"
+    },
+    {
+      "account_id": 1285605078,
+      "personaname": "EVIL MLC Goober",
+      "profileurl": "https://steamcommunity.com/profiles/76561199245870806/",
+      "countrycode": null,
+      "avatarmedium": "https://avatars.steamstatic.com/278e5709dbae0c86ed8cdc2bf51b35fd54d273e6_medium.jpg"
+    },
+    {
+      "account_id": 1444662928,
+      "personaname": "Tas",
+      "profileurl": "https://steamcommunity.com/profiles/76561199404928656/",
+      "countrycode": "RU",
+      "avatarmedium": "https://avatars.steamstatic.com/13f34f2b7aca0839a010793a0f8f2fe9e3e9dffc_medium.jpg"
+    },
+    {
+      "account_id": 1477660209,
+      "personaname": "League",
+      "profileurl": "https://steamcommunity.com/profiles/76561199437925937/",
+      "countrycode": null,
+      "avatarmedium": "https://avatars.steamstatic.com/8c58e7138283b1fc36f89d68e16fbad4a5097654_medium.jpg"
+    },
+    {
+      "account_id": 1591197043,
+      "personaname": "theac",
+      "profileurl": "https://steamcommunity.com/profiles/76561199551462771/",
+      "countrycode": null,
+      "avatarmedium": "https://avatars.steamstatic.com/9fb70b8a992c6d91f610c285d2c507799e05ce58_medium.jpg"
+    },
+    {
+      "account_id": 1676299122,
+      "personaname": "eidorian",
+      "profileurl": "https://steamcommunity.com/profiles/76561199636564850/",
+      "countrycode": "US",
+      "avatarmedium": "https://avatars.steamstatic.com/fef49e7fa7e1997310d705b2a6158ff8dc1cdfeb_medium.jpg"
+    },
+    {
+      "account_id": 1682391475,
+      "personaname": "adofan11",
+      "profileurl": "https://steamcommunity.com/profiles/76561199642657203/",
+      "countrycode": "US",
+      "avatarmedium": "https://avatars.steamstatic.com/778bb2ee64def8ece022b03727b78e0c628eb2df_medium.jpg"
+    },
+    {
+      "account_id": 1730032433,
+      "personaname": "abcd_fg",
+      "profileurl": "https://steamcommunity.com/profiles/76561199690298161/",
+      "countrycode": null,
+      "avatarmedium": "https://avatars.steamstatic.com/d5052278ff37e0b27f9207a0184a4e6fc7cfa259_medium.jpg"
+    },
+    {
+      "account_id": 1840902834,
+      "personaname": "Michael Jackson prime",
+      "profileurl": "https://steamcommunity.com/profiles/76561199801168562/",
+      "countrycode": "LU",
+      "avatarmedium": "https://avatars.steamstatic.com/47966eab244699017cda9f920846fcfa99857e39_medium.jpg"
+    },
+    {
+      "account_id": 1868100596,
+      "personaname": "Phosphophyllite",
+      "profileurl": "https://steamcommunity.com/profiles/76561199828366324/",
+      "countrycode": null,
+      "avatarmedium": "https://avatars.steamstatic.com/624ae659e0e3a88fcde6bcd7f39e1b42ff5e30d6_medium.jpg"
+    },
+    {
+      "account_id": 1871021649,
+      "personaname": "fpsl lomein",
+      "profileurl": "https://steamcommunity.com/profiles/76561199831287377/",
+      "countrycode": null,
+      "avatarmedium": "https://avatars.steamstatic.com/687e5e3b1afd816b0aba177140e52cab5f58b531_medium.jpg"
+    },
+    {
+      "account_id": 1871217631,
+      "personaname": "birdee",
+      "profileurl": "https://steamcommunity.com/profiles/76561199831483359/",
+      "countrycode": null,
+      "avatarmedium": "https://avatars.steamstatic.com/7b24a28e014d36d4c4b6ddc0253d3f9e12505def_medium.jpg"
+    },
+    {
+      "account_id": 1929248273,
+      "personaname": "Draven",
+      "profileurl": "https://steamcommunity.com/profiles/76561199889514001/",
+      "countrycode": null,
+      "avatarmedium": "https://avatars.steamstatic.com/fef49e7fa7e1997310d705b2a6158ff8dc1cdfeb_medium.jpg"
+    }
+  ]
+}

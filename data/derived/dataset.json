@@ -1,0 +1,3331 @@
+{
+  "schema_version": 1,
+  "generated_utc": "2026-07-27T05:27:01+00:00",
+  "source": {
+    "generator": "scripts/build_dataset.py",
+    "git_commit": "90303f8",
+    "matches_cached": 12,
+    "matches_ingested": 12,
+    "nights_ingested": 6,
+    "outcome_rule": "winning_team_index is copied from match_info.winning_team. No win flag is stored. A player won if match_team_index == winning_team_index.",
+    "team_index_rule": "match_team_index is meaningful only within its own match and is never a join key."
+  },
+  "teams": [],
+  "nights": [
+    {
+      "night_id": "ns046-na",
+      "series": "night-shift",
+      "edition": 46,
+      "region": "na",
+      "date": "2026-07-08",
+      "source": null
+    },
+    {
+      "night_id": "ns046-eu",
+      "series": "night-shift",
+      "edition": 46,
+      "region": "eu",
+      "date": "2026-07-09",
+      "source": null
+    },
+    {
+      "night_id": "ns047-na",
+      "series": "night-shift",
+      "edition": 47,
+      "region": "na",
+      "date": "2026-07-15",
+      "source": null
+    },
+    {
+      "night_id": "ns047-eu",
+      "series": "night-shift",
+      "edition": 47,
+      "region": "eu",
+      "date": "2026-07-16",
+      "source": null
+    },
+    {
+      "night_id": "ns048-eu",
+      "series": "night-shift",
+      "edition": 48,
+      "region": "eu",
+      "date": "2026-07-20",
+      "source": null
+    },
+    {
+      "night_id": "ns048-na",
+      "series": "night-shift",
+      "edition": 48,
+      "region": "na",
+      "date": "2026-07-22",
+      "source": null
+    }
+  ],
+  "players": [
+    {
+      "account_id": "5278896",
+      "handle": null,
+      "identified": "guess",
+      "publishable": false,
+      "steam": {
+        "personaname": "empty dreams",
+        "profileurl": "https://steamcommunity.com/id/emptydreams9/",
+        "countrycode": null,
+        "avatar_local": "avatars/5278896.jpg",
+        "avatar_source": "https://avatars.steamstatic.com/d3f992159b724f030d465f9d56c6b69ac4f0afa3_medium.jpg"
+      }
+    },
+    {
+      "account_id": "25821887",
+      "handle": null,
+      "identified": "guess",
+      "publishable": false,
+      "steam": {
+        "personaname": "Saiah",
+        "profileurl": "https://steamcommunity.com/id/SinonvsKirito/",
+        "countrycode": "US",
+        "avatar_local": "avatars/25821887.jpg",
+        "avatar_source": "https://avatars.steamstatic.com/839ea97715184cf7e0c11ec1fcec84cfb6100455_medium.jpg"
+      }
+    },
+    {
+      "account_id": "35187362",
+      "handle": null,
+      "identified": "guess",
+      "publishable": false,
+      "steam": {
+        "personaname": "Zerggy",
+        "profileurl": "https://steamcommunity.com/profiles/76561197995453090/",
+        "countrycode": "VA",
+        "avatar_local": "avatars/35187362.jpg",
+        "avatar_source": "https://avatars.steamstatic.com/a2e09c233214534e5940b1c4c96b719e733537a2_medium.jpg"
+      }
+    },
+    {
+      "account_id": "44899168",
+      "handle": null,
+      "identified": "guess",
+      "publishable": false,
+      "steam": {
+        "personaname": "Boostio",
+        "profileurl": "https://steamcommunity.com/id/kelden12345/",
+        "countrycode": "US",
+        "avatar_local": "avatars/44899168.jpg",
+        "avatar_source": "https://avatars.steamstatic.com/9bfc650f4ac4e89dfbeecf9b1b2fb1ae851884db_medium.jpg"
+      }
+    },
+    {
+      "account_id": "81662458",
+      "handle": null,
+      "identified": "guess",
+      "publishable": false,
+      "steam": {
+        "personaname": "sh",
+        "profileurl": "https://steamcommunity.com/id/3597236/",
+        "countrycode": null,
+        "avatar_local": "avatars/81662458.jpg",
+        "avatar_source": "https://avatars.steamstatic.com/4f570497f69258a4c87a8094f20594402ddda138_medium.jpg"
+      }
+    },
+    {
+      "account_id": "87241154",
+      "handle": null,
+      "identified": "guess",
+      "publishable": false,
+      "steam": {
+        "personaname": "hoot",
+        "profileurl": "https://steamcommunity.com/profiles/76561198047506882/",
+        "countrycode": null,
+        "avatar_local": "avatars/87241154.jpg",
+        "avatar_source": "https://avatars.steamstatic.com/0a737cab57f87ee1cd841dbd8cc3970d1b40e9f1_medium.jpg"
+      }
+    },
+    {
+      "account_id": "97533101",
+      "handle": null,
+      "identified": "guess",
+      "publishable": false,
+      "steam": {
+        "personaname": "lystic",
+        "profileurl": "https://steamcommunity.com/id/uncletajj/",
+        "countrycode": null,
+        "avatar_local": "avatars/97533101.jpg",
+        "avatar_source": "https://avatars.steamstatic.com/e04f46a7921fa57ac493fb20b5547ad5f59c6b99_medium.jpg"
+      }
+    },
+    {
+      "account_id": "102312863",
+      "handle": null,
+      "identified": "guess",
+      "publishable": false,
+      "steam": {
+        "personaname": "--",
+        "profileurl": "https://steamcommunity.com/id/Spookybuh/",
+        "countrycode": null,
+        "avatar_local": "avatars/102312863.jpg",
+        "avatar_source": "https://avatars.steamstatic.com/bb73f880f49ef5685f92099fa7c7c24133e6e766_medium.jpg"
+      }
+    },
+    {
+      "account_id": "108672673",
+      "handle": null,
+      "identified": "guess",
+      "publishable": false,
+      "steam": {
+        "personaname": "Draven",
+        "profileurl": "https://steamcommunity.com/id/shwanfishcake/",
+        "countrycode": "US",
+        "avatar_local": "avatars/108672673.jpg",
+        "avatar_source": "https://avatars.steamstatic.com/1798cb8b396a6e030ac9932ab6fb09c922ac1ff5_medium.jpg"
+      }
+    },
+    {
+      "account_id": "108710262",
+      "handle": null,
+      "identified": "guess",
+      "publishable": false,
+      "steam": {
+        "personaname": "dew",
+        "profileurl": "https://steamcommunity.com/id/dewamoon/",
+        "countrycode": null,
+        "avatar_local": "avatars/108710262.jpg",
+        "avatar_source": "https://avatars.steamstatic.com/c1fd52f9b0cce8201c9c5c56c48db88762919c60_medium.jpg"
+      }
+    },
+    {
+      "account_id": "114943410",
+      "handle": null,
+      "identified": "guess",
+      "publishable": false,
+      "steam": {
+        "personaname": "FPSL Lefaa",
+        "profileurl": "https://steamcommunity.com/profiles/76561198075209138/",
+        "countrycode": null,
+        "avatar_local": "avatars/114943410.jpg",
+        "avatar_source": "https://avatars.steamstatic.com/0b12556149fd1c11549605a45f29af7e54d3dbcf_medium.jpg"
+      }
+    },
+    {
+      "account_id": "124540485",
+      "handle": null,
+      "identified": "guess",
+      "publishable": false,
+      "steam": {
+        "personaname": "arzo",
+        "profileurl": "https://steamcommunity.com/id/0arzo/",
+        "countrycode": null,
+        "avatar_local": "avatars/124540485.jpg",
+        "avatar_source": "https://avatars.steamstatic.com/3112b7be14b192b7da7447eed336f1b8f3a594e8_medium.jpg"
+      }
+    },
+    {
+      "account_id": "136898005",
+      "handle": null,
+      "identified": "guess",
+      "publishable": false,
+      "steam": {
+        "personaname": "say it loud",
+        "profileurl": "https://steamcommunity.com/id/irezum1/",
+        "countrycode": "SO",
+        "avatar_local": "avatars/136898005.jpg",
+        "avatar_source": "https://avatars.steamstatic.com/f6ad4e81576b8f77aac279a3c8708e0f1e3c8975_medium.jpg"
+      }
+    },
+    {
+      "account_id": "244109796",
+      "handle": null,
+      "identified": "guess",
+      "publishable": false,
+      "steam": {
+        "personaname": "JonJon69",
+        "profileurl": "https://steamcommunity.com/profiles/76561198204375524/",
+        "countrycode": "US",
+        "avatar_local": "avatars/244109796.jpg",
+        "avatar_source": "https://avatars.steamstatic.com/eb83ffb7c2977f8d93b7ed8c12773ddd4c81de93_medium.jpg"
+      }
+    },
+    {
+      "account_id": "298155885",
+      "handle": null,
+      "identified": "guess",
+      "publishable": false,
+      "steam": {
+        "personaname": "together",
+        "profileurl": "https://steamcommunity.com/id/togetherdl/",
+        "countrycode": null,
+        "avatar_local": "avatars/298155885.jpg",
+        "avatar_source": "https://avatars.steamstatic.com/d4de2ea0d0761bad2cf41ef158d1d4c0cfd0a04f_medium.jpg"
+      }
+    },
+    {
+      "account_id": "298305257",
+      "handle": null,
+      "identified": "guess",
+      "publishable": false,
+      "steam": {
+        "personaname": "Dimov",
+        "profileurl": "https://steamcommunity.com/id/Dimov8/",
+        "countrycode": null,
+        "avatar_local": "avatars/298305257.jpg",
+        "avatar_source": "https://avatars.steamstatic.com/ec72f9e97692d8a966a7138e130ce7c21d1f5ba6_medium.jpg"
+      }
+    },
+    {
+      "account_id": "323142724",
+      "handle": null,
+      "identified": "guess",
+      "publishable": false,
+      "steam": {
+        "personaname": "balaclava",
+        "profileurl": "https://steamcommunity.com/id/ba1ac1ava/",
+        "countrycode": null,
+        "avatar_local": "avatars/323142724.jpg",
+        "avatar_source": "https://avatars.steamstatic.com/ae5e7bf7f0fa347f34bf6ae38698c7f51116b2d3_medium.jpg"
+      }
+    },
+    {
+      "account_id": "344946432",
+      "handle": null,
+      "identified": "guess",
+      "publishable": false,
+      "steam": {
+        "personaname": "vraic",
+        "profileurl": "https://steamcommunity.com/id/vraic/",
+        "countrycode": null,
+        "avatar_local": "avatars/344946432.jpg",
+        "avatar_source": "https://avatars.steamstatic.com/ebe703862400290af5debfbda8c0015decaeabdd_medium.jpg"
+      }
+    },
+    {
+      "account_id": "399289886",
+      "handle": null,
+      "identified": "guess",
+      "publishable": false,
+      "steam": {
+        "personaname": "\u039b",
+        "profileurl": "https://steamcommunity.com/profiles/76561198359555614/",
+        "countrycode": null,
+        "avatar_local": "avatars/399289886.jpg",
+        "avatar_source": "https://avatars.steamstatic.com/e844d4501efaebfbb1119c96c031d09ad805825e_medium.jpg"
+      }
+    },
+    {
+      "account_id": "407786402",
+      "handle": null,
+      "identified": "guess",
+      "publishable": false,
+      "steam": {
+        "personaname": "reyache",
+        "profileurl": "https://steamcommunity.com/id/reyache/",
+        "countrycode": "JP",
+        "avatar_local": "avatars/407786402.jpg",
+        "avatar_source": "https://avatars.steamstatic.com/f28fdcf11bb803633cc9ad423835db73a38c3bf6_medium.jpg"
+      }
+    },
+    {
+      "account_id": "483770846",
+      "handle": null,
+      "identified": "guess",
+      "publishable": false,
+      "steam": {
+        "personaname": "invincible under the sun",
+        "profileurl": "https://steamcommunity.com/id/heavenlydelusions/",
+        "countrycode": null,
+        "avatar_local": "avatars/483770846.jpg",
+        "avatar_source": "https://avatars.steamstatic.com/1d0888516c1cd90079527a83910dfe5b632627a4_medium.jpg"
+      }
+    },
+    {
+      "account_id": "906011648",
+      "handle": null,
+      "identified": "guess",
+      "publishable": false,
+      "steam": {
+        "personaname": "\u043f\u043b\u043e\u0442\u043d\u044f\u0447\u043e\u043a",
+        "profileurl": "https://steamcommunity.com/profiles/76561198866277376/",
+        "countrycode": null,
+        "avatar_local": "avatars/906011648.jpg",
+        "avatar_source": "https://avatars.steamstatic.com/1a2c0e376662991a3eaeab84688cdbf4ac34a2e5_medium.jpg"
+      }
+    },
+    {
+      "account_id": "911856667",
+      "handle": null,
+      "identified": "guess",
+      "publishable": false,
+      "steam": {
+        "personaname": "obikym",
+        "profileurl": "https://steamcommunity.com/id/obikym/",
+        "countrycode": "RU",
+        "avatar_local": "avatars/911856667.jpg",
+        "avatar_source": "https://avatars.steamstatic.com/fb11545cbee6982519724d147a879e133762dc3c_medium.jpg"
+      }
+    },
+    {
+      "account_id": "914913299",
+      "handle": null,
+      "identified": "guess",
+      "publishable": false,
+      "steam": {
+        "personaname": "T.TV Mayonesedl LIVE EVERY DAY",
+        "profileurl": "https://steamcommunity.com/id/mayaniz/",
+        "countrycode": "AU",
+        "avatar_local": "avatars/914913299.jpg",
+        "avatar_source": "https://avatars.steamstatic.com/ba15a6cbc93cfcfc3862771b322827ee23627a2f_medium.jpg"
+      }
+    },
+    {
+      "account_id": "924812291",
+      "handle": null,
+      "identified": "guess",
+      "publishable": false,
+      "steam": {
+        "personaname": "Snakes",
+        "profileurl": "https://steamcommunity.com/profiles/76561198885078019/",
+        "countrycode": "US",
+        "avatar_local": "avatars/924812291.jpg",
+        "avatar_source": "https://avatars.steamstatic.com/0491e2e64418d9f02e2a5745df61d64c251d4444_medium.jpg"
+      }
+    },
+    {
+      "account_id": "984254212",
+      "handle": null,
+      "identified": "guess",
+      "publishable": false,
+      "steam": {
+        "personaname": "overseas",
+        "profileurl": "https://steamcommunity.com/id/overseasd/",
+        "countrycode": null,
+        "avatar_local": "avatars/984254212.jpg",
+        "avatar_source": "https://avatars.steamstatic.com/ff7a336a64a8edac6fe1329da307e0ca60a8ef12_medium.jpg"
+      }
+    },
+    {
+      "account_id": "1009703898",
+      "handle": null,
+      "identified": "guess",
+      "publishable": false,
+      "steam": {
+        "personaname": "freemok",
+        "profileurl": "https://steamcommunity.com/profiles/76561198969969626/",
+        "countrycode": null,
+        "avatar_local": "avatars/1009703898.jpg",
+        "avatar_source": "https://avatars.steamstatic.com/d7d8c092e10b4b395993a40c880fa8c769e3ca77_medium.jpg"
+      }
+    },
+    {
+      "account_id": "1045169707",
+      "handle": null,
+      "identified": "guess",
+      "publishable": false,
+      "steam": {
+        "personaname": "8",
+        "profileurl": "https://steamcommunity.com/id/saijkeee/",
+        "countrycode": null,
+        "avatar_local": "avatars/1045169707.jpg",
+        "avatar_source": "https://avatars.steamstatic.com/f9514ad0e283cf4299a3fed7c1d25aa5520ce6ae_medium.jpg"
+      }
+    },
+    {
+      "account_id": "1046192556",
+      "handle": null,
+      "identified": "guess",
+      "publishable": false,
+      "steam": {
+        "personaname": "w3aky",
+        "profileurl": "https://steamcommunity.com/profiles/76561199006458284/",
+        "countrycode": "PL",
+        "avatar_local": "avatars/1046192556.jpg",
+        "avatar_source": "https://avatars.steamstatic.com/d2196dc4bb6464658cf8fd1c60b110ea597e92ab_medium.jpg"
+      }
+    },
+    {
+      "account_id": "1049966963",
+      "handle": null,
+      "identified": "guess",
+      "publishable": false,
+      "steam": {
+        "personaname": "DMB",
+        "profileurl": "https://steamcommunity.com/profiles/76561199010232691/",
+        "countrycode": null,
+        "avatar_local": "avatars/1049966963.jpg",
+        "avatar_source": "https://avatars.steamstatic.com/ac4de706e91dd5dc1dcfa823f1e138d8d1204f41_medium.jpg"
+      }
+    },
+    {
+      "account_id": "1055638874",
+      "handle": null,
+      "identified": "guess",
+      "publishable": false,
+      "steam": {
+        "personaname": "twitch.tv/saintmxsm",
+        "profileurl": "https://steamcommunity.com/id/saintmxsm/",
+        "countrycode": "RU",
+        "avatar_local": "avatars/1055638874.jpg",
+        "avatar_source": "https://avatars.steamstatic.com/c594939e8716c1b39ffc37e0ce08cfca1488b957_medium.jpg"
+      }
+    },
+    {
+      "account_id": "1090618511",
+      "handle": null,
+      "identified": "guess",
+      "publishable": false,
+      "steam": {
+        "personaname": "sister",
+        "profileurl": "https://steamcommunity.com/profiles/76561199050884239/",
+        "countrycode": null,
+        "avatar_local": "avatars/1090618511.jpg",
+        "avatar_source": "https://avatars.steamstatic.com/2910bce12da7546b2784906398f326ca8e5f9534_medium.jpg"
+      }
+    },
+    {
+      "account_id": "1186801441",
+      "handle": null,
+      "identified": "guess",
+      "publishable": false,
+      "steam": {
+        "personaname": "zxcbobi",
+        "profileurl": "https://steamcommunity.com/id/zxcbobi/",
+        "countrycode": null,
+        "avatar_local": "avatars/1186801441.jpg",
+        "avatar_source": "https://avatars.steamstatic.com/06100d69e9ef47021171b527a471e5a3b64f8b4d_medium.jpg"
+      }
+    },
+    {
+      "account_id": "1285605078",
+      "handle": null,
+      "identified": "guess",
+      "publishable": false,
+      "steam": {
+        "personaname": "EVIL MLC Goober",
+        "profileurl": "https://steamcommunity.com/profiles/76561199245870806/",
+        "countrycode": null,
+        "avatar_local": "avatars/1285605078.jpg",
+        "avatar_source": "https://avatars.steamstatic.com/278e5709dbae0c86ed8cdc2bf51b35fd54d273e6_medium.jpg"
+      }
+    },
+    {
+      "account_id": "1444662928",
+      "handle": null,
+      "identified": "guess",
+      "publishable": false,
+      "steam": {
+        "personaname": "Tas",
+        "profileurl": "https://steamcommunity.com/profiles/76561199404928656/",
+        "countrycode": "RU",
+        "avatar_local": "avatars/1444662928.jpg",
+        "avatar_source": "https://avatars.steamstatic.com/13f34f2b7aca0839a010793a0f8f2fe9e3e9dffc_medium.jpg"
+      }
+    },
+    {
+      "account_id": "1477660209",
+      "handle": null,
+      "identified": "guess",
+      "publishable": false,
+      "steam": {
+        "personaname": "League",
+        "profileurl": "https://steamcommunity.com/profiles/76561199437925937/",
+        "countrycode": null,
+        "avatar_local": "avatars/1477660209.jpg",
+        "avatar_source": "https://avatars.steamstatic.com/8c58e7138283b1fc36f89d68e16fbad4a5097654_medium.jpg"
+      }
+    },
+    {
+      "account_id": "1591197043",
+      "handle": null,
+      "identified": "guess",
+      "publishable": false,
+      "steam": {
+        "personaname": "theac",
+        "profileurl": "https://steamcommunity.com/profiles/76561199551462771/",
+        "countrycode": null,
+        "avatar_local": "avatars/1591197043.jpg",
+        "avatar_source": "https://avatars.steamstatic.com/9fb70b8a992c6d91f610c285d2c507799e05ce58_medium.jpg"
+      }
+    },
+    {
+      "account_id": "1676299122",
+      "handle": null,
+      "identified": "guess",
+      "publishable": false,
+      "steam": {
+        "personaname": "eidorian",
+        "profileurl": "https://steamcommunity.com/profiles/76561199636564850/",
+        "countrycode": "US",
+        "avatar_local": "avatars/1676299122.jpg",
+        "avatar_source": "https://avatars.steamstatic.com/fef49e7fa7e1997310d705b2a6158ff8dc1cdfeb_medium.jpg"
+      }
+    },
+    {
+      "account_id": "1682391475",
+      "handle": null,
+      "identified": "guess",
+      "publishable": false,
+      "steam": {
+        "personaname": "adofan11",
+        "profileurl": "https://steamcommunity.com/profiles/76561199642657203/",
+        "countrycode": "US",
+        "avatar_local": "avatars/1682391475.jpg",
+        "avatar_source": "https://avatars.steamstatic.com/778bb2ee64def8ece022b03727b78e0c628eb2df_medium.jpg"
+      }
+    },
+    {
+      "account_id": "1730032433",
+      "handle": null,
+      "identified": "guess",
+      "publishable": false,
+      "steam": {
+        "personaname": "abcd_fg",
+        "profileurl": "https://steamcommunity.com/profiles/76561199690298161/",
+        "countrycode": null,
+        "avatar_local": "avatars/1730032433.jpg",
+        "avatar_source": "https://avatars.steamstatic.com/d5052278ff37e0b27f9207a0184a4e6fc7cfa259_medium.jpg"
+      }
+    },
+    {
+      "account_id": "1840902834",
+      "handle": null,
+      "identified": "guess",
+      "publishable": false,
+      "steam": {
+        "personaname": "Michael Jackson prime",
+        "profileurl": "https://steamcommunity.com/profiles/76561199801168562/",
+        "countrycode": "LU",
+        "avatar_local": "avatars/1840902834.jpg",
+        "avatar_source": "https://avatars.steamstatic.com/47966eab244699017cda9f920846fcfa99857e39_medium.jpg"
+      }
+    },
+    {
+      "account_id": "1868100596",
+      "handle": null,
+      "identified": "guess",
+      "publishable": false,
+      "steam": {
+        "personaname": "Phosphophyllite",
+        "profileurl": "https://steamcommunity.com/profiles/76561199828366324/",
+        "countrycode": null,
+        "avatar_local": "avatars/1868100596.jpg",
+        "avatar_source": "https://avatars.steamstatic.com/624ae659e0e3a88fcde6bcd7f39e1b42ff5e30d6_medium.jpg"
+      }
+    },
+    {
+      "account_id": "1871021649",
+      "handle": null,
+      "identified": "guess",
+      "publishable": false,
+      "steam": {
+        "personaname": "fpsl lomein",
+        "profileurl": "https://steamcommunity.com/profiles/76561199831287377/",
+        "countrycode": null,
+        "avatar_local": "avatars/1871021649.jpg",
+        "avatar_source": "https://avatars.steamstatic.com/687e5e3b1afd816b0aba177140e52cab5f58b531_medium.jpg"
+      }
+    },
+    {
+      "account_id": "1871217631",
+      "handle": null,
+      "identified": "guess",
+      "publishable": false,
+      "steam": {
+        "personaname": "birdee",
+        "profileurl": "https://steamcommunity.com/profiles/76561199831483359/",
+        "countrycode": null,
+        "avatar_local": "avatars/1871217631.jpg",
+        "avatar_source": "https://avatars.steamstatic.com/7b24a28e014d36d4c4b6ddc0253d3f9e12505def_medium.jpg"
+      }
+    },
+    {
+      "account_id": "1929248273",
+      "handle": null,
+      "identified": "guess",
+      "publishable": false,
+      "steam": {
+        "personaname": "Draven",
+        "profileurl": "https://steamcommunity.com/profiles/76561199889514001/",
+        "countrycode": null,
+        "avatar_local": "avatars/1929248273.jpg",
+        "avatar_source": "https://avatars.steamstatic.com/fef49e7fa7e1997310d705b2a6158ff8dc1cdfeb_medium.jpg"
+      }
+    }
+  ],
+  "matches": [
+    {
+      "match_id": "92902607",
+      "night_id": "ns046-eu",
+      "stage": null,
+      "series_label": null,
+      "game_in_series": null,
+      "start_time": 1783552990,
+      "duration_s": 2480,
+      "winning_team_index": 0,
+      "sides": [
+        {
+          "match_team_index": 0,
+          "team_id": null
+        },
+        {
+          "match_team_index": 1,
+          "team_id": null
+        }
+      ],
+      "totals": {
+        "0": {
+          "net_worth": 278082,
+          "kills": 33,
+          "deaths": 30,
+          "assists": 106,
+          "damage": 204586,
+          "player_count": 6
+        },
+        "1": {
+          "net_worth": 228263,
+          "kills": 30,
+          "deaths": 33,
+          "assists": 82,
+          "damage": 201107,
+          "player_count": 6
+        }
+      },
+      "lobby": {
+        "net_worth_total": 506345,
+        "net_worth_avg": 42195.4,
+        "player_count": 12
+      }
+    },
+    {
+      "match_id": "92912944",
+      "night_id": "ns046-na",
+      "stage": null,
+      "series_label": null,
+      "game_in_series": null,
+      "start_time": 1783557761,
+      "duration_s": 1852,
+      "winning_team_index": 1,
+      "sides": [
+        {
+          "match_team_index": 0,
+          "team_id": null
+        },
+        {
+          "match_team_index": 1,
+          "team_id": null
+        }
+      ],
+      "totals": {
+        "0": {
+          "net_worth": 175015,
+          "kills": 7,
+          "deaths": 46,
+          "assists": 12,
+          "damage": 140004,
+          "player_count": 6
+        },
+        "1": {
+          "net_worth": 229005,
+          "kills": 46,
+          "deaths": 7,
+          "assists": 113,
+          "damage": 201271,
+          "player_count": 6
+        }
+      },
+      "lobby": {
+        "net_worth_total": 404020,
+        "net_worth_avg": 33668.3,
+        "player_count": 12
+      }
+    },
+    {
+      "match_id": "94021619",
+      "night_id": "ns047-eu",
+      "stage": null,
+      "series_label": null,
+      "game_in_series": null,
+      "start_time": 1784158209,
+      "duration_s": 2115,
+      "winning_team_index": 1,
+      "sides": [
+        {
+          "match_team_index": 0,
+          "team_id": null
+        },
+        {
+          "match_team_index": 1,
+          "team_id": null
+        }
+      ],
+      "totals": {
+        "0": {
+          "net_worth": 197531,
+          "kills": 31,
+          "deaths": 42,
+          "assists": 77,
+          "damage": 147248,
+          "player_count": 6
+        },
+        "1": {
+          "net_worth": 224343,
+          "kills": 42,
+          "deaths": 31,
+          "assists": 111,
+          "damage": 194172,
+          "player_count": 6
+        }
+      },
+      "lobby": {
+        "net_worth_total": 421874,
+        "net_worth_avg": 35156.2,
+        "player_count": 12
+      }
+    },
+    {
+      "match_id": "94031068",
+      "night_id": "ns047-na",
+      "stage": null,
+      "series_label": null,
+      "game_in_series": null,
+      "start_time": 1784162664,
+      "duration_s": 2357,
+      "winning_team_index": 1,
+      "sides": [
+        {
+          "match_team_index": 0,
+          "team_id": null
+        },
+        {
+          "match_team_index": 1,
+          "team_id": null
+        }
+      ],
+      "totals": {
+        "0": {
+          "net_worth": 231098,
+          "kills": 24,
+          "deaths": 35,
+          "assists": 47,
+          "damage": 219100,
+          "player_count": 6
+        },
+        "1": {
+          "net_worth": 299619,
+          "kills": 35,
+          "deaths": 24,
+          "assists": 105,
+          "damage": 248949,
+          "player_count": 6
+        }
+      },
+      "lobby": {
+        "net_worth_total": 530717,
+        "net_worth_avg": 44226.4,
+        "player_count": 12
+      }
+    },
+    {
+      "match_id": "94038881",
+      "night_id": "ns047-na",
+      "stage": null,
+      "series_label": null,
+      "game_in_series": null,
+      "start_time": 1784166249,
+      "duration_s": 2924,
+      "winning_team_index": 1,
+      "sides": [
+        {
+          "match_team_index": 0,
+          "team_id": null
+        },
+        {
+          "match_team_index": 1,
+          "team_id": null
+        }
+      ],
+      "totals": {
+        "0": {
+          "net_worth": 311463,
+          "kills": 43,
+          "deaths": 53,
+          "assists": 104,
+          "damage": 387307,
+          "player_count": 6
+        },
+        "1": {
+          "net_worth": 320984,
+          "kills": 53,
+          "deaths": 43,
+          "assists": 132,
+          "damage": 337251,
+          "player_count": 6
+        }
+      },
+      "lobby": {
+        "net_worth_total": 632447,
+        "net_worth_avg": 52703.9,
+        "player_count": 12
+      }
+    },
+    {
+      "match_id": "94048508",
+      "night_id": "ns047-na",
+      "stage": null,
+      "series_label": null,
+      "game_in_series": null,
+      "start_time": 1784170672,
+      "duration_s": 1694,
+      "winning_team_index": 1,
+      "sides": [
+        {
+          "match_team_index": 0,
+          "team_id": null
+        },
+        {
+          "match_team_index": 1,
+          "team_id": null
+        }
+      ],
+      "totals": {
+        "0": {
+          "net_worth": 168444,
+          "kills": 14,
+          "deaths": 49,
+          "assists": 26,
+          "damage": 107920,
+          "player_count": 6
+        },
+        "1": {
+          "net_worth": 202094,
+          "kills": 49,
+          "deaths": 14,
+          "assists": 119,
+          "damage": 160605,
+          "player_count": 6
+        }
+      },
+      "lobby": {
+        "net_worth_total": 370538,
+        "net_worth_avg": 30878.2,
+        "player_count": 12
+      }
+    },
+    {
+      "match_id": "94767316",
+      "night_id": "ns048-eu",
+      "stage": null,
+      "series_label": null,
+      "game_in_series": null,
+      "start_time": 1784561104,
+      "duration_s": 2208,
+      "winning_team_index": 1,
+      "sides": [
+        {
+          "match_team_index": 0,
+          "team_id": null
+        },
+        {
+          "match_team_index": 1,
+          "team_id": null
+        }
+      ],
+      "totals": {
+        "0": {
+          "net_worth": 203316,
+          "kills": 32,
+          "deaths": 51,
+          "assists": 67,
+          "damage": 233423,
+          "player_count": 6
+        },
+        "1": {
+          "net_worth": 255587,
+          "kills": 51,
+          "deaths": 32,
+          "assists": 134,
+          "damage": 249587,
+          "player_count": 6
+        }
+      },
+      "lobby": {
+        "net_worth_total": 458903,
+        "net_worth_avg": 38241.9,
+        "player_count": 12
+      }
+    },
+    {
+      "match_id": "94773487",
+      "night_id": "ns048-eu",
+      "stage": null,
+      "series_label": null,
+      "game_in_series": null,
+      "start_time": 1784564425,
+      "duration_s": 1840,
+      "winning_team_index": 1,
+      "sides": [
+        {
+          "match_team_index": 0,
+          "team_id": null
+        },
+        {
+          "match_team_index": 1,
+          "team_id": null
+        }
+      ],
+      "totals": {
+        "0": {
+          "net_worth": 169537,
+          "kills": 27,
+          "deaths": 61,
+          "assists": 37,
+          "damage": 175033,
+          "player_count": 6
+        },
+        "1": {
+          "net_worth": 221032,
+          "kills": 61,
+          "deaths": 28,
+          "assists": 139,
+          "damage": 201139,
+          "player_count": 6
+        }
+      },
+      "lobby": {
+        "net_worth_total": 390569,
+        "net_worth_avg": 32547.4,
+        "player_count": 12
+      }
+    },
+    {
+      "match_id": "94779630",
+      "night_id": "ns048-eu",
+      "stage": null,
+      "series_label": null,
+      "game_in_series": null,
+      "start_time": 1784567584,
+      "duration_s": 1782,
+      "winning_team_index": 1,
+      "sides": [
+        {
+          "match_team_index": 0,
+          "team_id": null
+        },
+        {
+          "match_team_index": 1,
+          "team_id": null
+        }
+      ],
+      "totals": {
+        "0": {
+          "net_worth": 170291,
+          "kills": 18,
+          "deaths": 47,
+          "assists": 34,
+          "damage": 147149,
+          "player_count": 6
+        },
+        "1": {
+          "net_worth": 201944,
+          "kills": 47,
+          "deaths": 18,
+          "assists": 107,
+          "damage": 179493,
+          "player_count": 6
+        }
+      },
+      "lobby": {
+        "net_worth_total": 372235,
+        "net_worth_avg": 31019.6,
+        "player_count": 12
+      }
+    },
+    {
+      "match_id": "95172627",
+      "night_id": "ns048-na",
+      "stage": null,
+      "series_label": null,
+      "game_in_series": null,
+      "start_time": 1784772175,
+      "duration_s": 2075,
+      "winning_team_index": 0,
+      "sides": [
+        {
+          "match_team_index": 0,
+          "team_id": null
+        },
+        {
+          "match_team_index": 1,
+          "team_id": null
+        }
+      ],
+      "totals": {
+        "0": {
+          "net_worth": 260911,
+          "kills": 55,
+          "deaths": 16,
+          "assists": 123,
+          "damage": 224506,
+          "player_count": 6
+        },
+        "1": {
+          "net_worth": 199495,
+          "kills": 16,
+          "deaths": 55,
+          "assists": 24,
+          "damage": 169805,
+          "player_count": 6
+        }
+      },
+      "lobby": {
+        "net_worth_total": 460406,
+        "net_worth_avg": 38367.2,
+        "player_count": 12
+      }
+    },
+    {
+      "match_id": "95180553",
+      "night_id": "ns048-na",
+      "stage": null,
+      "series_label": null,
+      "game_in_series": null,
+      "start_time": 1784775647,
+      "duration_s": 1955,
+      "winning_team_index": 0,
+      "sides": [
+        {
+          "match_team_index": 0,
+          "team_id": null
+        },
+        {
+          "match_team_index": 1,
+          "team_id": null
+        }
+      ],
+      "totals": {
+        "0": {
+          "net_worth": 238518,
+          "kills": 42,
+          "deaths": 38,
+          "assists": 106,
+          "damage": 206120,
+          "player_count": 6
+        },
+        "1": {
+          "net_worth": 195930,
+          "kills": 38,
+          "deaths": 42,
+          "assists": 76,
+          "damage": 215961,
+          "player_count": 6
+        }
+      },
+      "lobby": {
+        "net_worth_total": 434448,
+        "net_worth_avg": 36204.0,
+        "player_count": 12
+      }
+    },
+    {
+      "match_id": "95187371",
+      "night_id": "ns048-na",
+      "stage": null,
+      "series_label": null,
+      "game_in_series": null,
+      "start_time": 1784778811,
+      "duration_s": 2296,
+      "winning_team_index": 1,
+      "sides": [
+        {
+          "match_team_index": 0,
+          "team_id": null
+        },
+        {
+          "match_team_index": 1,
+          "team_id": null
+        }
+      ],
+      "totals": {
+        "0": {
+          "net_worth": 225391,
+          "kills": 28,
+          "deaths": 36,
+          "assists": 65,
+          "damage": 193137,
+          "player_count": 6
+        },
+        "1": {
+          "net_worth": 261999,
+          "kills": 36,
+          "deaths": 28,
+          "assists": 107,
+          "damage": 208647,
+          "player_count": 6
+        }
+      },
+      "lobby": {
+        "net_worth_total": 487390,
+        "net_worth_avg": 40615.8,
+        "player_count": 12
+      }
+    }
+  ],
+  "player_matches": [
+    {
+      "match_id": "92902607",
+      "account_id": "5278896",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 50,
+      "kills": 5,
+      "deaths": 7,
+      "assists": 12,
+      "net_worth": 45563,
+      "damage": 43014,
+      "last_hits": 274,
+      "denies": 7
+    },
+    {
+      "match_id": "92902607",
+      "account_id": "1055638874",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 20,
+      "kills": 5,
+      "deaths": 4,
+      "assists": 18,
+      "net_worth": 34587,
+      "damage": 22122,
+      "last_hits": 201,
+      "denies": 15
+    },
+    {
+      "match_id": "92902607",
+      "account_id": "87241154",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 3,
+      "kills": 2,
+      "deaths": 5,
+      "assists": 19,
+      "net_worth": 38822,
+      "damage": 29767,
+      "last_hits": 164,
+      "denies": 8
+    },
+    {
+      "match_id": "92902607",
+      "account_id": "911856667",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 64,
+      "kills": 7,
+      "deaths": 8,
+      "assists": 22,
+      "net_worth": 41405,
+      "damage": 39456,
+      "last_hits": 146,
+      "denies": 0
+    },
+    {
+      "match_id": "92902607",
+      "account_id": "35187362",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 1,
+      "kills": 11,
+      "deaths": 2,
+      "assists": 15,
+      "net_worth": 56733,
+      "damage": 31931,
+      "last_hits": 256,
+      "denies": 5
+    },
+    {
+      "match_id": "92902607",
+      "account_id": "483770846",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 4,
+      "kills": 2,
+      "deaths": 5,
+      "assists": 18,
+      "net_worth": 50542,
+      "damage": 40580,
+      "last_hits": 250,
+      "denies": 8
+    },
+    {
+      "match_id": "92902607",
+      "account_id": "344946432",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 77,
+      "kills": 7,
+      "deaths": 4,
+      "assists": 13,
+      "net_worth": 48352,
+      "damage": 35278,
+      "last_hits": 162,
+      "denies": 3
+    },
+    {
+      "match_id": "92902607",
+      "account_id": "298155885",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 19,
+      "kills": 6,
+      "deaths": 3,
+      "assists": 12,
+      "net_worth": 35363,
+      "damage": 29175,
+      "last_hits": 177,
+      "denies": 11
+    },
+    {
+      "match_id": "92902607",
+      "account_id": "97533101",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 72,
+      "kills": 4,
+      "deaths": 6,
+      "assists": 19,
+      "net_worth": 42228,
+      "damage": 27574,
+      "last_hits": 115,
+      "denies": 2
+    },
+    {
+      "match_id": "92902607",
+      "account_id": "1444662928",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 10,
+      "kills": 3,
+      "deaths": 7,
+      "assists": 15,
+      "net_worth": 31947,
+      "damage": 27663,
+      "last_hits": 139,
+      "denies": 4
+    },
+    {
+      "match_id": "92902607",
+      "account_id": "124540485",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 65,
+      "kills": 6,
+      "deaths": 4,
+      "assists": 11,
+      "net_worth": 42507,
+      "damage": 48318,
+      "last_hits": 258,
+      "denies": 3
+    },
+    {
+      "match_id": "92902607",
+      "account_id": "906011648",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 16,
+      "kills": 5,
+      "deaths": 8,
+      "assists": 14,
+      "net_worth": 38296,
+      "damage": 30815,
+      "last_hits": 152,
+      "denies": 3
+    },
+    {
+      "match_id": "92912944",
+      "account_id": "1049966963",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 65,
+      "kills": 10,
+      "deaths": 1,
+      "assists": 10,
+      "net_worth": 45747,
+      "damage": 44199,
+      "last_hits": 238,
+      "denies": 1
+    },
+    {
+      "match_id": "92912944",
+      "account_id": "1730032433",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 14,
+      "kills": 6,
+      "deaths": 3,
+      "assists": 24,
+      "net_worth": 34477,
+      "damage": 39394,
+      "last_hits": 119,
+      "denies": 0
+    },
+    {
+      "match_id": "92912944",
+      "account_id": "114943410",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 52,
+      "kills": 3,
+      "deaths": 1,
+      "assists": 13,
+      "net_worth": 37202,
+      "damage": 20428,
+      "last_hits": 189,
+      "denies": 7
+    },
+    {
+      "match_id": "92912944",
+      "account_id": "1871021649",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 15,
+      "kills": 6,
+      "deaths": 2,
+      "assists": 24,
+      "net_worth": 35589,
+      "damage": 20713,
+      "last_hits": 123,
+      "denies": 8
+    },
+    {
+      "match_id": "92912944",
+      "account_id": "1090618511",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 16,
+      "kills": 0,
+      "deaths": 10,
+      "assists": 4,
+      "net_worth": 27048,
+      "damage": 18333,
+      "last_hits": 84,
+      "denies": 1
+    },
+    {
+      "match_id": "92912944",
+      "account_id": "1929248273",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 19,
+      "kills": 12,
+      "deaths": 0,
+      "assists": 23,
+      "net_worth": 36179,
+      "damage": 38319,
+      "last_hits": 129,
+      "denies": 2
+    },
+    {
+      "match_id": "92912944",
+      "account_id": "102312863",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 4,
+      "kills": 1,
+      "deaths": 4,
+      "assists": 4,
+      "net_worth": 34823,
+      "damage": 32692,
+      "last_hits": 168,
+      "denies": 1
+    },
+    {
+      "match_id": "92912944",
+      "account_id": "924812291",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 77,
+      "kills": 0,
+      "deaths": 9,
+      "assists": 1,
+      "net_worth": 24971,
+      "damage": 19201,
+      "last_hits": 122,
+      "denies": 0
+    },
+    {
+      "match_id": "92912944",
+      "account_id": "1868100596",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 27,
+      "kills": 4,
+      "deaths": 10,
+      "assists": 1,
+      "net_worth": 29423,
+      "damage": 18935,
+      "last_hits": 108,
+      "denies": 4
+    },
+    {
+      "match_id": "92912944",
+      "account_id": "399289886",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 35,
+      "kills": 9,
+      "deaths": 0,
+      "assists": 19,
+      "net_worth": 39811,
+      "damage": 38218,
+      "last_hits": 142,
+      "denies": 5
+    },
+    {
+      "match_id": "92912944",
+      "account_id": "1682391475",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 1,
+      "kills": 1,
+      "deaths": 3,
+      "assists": 1,
+      "net_worth": 33855,
+      "damage": 21930,
+      "last_hits": 173,
+      "denies": 1
+    },
+    {
+      "match_id": "92912944",
+      "account_id": "1591197043",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 69,
+      "kills": 1,
+      "deaths": 10,
+      "assists": 1,
+      "net_worth": 24895,
+      "damage": 28913,
+      "last_hits": 95,
+      "denies": 7
+    },
+    {
+      "match_id": "94021619",
+      "account_id": "87241154",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 69,
+      "kills": 7,
+      "deaths": 5,
+      "assists": 14,
+      "net_worth": 34473,
+      "damage": 32950,
+      "last_hits": 176,
+      "denies": 2
+    },
+    {
+      "match_id": "94021619",
+      "account_id": "1055638874",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 20,
+      "kills": 2,
+      "deaths": 8,
+      "assists": 16,
+      "net_worth": 32559,
+      "damage": 18577,
+      "last_hits": 197,
+      "denies": 5
+    },
+    {
+      "match_id": "94021619",
+      "account_id": "911856667",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 13,
+      "kills": 2,
+      "deaths": 9,
+      "assists": 22,
+      "net_worth": 29991,
+      "damage": 23578,
+      "last_hits": 96,
+      "denies": 3
+    },
+    {
+      "match_id": "94021619",
+      "account_id": "35187362",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 1,
+      "kills": 11,
+      "deaths": 7,
+      "assists": 13,
+      "net_worth": 42165,
+      "damage": 32687,
+      "last_hits": 257,
+      "denies": 1
+    },
+    {
+      "match_id": "94021619",
+      "account_id": "483770846",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 4,
+      "kills": 11,
+      "deaths": 3,
+      "assists": 20,
+      "net_worth": 46869,
+      "damage": 50226,
+      "last_hits": 222,
+      "denies": 3
+    },
+    {
+      "match_id": "94021619",
+      "account_id": "124540485",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 7,
+      "kills": 11,
+      "deaths": 2,
+      "assists": 7,
+      "net_worth": 41618,
+      "damage": 30118,
+      "last_hits": 229,
+      "denies": 7
+    },
+    {
+      "match_id": "94021619",
+      "account_id": "344946432",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 16,
+      "kills": 7,
+      "deaths": 3,
+      "assists": 18,
+      "net_worth": 39641,
+      "damage": 30500,
+      "last_hits": 93,
+      "denies": 2
+    },
+    {
+      "match_id": "94021619",
+      "account_id": "906011648",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 31,
+      "kills": 8,
+      "deaths": 4,
+      "assists": 14,
+      "net_worth": 34145,
+      "damage": 28563,
+      "last_hits": 132,
+      "denies": 7
+    },
+    {
+      "match_id": "94021619",
+      "account_id": "81662458",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 27,
+      "kills": 4,
+      "deaths": 12,
+      "assists": 12,
+      "net_worth": 30399,
+      "damage": 23333,
+      "last_hits": 131,
+      "denies": 1
+    },
+    {
+      "match_id": "94021619",
+      "account_id": "97533101",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 6,
+      "kills": 4,
+      "deaths": 4,
+      "assists": 24,
+      "net_worth": 31204,
+      "damage": 24231,
+      "last_hits": 105,
+      "denies": 1
+    },
+    {
+      "match_id": "94021619",
+      "account_id": "1444662928",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 64,
+      "kills": 3,
+      "deaths": 10,
+      "assists": 12,
+      "net_worth": 29178,
+      "damage": 27519,
+      "last_hits": 116,
+      "denies": 0
+    },
+    {
+      "match_id": "94021619",
+      "account_id": "298155885",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 72,
+      "kills": 3,
+      "deaths": 6,
+      "assists": 16,
+      "net_worth": 29632,
+      "damage": 19138,
+      "last_hits": 104,
+      "denies": 5
+    },
+    {
+      "match_id": "94031068",
+      "account_id": "114943410",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 50,
+      "kills": 3,
+      "deaths": 3,
+      "assists": 20,
+      "net_worth": 57402,
+      "damage": 38125,
+      "last_hits": 321,
+      "denies": 3
+    },
+    {
+      "match_id": "94031068",
+      "account_id": "1730032433",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 35,
+      "kills": 6,
+      "deaths": 0,
+      "assists": 21,
+      "net_worth": 55759,
+      "damage": 68490,
+      "last_hits": 275,
+      "denies": 0
+    },
+    {
+      "match_id": "94031068",
+      "account_id": "244109796",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 4,
+      "kills": 2,
+      "deaths": 5,
+      "assists": 9,
+      "net_worth": 45878,
+      "damage": 41352,
+      "last_hits": 292,
+      "denies": 3
+    },
+    {
+      "match_id": "94031068",
+      "account_id": "1929248273",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 16,
+      "kills": 8,
+      "deaths": 4,
+      "assists": 16,
+      "net_worth": 48275,
+      "damage": 36295,
+      "last_hits": 118,
+      "denies": 0
+    },
+    {
+      "match_id": "94031068",
+      "account_id": "1477660209",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 1,
+      "kills": 6,
+      "deaths": 7,
+      "assists": 13,
+      "net_worth": 47035,
+      "damage": 33008,
+      "last_hits": 257,
+      "denies": 2
+    },
+    {
+      "match_id": "94031068",
+      "account_id": "1871021649",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 15,
+      "kills": 6,
+      "deaths": 4,
+      "assists": 17,
+      "net_worth": 44494,
+      "damage": 33332,
+      "last_hits": 180,
+      "denies": 7
+    },
+    {
+      "match_id": "94031068",
+      "account_id": "44899168",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 80,
+      "kills": 3,
+      "deaths": 4,
+      "assists": 10,
+      "net_worth": 33473,
+      "damage": 19159,
+      "last_hits": 134,
+      "denies": 0
+    },
+    {
+      "match_id": "94031068",
+      "account_id": "108710262",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 19,
+      "kills": 6,
+      "deaths": 9,
+      "assists": 3,
+      "net_worth": 36941,
+      "damage": 30176,
+      "last_hits": 185,
+      "denies": 7
+    },
+    {
+      "match_id": "94031068",
+      "account_id": "1676299122",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 17,
+      "kills": 4,
+      "deaths": 5,
+      "assists": 6,
+      "net_worth": 34155,
+      "damage": 41723,
+      "last_hits": 137,
+      "denies": 0
+    },
+    {
+      "match_id": "94031068",
+      "account_id": "25821887",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 8,
+      "kills": 3,
+      "deaths": 7,
+      "assists": 11,
+      "net_worth": 39304,
+      "damage": 45063,
+      "last_hits": 178,
+      "denies": 4
+    },
+    {
+      "match_id": "94031068",
+      "account_id": "108672673",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 52,
+      "kills": 6,
+      "deaths": 5,
+      "assists": 8,
+      "net_worth": 41347,
+      "damage": 41627,
+      "last_hits": 191,
+      "denies": 5
+    },
+    {
+      "match_id": "94031068",
+      "account_id": "399289886",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 77,
+      "kills": 6,
+      "deaths": 6,
+      "assists": 18,
+      "net_worth": 46654,
+      "damage": 39699,
+      "last_hits": 151,
+      "denies": 1
+    },
+    {
+      "match_id": "94038881",
+      "account_id": "244109796",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 4,
+      "kills": 10,
+      "deaths": 6,
+      "assists": 23,
+      "net_worth": 54937,
+      "damage": 62994,
+      "last_hits": 294,
+      "denies": 6
+    },
+    {
+      "match_id": "94038881",
+      "account_id": "1929248273",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 16,
+      "kills": 9,
+      "deaths": 15,
+      "assists": 16,
+      "net_worth": 46719,
+      "damage": 48826,
+      "last_hits": 116,
+      "denies": 4
+    },
+    {
+      "match_id": "94038881",
+      "account_id": "44899168",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 80,
+      "kills": 6,
+      "deaths": 6,
+      "assists": 21,
+      "net_worth": 47334,
+      "damage": 35535,
+      "last_hits": 167,
+      "denies": 1
+    },
+    {
+      "match_id": "94038881",
+      "account_id": "114943410",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 1,
+      "kills": 8,
+      "deaths": 9,
+      "assists": 14,
+      "net_worth": 54280,
+      "damage": 48277,
+      "last_hits": 327,
+      "denies": 11
+    },
+    {
+      "match_id": "94038881",
+      "account_id": "1730032433",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 69,
+      "kills": 5,
+      "deaths": 8,
+      "assists": 16,
+      "net_worth": 47053,
+      "damage": 91936,
+      "last_hits": 258,
+      "denies": 1
+    },
+    {
+      "match_id": "94038881",
+      "account_id": "1477660209",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 31,
+      "kills": 12,
+      "deaths": 5,
+      "assists": 18,
+      "net_worth": 57610,
+      "damage": 68809,
+      "last_hits": 248,
+      "denies": 5
+    },
+    {
+      "match_id": "94038881",
+      "account_id": "1871021649",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 15,
+      "kills": 3,
+      "deaths": 11,
+      "assists": 23,
+      "net_worth": 42481,
+      "damage": 41801,
+      "last_hits": 137,
+      "denies": 3
+    },
+    {
+      "match_id": "94038881",
+      "account_id": "399289886",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 17,
+      "kills": 6,
+      "deaths": 5,
+      "assists": 17,
+      "net_worth": 63320,
+      "damage": 87658,
+      "last_hits": 259,
+      "denies": 1
+    },
+    {
+      "match_id": "94038881",
+      "account_id": "25821887",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 14,
+      "kills": 4,
+      "deaths": 12,
+      "assists": 20,
+      "net_worth": 42926,
+      "damage": 32611,
+      "last_hits": 119,
+      "denies": 3
+    },
+    {
+      "match_id": "94038881",
+      "account_id": "1676299122",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 27,
+      "kills": 8,
+      "deaths": 9,
+      "assists": 27,
+      "net_worth": 47388,
+      "damage": 48230,
+      "last_hits": 121,
+      "denies": 1
+    },
+    {
+      "match_id": "94038881",
+      "account_id": "108672673",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 19,
+      "kills": 10,
+      "deaths": 7,
+      "assists": 26,
+      "net_worth": 48655,
+      "damage": 41664,
+      "last_hits": 163,
+      "denies": 4
+    },
+    {
+      "match_id": "94038881",
+      "account_id": "108710262",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 50,
+      "kills": 15,
+      "deaths": 3,
+      "assists": 15,
+      "net_worth": 79744,
+      "damage": 116217,
+      "last_hits": 414,
+      "denies": 4
+    },
+    {
+      "match_id": "94048508",
+      "account_id": "114943410",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 52,
+      "kills": 4,
+      "deaths": 1,
+      "assists": 18,
+      "net_worth": 33565,
+      "damage": 18352,
+      "last_hits": 202,
+      "denies": 3
+    },
+    {
+      "match_id": "94048508",
+      "account_id": "244109796",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 25,
+      "kills": 2,
+      "deaths": 4,
+      "assists": 6,
+      "net_worth": 42382,
+      "damage": 26018,
+      "last_hits": 263,
+      "denies": 3
+    },
+    {
+      "match_id": "94048508",
+      "account_id": "1730032433",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 10,
+      "kills": 7,
+      "deaths": 1,
+      "assists": 24,
+      "net_worth": 33215,
+      "damage": 30498,
+      "last_hits": 161,
+      "denies": 3
+    },
+    {
+      "match_id": "94048508",
+      "account_id": "1929248273",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 77,
+      "kills": 18,
+      "deaths": 0,
+      "assists": 15,
+      "net_worth": 32650,
+      "damage": 33332,
+      "last_hits": 137,
+      "denies": 0
+    },
+    {
+      "match_id": "94048508",
+      "account_id": "1871021649",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 72,
+      "kills": 8,
+      "deaths": 2,
+      "assists": 24,
+      "net_worth": 32317,
+      "damage": 35624,
+      "last_hits": 132,
+      "denies": 2
+    },
+    {
+      "match_id": "94048508",
+      "account_id": "1477660209",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 4,
+      "kills": 4,
+      "deaths": 7,
+      "assists": 16,
+      "net_worth": 30905,
+      "damage": 18351,
+      "last_hits": 154,
+      "denies": 6
+    },
+    {
+      "match_id": "94048508",
+      "account_id": "44899168",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 80,
+      "kills": 1,
+      "deaths": 9,
+      "assists": 5,
+      "net_worth": 22981,
+      "damage": 10547,
+      "last_hits": 96,
+      "denies": 1
+    },
+    {
+      "match_id": "94048508",
+      "account_id": "25821887",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 69,
+      "kills": 2,
+      "deaths": 7,
+      "assists": 6,
+      "net_worth": 24079,
+      "damage": 18215,
+      "last_hits": 64,
+      "denies": 2
+    },
+    {
+      "match_id": "94048508",
+      "account_id": "399289886",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 1,
+      "kills": 8,
+      "deaths": 3,
+      "assists": 22,
+      "net_worth": 39442,
+      "damage": 24448,
+      "last_hits": 158,
+      "denies": 0
+    },
+    {
+      "match_id": "94048508",
+      "account_id": "108710262",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 19,
+      "kills": 3,
+      "deaths": 10,
+      "assists": 2,
+      "net_worth": 26166,
+      "damage": 16006,
+      "last_hits": 126,
+      "denies": 7
+    },
+    {
+      "match_id": "94048508",
+      "account_id": "1676299122",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 16,
+      "kills": 1,
+      "deaths": 9,
+      "assists": 5,
+      "net_worth": 23780,
+      "damage": 18361,
+      "last_hits": 61,
+      "denies": 0
+    },
+    {
+      "match_id": "94048508",
+      "account_id": "108672673",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 58,
+      "kills": 5,
+      "deaths": 10,
+      "assists": 2,
+      "net_worth": 29056,
+      "damage": 18773,
+      "last_hits": 121,
+      "denies": 5
+    },
+    {
+      "match_id": "94767316",
+      "account_id": "984254212",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 72,
+      "kills": 8,
+      "deaths": 3,
+      "assists": 25,
+      "net_worth": 38567,
+      "damage": 39246,
+      "last_hits": 159,
+      "denies": 5
+    },
+    {
+      "match_id": "94767316",
+      "account_id": "1046192556",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 19,
+      "kills": 6,
+      "deaths": 10,
+      "assists": 10,
+      "net_worth": 29245,
+      "damage": 28524,
+      "last_hits": 131,
+      "denies": 2
+    },
+    {
+      "match_id": "94767316",
+      "account_id": "1009703898",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 64,
+      "kills": 11,
+      "deaths": 11,
+      "assists": 26,
+      "net_worth": 43562,
+      "damage": 50376,
+      "last_hits": 116,
+      "denies": 0
+    },
+    {
+      "match_id": "94767316",
+      "account_id": "1186801441",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 27,
+      "kills": 7,
+      "deaths": 10,
+      "assists": 10,
+      "net_worth": 30310,
+      "damage": 36520,
+      "last_hits": 141,
+      "denies": 1
+    },
+    {
+      "match_id": "94767316",
+      "account_id": "136898005",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 14,
+      "kills": 5,
+      "deaths": 9,
+      "assists": 22,
+      "net_worth": 37285,
+      "damage": 34385,
+      "last_hits": 104,
+      "denies": 1
+    },
+    {
+      "match_id": "94767316",
+      "account_id": "323142724",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 69,
+      "kills": 5,
+      "deaths": 9,
+      "assists": 7,
+      "net_worth": 31469,
+      "damage": 33538,
+      "last_hits": 118,
+      "denies": 5
+    },
+    {
+      "match_id": "94767316",
+      "account_id": "407786402",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 17,
+      "kills": 6,
+      "deaths": 3,
+      "assists": 19,
+      "net_worth": 38161,
+      "damage": 52616,
+      "last_hits": 171,
+      "denies": 12
+    },
+    {
+      "match_id": "94767316",
+      "account_id": "1045169707",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 10,
+      "kills": 9,
+      "deaths": 4,
+      "assists": 25,
+      "net_worth": 39126,
+      "damage": 45150,
+      "last_hits": 120,
+      "denies": 6
+    },
+    {
+      "match_id": "94767316",
+      "account_id": "1840902834",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 4,
+      "kills": 4,
+      "deaths": 11,
+      "assists": 10,
+      "net_worth": 38553,
+      "damage": 46044,
+      "last_hits": 197,
+      "denies": 2
+    },
+    {
+      "match_id": "94767316",
+      "account_id": "298305257",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 7,
+      "kills": 14,
+      "deaths": 0,
+      "assists": 14,
+      "net_worth": 54397,
+      "damage": 47025,
+      "last_hits": 243,
+      "denies": 3
+    },
+    {
+      "match_id": "94767316",
+      "account_id": "914913299",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 65,
+      "kills": 4,
+      "deaths": 8,
+      "assists": 11,
+      "net_worth": 35578,
+      "damage": 36181,
+      "last_hits": 173,
+      "denies": 1
+    },
+    {
+      "match_id": "94767316",
+      "account_id": "5278896",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 1,
+      "kills": 4,
+      "deaths": 5,
+      "assists": 22,
+      "net_worth": 42650,
+      "damage": 33405,
+      "last_hits": 261,
+      "denies": 1
+    },
+    {
+      "match_id": "94773487",
+      "account_id": "1046192556",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 72,
+      "kills": 11,
+      "deaths": 6,
+      "assists": 16,
+      "net_worth": 35346,
+      "damage": 30362,
+      "last_hits": 167,
+      "denies": 4
+    },
+    {
+      "match_id": "94773487",
+      "account_id": "1186801441",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 19,
+      "kills": 13,
+      "deaths": 3,
+      "assists": 21,
+      "net_worth": 35226,
+      "damage": 35699,
+      "last_hits": 136,
+      "denies": 3
+    },
+    {
+      "match_id": "94773487",
+      "account_id": "984254212",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 6,
+      "kills": 5,
+      "deaths": 11,
+      "assists": 5,
+      "net_worth": 26851,
+      "damage": 20772,
+      "last_hits": 135,
+      "denies": 12
+    },
+    {
+      "match_id": "94773487",
+      "account_id": "323142724",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 20,
+      "kills": 3,
+      "deaths": 3,
+      "assists": 31,
+      "net_worth": 34258,
+      "damage": 21612,
+      "last_hits": 96,
+      "denies": 5
+    },
+    {
+      "match_id": "94773487",
+      "account_id": "1009703898",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 64,
+      "kills": 8,
+      "deaths": 13,
+      "assists": 9,
+      "net_worth": 23758,
+      "damage": 44115,
+      "last_hits": 93,
+      "denies": 2
+    },
+    {
+      "match_id": "94773487",
+      "account_id": "136898005",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 60,
+      "kills": 3,
+      "deaths": 13,
+      "assists": 5,
+      "net_worth": 20841,
+      "damage": 12546,
+      "last_hits": 55,
+      "denies": 2
+    },
+    {
+      "match_id": "94773487",
+      "account_id": "407786402",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 14,
+      "kills": 14,
+      "deaths": 6,
+      "assists": 29,
+      "net_worth": 35512,
+      "damage": 44058,
+      "last_hits": 102,
+      "denies": 3
+    },
+    {
+      "match_id": "94773487",
+      "account_id": "1840902834",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 1,
+      "kills": 10,
+      "deaths": 5,
+      "assists": 26,
+      "net_worth": 38059,
+      "damage": 33984,
+      "last_hits": 168,
+      "denies": 5
+    },
+    {
+      "match_id": "94773487",
+      "account_id": "298305257",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 65,
+      "kills": 3,
+      "deaths": 6,
+      "assists": 6,
+      "net_worth": 32428,
+      "damage": 30071,
+      "last_hits": 186,
+      "denies": 1
+    },
+    {
+      "match_id": "94773487",
+      "account_id": "914913299",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 4,
+      "kills": 10,
+      "deaths": 5,
+      "assists": 16,
+      "net_worth": 42631,
+      "damage": 35424,
+      "last_hits": 186,
+      "denies": 4
+    },
+    {
+      "match_id": "94773487",
+      "account_id": "5278896",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 50,
+      "kills": 1,
+      "deaths": 7,
+      "assists": 6,
+      "net_worth": 36942,
+      "damage": 34291,
+      "last_hits": 213,
+      "denies": 0
+    },
+    {
+      "match_id": "94773487",
+      "account_id": "1045169707",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 10,
+      "kills": 7,
+      "deaths": 11,
+      "assists": 6,
+      "net_worth": 28717,
+      "damage": 33238,
+      "last_hits": 112,
+      "denies": 4
+    },
+    {
+      "match_id": "94779630",
+      "account_id": "1046192556",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 72,
+      "kills": 9,
+      "deaths": 6,
+      "assists": 10,
+      "net_worth": 33228,
+      "damage": 32235,
+      "last_hits": 177,
+      "denies": 9
+    },
+    {
+      "match_id": "94779630",
+      "account_id": "1186801441",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 64,
+      "kills": 8,
+      "deaths": 2,
+      "assists": 23,
+      "net_worth": 31985,
+      "damage": 38938,
+      "last_hits": 127,
+      "denies": 1
+    },
+    {
+      "match_id": "94779630",
+      "account_id": "136898005",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 14,
+      "kills": 1,
+      "deaths": 9,
+      "assists": 9,
+      "net_worth": 25045,
+      "damage": 22463,
+      "last_hits": 84,
+      "denies": 1
+    },
+    {
+      "match_id": "94779630",
+      "account_id": "984254212",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 6,
+      "kills": 1,
+      "deaths": 9,
+      "assists": 4,
+      "net_worth": 25074,
+      "damage": 14873,
+      "last_hits": 132,
+      "denies": 6
+    },
+    {
+      "match_id": "94779630",
+      "account_id": "323142724",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 79,
+      "kills": 3,
+      "deaths": 2,
+      "assists": 25,
+      "net_worth": 30043,
+      "damage": 17519,
+      "last_hits": 78,
+      "denies": 1
+    },
+    {
+      "match_id": "94779630",
+      "account_id": "1009703898",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 19,
+      "kills": 9,
+      "deaths": 8,
+      "assists": 4,
+      "net_worth": 25734,
+      "damage": 26351,
+      "last_hits": 78,
+      "denies": 1
+    },
+    {
+      "match_id": "94779630",
+      "account_id": "5278896",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 50,
+      "kills": 5,
+      "deaths": 8,
+      "assists": 2,
+      "net_worth": 35578,
+      "damage": 38758,
+      "last_hits": 204,
+      "denies": 1
+    },
+    {
+      "match_id": "94779630",
+      "account_id": "298305257",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 63,
+      "kills": 2,
+      "deaths": 6,
+      "assists": 5,
+      "net_worth": 34073,
+      "damage": 21272,
+      "last_hits": 213,
+      "denies": 3
+    },
+    {
+      "match_id": "94779630",
+      "account_id": "1840902834",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 1,
+      "kills": 11,
+      "deaths": 2,
+      "assists": 9,
+      "net_worth": 37440,
+      "damage": 22231,
+      "last_hits": 175,
+      "denies": 5
+    },
+    {
+      "match_id": "94779630",
+      "account_id": "407786402",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 15,
+      "kills": 4,
+      "deaths": 3,
+      "assists": 19,
+      "net_worth": 29844,
+      "damage": 24638,
+      "last_hits": 117,
+      "denies": 9
+    },
+    {
+      "match_id": "94779630",
+      "account_id": "914913299",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 65,
+      "kills": 12,
+      "deaths": 3,
+      "assists": 21,
+      "net_worth": 39404,
+      "damage": 43932,
+      "last_hits": 163,
+      "denies": 3
+    },
+    {
+      "match_id": "94779630",
+      "account_id": "1045169707",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 20,
+      "kills": 0,
+      "deaths": 7,
+      "assists": 10,
+      "net_worth": 24787,
+      "damage": 23432,
+      "last_hits": 97,
+      "denies": 2
+    },
+    {
+      "match_id": "95172627",
+      "account_id": "244109796",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 65,
+      "kills": 9,
+      "deaths": 2,
+      "assists": 8,
+      "net_worth": 52682,
+      "damage": 29750,
+      "last_hits": 307,
+      "denies": 5
+    },
+    {
+      "match_id": "95172627",
+      "account_id": "1285605078",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 80,
+      "kills": 16,
+      "deaths": 0,
+      "assists": 23,
+      "net_worth": 40922,
+      "damage": 46985,
+      "last_hits": 101,
+      "denies": 4
+    },
+    {
+      "match_id": "95172627",
+      "account_id": "114943410",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 50,
+      "kills": 3,
+      "deaths": 7,
+      "assists": 0,
+      "net_worth": 37510,
+      "damage": 25463,
+      "last_hits": 223,
+      "denies": 6
+    },
+    {
+      "match_id": "95172627",
+      "account_id": "1871021649",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 64,
+      "kills": 4,
+      "deaths": 12,
+      "assists": 7,
+      "net_worth": 28863,
+      "damage": 28976,
+      "last_hits": 113,
+      "denies": 1
+    },
+    {
+      "match_id": "95172627",
+      "account_id": "1730032433",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 14,
+      "kills": 2,
+      "deaths": 5,
+      "assists": 6,
+      "net_worth": 34320,
+      "damage": 36860,
+      "last_hits": 134,
+      "denies": 6
+    },
+    {
+      "match_id": "95172627",
+      "account_id": "1929248273",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 77,
+      "kills": 2,
+      "deaths": 9,
+      "assists": 4,
+      "net_worth": 28903,
+      "damage": 17669,
+      "last_hits": 102,
+      "denies": 1
+    },
+    {
+      "match_id": "95172627",
+      "account_id": "924812291",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 16,
+      "kills": 10,
+      "deaths": 4,
+      "assists": 23,
+      "net_worth": 42758,
+      "damage": 37258,
+      "last_hits": 114,
+      "denies": 0
+    },
+    {
+      "match_id": "95172627",
+      "account_id": "1871217631",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 35,
+      "kills": 3,
+      "deaths": 2,
+      "assists": 23,
+      "net_worth": 34783,
+      "damage": 25766,
+      "last_hits": 119,
+      "denies": 2
+    },
+    {
+      "match_id": "95172627",
+      "account_id": "1477660209",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 4,
+      "kills": 3,
+      "deaths": 8,
+      "assists": 1,
+      "net_worth": 40929,
+      "damage": 39107,
+      "last_hits": 225,
+      "denies": 3
+    },
+    {
+      "match_id": "95172627",
+      "account_id": "399289886",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 1,
+      "kills": 2,
+      "deaths": 14,
+      "assists": 6,
+      "net_worth": 28970,
+      "damage": 21730,
+      "last_hits": 162,
+      "denies": 3
+    },
+    {
+      "match_id": "95172627",
+      "account_id": "25821887",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 72,
+      "kills": 6,
+      "deaths": 5,
+      "assists": 28,
+      "net_worth": 41544,
+      "damage": 40611,
+      "last_hits": 161,
+      "denies": 9
+    },
+    {
+      "match_id": "95172627",
+      "account_id": "1840902834",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 63,
+      "kills": 11,
+      "deaths": 3,
+      "assists": 18,
+      "net_worth": 48222,
+      "damage": 44136,
+      "last_hits": 268,
+      "denies": 3
+    },
+    {
+      "match_id": "95180553",
+      "account_id": "244109796",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 25,
+      "kills": 3,
+      "deaths": 10,
+      "assists": 9,
+      "net_worth": 32053,
+      "damage": 25496,
+      "last_hits": 219,
+      "denies": 4
+    },
+    {
+      "match_id": "95180553",
+      "account_id": "114943410",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 1,
+      "kills": 3,
+      "deaths": 4,
+      "assists": 22,
+      "net_worth": 39253,
+      "damage": 26990,
+      "last_hits": 235,
+      "denies": 6
+    },
+    {
+      "match_id": "95180553",
+      "account_id": "1871021649",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 72,
+      "kills": 7,
+      "deaths": 9,
+      "assists": 19,
+      "net_worth": 35822,
+      "damage": 35044,
+      "last_hits": 144,
+      "denies": 8
+    },
+    {
+      "match_id": "95180553",
+      "account_id": "1730032433",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 77,
+      "kills": 12,
+      "deaths": 7,
+      "assists": 16,
+      "net_worth": 38765,
+      "damage": 44407,
+      "last_hits": 160,
+      "denies": 4
+    },
+    {
+      "match_id": "95180553",
+      "account_id": "1285605078",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 80,
+      "kills": 7,
+      "deaths": 9,
+      "assists": 9,
+      "net_worth": 26214,
+      "damage": 32732,
+      "last_hits": 83,
+      "denies": 1
+    },
+    {
+      "match_id": "95180553",
+      "account_id": "924812291",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 27,
+      "kills": 15,
+      "deaths": 6,
+      "assists": 10,
+      "net_worth": 35998,
+      "damage": 45471,
+      "last_hits": 132,
+      "denies": 1
+    },
+    {
+      "match_id": "95180553",
+      "account_id": "1871217631",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 35,
+      "kills": 2,
+      "deaths": 5,
+      "assists": 21,
+      "net_worth": 28516,
+      "damage": 30436,
+      "last_hits": 110,
+      "denies": 4
+    },
+    {
+      "match_id": "95180553",
+      "account_id": "1929248273",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 16,
+      "kills": 6,
+      "deaths": 8,
+      "assists": 21,
+      "net_worth": 41235,
+      "damage": 31396,
+      "last_hits": 111,
+      "denies": 0
+    },
+    {
+      "match_id": "95180553",
+      "account_id": "1477660209",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 31,
+      "kills": 7,
+      "deaths": 6,
+      "assists": 13,
+      "net_worth": 38583,
+      "damage": 34926,
+      "last_hits": 170,
+      "denies": 1
+    },
+    {
+      "match_id": "95180553",
+      "account_id": "25821887",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 10,
+      "kills": 5,
+      "deaths": 7,
+      "assists": 19,
+      "net_worth": 33884,
+      "damage": 44642,
+      "last_hits": 160,
+      "denies": 7
+    },
+    {
+      "match_id": "95180553",
+      "account_id": "399289886",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 4,
+      "kills": 7,
+      "deaths": 4,
+      "assists": 15,
+      "net_worth": 44860,
+      "damage": 33357,
+      "last_hits": 236,
+      "denies": 5
+    },
+    {
+      "match_id": "95180553",
+      "account_id": "1840902834",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 50,
+      "kills": 6,
+      "deaths": 5,
+      "assists": 8,
+      "net_worth": 39265,
+      "damage": 37184,
+      "last_hits": 197,
+      "denies": 2
+    },
+    {
+      "match_id": "95187371",
+      "account_id": "1871021649",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 72,
+      "kills": 4,
+      "deaths": 5,
+      "assists": 21,
+      "net_worth": 43863,
+      "damage": 31782,
+      "last_hits": 188,
+      "denies": 4
+    },
+    {
+      "match_id": "95187371",
+      "account_id": "114943410",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 50,
+      "kills": 2,
+      "deaths": 1,
+      "assists": 19,
+      "net_worth": 51278,
+      "damage": 31202,
+      "last_hits": 277,
+      "denies": 5
+    },
+    {
+      "match_id": "95187371",
+      "account_id": "1285605078",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 14,
+      "kills": 11,
+      "deaths": 3,
+      "assists": 7,
+      "net_worth": 35533,
+      "damage": 43130,
+      "last_hits": 153,
+      "denies": 1
+    },
+    {
+      "match_id": "95187371",
+      "account_id": "1871217631",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 20,
+      "kills": 2,
+      "deaths": 3,
+      "assists": 15,
+      "net_worth": 33722,
+      "damage": 13650,
+      "last_hits": 111,
+      "denies": 6
+    },
+    {
+      "match_id": "95187371",
+      "account_id": "924812291",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 16,
+      "kills": 1,
+      "deaths": 6,
+      "assists": 11,
+      "net_worth": 35589,
+      "damage": 26267,
+      "last_hits": 96,
+      "denies": 0
+    },
+    {
+      "match_id": "95187371",
+      "account_id": "1929248273",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 77,
+      "kills": 5,
+      "deaths": 4,
+      "assists": 18,
+      "net_worth": 39589,
+      "damage": 31223,
+      "last_hits": 159,
+      "denies": 0
+    },
+    {
+      "match_id": "95187371",
+      "account_id": "1730032433",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 10,
+      "kills": 9,
+      "deaths": 7,
+      "assists": 12,
+      "net_worth": 39240,
+      "damage": 34652,
+      "last_hits": 164,
+      "denies": 6
+    },
+    {
+      "match_id": "95187371",
+      "account_id": "1477660209",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 31,
+      "kills": 6,
+      "deaths": 5,
+      "assists": 19,
+      "net_worth": 47017,
+      "damage": 40366,
+      "last_hits": 219,
+      "denies": 5
+    },
+    {
+      "match_id": "95187371",
+      "account_id": "25821887",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 27,
+      "kills": 6,
+      "deaths": 11,
+      "assists": 7,
+      "net_worth": 36012,
+      "damage": 33193,
+      "last_hits": 166,
+      "denies": 6
+    },
+    {
+      "match_id": "95187371",
+      "account_id": "399289886",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 80,
+      "kills": 10,
+      "deaths": 6,
+      "assists": 18,
+      "net_worth": 41012,
+      "damage": 39422,
+      "last_hits": 110,
+      "denies": 5
+    },
+    {
+      "match_id": "95187371",
+      "account_id": "1840902834",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 52,
+      "kills": 5,
+      "deaths": 7,
+      "assists": 12,
+      "net_worth": 40717,
+      "damage": 31350,
+      "last_hits": 233,
+      "denies": 5
+    },
+    {
+      "match_id": "95187371",
+      "account_id": "244109796",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 4,
+      "kills": 3,
+      "deaths": 6,
+      "assists": 13,
+      "net_worth": 43818,
+      "damage": 45547,
+      "last_hits": 283,
+      "denies": 3
+    }
+  ]
+}
