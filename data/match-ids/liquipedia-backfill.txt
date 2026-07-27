@@ -1,0 +1,469 @@
+# Night Shift match IDs harvested from the Liquipedia Deadlock wiki.
+#
+# Source: https://liquipedia.net/deadlock/Deadlock_Night_Shift/<edition>/<EU|NA>
+# Content is CC-BY-SA 3.0. See LIQUIPEDIA-NOTES.md for the terms we honour.
+#
+# Generated 2026-07-27 by parsing {{Bracket}} markup for matchid= values.
+# Editions #1 to #49, both regions. Of 404 games listed on the wiki, 118
+# carry no match id and 3 carry a malformed one, so 283 ids are listed here.
+#
+# EXCLUDED as malformed, left uncorrected on purpose. Every real Night Shift
+# match id is 8 digits, and these are not. Guessing the intended value is not
+# safe: a truncated id can still resolve to a real but unrelated public match,
+# which would put wrong data in the cache under a Night Shift label.
+#     #4  EU qualifier game 3   '27'         (2 digits)
+#     #16 EU finals    game 2   '479818572'  (9 digits)
+#     #37 NA finals    game 3   '8014968'    (7 digits)
+#
+# This file is input to scripts/fetch_matches.py. Authoritative night
+# membership lives in data/curated/nights/, not here.
+#
+# NOTE: comments must stay on their own lines. fetch_matches.parse_ids
+# strips every non-digit from a line, so a trailing comment containing a
+# digit would be concatenated onto the id and silently corrupt it.
+
+
+# Night Shift #1, Europe (patch unknown)
+38782020
+38783503
+38784717
+
+# Night Shift #1, North America (patch unknown)
+38786382
+38787362
+38788265
+
+# Night Shift #2, Europe (patch unknown)
+39080962
+39085156
+39090907
+
+# Night Shift #2, North America (patch unknown)
+39097534
+39102461
+39106223
+39109849
+
+# Night Shift #4, Europe (patch unknown)
+40937186
+40943703
+40953951
+
+# Night Shift #4, North America (patch unknown)
+40961317
+40968590
+40973442
+
+# Night Shift #5, Europe (patch unknown)
+41768032
+41772816
+41776630
+41780578
+
+# Night Shift #5, North America (patch unknown)
+41787634
+41792548
+41796637
+
+# Night Shift #6, Europe (patch unknown)
+42485898
+42490373
+42493724
+42497554
+
+# Night Shift #6, North America (patch unknown)
+42502377
+42506644
+42510904
+
+# Night Shift #7, Europe (patch unknown)
+43163800
+43167723
+43171733
+
+# Night Shift #7, North America (patch unknown)
+43176704
+43180345
+43184209
+43188560
+
+# Night Shift #8, Europe (patch unknown)
+43817512
+43821414
+43824716
+43828397
+
+# Night Shift #9, Europe (patch unknown)
+44452567
+44456098
+44459808
+
+# Night Shift #9, North America (patch unknown)
+44465516
+44468466
+
+# Night Shift #10, Europe (patch unknown)
+45038801
+45042293
+45045402
+
+# Night Shift #10, North America (patch unknown)
+45049175
+45052256
+45055496
+
+# Night Shift #11, Europe (patch unknown)
+45588473
+45592218
+45595832
+45598506
+
+# Night Shift #11, North America (patch unknown)
+45602770
+45605730
+45608937
+
+# Night Shift #12, Europe (patch unknown)
+46132383
+46139078
+46142015
+
+# Night Shift #12, North America (patch unknown)
+46145955
+46148706
+46151312
+46154283
+
+# Night Shift #13, Europe (patch 2025-10-24)
+46601607
+46604249
+46606696
+46608987
+
+# Night Shift #13, North America (patch 2025-10-24)
+46611968
+46615071
+46617666
+
+# Night Shift #14, Europe (patch 2025-10-24)
+47054324
+47057479
+47059353
+
+# Night Shift #14, North America (patch 2025-10-24)
+47062957
+47065490
+47067505
+47070001
+
+# Night Shift #15, Europe (patch 2025-10-24)
+47472140
+47474460
+47476135
+47478467
+
+# Night Shift #15, North America (patch 2025-10-24)
+47481210
+47483112
+47485459
+47487586
+
+# Night Shift #16, Europe (patch 2025-11-21)
+47916125
+47920488
+
+# Night Shift #16, North America (patch 2025-11-21)
+47923808
+47926154
+47928897
+
+# Night Shift #17, Europe (patch 2025-11-21)
+48340171
+48343137
+48345290
+
+# Night Shift #17, North America (patch 2025-11-21)
+48347919
+48350635
+48353265
+48355611
+
+# Night Shift #18, Europe (patch 2025-11-21)
+48751843
+48754280
+38766744
+
+# Night Shift #18, North America (patch 2025-11-21)
+48761952
+48764237
+
+# Night Shift #19, Europe (patch 2025-11-21)
+49151181
+49154386
+49156735
+
+# Night Shift #20, Europe (patch 2025-12-31)
+50425489
+50428333
+50430895
+
+# Night Shift #21, Europe (patch 2025-12-31)
+50870550
+50873336
+50875998
+50878368
+
+# Night Shift #23, Europe (patch 2026-01-26)
+53056350
+53068058
+53079868
+
+# Night Shift #24, Europe (patch 2026-01-30)
+55276851
+
+# Night Shift #26, Europe (patch 2026-01-30)
+59809638
+59826592
+
+# Night Shift #26, North America (patch 2026-01-30)
+59846915
+
+# Night Shift #27, Europe (patch 2026-01-30)
+62062786
+62082326
+62097099
+62113511
+
+# Night Shift #27, North America (patch 2026-01-30)
+62133731
+62151813
+62166219
+
+# Night Shift #28, Europe (patch 2026-01-30)
+64221871
+64234633
+64249740
+
+# Night Shift #28, North America (patch 2026-01-30)
+64270120
+64285998
+64299476
+
+# Night Shift #29, Europe (patch 2026-03-06)
+66383499
+66399727
+66416878
+66429429
+
+# Night Shift #29, North America (patch 2026-03-06)
+66447214
+66466563
+66484528
+66499852
+
+# Night Shift #30, Europe (patch 2026-03-06)
+68525762
+68542295
+68560460
+
+# Night Shift #30, North America (patch 2026-03-06)
+68577039
+68590943
+68607614
+68622582
+
+# Night Shift #31, Europe (patch 2026-03-21)
+70457488
+70471960
+70483196
+70501132
+
+# Night Shift #32, Europe (patch 2026-03-30)
+72318302
+72334034
+72345830
+
+# Night Shift #32, North America (patch 2026-03-30)
+72362504
+72374052
+72388580
+
+# Night Shift #33, Europe (patch 2026-03-30)
+74148164
+74166946
+74178339
+
+# Night Shift #33, North America (patch 2026-03-30)
+74191976
+74204633
+74217659
+
+# Night Shift #35, Europe (patch 2026-03-30)
+77625424
+77638857
+77649372
+
+# Night Shift #35, North America (patch 2026-03-30)
+77661335
+77673841
+77684531
+77695548
+77244743
+77253588
+77260786
+
+# Night Shift #36, Europe (patch 2026-03-30)
+79186569
+79201343
+79209596
+
+# Night Shift #36, North America (patch 2026-03-30)
+79221309
+79235607
+79245948
+78325825
+78335729
+
+# Night Shift #37, Europe (patch 2026-04-30)
+80711016
+80722130
+80734022
+80742063
+
+# Night Shift #37, North America (patch 2026-04-30)
+80755126
+80767479
+80778694
+80157723
+80167408
+
+# Night Shift #38, Europe (patch 2026-04-30)
+82212039
+82223725
+
+# Night Shift #38, North America (patch 2026-04-30)
+82236953
+82248757
+82259225
+
+# Night Shift #39, Europe (patch 2026-04-30)
+83756240
+83665998
+
+# Night Shift #39, North America (patch 2026-04-30)
+83695045
+83705359
+83714773
+
+# Night Shift #40, Europe (patch 2026-04-30)
+85202927
+85214988
+85225088
+85234319
+
+# Night Shift #40, North America (patch 2026-05-25)
+85246298
+
+# Night Shift #41, Europe (patch 2026-05-31)
+86651825
+86664959
+86673919
+
+# Night Shift #41, North America (patch 2026-05-31)
+86682921
+86693715
+86702129
+
+# Night Shift #42, Europe (patch 2026-06-04)
+88031565
+88043911
+88052543
+
+# Night Shift #42, North America (patch 2026-06-04)
+88062417
+88070651
+88077726
+
+# Night Shift #43, Europe (patch 2026-06-11)
+89321124
+89330464
+89338321
+89346309
+
+# Night Shift #43, North America (patch 2026-06-11)
+89356696
+89366827
+89375276
+89382616
+
+# Night Shift #44, Europe (patch 2026-06-11)
+90541069
+90549986
+90557430
+90186663
+90196212
+90204487
+
+# Night Shift #44, North America (patch 2026-06-11)
+90567850
+90577157
+90586005
+
+# Night Shift #45, Europe (patch 2026-06-30)
+91699909
+91708554
+91716442
+91723283
+
+# Night Shift #45, North America (patch 2026-07-01)
+91732882
+91742336
+91751939
+91760634
+91397056
+91403217
+91410230
+
+# Night Shift #46, Europe (patch 2026-07-01)
+92878293
+92887018
+92893936
+92902607
+92699426
+92705586
+
+# Night Shift #46, North America (patch 2026-07-01)
+92912944
+92921624
+92931815
+92940068
+92592573
+92586699
+
+# Night Shift #47, Europe (patch 2026-07-09)
+93998128
+94006005
+94014787
+94021619
+93806492
+93812686
+
+# Night Shift #47, North America (patch 2026-07-09)
+94031068
+94038881
+94048508
+
+# Night Shift #48, Europe (patch 2026-07-09)
+95127498
+95138948
+95147044
+95154753
+94767316
+94773487
+94779630
+
+# Night Shift #48, North America (patch 2026-07-09)
+95163554
+95172627
+95180553
+95187371
