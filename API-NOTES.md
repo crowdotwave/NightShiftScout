@@ -40,6 +40,7 @@ no key and no proxy needed.
 | Leaderboard gives **candidate** account IDs | `possible_account_ids` is an array, exactly one candidate only 58% of the time. |
 | Match history **does** exist per account | And it includes tournament matches. |
 | Metadata rate limit depends on **where the match is stored** | Cached 100/s, S3 100/10s, **cold from Steam 3/hour**. See below. |
+| **Two cached matches are not Night Shift games at all** | Wrong match IDs on the wiki. Three independent signals agree. See below. |
 
 ---
 
@@ -79,14 +80,17 @@ The damage extraction the whole app depends on is now genuinely well tested.
   carry exactly two keys, `team` and an empty `team_tracked_stats`. There is
   still no team identity and no score. But code that tests `if teams:` will
   now take a branch it never took on the old sample.
-- **"All Night Shift games are `match_mode: 2`" is false.** 268 of 270 are,
-  and **2 are `match_mode: 1`**. Those two also carry a real
-  `average_badge_team0/1` of 11 rather than 0, which is exactly what the
-  badge section predicts and is therefore a confirmation of the mechanism
-  and a correction to the "all" at the same time.
-- **Twelve players per match is not universal.** Match `83756240` has **8**.
-  Anything dividing by 12, or assuming six a side, needs to read the actual
-  count.
+- **"All Night Shift games are `match_mode: 2`" survives, and the apparent
+  exceptions were the discovery.** 268 of 270 cached matches are mode 2. The
+  2 that are not turned out not to be Night Shift games at all, but wrong
+  match IDs on the wiki pointing at public games. Corrected on 2026-07-27;
+  this bullet previously read "is false" and treated the 2 as tournament
+  games. See "Two contaminated match IDs" above.
+- **Twelve players per match is not universal, but the exception is not a
+  tournament game.** Match `83756240` has **8**, and it is a 4v4 Street Brawl
+  game, one of the two contaminants. Still read the actual count rather than
+  dividing by 12, since that costs nothing, but do not expect a genuine
+  Night Shift match to be anything other than 6v6.
 - **`hero_type` coverage is lower than measured.** Was 143/144, 99.3%. Across
   the full cache it is **3188/3236, 98.5%**, and all 48 gaps are hero 79. The
   conclusion that role is dense enough to build on survives, the exact figure
@@ -107,6 +111,59 @@ Treat all three as provisional. The first is the one to be most careful with,
 because it is the basis for the claim that badge cannot separate Night Shift
 teams, and 45 players from three editions is precisely the shape of sample
 that has already misled us once.
+
+---
+
+## Two contaminated match IDs
+
+**Found 2026-07-27 while re-checking the reference tables below.** Two of the
+270 cached matches are not Night Shift games. They are ordinary public games
+that the wiki lists under a Night Shift bracket, so a wrong `matchid=` was
+typed and we ingested it faithfully.
+
+| Match | Listed as | What it actually is |
+| --- | --- | --- |
+| `44465516` | #9 NA challenger | A public 6v6 match, `match_mode: 1` |
+| `83756240` | #39 EU challenger | A **Street Brawl** game, `game_mode: 4`, 4v4 |
+
+Three signals agree, and each was computed independently of the others:
+
+1. **Hero picks.** Scoring every cached game against the wiki's own hero
+   picks, 255 of 262 match 6 of 6 and 5 match 5 of 6. These two match **2 of
+   6**. There is nothing else in the distribution between 2 and 5.
+2. **Match mode.** All 268 other cached games are `match_mode: 2`, a custom
+   lobby. These two are `match_mode: 1`, public matchmaking. Night Shift is
+   not played in matchmaking.
+3. **Duration.** Wiki length agrees with `duration_s` to within 2 seconds on
+   259 of 265 games, and the worst genuine disagreement is 10 seconds. These
+   two are out by **218 and 630 seconds**.
+
+`83756240` is worth looking at directly, because it explains several oddities
+recorded elsewhere in this file. It has 8 players (4 per side), `game_mode: 4`,
+a populated `street_brawl_rounds` of 5 rounds, a non-empty `team_score` of
+`[2, 3]`, and a `net_worth` of exactly `48000` for all 8 players, which is how
+Street Brawl works. It is not a 6v6 game and never was.
+
+**What this corrects:**
+
+- "One match in 270 has 8 players, read the count" is true but misleading.
+  The 8 player match is not a Night Shift match. Code should still read the
+  count rather than assume 12, since that costs nothing, but the exception is
+  contamination and not a property of tournament games.
+- "`match_mode: 2` is not universal, do not filter on it" was the wrong
+  lesson. **Every genuine Night Shift game in the cache is `match_mode: 2`.**
+  Filtering on it would have caught both bad IDs on ingest. It is a usable
+  integrity check, though the hero pick join is the stronger one because it
+  also catches a wrong ID that happens to be another custom lobby.
+- "2 mode 1 matches carry a real badge of 11" was wrong on the count.
+  **Only `44465516` carries 11.** `83756240` is mode 1 and carries `0`, so
+  even the "mode 1 populates the badge" mechanism is not universal, and
+  Street Brawl looks like another case Valve does not populate.
+
+**Not yet removed from the cache.** Dropping them changes headline counts
+that appear across every document here (270 matches, 3,236 player-games), so
+it is a decision to take deliberately rather than a side effect of a doc fix.
+Until then, every count in this file includes both.
 
 ---
 
@@ -183,26 +240,26 @@ Top level is an object with exactly three keys:
 | --- | --- | --- |
 | `match_info` | object | Everything useful |
 | `hero_build_ids` | object | Map of `account_id` (as string) to build ID (int) |
-| `banned_hero_ids` | array | Empty on all 12 tournament matches |
+| `banned_hero_ids` | array | Empty on **270/270** |
 
 ### `match_info` fields
 
-All 31 fields are present on 12/12 cached matches. Types observed:
+All 31 fields are present on **270/270** cached matches. Types observed:
 
 | Field | Type | Notes |
 | --- | --- | --- |
 | `match_id` | int | |
-| `duration_s` | int | Seconds. Range in cache: 1694 to 2924. |
+| `duration_s` | int | Seconds. Range across the 268 genuine matches: **1165 to 3056**. |
 | `start_time` | int | Unix seconds, UTC |
-| `winning_team` | int | `0` or `1`. **The authoritative win field.** |
-| `match_mode` | int | `2` on all Night Shift games. `1` is public matchmaking. |
-| `game_mode` | int | `1` on all cached matches |
-| `players` | array | Always exactly 12 entries |
-| `match_outcome` | int | **Always `0`**, including on matches won by team 1. Useless. |
-| `average_badge_team0` | int | **Always `0`** on `match_mode: 2`. See below. |
-| `average_badge_team1` | int | **Always `0`** on `match_mode: 2`. See below. |
-| `teams` | array | Two entries, each `{team: int, team_tracked_stats: []}`. **No team identity.** |
-| `team_score` | array | **Empty** on all 12 |
+| `winning_team` | int | `0` or `1`. **The authoritative win field.** 270/270. |
+| `match_mode` | int | `2` on **all 268** genuine Night Shift games. `1` is public matchmaking, and the only 2 cached are the contaminated IDs above. |
+| `game_mode` | int | `1` on 269/270. The exception is `4`, Street Brawl, on `83756240`. |
+| `players` | array | 12 entries on 269/270. The exception has 8 and is not a Night Shift game. **Read the count anyway**, it is free. |
+| `match_outcome` | int | **Always `0`**, 270/270, including on matches won by team 1. Useless. |
+| `average_badge_team0` | int | **`0` on 269/270.** See below. |
+| `average_badge_team1` | int | **`0` on 269/270.** See below. |
+| `teams` | array | **Present on 160/270, absent on 110.** Where present, every entry is `{team: int, team_tracked_stats: []}`. **No team identity, no score.** |
+| `team_score` | array | Empty on 269/270. Non-empty only on the Street Brawl match, where it is a round score `[2, 3]`. |
 | `objectives_mask_team0` / `1` | int | Bitmask, not decoded here |
 | `objectives` | array | Populated, not decoded here |
 | `damage_matrix` | object | Populated. Potentially useful, not explored yet. |
@@ -218,16 +275,21 @@ All 31 fields are present on 12/12 cached matches. Types observed:
 ### `average_badge_team0` / `average_badge_team1`
 
 **Do not use these.** Present and typed `int` on every match, and equal to
-`0` on 12/12 cached tournament matches. Not null, not absent, so `?? null`
-and `|| null` both fail to catch it.
+`0` on **all 268 genuine tournament matches**. Not null, not absent, so
+`?? null` and `|| null` both fail to catch it.
 
 Control test: public match `95694731` (`match_mode: 1`) returns `116` for
 both teams. The field works, Valve simply never populates it for custom
 lobbies, and every Night Shift game is a custom lobby.
 
+The one cached match returning a non-zero badge is `44465516`, at `11` for
+both teams, and it is a public game wrongly listed on the wiki rather than a
+Night Shift game. The other contaminated match is mode 1 and still returns
+`0`, so "mode 1 means the badge is populated" is a tendency too, not a rule.
+
 ### `players[]` fields
 
-28 fields, all present on 144/144 player-games. The ones that matter:
+28 fields, all present on **3236/3236** player-games. The ones that matter:
 
 | Field | Type | Notes |
 | --- | --- | --- |
@@ -238,7 +300,7 @@ lobbies, and every Night Shift game is a custom lobby.
 | `net_worth` | int | Final souls |
 | `kills`, `deaths`, `assists` | int | |
 | `last_hits`, `denies`, `level`, `ability_points` | int | |
-| `assigned_lane` | int | Only values `1`, `4`, `6` observed, 48 each. Not the 1-to-6 range you might assume. |
+| `assigned_lane` | int | Only values `1`, `4`, `6` observed across **3236** player-games, near enough evenly split (1078 / 1080 / 1078). Not the 1-to-6 range you might assume. |
 | `mvp_rank` | int or null | Only nullable scalar on the player object |
 | `stats` | array | Time series, see below |
 | `abandon_match_time_s` | null | Always null in cache |
@@ -259,25 +321,27 @@ A periodic time series, roughly one entry every four minutes (9 entries on a
 `neutral_damage`, `boss_damage`, and a set of `gold_*` source breakdowns.
 
 To get end-of-game damage, take the entry with the highest `time_stamp_s`
-and read `player_damage`. Verified on **144/144 player-games**, no misses,
-and the highest `time_stamp_s` equals `duration_s` exactly, so that entry
-really is the final snapshot rather than a truncated one.
+and read `player_damage`. Verified on **3236/3236 player-games**, no misses,
+and the highest `time_stamp_s` equals `duration_s` exactly on every one, so
+that entry really is the final snapshot rather than a truncated one. This is
+the best tested claim in this file.
 
 ---
 
 ## Team and side assignment: explicit, not inferred
 
 `players[].team` is an `int` that is always present and always `0` or `1`.
-Across 144 player-games the split is exactly 72 / 72, six players per team
-per match. Nothing needs to be inferred.
+The split is exactly six per team on **269 of 270** matches. The exception is
+the Street Brawl contaminant, which is 4 and 4.
 
-`player_slot` maps to team deterministically across all 12 matches:
+`player_slot` maps to team deterministically on the same **269 of 270**:
 
 - slots `1` to `6` are team `0`
 - slots `7` to `12` are team `1`
 
-Both were checked; they never disagreed. `team` is the field to use, with
-`player_slot` available as a cross-check.
+Both were checked across all 3,236 player-games; they never disagreed except
+on that one match. `team` is the field to use, with `player_slot` available as
+a cross-check.
 
 **Win determination:** a player won if `players[].team == match_info.winning_team`.
 Do not use `match_outcome`, which is `0` on every match regardless of who won.
@@ -388,7 +452,9 @@ Returns an array of 57 hero objects.
 `hero_type` is Deadlock's own archetype (`m_eHeroType`), one of `assassin`,
 `brawler`, `marksman`, `mystic`. The 20 heroes missing it are almost all
 `disabled: true`. Among the 38 active heroes, exactly one (Rem) lacks it.
-Across the cache, **143/144 player-games** resolve to a role.
+Across the cache, **3188/3236 player-games, 98.5%**, resolve to a role, and
+all 48 gaps are hero 79. The earlier figure of 143/144, 99.3%, came from 12
+matches and was slightly optimistic.
 
 Icons: `images.icon_image_small` is present on every active hero.
 
@@ -422,8 +488,10 @@ entries:
 
 So the leaderboard cannot be used as an authoritative name-to-account-ID
 mapping. It is a hint at best. Of the 45 distinct Night Shift account IDs in
-the cache, 20 appear somewhere in the EU candidate lists, but appearing in a
-candidate list is not the same as being identified.
+the cache **at the time this was probed**, 20 appear somewhere in the EU
+candidate lists, but appearing in a candidate list is not the same as being
+identified. The cache now holds **170** distinct accounts and the overlap has
+not been re-measured, so treat the 20 as a figure about the old sample.
 
 This reinforces that account-ID-to-player mapping has to be hand-curated.
 
@@ -444,8 +512,14 @@ on all 150**, as expected for in-progress games. Includes `match_id`,
 ## `GET /patches/big-days`
 
 Returns a bare array of 15 ISO 8601 timestamp strings, newest first. Most
-recent at probe time: `2026-03-11T04:39:40Z`. All cached Night Shift matches
-postdate it, so the whole cache is within the current balance patch.
+recent at probe time: `2026-03-11T04:39:40Z`.
+
+**"All cached matches postdate it" was true of the 12 match cache and is now
+false.** Against that boundary the 270 cached matches split **133 after and
+137 before**, and the cache spans 2025-08-13 to 2026-07-23. That is the
+finding behind the data window decision recorded in `CLAUDE.md`: a patch
+scoped window is no longer a small slice of the data, but it is also no
+longer the whole of it.
 
 ---
 

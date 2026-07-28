@@ -104,16 +104,24 @@ pages: 98 edition pages, plus `Deadlock Night Shift`,
 **Confirmed.** All 98 edition pages exist. Editions #1 to #49, both regions,
 **no gaps**. That is deeper than LockBlaze, which you found starts at #9.
 
-| Editions | Games listed | With a Deadlock match ID | Teams with rosters |
+| Editions | Games listed | With a usable Deadlock match ID | Teams with rosters |
 | --- | --- | --- | --- |
-| #1 to #7 | 50 | 41 (82%) | 0 |
+| #1 to #7 | 50 | 40 (80%) | 0 |
 | #8 to #14 | 53 | 43 (81%) | 0 |
-| #15 to #21 | 55 | 36 (65%) | 33 |
+| #15 to #21 | 55 | 35 (64%) | 33 |
 | #22 to #28 | 55 | 20 (36%) | 42 |
 | #29 to #35 | 58 | 41 (71%) | 43 |
 | #36 to #42 | 55 | 45 (82%) | 40 |
 | #43 to #49 | 78 | 60 (77%) | 49 |
-| **Total** | **404** | **286 (71%)** | **213** |
+| **Total** | **404** | **284 (70%)** | **213** |
+
+The match ID column was **286** when this table was first written, from an
+exploratory probe that is not committed. The committed parser,
+`scripts/parse_liquipedia.py`, finds **284** and separately reports **3
+malformed `matchid` values** it refused: `27:28` at #4 EU (a game length in
+the wrong field), `479818572` at #16 EU, and `8014968` at #37 NA. The old
+probe counted 2 of those 3, inconsistently. Prefer 284, and prefer the
+parser, because it is reproducible and it says what it dropped.
 
 Two separate coverage stories, and they matter differently:
 
@@ -331,8 +339,19 @@ which is not a second opinion but the actual answer:
 signal that a page needs a human look. It should never silently win.
 
 Coverage of the join, out of 284 wiki games carrying a match ID: 270 are in
-our cache, 8 list no hero picks at all, and 1 has no `team1side`. That leaves
-261 comparable, and all 261 resolved.
+our cache and 8 of those list no hero picks at all, so **the join itself
+resolves 262**. Of those 262, one more lacks `team1side`, leaving **261 that
+can also be used to score the `team1side` rule**. The two counts are different
+things and were previously conflated: 262 is the join's coverage, 261 is the
+rule's test set.
+
+**The margin distribution is also an integrity check, and it caught two bad
+match IDs.** Across the 262: 255 score 6 of 6, 5 score 5 of 6, and 2 score
+only **2 of 6**. There is nothing in between. The 5 partials are all mode 2
+games whose duration agrees with the wiki to the second, so they are wiki
+typos on a single hero. The 2 outliers are wrong match IDs pointing at
+unrelated public games. See the contamination section in
+[API-NOTES.md](API-NOTES.md).
 
 Two hero names need folding beyond lowercasing: `Mo & Krill` against `mo and
 krill`, and `The Doorman` against `doorman`. Both are handled generically.
@@ -380,9 +399,11 @@ flipping**, and the note removing.
 ## What this changes
 
 1. **Match ID discovery is solved.** `CLAUDE.md` lists "no automatic match
-   ID discovery, IDs pasted by hand" as a known gap. Liquipedia yields 286
-   game IDs across 49 editions in a handful of API calls. We currently
-   hold 12.
+   ID discovery, IDs pasted by hand" as a known gap. Liquipedia yields 284
+   usable game IDs across 49 editions in a handful of API calls. We now hold
+   270 of them, and 2 of those 270 turned out to be wrong IDs on the wiki
+   rather than Night Shift games. See the contamination section in
+   [API-NOTES.md](API-NOTES.md).
 2. **Steam to handle mapping is mostly solved**, with the 1 in 10 caveat
    above. `CLAUDE.md` says "no such data source exists". That is now out
    of date.

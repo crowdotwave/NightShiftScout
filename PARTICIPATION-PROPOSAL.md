@@ -92,11 +92,27 @@ a tautology. Straight and swapped both agree with the data by construction,
 the check can never fail, and `side-mapping-swapped` becomes dead code.
 
 **This must be replaced, not dropped.** The independent anchor already
-exists and is stronger: Liquipedia's `team1side` (amber means index 0) plus
-the per-game hero picks, which were verified 13 of 13 against our own match
-metadata. That check is genuinely external, works on all 286 games carrying
-a match ID, and needs no rosters. The proposal is only safe if that
-validator lands **before** `rosters` is removed.
+exists and is stronger, but it is **not** `team1side`. It is the per-game
+**hero pick join**: the wiki's `t1h1..t1h6` matched as a multiset against the
+hero IDs on each `match_team_index` in our own cached metadata. That is a
+join between two independent sources, and it needs no rosters and no player
+identity, so it does not inherit the `steam64ID` reliability problem.
+
+It resolves **262 of the 270 games we hold**, median margin 6 of 6, no ties.
+The 8 it cannot resolve list no hero picks on the wiki, so those games have
+no external side anchor at all and must be **reported, never assumed**.
+
+`team1side` is a cross check only. It is right on 248 of 261 games carrying
+both, 95.02%, with 12 of the 13 failures being complete 6 to 0 inversions.
+An earlier draft of this section called it verified 13 of 13 and made it the
+anchor. That was retracted after testing across all 49 editions, and
+building the validator on it would have swapped a check we deliberately
+removed for one that is wrong about 1 game in 20, silently.
+
+`scripts/check_side_mapping.py` already computes the hero pick join and uses
+it as the ground truth against which `team1side` is scored. The work left is
+to expose it as the participation validator, not to build it. The proposal is
+only safe if that lands **before** `rosters` is removed.
 
 ### 2. Lineup matching is fragile exactly where identity is contested
 
@@ -151,8 +167,10 @@ to come from a source we do not currently store.
 
 1. Add membership sets to `teams.json`. Curated, since it is an identity
    claim.
-2. Build the Liquipedia side validator, and confirm it reproduces the
-   existing mapping on all 12 cached matches.
+2. Promote the hero pick join in `scripts/check_side_mapping.py` to the side
+   validator, and confirm it reproduces the existing curated mapping. The 8
+   games with no wiki hero picks must fail loudly rather than defaulting to
+   either side.
 3. Only then derive `team_id`, participation and `game_in_series`, and
    delete `rosters`, `roster_note` and `_observed_account_ids`.
 4. Add the minimum-margin rule with an explicit warning below threshold.

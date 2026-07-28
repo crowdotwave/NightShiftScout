@@ -41,12 +41,27 @@ the team's result.
 
 ## Verified facts worth not re-deriving
 
-- **Side mapping.** In Liquipedia bracket markup, `team1side=amber` means
-  `match_team_index` 0 and `sapphire` means 1. This is the opposite of the
-  intuitive guess. Verified 13 of 13 by joining hero picks against our own
-  match metadata, and separately by roster overlap.
-- **Coverage.** All 49 editions exist for both regions, no gaps. 286 of 404
-  games carry a Deadlock match ID, back to #1. Rosters start at #16.
+- **Side mapping.** The side of record is the **per-game hero pick join**,
+  not `team1side`. Joining the wiki's `t1h1..t1h6` against the hero IDs in
+  our own match metadata decides which `match_team_index` the wiki's
+  opponent1 is. It resolves **262 of the 270 games we hold**, median margin
+  6 of 6, no ties; the 8 it cannot decide list no hero picks at all. It
+  needs no rosters and no player identity.
+  `team1side=amber` meaning index 0 is a **tendency, not a rule**: right on
+  **248 of 261** games carrying both, 95.02%, and 12 of the 13 failures are
+  complete 6 to 0 inversions. Keep it as a cross check that flags a page for
+  human review. It must never win.
+  **This bullet previously read "verified 13 of 13".** That sample was three
+  consecutive recent editions, it sat entirely inside the range where the
+  rule happens to hold, and it did not survive contact with all 49. Numbers
+  above are reproducible with `python scripts/check_side_mapping.py`, which
+  makes no network requests. See [LIQUIPEDIA-NOTES.md](LIQUIPEDIA-NOTES.md).
+- **Coverage.** All 49 editions exist for both regions, no gaps. **284** of
+  404 games carry a usable Deadlock match ID, back to #1. Rosters start at
+  #16. An earlier figure of 286 came from an uncommitted probe that counted
+  two of the three malformed `matchid` values (`27:28` at #4 EU,
+  `479818572` at #16 EU, `8014968` at #37 NA). The committed parser rejects
+  all three and reports them. Prefer 284.
 - **Freshness.** Rosters and schedule are published before an edition is
   played; match IDs are filled in within days after. The recurring cost is
   refetching two pages per week.
