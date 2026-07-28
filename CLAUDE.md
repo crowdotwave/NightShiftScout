@@ -75,9 +75,11 @@ Response is `{ match_info: { ... } }`. Relevant fields on `match_info`:
 - **Confirmed live:** `duration_s`, `start_time` (unix seconds),
   `winning_team`, `match_mode`
 - **Confirmed live:** `players[]` with `account_id`, `team`, `hero_id`,
-  `net_worth`, `kills`, `deaths`, `assists`. Usually twelve players per
-  match, but **not always**: one match in 270 has 8. Read the count, do not
-  assume it.
+  `net_worth`, `kills`, `deaths`, `assists`. Twelve players, six a side, on
+  269 of 270. Read the count anyway rather than dividing by 12, since it is
+  free. The one exception has 8 and is **not a Night Shift game**: it is a
+  4v4 Street Brawl match that reached the cache through a wrong match ID on
+  the wiki. See the contamination section in `API-NOTES.md`.
 - **Confirmed live, and re-tested on 3,236 player-games: damage is not a
   top-level player field.** It lives in `players[].stats[]`, a time series.
   Take the entry with the highest `time_stamp_s` and read `player_damage`
@@ -89,13 +91,21 @@ Response is `{ match_info: { ... } }`. Relevant fields on `match_info`:
   not null and not absent. Public matchmaking games (`match_mode: 1`) do
   return real values, so the field works, Valve simply never populates it for
   custom lobbies. Note that `?? null` will **not** catch this, because `0` is
-  not nullish. **Almost all Night Shift games are `match_mode: 2`, but not
-  all**: 268 of 270 cached, with 2 coming back as mode 1 carrying a real
-  badge of 11. Do not filter on mode 2 assuming it is universal.
+  not nullish.
+- **Every genuine Night Shift game is `match_mode: 2`.** 268 of 270 cached
+  are, and the 2 that are not turned out not to be Night Shift games at all
+  but wrong wiki match IDs pointing at public games. This corrects an earlier
+  note here saying mode 2 was not universal and warning against filtering on
+  it. Filtering on mode 2 would have caught both bad IDs on ingest, so it is
+  a **useful integrity check**, though the hero pick join is stronger because
+  it also catches a wrong ID that happens to be another custom lobby.
 - **`teams[]` is often present, and always hollow.** Absent on 110 of 270
   matches and present on 160, where every entry has only `team` and an empty
   `team_tracked_stats`. No identity, no score. A truthiness check on it
-  behaves differently across editions.
+  behaves differently across editions. **Checked 2026-07-27: nothing in this
+  repository branches on it.** The only reader is
+  `scripts/verify_api_claims.py`, which tests it deliberately. So the finding
+  is real but our exposure is zero, and no code change was needed.
 
 ### Hero assets
 
@@ -154,7 +164,9 @@ in one sentence is a hard requirement.
 - **Role Score** = performance versus the average player *on the same
   archetype*, where baselines are computed from the loaded dataset rather
   than hardcoded. Self-calibrates as the dataset grows. Scored per game
-  against whichever role was actually played, so role-flexers are handled.
+  against whichever role was actually played, so role-flexers are handled,
+  and **against the balance patch that game was played under**, which is the
+  one place the wide data window does not apply. See Data window below.
 - **KP%** = `(K + A) / team's total kills`, team-relative so it holds up
   whether a game had 20 kills or 80.
 
@@ -196,9 +208,37 @@ computed from data the app already trusts, for example bracket stage, or
 opponent quality derived from the loaded dataset such as the average Role
 Score of the enemy team. Do not reach for a badge field again.
 
-**Data window:** since there are no seasons, the meaningful boundary is the
-balance patch, not a number of weeks. The app pulls `/patches/big-days` and
-warns when loaded games predate the current patch.
+**Data window: use every game, and flag cross-patch on the page.** This
+reverses the earlier rule that the window is the current balance patch.
+
+The reasoning is that almost every metric here is **player against their own
+five teammates in the same match**. Team Share, damage share and KP% all put
+the player in the numerator and their own team in the denominator, so a patch
+that inflates souls or damage moves both sides of the ratio and largely
+cancels. Cutting to the current patch would discard roughly half the games we
+hold to correct a distortion those metrics do not have.
+
+The sizes matter, and the earlier "a patch window is only about 20 games" was
+measured when the cache held 12 matches. Against the current boundary
+(2026-03-11) the 270 cached matches split **133 after, 137 before**, spanning
+2025-08-13 to 2026-07-23 across four patch eras that contain Night Shift
+games.
+
+**Role Score is the exception, and it is scoped by patch.** Its baselines are
+per archetype rather than per team, so there is no teammate denominator to
+cancel anything, and a balance patch genuinely moves what an average Marksman
+deals. It is bucketed by the patch each game was played under, and **each game
+is scored against its own era**, not against the current one, so widening the
+window does not make older games unscorable. Where an era has fewer than
+`ROLE_BASELINE_MIN_GAMES` games for a role it falls back to the pooled
+all-patch baseline and the affected rows say so on hover. Every era-role
+bucket in the current cache clears that bar, the smallest being 15.
+
+The patch list is cached at `data/assets/patches-big-days-<date>.json` by
+`scripts/fetch_patches.py`, and `index.html` carries the same list as a
+fallback so bucketing still works when the live call fails. Note the current
+patch is **138 days old against a median gap of 22 days**, so "current patch"
+is a much wider window than the phrase suggests.
 
 ## Known gaps
 
@@ -210,20 +250,26 @@ warns when loaded games predate the current patch.
   it contains real characters, then the vanity slug from `profileurl`
   (`steamcommunity.com/id/<handle>`), then `realname`, then account ID.
 - **No automatic team rosters.** Team tagging is manual for the same reason.
-- **Role Score needs volume.** Under roughly 10 games per role the
-  baselines are noisy. The UI warns about this already.
+- **Role Score needs volume, now per patch era.** Under
+  `ROLE_BASELINE_MIN_GAMES` (10) games per role *within a patch*, that era's
+  baseline is not used and the pooled one stands in. Bucketing by patch cuts
+  each baseline's sample, so this bar bites more often than it used to. In
+  the current cache every era-role bucket clears it, the smallest being 15.
 - **Role baselines include the player being scored.** Every player is part
   of the average they are measured against, which biases scores toward 1.00x
   for high-volume players. Measured on the 12-match sample: the largest
   leave-one-out shift across all 45 players was +0.03x, with no change to
-  ranking order. Real but not currently worth fixing. Recheck if the dataset
-  ever gets small per role, since the bias grows as sample size falls.
+  ranking order. Real but not currently worth fixing. **Worth rechecking now
+  that baselines are patch-scoped**, since the bias grows as sample size
+  falls and each bucket is smaller than the old pooled average.
 - **No opposition-strength adjustment.** See the Night Shift format section.
 
 ## Next steps, roughly prioritised
 
-1. Load a larger match set from the current patch so Role Score baselines
-   and per-player samples become trustworthy
+1. Done for now: the cache holds 270 matches and 3,236 player-games across
+   four patch eras, so Role Score baselines clear their sample bar in every
+   bucket. 14 known match IDs are still outstanding, blocked on the 3/hour
+   cold fetch limit.
 2. Auto-render an infographic-style summary view in the page itself, not
    just the downloadable share card
 3. Consider hero-specific baselines once there is enough data

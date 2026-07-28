@@ -501,6 +501,58 @@ const API = "https://api.deadlock-api.com/v1";
 // were separate numbers once and silently disagreed, so the table ranked
 // one-game players at the top while Stars quietly required three.
 const DEFAULT_MIN_GAMES = 3;
+
+// Below this many games in a role's baseline, the average is noise. Used both
+// to warn and to decide when a patch-era baseline is too thin to use.
+const ROLE_BASELINE_MIN_GAMES = 10;
+
+// Balance patch boundaries, newest first, as unix seconds. Fetched live from
+// /patches/big-days; this is the fallback if that call fails, taken from
+// data/assets/patches-big-days-2026-07-28.json so the app still buckets
+// correctly offline. Only the dates matter, not the times.
+const PATCH_BOUNDARIES_FALLBACK = [
+  "2026-03-11T04:39:40Z", "2026-01-21T02:10:58Z", "2025-08-18T20:43:52Z",
+  "2025-07-29T22:22:52Z", "2025-07-04T20:03:43Z", "2025-05-08T19:43:20Z",
+  "2025-02-25T21:51:13Z", "2025-01-28T02:10:06Z", "2025-01-17T18:40:54Z",
+  "2024-12-06T20:05:10Z", "2024-11-21T23:21:49Z", "2024-11-07T21:31:34Z",
+  "2024-10-24T19:39:08Z", "2024-10-10T20:24:45Z", "2024-09-26T21:17:58Z"
+].map(d => Math.floor(new Date(d).getTime() / 1000));
+
+// Populated by loadPatchBoundaries(), newest first.
+let patchBoundaries = PATCH_BOUNDARIES_FALLBACK.slice();
+let patchBoundariesAreLive = false;
+
+// Which balance patch a game was played under. Returns the boundary timestamp
+// so it can key a baseline bucket, or null for a game older than every known
+// patch. Role Score is deliberately scoped by this: a player's souls and damage
+// share against their own archetype is exactly the thing a balance patch moves,
+// so pooling across patches would compare two different games.
+function patchEraOf(startTime) {
+  if (!startTime) return null;
+  for (const boundary of patchBoundaries) {
+    if (startTime >= boundary) return boundary;
+  }
+  return null;
+}
+
+function patchEraLabel(era) {
+  if (era == null) return "pre-launch";
+  return new Date(era * 1000).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" });
+}
+
+async function loadPatchBoundaries() {
+  try {
+    const days = await fetchJson(`${API}/patches/big-days`);
+    const parsed = days.map(d => Math.floor(new Date(d).getTime() / 1000))
+      .filter(Number.isFinite).sort((a, b) => b - a);
+    if (parsed.length) {
+      patchBoundaries = parsed;
+      patchBoundariesAreLive = true;
+    }
+  } catch (e) {
+    console.warn("Patch date lookup failed, using the built-in fallback list:", e);
+  }
+}
 const SAMPLE_IDS = `# Night Shift #48 (July 22, 2026) North America
 95172627
 95180553
@@ -610,7 +662,10 @@ function roleScoreTitle(row) {
   const parts = Object.entries(row.roleCounts || {})
     .map(([r, n]) => `${ROLE_LABELS[r] || r}: ${n}g`)
     .join(", ");
-  return `1.00x = exactly average for this role in the loaded games. ${parts}`;
+  const basis = row.roleScorePooledBaseline
+    ? " At least one game was scored against the pooled all-patch baseline, because its own patch had too few games to average."
+    : " Each game is scored against its own balance patch.";
+  return `1.00x = exactly average for this role. ${parts}.${basis}`;
 }
 
 function heroRoleBadge(heroId) {
@@ -622,6 +677,8 @@ function heroRoleBadge(heroId) {
 let leaderboard = [];     // current computed rows, for CSV export & sorting
 let sortState = { key: "rolescore", dir: -1 };
 let currentRoleBaselines = {};
+let currentEraRoleBaselines = {};
+let currentEraGameCounts = {};
 let teamMap = {}; // account_id (string) -> team name
 
 function parseTeamText(raw) {
@@ -1141,18 +1198,18 @@ function computeRows(matchResults) {
   // in these games? Every player is then scored against their own role's
   // baseline. This self-calibrates as you load more matches, and it means
   // a Mystic is never judged on a Marksman's damage curve.
-  const roleBaselines = {};
-  const gamesByRole = {};
-  for (const [, games] of Object.entries(perPlayerGames)) {
-    for (const g of games) {
-      const role = (heroMap[g.heroId] && heroMap[g.heroId].role) || null;
-      if (!role) continue;
-      if (!gamesByRole[role]) gamesByRole[role] = [];
-      gamesByRole[role].push(g);
-    }
-  }
-  for (const [role, games] of Object.entries(gamesByRole)) {
-    roleBaselines[role] = {
+  // Baselines are bucketed BY BALANCE PATCH, not pooled across the whole
+  // dataset. A patch moves what an average Mystic farms and what an average
+  // Marksman deals, so a cross-patch archetype average compares two different
+  // games. Every other metric here is player-versus-own-teammates in the same
+  // match, so patch effects cancel and those can use all games. This one
+  // cannot, which is why it is the single exception to the wide data window.
+  //
+  // A game is still scored against its OWN patch, not the current one, so
+  // widening the window does not make older games unscorable. Where an era is
+  // too thin to be a baseline, it falls back to the pooled average and says so.
+  function buildRoleBaseline(games) {
+    return {
       sampleGames: games.length,
       teamNetWorthShare: avgOf(games, "teamNetWorthShare"),
       dpm: avgOf(games, "dpm"),
@@ -1162,28 +1219,69 @@ function computeRows(matchResults) {
     };
   }
 
+  const roleBaselines = {};
+  const eraRoleBaselines = {};
+  const gamesByRole = {};
+  const gamesByEraRole = {};
+  const eraGameCounts = {};
+  for (const [, games] of Object.entries(perPlayerGames)) {
+    for (const g of games) {
+      const role = (heroMap[g.heroId] && heroMap[g.heroId].role) || null;
+      if (!role) continue;
+      if (!gamesByRole[role]) gamesByRole[role] = [];
+      gamesByRole[role].push(g);
+      const eraKey = `${patchEraOf(g.matchStartTime)}|${role}`;
+      if (!gamesByEraRole[eraKey]) gamesByEraRole[eraKey] = [];
+      gamesByEraRole[eraKey].push(g);
+      const era = patchEraOf(g.matchStartTime);
+      eraGameCounts[era] = (eraGameCounts[era] || 0) + 1;
+    }
+  }
+  for (const [role, games] of Object.entries(gamesByRole)) {
+    roleBaselines[role] = buildRoleBaseline(games);
+  }
+  for (const [key, games] of Object.entries(gamesByEraRole)) {
+    eraRoleBaselines[key] = buildRoleBaseline(games);
+  }
+
   // Score each player against their own role's baseline, per game, then
   // average. Doing it per-game (not on their overall average) means a
   // role-flexing player is correctly judged against whichever archetype
   // they were actually playing in each individual game.
   for (const row of rows) {
     const perGameScores = [];
+    let usedPooled = false;
     for (const g of row.games) {
       const role = (heroMap[g.heroId] && heroMap[g.heroId].role) || null;
-      const base = role ? roleBaselines[role] : null;
+      if (!role) continue;
+      // Score against the player's own patch era where that era is thick
+      // enough to average, and fall back to the pooled baseline where it is
+      // not. The fallback is recorded so the row can be marked rather than
+      // quietly mixing metas.
+      const eraBase = eraRoleBaselines[`${patchEraOf(g.matchStartTime)}|${role}`];
+      let base = eraBase;
+      let pooled = false;
+      if (!base || base.sampleGames < ROLE_BASELINE_MIN_GAMES) {
+        base = roleBaselines[role];
+        pooled = true;
+      }
       if (!base) continue;
       const parts = [];
       if (g.teamNetWorthShare != null && base.teamNetWorthShare) parts.push(g.teamNetWorthShare / base.teamNetWorthShare);
       if (g.teamDamageShare != null && base.teamDamageShare) parts.push(g.teamDamageShare / base.teamDamageShare);
       if (g.kp != null && base.kp) parts.push(g.kp / base.kp);
-      if (parts.length) perGameScores.push(parts.reduce((s, v) => s + v, 0) / parts.length);
+      if (parts.length) {
+        perGameScores.push(parts.reduce((s, v) => s + v, 0) / parts.length);
+        if (pooled) usedPooled = true;
+      }
     }
     row.roleScore = perGameScores.length
       ? perGameScores.reduce((s, v) => s + v, 0) / perGameScores.length
       : null;
+    row.roleScorePooledBaseline = usedPooled;
   }
 
-  return { rows, failedIds, roleBaselines };
+  return { rows, failedIds, roleBaselines, eraRoleBaselines, eraGameCounts };
 }
 
 // The four headline stats. Deliberately kept to things that need no
@@ -1241,13 +1339,20 @@ function renderStars() {
 
   // Describe the actual date span of the loaded games, so the headline
   // always states what window it's talking about.
-  const times = leaderboard.flatMap(r => r.games.map(g => g.matchStartTime)).filter(Boolean);
+  //
+  // Deduplicated to one entry per MATCH. Flattening every player's games
+  // yields one entry per player-game, so a 24 match set counted as 288, and
+  // the patch notice inherited that and reported player-games as "games".
+  const matchTimes = new Map();
+  leaderboard.forEach(r => r.games.forEach(g => {
+    if (g.matchId != null && g.matchStartTime) matchTimes.set(g.matchId, g.matchStartTime);
+  }));
+  const times = [...matchTimes.values()];
   if (times.length) {
     const min = new Date(Math.min(...times) * 1000);
     const max = new Date(Math.max(...times) * 1000);
     const f = d => d.toLocaleDateString(undefined, { month: "short", day: "numeric" });
-    const matchCount = new Set(leaderboard.flatMap(r => r.games.map(g => g.matchId))).size;
-    windowEl.textContent = `${matchCount} games, ${f(min)} to ${f(max)} · min ${minG} game${minG === 1 ? "" : "s"} to qualify`;
+    windowEl.textContent = `${matchTimes.size} games, ${f(min)} to ${f(max)} · min ${minG} game${minG === 1 ? "" : "s"} to qualify`;
   } else {
     windowEl.textContent = `min ${minG} game${minG === 1 ? "" : "s"} to qualify`;
   }
@@ -1256,29 +1361,29 @@ function renderStars() {
   checkPatchWindow(times);
 }
 
-// Deadlock ships big balance patches every few weeks, and stats from
-// before one aren't really comparable to stats after it. This pulls the
-// live patch list and flags loaded matches that predate the current one,
-// so the window question is answered automatically instead of guessed.
-async function checkPatchWindow(times) {
+// Deadlock ships big balance patches every few weeks, so a loaded set can
+// straddle several. This states the split rather than recommending a filter.
+//
+// The window is deliberately NOT limited to the current patch. Every headline
+// metric here compares a player to their own five teammates in the same game,
+// so a patch shifts both sides of the ratio and largely cancels out. Cutting
+// to the current patch would throw away roughly half the games we hold to fix
+// a distortion those metrics do not have. Role Score is the one exception,
+// because its baselines are per-archetype rather than per-team, and it is
+// bucketed by patch separately. See the note above the leaderboard.
+function checkPatchWindow(times) {
   const notice = document.getElementById("patchNotice");
   if (!times || !times.length) { notice.textContent = ""; return; }
-  try {
-    const days = await fetchJson(`${API}/patches/big-days`);
-    const patchTimes = days.map(d => Math.floor(new Date(d).getTime() / 1000)).sort((a, b) => b - a);
-    const latest = patchTimes[0];
-    if (!latest) { notice.textContent = ""; return; }
-    const latestDate = new Date(latest * 1000).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" });
-    const stale = times.filter(t => t < latest).length;
-    if (stale > 0) {
-      notice.className = "status warn";
-      notice.textContent = `${stale} of ${times.length} loaded games were played before the current balance patch (${latestDate}). Pre-patch games reflect a different meta. Consider dropping them for a cleaner read.`;
-    } else {
-      notice.className = "status";
-      notice.textContent = `All loaded games are from the current balance patch (since ${latestDate}), no stale-meta data mixed in.`;
-    }
-  } catch (e) {
-    notice.textContent = "";
+  const latest = patchBoundaries[0];
+  if (!latest) { notice.textContent = ""; return; }
+  const latestDate = new Date(latest * 1000).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" });
+  const before = times.filter(t => t < latest).length;
+  const spannedPatches = new Set(times.map(t => patchEraOf(t))).size;
+  notice.className = "status";
+  if (before > 0) {
+    notice.textContent = `Cross-patch data: ${times.length - before} of ${times.length} loaded games are from the current balance patch (since ${latestDate}), ${before} predate it, spanning ${spannedPatches} patches in total. Team-relative metrics compare a player to their own teammates in the same game, so they hold across patches. Role Score is bucketed per patch and marked where a bucket was too thin.`;
+  } else {
+    notice.textContent = `All ${times.length} loaded games are from the current balance patch (since ${latestDate}).`;
   }
 }
 
@@ -1289,19 +1394,38 @@ function renderRoleBaselines() {
     bar.innerHTML = `<div class="status warn">No hero role data came back. Role Score can't be computed. Every player will show "Unknown". This means the hero asset lookup failed or these heroes have no archetype set.</div>`;
     return;
   }
-  const thin = roles.filter(r => currentRoleBaselines[r].sampleGames < 10);
+  // Eras present in the loaded set, newest first. Role Score is the one metric
+  // scoped by balance patch, so the split has to be visible right next to the
+  // baselines rather than explained in a doc nobody opens.
+  const eras = Object.keys(currentEraGameCounts || {})
+    .map(k => (k === "null" ? null : Number(k)))
+    .sort((a, b) => (b ?? 0) - (a ?? 0));
+
+  const chip = (role, b, dim) => {
+    const color = ROLE_COLORS[role] || "#888";
+    const thinNote = b.sampleGames < ROLE_BASELINE_MIN_GAMES ? ", too thin to use as a baseline, falls back to pooled" : "";
+    return `<span style="font-family:var(--mono); font-size:11px; padding:3px 8px; border-radius:3px; border:1px solid ${color}55; color:${color}; background:${color}12; opacity:${dim ? 0.55 : 1};"
+      title="Avg for this role. Team Share ${b.teamNetWorthShare != null ? b.teamNetWorthShare.toFixed(2) : '·'}, DPM ${b.dpm != null ? Math.round(b.dpm) : '·'}, KP ${b.kp != null ? (b.kp*100).toFixed(0)+'%' : '·'}${thinNote}">
+      ${ROLE_LABELS[role] || role} · ${b.sampleGames}g</span>`;
+  };
+
+  const eraRows = eras.map(era => {
+    const chips = roles.map(r => {
+      const b = currentEraRoleBaselines[`${era}|${r}`];
+      return b ? chip(r, b, b.sampleGames < ROLE_BASELINE_MIN_GAMES) : "";
+    }).join("");
+    if (!chips) return "";
+    return `<div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-top:4px;">
+      <span class="status" style="min-height:auto; margin-right:4px; min-width:150px;">Patch ${patchEraLabel(era)}:</span>${chips}</div>`;
+  }).join("");
+
+  const thin = roles.filter(r => currentRoleBaselines[r].sampleGames < ROLE_BASELINE_MIN_GAMES);
+  const multiPatch = eras.length > 1;
   bar.innerHTML = `
-    <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center;">
-      <span class="status" style="min-height:auto; margin-right:4px;">Role baselines from this dataset:</span>
-      ${roles.map(r => {
-        const b = currentRoleBaselines[r];
-        const color = ROLE_COLORS[r] || "#888";
-        return `<span style="font-family:var(--mono); font-size:11px; padding:3px 8px; border-radius:3px; border:1px solid ${color}55; color:${color}; background:${color}12;"
-          title="Avg for this role across loaded games. Team Share ${b.teamNetWorthShare != null ? b.teamNetWorthShare.toFixed(2) : '·'}, DPM ${b.dpm != null ? Math.round(b.dpm) : '·'}, KP ${b.kp != null ? (b.kp*100).toFixed(0)+'%' : '·'}">
-          ${ROLE_LABELS[r] || r} · ${b.sampleGames}g</span>`;
-      }).join("")}
-    </div>
-    ${thin.length ? `<div class="status warn" style="margin-top:6px;">Thin sample for ${thin.map(r => ROLE_LABELS[r] || r).join(", ")} (&lt;10 games). Role scores for those are noisy. Load more matches before trusting them.</div>` : ""}
+    <div class="status" style="min-height:auto;">Role baselines are scoped to the balance patch each game was played under, so a game is judged against its own meta. Every other metric on this page uses all loaded games.${patchBoundariesAreLive ? "" : " (Patch dates came from the built-in list, the live lookup failed.)"}</div>
+    ${eraRows}
+    ${multiPatch ? `<div class="status" style="min-height:auto; margin-top:6px;">${eras.length} balance patches span the loaded games. Role Score is comparable within a patch; across patches it is only as good as the archetype being stable.</div>` : ""}
+    ${thin.length ? `<div class="status warn" style="margin-top:6px;">Thin overall sample for ${thin.map(r => ROLE_LABELS[r] || r).join(", ")} (under ${ROLE_BASELINE_MIN_GAMES} games). Role scores for those are noisy. Load more matches before trusting them.</div>` : ""}
   `;
 }
 
@@ -2027,15 +2151,20 @@ async function runAnalysis() {
   statusEl.classList.remove("warn");
   statusEl.textContent = "Loading hero list...";
 
-  await loadHeroMap();
+  // Patch boundaries have to be known before computeRows, since Role Score
+  // baselines are bucketed by them. Both lookups are independent of the match
+  // fetch, so they run together.
+  await Promise.all([loadHeroMap(), loadPatchBoundaries()]);
 
   statusEl.textContent = `Fetching 0 / ${ids.length} matches...`;
   const matchResults = await fetchMatchesLimited(ids, 4, (done, total) => {
     statusEl.textContent = `Fetching ${done} / ${total} matches...`;
   });
 
-  const { rows, failedIds, roleBaselines } = computeRows(matchResults);
+  const { rows, failedIds, roleBaselines, eraRoleBaselines, eraGameCounts } = computeRows(matchResults);
   currentRoleBaselines = roleBaselines;
+  currentEraRoleBaselines = eraRoleBaselines;
+  currentEraGameCounts = eraGameCounts;
   leaderboard = rows;
 
   if (rows.length === 0) {
