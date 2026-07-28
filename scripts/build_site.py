@@ -7,18 +7,24 @@ Emits two page types: a player index at /, and a player page at
 Plain HTML and CSS. No framework, no build step, and **no client side
 fetching: every number is baked in at generation time.**
 
-The index carries the only script on the site, an inline filter over the
-player list. It is held to the rule the no-JavaScript line was protecting:
+The front page carries the only script on the site, an inline filter over the
+board. It is held to the rule the no-JavaScript line was protecting:
 **it computes no number and fetches nothing.** Every row, every count and
 every link is already in the HTML, and the script only sets `hidden` on rows
 that do not match what you typed. With JavaScript off the search box is
 removed and the complete list renders, so nothing is reachable only by
 script.
 
-Deliberately NOT emitted: a leaderboard. Ranking players on the front page
-would publish the format bias documented in CLAUDE.md at maximum prominence,
-where it is least likely to be read with the caveat. That waits for the
-opposition-strength work.
+The front page carries Stars of the Show and the full board. Its look is
+lifted from `index.html` so the site and the console read as one product; the
+CSS is duplicated rather than shared because the console must keep working as
+a standalone file opened straight off disk.
+
+**Stage weighting is deliberately not applied.** It was measured first: at
+plausible weights the ranking correlates 0.9986 with the unweighted one, and
+even at implausible ones it is 0.98, because qualifiers are 7% of all games.
+So the board shows each player's stage mix and lets the reader judge, which
+is the house style anyway. See scripts/measure_stage_weighting.py.
 
 Three rules this generator is built around:
 
@@ -56,8 +62,26 @@ from collections import defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
 
+import metrics
+
 REGION_NAMES = {"na": "North America", "eu": "Europe", "asia": "Asia",
                 "sa": "South America", "oce": "Oceania"}
+
+# The public leaderboard's eligibility bar. **Deliberately different from
+# DEFAULT_MIN_GAMES in index.html, which is 3, and the two must not be
+# unified.** They serve different readers.
+#
+# The console is for scouting: three games is enough to be worth a look, and
+# seeing thin sample players is the point of it. The public board is a claim
+# about who is good, read by people who know the scene. Measured on the real
+# data at a bar of 3, five of the top ten had fewer than ten games and rank 7
+# sat on three, above a player with 75. That reads as the site being broken,
+# and they would be right. At 8 the top ten median goes from 20 games to 54
+# and every thin sample player leaves the top of the board.
+#
+# Players below the bar are still shown and still get a page. They are marked
+# "not ranked", never silently dropped.
+LEADERBOARD_MIN_GAMES = 8
 
 
 def esc(value) -> str:
@@ -100,72 +124,404 @@ def fmt_date(date_str: str | None) -> str:
         return date_str
 
 
-CSS = """
-:root {
-  --bg: #ffffff; --fg: #16191d; --dim: #5c6570; --line: #e3e7ec;
-  --accent: #0b6d4f; --win: #0b6d4f; --loss: #a3322b; --panel: #f7f9fa;
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #12151a; --fg: #e8ecf1; --dim: #9aa5b1; --line: #262d36;
-    --accent: #3ddc97; --win: #3ddc97; --loss: #ef7a72; --panel: #181d24;
+# The only script on the site. It computes no number and fetches nothing: the
+# table is complete in the HTML and this hides rows that do not match. The
+# search box is hidden in markup and revealed here, so a visitor without
+# JavaScript sees the full board rather than a control that does nothing.
+FILTER_SCRIPT = """<script>
+(function () {
+  var input = document.getElementById('filter');
+  var count = document.getElementById('filter-count');
+  var label = input.closest('label');
+  var rows = Array.prototype.slice.call(document.querySelectorAll('#players tbody tr'));
+  label.style.display = 'block';
+  function apply() {
+    var q = input.value.trim().toLowerCase();
+    var shown = 0;
+    rows.forEach(function (row) {
+      var hit = !q || row.getAttribute('data-name').indexOf(q) !== -1;
+      row.hidden = !hit;
+      if (hit) { shown++; }
+    });
+    count.textContent = q ? shown + ' of ' + rows.length + ' players' : '';
   }
+  input.addEventListener('input', apply);
+})();
+</script>"""
+
+
+CSS = """
+@import url("fonts.css");
+
+:root {
+    --bg: #0a0d0b;
+    --bg-panel: #101512;
+    --bg-panel-2: #141b17;
+    --line: #1f2e27;
+    --text: #dcece3;
+    --text-dim: #6f9384;
+    --soul: #3eeb9e;
+    --soul-bright: #7dffc4;
+    --soul-dim: #1f5c42;
+    --blood: #c24b4b;
+    --win: #3eeb9e;
+    --mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+    --serif: "Barlow", "Helvetica Neue", Arial, sans-serif;
+    --display: "Chakra Petch", "Barlow", Arial, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background:
+      radial-gradient(ellipse 700px 500px at 15% -5%, rgba(62,235,158,0.10), transparent 60%),
+      radial-gradient(ellipse 500px 400px at 100% 20%, rgba(62,235,158,0.05), transparent 55%),
+      var(--bg);
+    color: var(--text);
+    font-family: var(--serif);
+    padding: 40px 24px 80px;
+  }
+
+  .wrap { max-width: 980px; margin: 0 auto; display: flex; flex-direction: column; }
+  .wrap > * { order: 5; } /* default order for anything not explicitly placed */
+
+  header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--line);
+    padding: 6px 0 20px;
+    margin-bottom: 26px;
+    flex-wrap: wrap;
+    gap: 10px;
+    box-shadow: 0 1px 0 rgba(62,235,158,0.16);
+  }
+
+  h1 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 30px;
+    margin: 0;
+    letter-spacing: -0.3px;
+    text-transform: uppercase;
+  }
+  h1 span {
+    color: var(--soul);
+    font-style: normal;
+    text-shadow: 0 0 24px rgba(62,235,158,0.45);
+  }
+  h1 span { color: var(--soul); font-style: italic; }
+
+  .subtitle {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+
+  .panel {
+    background: var(--bg-panel);
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    padding: 20px 22px;
+    margin-bottom: 20px;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
+  }
+
+  .panel-label {
+    font-family: var(--display);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--soul);
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  textarea {
+    width: 100%;
+    min-height: 190px;
+    background: #0f0d0b;
+    border: 1px solid var(--line);
+    color: var(--text);
+    font-family: var(--mono);
+    font-size: 13px;
+    line-height: 1.6;
+    padding: 14px;
+    border-radius: 2px;
+    resize: vertical;
+  }
+  textarea:focus { outline: 1px solid var(--soul); border-color: var(--soul); }
+
+  .row { display: flex; gap: 12px; align-items: center; margin-top: 14px; flex-wrap: wrap; }
+
+  button {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 11px 22px;
+    border-radius: 2px;
+    border: 1px solid var(--soul);
+    background: transparent;
+    color: var(--soul-bright);
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+  }
+  button:hover:not(:disabled) { background: var(--soul); color: #06110c; box-shadow: 0 0 18px rgba(62,235,158,0.35); }
+  button:disabled { opacity: 0.35; cursor: default; }
+
+  button.ghost {
+    border-color: var(--line);
+    color: var(--text-dim);
+  }
+  button.ghost:hover:not(:disabled) { background: var(--bg-panel-2); color: var(--text); }
+
+  .status {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-dim);
+    min-height: 18px;
+  }
+  .status.warn { color: var(--blood); }
+
+  /* Soul motes. Deliberately scoped to focus areas only (the Stars panel
+     and the header) rather than the whole page, so they pull the eye where
+     it matters instead of becoming visual noise everywhere. */
+  .copy-id {
+    cursor: pointer;
+    border-bottom: 1px dotted var(--text-dim);
+  }
+  .copy-id:hover { color: var(--soul-bright); border-color: var(--soul-bright); }
+
+  .particle-host { position: relative; }
+  .particle-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .particle-host > *:not(.particle-canvas) { position: relative; z-index: 1; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .particle-canvas { display: none; }
+  }
+
+  .stars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
+    gap: 12px;
+  }
+  .star-card {
+    background: linear-gradient(160deg, rgba(62,235,158,0.09), rgba(62,235,158,0.02) 60%, transparent);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 14px 16px;
+    position: relative;
+    overflow: hidden;
+  }
+  .star-card::after {
+    content: "";
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 110px; height: 110px;
+    background: radial-gradient(circle, rgba(62,235,158,0.16), transparent 70%);
+    pointer-events: none;
+  }
+  .star-cat {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    color: var(--soul);
+    display: block;
+    margin-bottom: 10px;
+  }
+  .star-val {
+    font-family: var(--mono);
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--soul-bright);
+    text-shadow: 0 0 20px rgba(125,255,196,0.5);
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+  .star-name {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--text);
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .star-sub {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-dim);
+    margin-top: 4px;
+  }
+  .star-runner {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-dim);
+    margin-top: 9px;
+    padding-top: 8px;
+    border-top: 1px solid var(--line);
+  }
+
+  .table-scroll { overflow-x: auto; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--mono);
+    font-size: 13px;
+  }
+  thead th {
+    text-align: left;
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-dim);
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--line);
+    cursor: pointer;
+    user-select: none;
+  }
+  thead th:hover { color: var(--soul); }
+  tbody tr {
+    border-bottom: 1px solid var(--line);
+    cursor: pointer;
+  }
+  tbody tr:hover { background: var(--bg-panel-2); }
+  tbody td { padding: 10px; }
+  .rank { color: var(--text-dim); width: 34px; }
+  .souls-val { color: var(--soul-bright); font-weight: 600; font-variant-numeric: tabular-nums; text-shadow: 0 0 12px rgba(125,255,196,0.45); }
+  .player-cell { display: flex; align-items: center; gap: 8px; }
+  .player-avatar { width: 24px; height: 24px; border-radius: 3px; border: 1px solid var(--line); display: block; }
+  .player-link { color: var(--text); text-decoration: none; border-bottom: 1px dotted var(--text-dim); }
+  .player-link:hover { color: var(--soul-bright); border-color: var(--soul-bright); }
+  .player-sub { color: var(--text-dim); font-size: 11px; }
+  .win-tag { color: var(--win); text-shadow: 0 0 10px rgba(62,235,158,0.35); }
+  .loss-tag { color: var(--blood); }
+
+  .detail-row td {
+    background: #0c100d;
+    padding: 4px 10px 14px 40px;
+    font-size: 12px;
+    color: var(--text-dim);
+  }
+  .detail-row table { margin-top: 6px; }
+  .detail-row th, .detail-row td { padding: 4px 8px; border-bottom: 1px solid #182420; }
+
+  .match-card {
+    background: var(--bg-panel-2);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    font-family: var(--mono);
+    font-size: 12px;
+  }
+  .match-card .match-rank {
+    color: var(--soul-bright);
+    font-weight: 700;
+    font-size: 14px;
+    margin-right: 8px;
+  }
+  .match-card .match-meta { color: var(--text-dim); margin: 4px 0 8px; }
+  .match-card .match-players { display: flex; flex-wrap: wrap; gap: 6px 14px; }
+  .match-card .match-players span { color: var(--text); }
+  .match-card .team1 { color: var(--soul-bright); }
+
+  .hidden { display: none; }
+
+  footer {
+    margin-top: 36px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: #3c5348;
+    line-height: 1.7;
+  }
+  footer a { color: var(--text-dim); }
+
+/* ---------------------------------------------------------------------------
+   Everything above is lifted verbatim from index.html so the public site and
+   the console look like one product. The duplication is deliberate: the
+   console is a standalone single file by design and must keep working when
+   opened straight off disk, so the site build does not read from it.
+
+   Below: the public site's own additions, plus aliases mapping the player page
+   class names onto the same tokens.
+   --------------------------------------------------------------------------- */
+:root {
+  --fg: var(--text); --dim: var(--text-dim); --accent: var(--soul);
+  --loss: var(--blood); --panel: var(--bg-panel);
 }
-* { box-sizing: border-box; }
-body {
-  margin: 0; padding: 2rem 1.25rem 4rem; background: var(--bg); color: var(--fg);
-  font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-}
-main { max-width: 62rem; margin: 0 auto; }
-a { color: var(--accent); }
-h1 { font-size: 1.9rem; margin: 0 0 .2rem; }
-h2 { font-size: 1.05rem; text-transform: uppercase; letter-spacing: .06em;
-     color: var(--dim); margin: 2.5rem 0 .75rem; font-weight: 600; }
-.banner { background: #8a5a00; color: #fff; padding: .6rem 1rem; border-radius: 6px;
-          margin-bottom: 1.75rem; font-size: .9rem; }
-@media (prefers-color-scheme: dark) { .banner { background: #6b4500; } }
-.head { display: flex; gap: 1.1rem; align-items: center; }
-.head img { width: 64px; height: 64px; border-radius: 8px; }
-.sub { color: var(--dim); font-size: .92rem; }
-.tag { display: inline-block; font-size: .72rem; text-transform: uppercase;
-       letter-spacing: .05em; border: 1px solid var(--line); border-radius: 3px;
-       padding: .1rem .4rem; color: var(--dim); margin-left: .4rem; vertical-align: middle; }
-.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: .8rem; }
-.card { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: .9rem 1rem; }
-.card .big { font-size: 1.55rem; font-weight: 650; }
-.card .what { font-size: .9rem; }
-.card .of { color: var(--dim); font-size: .8rem; margin-top: .15rem; }
-.scroll { overflow-x: auto; }
-table { border-collapse: collapse; width: 100%; font-size: .93rem; }
-th, td { text-align: left; padding: .55rem .6rem; border-bottom: 1px solid var(--line); white-space: nowrap; }
-th { color: var(--dim); font-weight: 600; font-size: .78rem; text-transform: uppercase; letter-spacing: .05em; }
-td.num { text-align: right; font-variant-numeric: tabular-nums; }
-.win { color: var(--win); font-weight: 600; }
-.loss { color: var(--loss); font-weight: 600; }
-.unknown { color: var(--dim); font-variant-numeric: tabular-nums; }
-.lineup { margin: 0 0 1.4rem; }
-.lineup .who { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .3rem; }
-.lineup .who span, .lineup .who a { border: 1px solid var(--line); border-radius: 999px;
-                                     padding: .12rem .6rem; font-size: .85rem; }
-.lineup .who span { color: var(--dim); }
-.credit { margin-top: 1rem; padding-top: .8rem; border-top: 1px dotted var(--line); }
-.credit a { word-break: break-all; }
-footer { margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid var(--line);
-         color: var(--dim); font-size: .84rem; }
+main { max-width: 980px; margin: 0 auto; }
+a { color: var(--soul); }
+.lede { color: var(--text-dim); margin: 0 0 18px; max-width: 60ch; }
+.banner { background: #6b4500; color: #fff; padding: .6rem 1rem; border-radius: 6px;
+          margin-bottom: 22px; font-size: .9rem; }
 .avatar-fallback { display: inline-flex; align-items: center; justify-content: center;
-                   background: var(--panel); border: 1px solid var(--line); border-radius: 8px;
-                   color: var(--dim); font-weight: 650; flex: none; }
-.lede { color: var(--dim); margin: 1.4rem 0 1rem; }
-.filter { display: block; font-size: .84rem; text-transform: uppercase;
-          letter-spacing: .05em; color: var(--dim); font-weight: 600; }
-.filter input { display: block; width: 100%; max-width: 22rem; margin-top: .35rem;
-                padding: .5rem .7rem; font: inherit; color: var(--fg);
-                background: var(--bg); border: 1px solid var(--line); border-radius: 6px; }
-#filter-count { margin: .4rem 0 0; min-height: 1.2em; }
-td.player { display: flex; align-items: center; gap: .55rem; }
-td.player img { width: 28px; height: 28px; border-radius: 5px; flex: none; }
-#players td, #players th { white-space: nowrap; }
-#players tbody tr:hover { background: var(--panel); }
+                   background: var(--bg-panel-2); border: 1px solid var(--line);
+                   border-radius: 6px; color: var(--text-dim); font-weight: 650;
+                   font-family: var(--display); flex: none; }
+.head { display: flex; gap: 16px; align-items: center; margin-bottom: 8px; }
+.head img { width: 64px; height: 64px; border-radius: 8px; }
+.sub { color: var(--text-dim); font-size: 13px; }
+.tag { display: inline-block; font-size: 10px; text-transform: uppercase; letter-spacing: .06em;
+       border: 1px solid var(--line); border-radius: 3px; padding: 1px 5px;
+       color: var(--text-dim); margin-left: 5px; vertical-align: middle;
+       font-family: var(--mono); }
+.filter { display: block; font-family: var(--display); font-size: 12px; text-transform: uppercase;
+          letter-spacing: .08em; color: var(--text-dim); margin: 0 0 14px; }
+.filter input { display: block; width: 100%; max-width: 320px; margin-top: 6px;
+                padding: 9px 12px; font-family: var(--serif); font-size: 14px; color: var(--text);
+                background: var(--bg-panel); border: 1px solid var(--line); border-radius: 4px; }
+.filter input:focus { outline: none; border-color: var(--soul-dim); }
+#filter-count { margin: 6px 0 0; min-height: 1.2em; font-family: var(--mono); font-size: 11px; }
+.scroll { overflow-x: auto; }
+td.player { display: flex; align-items: center; gap: 9px; }
+td.player img, td.player .avatar-fallback { width: 26px; height: 26px; border-radius: 5px;
+                                            font-size: 12px; }
+.rank { font-family: var(--mono); color: var(--text-dim); text-align: right; }
+.unranked td { opacity: .62; }
+.unranked-note { font-family: var(--mono); font-size: 11px; color: var(--text-dim);
+                 text-transform: none; letter-spacing: 0; }
+.stagemix { font-family: var(--mono); font-size: 11px; color: var(--text-dim); white-space: nowrap; }
+.stagemix b { color: var(--text); font-weight: 500; }
+.section-note { color: var(--text-dim); font-size: 13px; margin: 0 0 14px; max-width: 68ch; }
+.credit { margin-top: 18px; padding-top: 12px; border-top: 1px dotted var(--line); }
+.credit a { word-break: break-all; }
+footer { margin-top: 46px; padding-top: 18px; border-top: 1px solid var(--line);
+         color: var(--text-dim); font-size: 12.5px; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; }
+.card { background: var(--bg-panel); border: 1px solid var(--line); border-radius: 8px;
+        padding: 14px 16px; }
+.card .big { font-size: 25px; font-weight: 650; font-family: var(--display); color: var(--soul); }
+.card .what { font-size: 13px; }
+.card .of { color: var(--text-dim); font-size: 11.5px; margin-top: 3px; font-family: var(--mono); }
+.lineup { margin: 0 0 20px; }
+.lineup .who { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 5px; }
+.lineup .who span, .lineup .who a { border: 1px solid var(--line); border-radius: 999px;
+                                    padding: 2px 10px; font-size: 12.5px; }
+.lineup .who span { color: var(--text-dim); }
+.win { color: var(--win); font-weight: 600; }
+.loss { color: var(--blood); font-weight: 600; }
+.unknown { color: var(--text-dim); font-family: var(--mono); }
+td.num { text-align: right; font-family: var(--mono); }
+h2 { font-family: var(--display); font-size: 15px; text-transform: uppercase;
+     letter-spacing: .08em; color: var(--text-dim); margin: 38px 0 12px; font-weight: 600; }
 """
 
 
@@ -223,120 +579,147 @@ def avatar_tag(avatar: str | None, name: str, assets_dir: Path, depth: str, size
 
 
 def render_index(ds, idx, banner, assets_dir: Path, sink: dict) -> str:
-    """The way in: every published player, searchable and alphabetical."""
-    rows = []
-    for account_id, player in idx["players"].items():
-        if not player.get("publishable"):
-            continue
-        games = idx["by_account"][account_id]
-        nights, last_night = set(), None
-        for row in games:
-            match = idx["matches"].get(row["match_id"]) or {}
-            night = idx["nights"].get(match.get("night_id"))
-            if not night:
-                continue
-            nights.add(night["night_id"])
-            if last_night is None or (night.get("date") or "") > (last_night.get("date") or ""):
-                last_night = night
-        credit(sink, player)
-        if last_night:
-            credit(sink, last_night)
-        rows.append({
-            "account_id": account_id,
-            "handle": player.get("handle") or f"Account {account_id}",
-            "identified": player.get("identified"),
-            "avatar": (player.get("steam") or {}).get("avatar_local"),
-            "country": (player.get("steam") or {}).get("countrycode"),
-            "games": len(games),
-            "nights": len(nights),
-            "last_night": last_night,
-        })
-    rows.sort(key=lambda r: (r["handle"].lower(), r["account_id"]))
+    """The front page: Stars of the Show, then the full board.
 
-    unnamed = sum(1 for p in idx["players"].values() if not p.get("publishable"))
+    Ranked players first, then everyone else marked "not ranked" rather than
+    quietly dropped. Omitting them would make the board look like the whole
+    population when it is a minority of it.
+    """
+    rows = idx["metric_rows"]
+    published = {a for a, p in idx["players"].items() if p.get("publishable")}
+
+    def name_of(account_id):
+        player = idx["players"].get(account_id) or {}
+        return player.get("handle") or f"Account {account_id}"
+
+    def player_cell(account_id, size=26):
+        player = idx["players"].get(account_id) or {}
+        name = name_of(account_id)
+        avatar = (player.get("steam") or {}).get("avatar_local")
+        tag = ' <span class="tag">probable</span>' if player.get("identified") == "probable" else ""
+        img = avatar_tag(avatar, name, assets_dir, "", size)
+        if account_id in published:
+            credit(sink, player)
+            return f'{img}<a href="players/{esc(account_id)}/">{esc(name)}</a>{tag}'
+        return f'{img}<span class="unknown">{esc(account_id)}</span>'
+
+    # Only published players appear. An unidentified account is a number on a
+    # match row, never a name on the front page.
+    board = [r for r in rows if r["account_id"] in published]
+    ranked = [r for r in board
+              if r["games"] >= LEADERBOARD_MIN_GAMES and r["role_score"] is not None]
+    ranked_ids = {r["account_id"] for r in ranked}
+    unranked = [r for r in board if r["account_id"] not in ranked_ids]
+    ranked.sort(key=lambda r: -r["role_score"])
+    unranked.sort(key=lambda r: (-r["games"], name_of(r["account_id"]).lower()))
+
     out = ['<!doctype html>', '<html lang="en">', '<head>',
            '<meta charset="utf-8">',
            '<meta name="viewport" content="width=device-width, initial-scale=1">',
            '<title>Night Shift Scout</title>',
            '<link rel="stylesheet" href="assets/site.css">',
-           '</head>', '<body>', '<main>']
+           '</head>', '<body>', '<div class="wrap">']
     if banner:
         out.append(f'<div class="banner">{esc(banner)}</div>')
-    out.append('<div class="head"><div>')
-    out.append('<h1>Night Shift Scout</h1>')
-    out.append('<div class="sub">Per-player performance from the Deadlock Night Shift weekly series, '
-               'measured against the player\'s own team in the same game.</div>')
-    out.append('</div></div>')
+    out.append('<header><h1>Night <span>Shift</span> Scout</h1>'
+               '<div class="subtitle">Deadlock esports scouting</div></header>')
 
-    out.append(f'<p class="lede">{len(rows)} players across {len(ds["matches"])} games. '
-               f'{unnamed} more accounts have played but are not identified yet, and appear as '
-               f'plain numbers rather than being guessed at.</p>')
+    nights = len({m.get("night_id") for m in ds["matches"]})
+    out.append(f'<p class="lede">Per-player performance across {len(ds["matches"])} games from '
+               f'{nights} Night Shift nights. Every number compares a player to their own five '
+               f'teammates in the same match rather than to the lobby, so a one sided game does '
+               f'not flatter everyone on the winning side.</p>')
 
-    # Removed by the script below when it runs, so a no-JavaScript visitor is
-    # never shown a box that does nothing.
-    out.append('<div id="filter-wrap" hidden><label class="filter">Search players '
-               '<input type="search" id="filter" autocomplete="off" '
-               'placeholder="Type a name"></label>'
-               '<p class="sub" id="filter-count" role="status"></p></div>')
+    star_pool = ranked or board
+    stars = [
+        ("Best KDA", "pooled_kda", lambda v: f"{v:.2f}",
+         lambda r: f'{r["total_kills"]}/{r["total_deaths"]}/{r["total_assists"]} across {r["games"]} games'),
+        ("Most souls per minute", "avg_souls_per_min", lambda v: f"{round(v):,}",
+         lambda r: f'{r["games"]} games, {r["win_rate"] * 100:.0f}% win rate'),
+        ("Most damage per minute", "avg_dpm", lambda v: f"{round(v):,}",
+         lambda r: f'{r["games"]} games, {r["win_rate"] * 100:.0f}% win rate'),
+        ("Highest kill participation", "avg_kp", lambda v: f"{v * 100:.0f}%",
+         lambda r: f'in {r["avg_kp"] * 100:.0f}% of their team kills'),
+    ]
+    out.append('<h2>Stars of the show</h2>')
+    out.append(f'<p class="section-note">Best in each category among the {len(star_pool)} ranked '
+               f'players. One strong game cannot crown anyone, because ranking needs at least '
+               f'{LEADERBOARD_MIN_GAMES} games.</p>')
+    out.append('<div class="cards">')
+    for label, key, fmt, sub in stars:
+        candidates = [r for r in star_pool if r.get(key) is not None]
+        if not candidates:
+            continue
+        top = max(candidates, key=lambda r: r[key])
+        out.append(f'<div class="card"><div class="of">{esc(label)}</div>'
+                   f'<div class="big">{esc(fmt(top[key]))}</div>'
+                   f'<div class="what">{player_cell(top["account_id"], 22)}</div>'
+                   f'<div class="of">{esc(sub(top))}</div></div>')
+    out.append('</div>')
 
-    # Wrapped like every other table on the site: the cells are nowrap, so on a
-    # narrow phone this has to scroll inside its own box rather than pushing the
-    # page sideways.
+    out.append('<h2>The board</h2>')
+    out.append('<p class="section-note">Role score compares a player to the average player on the '
+               'same hero archetype, within the same balance patch. 1.00 is exactly average. '
+               'Stage mix is shown rather than corrected for: weighting games by bracket stage '
+               'was measured and changes almost nothing, because qualifiers are 7% of all games.'
+               '</p>')
+    out.append('<label class="filter">Search players'
+               '<input type="search" id="filter" autocomplete="off" placeholder="Type a name">'
+               '</label><p class="sub" id="filter-count" role="status"></p>')
     out.append('<div class="scroll"><table id="players"><thead><tr>'
-               '<th>Player</th><th class="num">Games</th><th class="num">Nights</th>'
-               '<th>Last played</th></tr></thead><tbody>')
-    for row in rows:
-        tag = ' <span class="tag">probable</span>' if row["identified"] == "probable" else ""
-        night = row["last_night"]
-        if night:
-            label, _ = night_label(night)
-            last = f'{esc(label)} <span class="sub">{esc(fmt_date(night.get("date")))}</span>'
-        else:
-            last = '<span class="sub">not recorded</span>'
-        country = f' <span class="sub">{esc(row["country"])}</span>' if row["country"] else ""
+               '<th class="rank">#</th><th>Player</th><th class="num">Role score</th>'
+               '<th class="num">Games</th><th>Stage mix</th><th class="num">KDA</th>'
+               '<th class="num">Souls/min</th><th class="num">Team kills</th>'
+               '<th class="num">Win rate</th></tr></thead><tbody>')
+
+    def stage_mix(row):
+        counts = row["stage_counts"]
+        parts = [f'<b>{counts[key]}</b>{short}'
+                 for short, key in (("Q", "Qualifier"), ("C", "Challenger"), ("F", "Finals"))
+                 if counts.get(key)]
+        return " ".join(parts) or '<span class="unknown">not recorded</span>'
+
+    for position, row in enumerate(ranked, 1):
         out.append(
-            f'<tr data-name="{esc(row["handle"].lower())}">'
-            f'<td class="player">'
-            f'{avatar_tag(row["avatar"], row["handle"], assets_dir, "", 28)}'
-            f'<a href="players/{esc(row["account_id"])}/">{esc(row["handle"])}</a>{tag}{country}</td>'
+            f'<tr data-name="{esc(name_of(row["account_id"]).lower())}">'
+            f'<td class="rank">{position}</td>'
+            f'<td class="player">{player_cell(row["account_id"])}</td>'
+            f'<td class="num">{row["role_score"]:.2f}</td>'
             f'<td class="num">{row["games"]}</td>'
-            f'<td class="num">{row["nights"]}</td>'
-            f'<td>{last}</td></tr>')
+            f'<td class="stagemix">{stage_mix(row)}</td>'
+            f'<td class="num">{row["pooled_kda"]:.2f}</td>'
+            f'<td class="num">{round(row["avg_souls_per_min"]):,}</td>'
+            f'<td class="num">{row["avg_kp"] * 100:.0f}%</td>'
+            f'<td class="num">{row["win_rate"] * 100:.0f}%</td></tr>')
+
+    for row in unranked:
+        out.append(
+            f'<tr class="unranked" data-name="{esc(name_of(row["account_id"]).lower())}">'
+            f'<td class="rank">&middot;</td>'
+            f'<td class="player">{player_cell(row["account_id"])}</td>'
+            f'<td class="unranked-note" colspan="2">not ranked, fewer than '
+            f'{LEADERBOARD_MIN_GAMES} games ({row["games"]})</td>'
+            f'<td class="stagemix">{stage_mix(row)}</td>'
+            f'<td class="num">{row["pooled_kda"]:.2f}</td>'
+            f'<td class="num">{round(row["avg_souls_per_min"]):,}</td>'
+            f'<td class="num">{row["avg_kp"] * 100:.0f}%</td>'
+            f'<td class="num">{row["win_rate"] * 100:.0f}%</td></tr>')
     out.append('</tbody></table></div>')
 
+    unpublished = len(idx["players"]) - len(published)
     out.append('<footer>'
-               '<p>Names come from the alias a player competes under. An account is only named '
-               'when the evidence supports it, so an unnamed account means we do not know, '
-               'not that nobody played.</p>'
+               f'<p>{len(ranked)} players ranked, {len(unranked)} shown but not ranked. '
+               f'Three good games are not scouting data, so ranking needs {LEADERBOARD_MIN_GAMES}. '
+               f'An unranked player still has a page with every game on it.</p>'
+               f'<p>{unpublished} further accounts have played but are not identified. They appear '
+               f'as plain numbers inside match rows rather than being guessed at.</p>'
                f'<p>Generated {esc(ds.get("generated_utc", ""))} from match data supplied by the '
-               'community run <a href="https://deadlock-api.com/" rel="noopener">deadlock-api</a>.</p>')
+               'community run <a href="https://deadlock-api.com/" rel="noopener">deadlock-api</a>.'
+               '</p>')
     out.append(render_attribution(sink))
     out.append('</footer>')
-
-    # Filtering only. No number here is computed, nothing is fetched, and the
-    # table is complete in the HTML above whether or not this runs.
-    out.append("""<script>
-(function () {
-  var wrap = document.getElementById('filter-wrap');
-  var input = document.getElementById('filter');
-  var count = document.getElementById('filter-count');
-  var rows = Array.prototype.slice.call(
-    document.querySelectorAll('#players tbody tr'));
-  wrap.hidden = false;
-  function apply() {
-    var q = input.value.trim().toLowerCase();
-    var shown = 0;
-    rows.forEach(function (row) {
-      var hit = !q || row.getAttribute('data-name').indexOf(q) !== -1;
-      row.hidden = !hit;
-      if (hit) { shown++; }
-    });
-    count.textContent = q ? shown + ' of ' + rows.length + ' players' : '';
-  }
-  input.addEventListener('input', apply);
-})();
-</script>""")
-    out.append('</main></body></html>')
+    out.append(FILTER_SCRIPT)
+    out.append('</div></body></html>')
     return "".join(out)
 
 
@@ -545,6 +928,12 @@ def main() -> int:
         "teams": {t["team_id"]: t for t in ds.get("teams", [])},
         "by_account": defaultdict(list),
         "by_match_side": defaultdict(list),
+        # Leaderboard numbers, computed by scripts/metrics.py, which is a
+        # faithful port of computeRows in index.html. Verified against the
+        # running console on 24 matches and 74 players: every metric agreed to
+        # floating point precision, worst relative difference 3.4e-16.
+        "metric_rows": metrics.compute_rows(ds, args.assets),
+        "heroes": heroes,
     }
     for row in ds["player_matches"]:
         idx["by_account"][row["account_id"]].append(row)
@@ -604,6 +993,17 @@ def main() -> int:
             for candidate in avatar_src.glob(f"{account_id}.*"):
                 shutil.copy2(candidate, dest / candidate.name)
                 copied += 1
+
+    # Fonts and hero icons are served locally so a visitor makes no request to
+    # Google or to the community asset bucket. See scripts/fetch_web_assets.py.
+    fonts_css = args.assets / "fonts.css"
+    if fonts_css.exists():
+        shutil.copy2(fonts_css, args.out / "assets" / "fonts.css")
+        shutil.copytree(args.assets / "fonts", args.out / "assets" / "fonts",
+                        dirs_exist_ok=True)
+    hero_icons = args.assets / "hero-icons"
+    if hero_icons.is_dir():
+        shutil.copytree(hero_icons, args.out / "assets" / "hero-icons", dirs_exist_ok=True)
 
     # The index is rendered last, so it can only ever list pages that exist.
     index_sink: dict = {}
