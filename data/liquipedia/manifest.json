@@ -1,0 +1,793 @@
+{
+  "schema_version": 1,
+  "source": "https://liquipedia.net/deadlock/api.php",
+  "license": "CC-BY-SA 3.0",
+  "attribution": "Content from Liquipedia, https://liquipedia.net/deadlock/, CC-BY-SA 3.0",
+  "user_agent": "NightShiftScout/1.0 (https://github.com/crowdotwave/NightShiftScout; contact via GitHub issues)",
+  "pages": {
+    "Deadlock Night Shift/1/EU": {
+      "file": "Deadlock_Night_Shift__1__EU.wiki.gz",
+      "revision_id": 26039,
+      "revision_timestamp": "2026-04-17T10:48:44Z",
+      "fetched_utc": "2026-07-28T00:41:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/1/EU",
+      "bytes": 6125
+    },
+    "Deadlock Night Shift/1/NA": {
+      "file": "Deadlock_Night_Shift__1__NA.wiki.gz",
+      "revision_id": 26050,
+      "revision_timestamp": "2026-04-17T10:51:39Z",
+      "fetched_utc": "2026-07-28T00:41:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/1/NA",
+      "bytes": 5829
+    },
+    "Deadlock Night Shift/10/EU": {
+      "file": "Deadlock_Night_Shift__10__EU.wiki.gz",
+      "revision_id": 26048,
+      "revision_timestamp": "2026-04-17T10:50:57Z",
+      "fetched_utc": "2026-07-28T00:41:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/10/EU",
+      "bytes": 4709
+    },
+    "Deadlock Night Shift/10/NA": {
+      "file": "Deadlock_Night_Shift__10__NA.wiki.gz",
+      "revision_id": 26059,
+      "revision_timestamp": "2026-04-17T10:53:37Z",
+      "fetched_utc": "2026-07-28T00:41:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/10/NA",
+      "bytes": 4471
+    },
+    "Deadlock Night Shift/11/EU": {
+      "file": "Deadlock_Night_Shift__11__EU.wiki.gz",
+      "revision_id": 26049,
+      "revision_timestamp": "2026-04-17T10:51:07Z",
+      "fetched_utc": "2026-07-28T00:41:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/11/EU",
+      "bytes": 5083
+    },
+    "Deadlock Night Shift/11/NA": {
+      "file": "Deadlock_Night_Shift__11__NA.wiki.gz",
+      "revision_id": 26060,
+      "revision_timestamp": "2026-04-17T10:53:50Z",
+      "fetched_utc": "2026-07-28T00:41:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/11/NA",
+      "bytes": 4569
+    },
+    "Deadlock Night Shift/12/EU": {
+      "file": "Deadlock_Night_Shift__12__EU.wiki.gz",
+      "revision_id": 24572,
+      "revision_timestamp": "2025-11-18T18:20:28Z",
+      "fetched_utc": "2026-07-28T00:41:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/12/EU",
+      "bytes": 6508
+    },
+    "Deadlock Night Shift/12/NA": {
+      "file": "Deadlock_Night_Shift__12__NA.wiki.gz",
+      "revision_id": 24465,
+      "revision_timestamp": "2025-11-13T21:07:50Z",
+      "fetched_utc": "2026-07-28T00:41:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/12/NA",
+      "bytes": 5509
+    },
+    "Deadlock Night Shift/13/EU": {
+      "file": "Deadlock_Night_Shift__13__EU.wiki.gz",
+      "revision_id": 26063,
+      "revision_timestamp": "2026-04-17T12:33:45Z",
+      "fetched_utc": "2026-07-28T00:41:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/13/EU",
+      "bytes": 5627
+    },
+    "Deadlock Night Shift/13/NA": {
+      "file": "Deadlock_Night_Shift__13__NA.wiki.gz",
+      "revision_id": 25958,
+      "revision_timestamp": "2026-04-12T22:28:36Z",
+      "fetched_utc": "2026-07-28T00:41:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/13/NA",
+      "bytes": 5264
+    },
+    "Deadlock Night Shift/14/EU": {
+      "file": "Deadlock_Night_Shift__14__EU.wiki.gz",
+      "revision_id": 26064,
+      "revision_timestamp": "2026-04-17T12:34:00Z",
+      "fetched_utc": "2026-07-28T00:41:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/14/EU",
+      "bytes": 6160
+    },
+    "Deadlock Night Shift/14/NA": {
+      "file": "Deadlock_Night_Shift__14__NA.wiki.gz",
+      "revision_id": 24827,
+      "revision_timestamp": "2025-12-16T10:57:41Z",
+      "fetched_utc": "2026-07-28T00:41:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/14/NA",
+      "bytes": 5911
+    },
+    "Deadlock Night Shift/15/EU": {
+      "file": "Deadlock_Night_Shift__15__EU.wiki.gz",
+      "revision_id": 24665,
+      "revision_timestamp": "2025-11-25T11:38:59Z",
+      "fetched_utc": "2026-07-28T00:41:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/15/EU",
+      "bytes": 5593
+    },
+    "Deadlock Night Shift/15/NA": {
+      "file": "Deadlock_Night_Shift__15__NA.wiki.gz",
+      "revision_id": 24828,
+      "revision_timestamp": "2025-12-16T10:57:46Z",
+      "fetched_utc": "2026-07-28T00:41:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/15/NA",
+      "bytes": 5684
+    },
+    "Deadlock Night Shift/16/EU": {
+      "file": "Deadlock_Night_Shift__16__EU.wiki.gz",
+      "revision_id": 27050,
+      "revision_timestamp": "2026-05-29T18:21:33Z",
+      "fetched_utc": "2026-07-28T00:41:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/16/EU",
+      "bytes": 5452
+    },
+    "Deadlock Night Shift/16/NA": {
+      "file": "Deadlock_Night_Shift__16__NA.wiki.gz",
+      "revision_id": 24829,
+      "revision_timestamp": "2025-12-16T10:57:51Z",
+      "fetched_utc": "2026-07-28T00:41:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/16/NA",
+      "bytes": 5229
+    },
+    "Deadlock Night Shift/17/EU": {
+      "file": "Deadlock_Night_Shift__17__EU.wiki.gz",
+      "revision_id": 27051,
+      "revision_timestamp": "2026-05-29T18:21:49Z",
+      "fetched_utc": "2026-07-28T00:41:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/17/EU",
+      "bytes": 5578
+    },
+    "Deadlock Night Shift/17/NA": {
+      "file": "Deadlock_Night_Shift__17__NA.wiki.gz",
+      "revision_id": 24831,
+      "revision_timestamp": "2025-12-16T10:58:03Z",
+      "fetched_utc": "2026-07-28T00:41:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/17/NA",
+      "bytes": 5804
+    },
+    "Deadlock Night Shift/18/EU": {
+      "file": "Deadlock_Night_Shift__18__EU.wiki.gz",
+      "revision_id": 24952,
+      "revision_timestamp": "2026-01-12T05:15:00Z",
+      "fetched_utc": "2026-07-28T00:41:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/18/EU",
+      "bytes": 5871
+    },
+    "Deadlock Night Shift/18/NA": {
+      "file": "Deadlock_Night_Shift__18__NA.wiki.gz",
+      "revision_id": 24830,
+      "revision_timestamp": "2025-12-16T10:57:56Z",
+      "fetched_utc": "2026-07-28T00:41:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/18/NA",
+      "bytes": 5572
+    },
+    "Deadlock Night Shift/19/EU": {
+      "file": "Deadlock_Night_Shift__19__EU.wiki.gz",
+      "revision_id": 24953,
+      "revision_timestamp": "2026-01-12T05:15:13Z",
+      "fetched_utc": "2026-07-28T00:41:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/19/EU",
+      "bytes": 5761
+    },
+    "Deadlock Night Shift/19/NA": {
+      "file": "Deadlock_Night_Shift__19__NA.wiki.gz",
+      "revision_id": 25029,
+      "revision_timestamp": "2026-01-31T12:09:52Z",
+      "fetched_utc": "2026-07-28T00:41:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/19/NA",
+      "bytes": 5013
+    },
+    "Deadlock Night Shift/2/EU": {
+      "file": "Deadlock_Night_Shift__2__EU.wiki.gz",
+      "revision_id": 26040,
+      "revision_timestamp": "2026-04-17T10:48:55Z",
+      "fetched_utc": "2026-07-28T00:41:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/2/EU",
+      "bytes": 5733
+    },
+    "Deadlock Night Shift/2/NA": {
+      "file": "Deadlock_Night_Shift__2__NA.wiki.gz",
+      "revision_id": 26051,
+      "revision_timestamp": "2026-04-17T10:51:54Z",
+      "fetched_utc": "2026-07-28T00:41:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/2/NA",
+      "bytes": 6213
+    },
+    "Deadlock Night Shift/20/EU": {
+      "file": "Deadlock_Night_Shift__20__EU.wiki.gz",
+      "revision_id": 25006,
+      "revision_timestamp": "2026-01-31T11:44:03Z",
+      "fetched_utc": "2026-07-28T00:41:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/20/EU",
+      "bytes": 5962
+    },
+    "Deadlock Night Shift/20/NA": {
+      "file": "Deadlock_Night_Shift__20__NA.wiki.gz",
+      "revision_id": 25023,
+      "revision_timestamp": "2026-01-31T12:06:50Z",
+      "fetched_utc": "2026-07-28T00:41:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/20/NA",
+      "bytes": 4995
+    },
+    "Deadlock Night Shift/21/EU": {
+      "file": "Deadlock_Night_Shift__21__EU.wiki.gz",
+      "revision_id": 25005,
+      "revision_timestamp": "2026-01-31T11:43:46Z",
+      "fetched_utc": "2026-07-28T00:41:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/21/EU",
+      "bytes": 5614
+    },
+    "Deadlock Night Shift/21/NA": {
+      "file": "Deadlock_Night_Shift__21__NA.wiki.gz",
+      "revision_id": 25671,
+      "revision_timestamp": "2026-03-23T05:07:47Z",
+      "fetched_utc": "2026-07-28T00:41:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/21/NA",
+      "bytes": 4994
+    },
+    "Deadlock Night Shift/22/EU": {
+      "file": "Deadlock_Night_Shift__22__EU.wiki.gz",
+      "revision_id": 25004,
+      "revision_timestamp": "2026-01-31T11:43:27Z",
+      "fetched_utc": "2026-07-28T00:41:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/22/EU",
+      "bytes": 5126
+    },
+    "Deadlock Night Shift/22/NA": {
+      "file": "Deadlock_Night_Shift__22__NA.wiki.gz",
+      "revision_id": 25672,
+      "revision_timestamp": "2026-03-23T05:07:57Z",
+      "fetched_utc": "2026-07-28T00:41:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/22/NA",
+      "bytes": 4994
+    },
+    "Deadlock Night Shift/23/EU": {
+      "file": "Deadlock_Night_Shift__23__EU.wiki.gz",
+      "revision_id": 25071,
+      "revision_timestamp": "2026-02-05T11:37:23Z",
+      "fetched_utc": "2026-07-28T00:41:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/23/EU",
+      "bytes": 5686
+    },
+    "Deadlock Night Shift/23/NA": {
+      "file": "Deadlock_Night_Shift__23__NA.wiki.gz",
+      "revision_id": 27466,
+      "revision_timestamp": "2026-06-20T06:53:59Z",
+      "fetched_utc": "2026-07-28T00:41:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/23/NA",
+      "bytes": 5010
+    },
+    "Deadlock Night Shift/24/EU": {
+      "file": "Deadlock_Night_Shift__24__EU.wiki.gz",
+      "revision_id": 25117,
+      "revision_timestamp": "2026-02-11T14:06:53Z",
+      "fetched_utc": "2026-07-28T00:41:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/24/EU",
+      "bytes": 5200
+    },
+    "Deadlock Night Shift/24/NA": {
+      "file": "Deadlock_Night_Shift__24__NA.wiki.gz",
+      "revision_id": 25342,
+      "revision_timestamp": "2026-02-27T15:06:12Z",
+      "fetched_utc": "2026-07-28T00:41:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/24/NA",
+      "bytes": 5029
+    },
+    "Deadlock Night Shift/25/EU": {
+      "file": "Deadlock_Night_Shift__25__EU.wiki.gz",
+      "revision_id": 26068,
+      "revision_timestamp": "2026-04-17T12:39:03Z",
+      "fetched_utc": "2026-07-28T00:41:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/25/EU",
+      "bytes": 5144
+    },
+    "Deadlock Night Shift/25/NA": {
+      "file": "Deadlock_Night_Shift__25__NA.wiki.gz",
+      "revision_id": 26069,
+      "revision_timestamp": "2026-04-17T12:39:43Z",
+      "fetched_utc": "2026-07-28T00:41:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/25/NA",
+      "bytes": 5145
+    },
+    "Deadlock Night Shift/26/EU": {
+      "file": "Deadlock_Night_Shift__26__EU.wiki.gz",
+      "revision_id": 26070,
+      "revision_timestamp": "2026-04-17T12:41:18Z",
+      "fetched_utc": "2026-07-28T00:41:58+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/26/EU",
+      "bytes": 5336
+    },
+    "Deadlock Night Shift/26/NA": {
+      "file": "Deadlock_Night_Shift__26__NA.wiki.gz",
+      "revision_id": 27467,
+      "revision_timestamp": "2026-06-20T06:54:07Z",
+      "fetched_utc": "2026-07-28T00:41:58+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/26/NA",
+      "bytes": 5221
+    },
+    "Deadlock Night Shift/27/EU": {
+      "file": "Deadlock_Night_Shift__27__EU.wiki.gz",
+      "revision_id": 26074,
+      "revision_timestamp": "2026-04-17T12:44:51Z",
+      "fetched_utc": "2026-07-28T00:41:58+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/27/EU",
+      "bytes": 5773
+    },
+    "Deadlock Night Shift/27/NA": {
+      "file": "Deadlock_Night_Shift__27__NA.wiki.gz",
+      "revision_id": 26075,
+      "revision_timestamp": "2026-04-17T12:46:03Z",
+      "fetched_utc": "2026-07-28T00:41:58+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/27/NA",
+      "bytes": 5467
+    },
+    "Deadlock Night Shift/28/EU": {
+      "file": "Deadlock_Night_Shift__28__EU.wiki.gz",
+      "revision_id": 26072,
+      "revision_timestamp": "2026-04-17T12:44:26Z",
+      "fetched_utc": "2026-07-28T00:41:58+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/28/EU",
+      "bytes": 5402
+    },
+    "Deadlock Night Shift/28/NA": {
+      "file": "Deadlock_Night_Shift__28__NA.wiki.gz",
+      "revision_id": 25561,
+      "revision_timestamp": "2026-03-11T14:13:16Z",
+      "fetched_utc": "2026-07-28T00:41:58+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/28/NA",
+      "bytes": 5516
+    },
+    "Deadlock Night Shift/29/EU": {
+      "file": "Deadlock_Night_Shift__29__EU.wiki.gz",
+      "revision_id": 26077,
+      "revision_timestamp": "2026-04-17T12:47:29Z",
+      "fetched_utc": "2026-07-28T00:41:58+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/29/EU",
+      "bytes": 5431
+    },
+    "Deadlock Night Shift/29/NA": {
+      "file": "Deadlock_Night_Shift__29__NA.wiki.gz",
+      "revision_id": 26078,
+      "revision_timestamp": "2026-04-17T12:47:56Z",
+      "fetched_utc": "2026-07-28T00:41:58+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/29/NA",
+      "bytes": 5353
+    },
+    "Deadlock Night Shift/3/EU": {
+      "file": "Deadlock_Night_Shift__3__EU.wiki.gz",
+      "revision_id": 26041,
+      "revision_timestamp": "2026-04-17T10:49:12Z",
+      "fetched_utc": "2026-07-28T00:41:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/3/EU",
+      "bytes": 6435
+    },
+    "Deadlock Night Shift/3/NA": {
+      "file": "Deadlock_Night_Shift__3__NA.wiki.gz",
+      "revision_id": 26052,
+      "revision_timestamp": "2026-04-17T10:52:06Z",
+      "fetched_utc": "2026-07-28T00:41:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/3/NA",
+      "bytes": 5994
+    },
+    "Deadlock Night Shift/30/EU": {
+      "file": "Deadlock_Night_Shift__30__EU.wiki.gz",
+      "revision_id": 26079,
+      "revision_timestamp": "2026-04-17T12:49:40Z",
+      "fetched_utc": "2026-07-28T00:41:58+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/30/EU",
+      "bytes": 5299
+    },
+    "Deadlock Night Shift/30/NA": {
+      "file": "Deadlock_Night_Shift__30__NA.wiki.gz",
+      "revision_id": 26541,
+      "revision_timestamp": "2026-05-04T13:04:21Z",
+      "fetched_utc": "2026-07-28T00:41:58+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/30/NA",
+      "bytes": 5384
+    },
+    "Deadlock Night Shift/31/EU": {
+      "file": "Deadlock_Night_Shift__31__EU.wiki.gz",
+      "revision_id": 26081,
+      "revision_timestamp": "2026-04-17T12:51:32Z",
+      "fetched_utc": "2026-07-28T00:41:58+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/31/EU",
+      "bytes": 5451
+    },
+    "Deadlock Night Shift/31/NA": {
+      "file": "Deadlock_Night_Shift__31__NA.wiki.gz",
+      "revision_id": 26082,
+      "revision_timestamp": "2026-04-17T12:52:22Z",
+      "fetched_utc": "2026-07-28T00:41:58+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/31/NA",
+      "bytes": 4864
+    },
+    "Deadlock Night Shift/32/EU": {
+      "file": "Deadlock_Night_Shift__32__EU.wiki.gz",
+      "revision_id": 26083,
+      "revision_timestamp": "2026-04-17T12:53:27Z",
+      "fetched_utc": "2026-07-28T00:41:58+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/32/EU",
+      "bytes": 5299
+    },
+    "Deadlock Night Shift/32/NA": {
+      "file": "Deadlock_Night_Shift__32__NA.wiki.gz",
+      "revision_id": 26084,
+      "revision_timestamp": "2026-04-17T12:53:56Z",
+      "fetched_utc": "2026-07-28T00:41:58+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/32/NA",
+      "bytes": 5192
+    },
+    "Deadlock Night Shift/33/EU": {
+      "file": "Deadlock_Night_Shift__33__EU.wiki.gz",
+      "revision_id": 26085,
+      "revision_timestamp": "2026-04-17T12:55:05Z",
+      "fetched_utc": "2026-07-28T00:41:58+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/33/EU",
+      "bytes": 5583
+    },
+    "Deadlock Night Shift/33/NA": {
+      "file": "Deadlock_Night_Shift__33__NA.wiki.gz",
+      "revision_id": 26086,
+      "revision_timestamp": "2026-04-17T12:55:18Z",
+      "fetched_utc": "2026-07-28T00:41:58+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/33/NA",
+      "bytes": 5349
+    },
+    "Deadlock Night Shift/34/EU": {
+      "file": "Deadlock_Night_Shift__34__EU.wiki.gz",
+      "revision_id": 26235,
+      "revision_timestamp": "2026-04-20T16:26:30Z",
+      "fetched_utc": "2026-07-28T00:41:58+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/34/EU",
+      "bytes": 4828
+    },
+    "Deadlock Night Shift/34/NA": {
+      "file": "Deadlock_Night_Shift__34__NA.wiki.gz",
+      "revision_id": 26236,
+      "revision_timestamp": "2026-04-20T16:26:33Z",
+      "fetched_utc": "2026-07-28T00:41:58+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/34/NA",
+      "bytes": 5064
+    },
+    "Deadlock Night Shift/35/EU": {
+      "file": "Deadlock_Night_Shift__35__EU.wiki.gz",
+      "revision_id": 26397,
+      "revision_timestamp": "2026-04-29T15:25:39Z",
+      "fetched_utc": "2026-07-28T00:41:58+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/35/EU",
+      "bytes": 5151
+    },
+    "Deadlock Night Shift/35/NA": {
+      "file": "Deadlock_Night_Shift__35__NA.wiki.gz",
+      "revision_id": 26273,
+      "revision_timestamp": "2026-04-23T05:32:36Z",
+      "fetched_utc": "2026-07-28T00:41:58+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/35/NA",
+      "bytes": 7479
+    },
+    "Deadlock Night Shift/36/EU": {
+      "file": "Deadlock_Night_Shift__36__EU.wiki.gz",
+      "revision_id": 26609,
+      "revision_timestamp": "2026-05-06T08:21:17Z",
+      "fetched_utc": "2026-07-28T00:41:58+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/36/EU",
+      "bytes": 5109
+    },
+    "Deadlock Night Shift/36/NA": {
+      "file": "Deadlock_Night_Shift__36__NA.wiki.gz",
+      "revision_id": 26543,
+      "revision_timestamp": "2026-05-04T13:04:46Z",
+      "fetched_utc": "2026-07-28T00:41:58+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/36/NA",
+      "bytes": 6762
+    },
+    "Deadlock Night Shift/37/EU": {
+      "file": "Deadlock_Night_Shift__37__EU.wiki.gz",
+      "revision_id": 28105,
+      "revision_timestamp": "2026-07-10T21:19:52Z",
+      "fetched_utc": "2026-07-28T00:41:58+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/37/EU",
+      "bytes": 5757
+    },
+    "Deadlock Night Shift/37/NA": {
+      "file": "Deadlock_Night_Shift__37__NA.wiki.gz",
+      "revision_id": 28104,
+      "revision_timestamp": "2026-07-10T21:18:14Z",
+      "fetched_utc": "2026-07-28T00:41:58+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/37/NA",
+      "bytes": 7289
+    },
+    "Deadlock Night Shift/38/EU": {
+      "file": "Deadlock_Night_Shift__38__EU.wiki.gz",
+      "revision_id": 26911,
+      "revision_timestamp": "2026-05-15T20:36:26Z",
+      "fetched_utc": "2026-07-28T00:41:58+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/38/EU",
+      "bytes": 5064
+    },
+    "Deadlock Night Shift/38/NA": {
+      "file": "Deadlock_Night_Shift__38__NA.wiki.gz",
+      "revision_id": 28089,
+      "revision_timestamp": "2026-07-10T15:52:48Z",
+      "fetched_utc": "2026-07-28T00:41:58+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/38/NA",
+      "bytes": 6511
+    },
+    "Deadlock Night Shift/39/EU": {
+      "file": "Deadlock_Night_Shift__39__EU.wiki.gz",
+      "revision_id": 27067,
+      "revision_timestamp": "2026-05-31T19:42:39Z",
+      "fetched_utc": "2026-07-28T00:41:58+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/39/EU",
+      "bytes": 5156
+    },
+    "Deadlock Night Shift/39/NA": {
+      "file": "Deadlock_Night_Shift__39__NA.wiki.gz",
+      "revision_id": 27077,
+      "revision_timestamp": "2026-05-31T20:51:04Z",
+      "fetched_utc": "2026-07-28T00:41:58+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/39/NA",
+      "bytes": 6829
+    },
+    "Deadlock Night Shift/4/EU": {
+      "file": "Deadlock_Night_Shift__4__EU.wiki.gz",
+      "revision_id": 26042,
+      "revision_timestamp": "2026-04-17T10:49:23Z",
+      "fetched_utc": "2026-07-28T00:41:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/4/EU",
+      "bytes": 6267
+    },
+    "Deadlock Night Shift/4/NA": {
+      "file": "Deadlock_Night_Shift__4__NA.wiki.gz",
+      "revision_id": 26053,
+      "revision_timestamp": "2026-04-17T10:52:21Z",
+      "fetched_utc": "2026-07-28T00:41:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/4/NA",
+      "bytes": 5866
+    },
+    "Deadlock Night Shift/40/EU": {
+      "file": "Deadlock_Night_Shift__40__EU.wiki.gz",
+      "revision_id": 27153,
+      "revision_timestamp": "2026-06-02T14:45:04Z",
+      "fetched_utc": "2026-07-28T00:41:58+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/40/EU",
+      "bytes": 5013
+    },
+    "Deadlock Night Shift/40/NA": {
+      "file": "Deadlock_Night_Shift__40__NA.wiki.gz",
+      "revision_id": 27091,
+      "revision_timestamp": "2026-05-31T23:50:27Z",
+      "fetched_utc": "2026-07-28T00:41:58+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/40/NA",
+      "bytes": 5118
+    },
+    "Deadlock Night Shift/41/EU": {
+      "file": "Deadlock_Night_Shift__41__EU.wiki.gz",
+      "revision_id": 28433,
+      "revision_timestamp": "2026-07-23T07:58:27Z",
+      "fetched_utc": "2026-07-28T00:41:58+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/41/EU",
+      "bytes": 5420
+    },
+    "Deadlock Night Shift/41/NA": {
+      "file": "Deadlock_Night_Shift__41__NA.wiki.gz",
+      "revision_id": 28432,
+      "revision_timestamp": "2026-07-23T07:57:48Z",
+      "fetched_utc": "2026-07-28T00:41:58+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/41/NA",
+      "bytes": 5758
+    },
+    "Deadlock Night Shift/42/EU": {
+      "file": "Deadlock_Night_Shift__42__EU.wiki.gz",
+      "revision_id": 28350,
+      "revision_timestamp": "2026-07-22T08:20:17Z",
+      "fetched_utc": "2026-07-28T00:41:58+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/42/EU",
+      "bytes": 5643
+    },
+    "Deadlock Night Shift/42/NA": {
+      "file": "Deadlock_Night_Shift__42__NA.wiki.gz",
+      "revision_id": 27934,
+      "revision_timestamp": "2026-07-04T21:43:21Z",
+      "fetched_utc": "2026-07-28T00:41:58+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/42/NA",
+      "bytes": 5585
+    },
+    "Deadlock Night Shift/43/EU": {
+      "file": "Deadlock_Night_Shift__43__EU.wiki.gz",
+      "revision_id": 28431,
+      "revision_timestamp": "2026-07-23T07:56:32Z",
+      "fetched_utc": "2026-07-28T00:41:58+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/43/EU",
+      "bytes": 5800
+    },
+    "Deadlock Night Shift/43/NA": {
+      "file": "Deadlock_Night_Shift__43__NA.wiki.gz",
+      "revision_id": 28430,
+      "revision_timestamp": "2026-07-23T07:56:03Z",
+      "fetched_utc": "2026-07-28T00:41:58+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/43/NA",
+      "bytes": 7293
+    },
+    "Deadlock Night Shift/44/EU": {
+      "file": "Deadlock_Night_Shift__44__EU.wiki.gz",
+      "revision_id": 28352,
+      "revision_timestamp": "2026-07-22T08:20:45Z",
+      "fetched_utc": "2026-07-28T00:41:58+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/44/EU",
+      "bytes": 7543
+    },
+    "Deadlock Night Shift/44/NA": {
+      "file": "Deadlock_Night_Shift__44__NA.wiki.gz",
+      "revision_id": 27933,
+      "revision_timestamp": "2026-07-04T21:42:24Z",
+      "fetched_utc": "2026-07-28T00:41:58+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/44/NA",
+      "bytes": 5864
+    },
+    "Deadlock Night Shift/45/EU": {
+      "file": "Deadlock_Night_Shift__45__EU.wiki.gz",
+      "revision_id": 28353,
+      "revision_timestamp": "2026-07-22T08:20:59Z",
+      "fetched_utc": "2026-07-28T00:41:58+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/45/EU",
+      "bytes": 5993
+    },
+    "Deadlock Night Shift/45/NA": {
+      "file": "Deadlock_Night_Shift__45__NA.wiki.gz",
+      "revision_id": 28429,
+      "revision_timestamp": "2026-07-23T07:55:18Z",
+      "fetched_utc": "2026-07-28T00:41:58+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/45/NA",
+      "bytes": 8059
+    },
+    "Deadlock Night Shift/46/EU": {
+      "file": "Deadlock_Night_Shift__46__EU.wiki.gz",
+      "revision_id": 27986,
+      "revision_timestamp": "2026-07-09T14:20:50Z",
+      "fetched_utc": "2026-07-28T00:41:58+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/46/EU",
+      "bytes": 7087
+    },
+    "Deadlock Night Shift/46/NA": {
+      "file": "Deadlock_Night_Shift__46__NA.wiki.gz",
+      "revision_id": 27985,
+      "revision_timestamp": "2026-07-09T14:20:04Z",
+      "fetched_utc": "2026-07-28T00:41:58+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/46/NA",
+      "bytes": 7318
+    },
+    "Deadlock Night Shift/47/EU": {
+      "file": "Deadlock_Night_Shift__47__EU.wiki.gz",
+      "revision_id": 28427,
+      "revision_timestamp": "2026-07-23T07:54:14Z",
+      "fetched_utc": "2026-07-28T00:41:58+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/47/EU",
+      "bytes": 7684
+    },
+    "Deadlock Night Shift/47/NA": {
+      "file": "Deadlock_Night_Shift__47__NA.wiki.gz",
+      "revision_id": 28428,
+      "revision_timestamp": "2026-07-23T07:54:38Z",
+      "fetched_utc": "2026-07-28T00:41:58+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/47/NA",
+      "bytes": 5154
+    },
+    "Deadlock Night Shift/48/EU": {
+      "file": "Deadlock_Night_Shift__48__EU.wiki.gz",
+      "revision_id": 28425,
+      "revision_timestamp": "2026-07-23T07:48:16Z",
+      "fetched_utc": "2026-07-28T00:41:58+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/48/EU",
+      "bytes": 7141
+    },
+    "Deadlock Night Shift/48/NA": {
+      "file": "Deadlock_Night_Shift__48__NA.wiki.gz",
+      "revision_id": 28426,
+      "revision_timestamp": "2026-07-23T07:48:53Z",
+      "fetched_utc": "2026-07-28T00:41:58+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/48/NA",
+      "bytes": 5899
+    },
+    "Deadlock Night Shift/49/EU": {
+      "file": "Deadlock_Night_Shift__49__EU.wiki.gz",
+      "revision_id": 28436,
+      "revision_timestamp": "2026-07-23T08:42:35Z",
+      "fetched_utc": "2026-07-28T00:41:58+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/49/EU",
+      "bytes": 6698
+    },
+    "Deadlock Night Shift/49/NA": {
+      "file": "Deadlock_Night_Shift__49__NA.wiki.gz",
+      "revision_id": 28435,
+      "revision_timestamp": "2026-07-23T08:36:29Z",
+      "fetched_utc": "2026-07-28T00:41:58+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/49/NA",
+      "bytes": 5427
+    },
+    "Deadlock Night Shift/5/EU": {
+      "file": "Deadlock_Night_Shift__5__EU.wiki.gz",
+      "revision_id": 26043,
+      "revision_timestamp": "2026-04-17T10:49:35Z",
+      "fetched_utc": "2026-07-28T00:41:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/5/EU",
+      "bytes": 6541
+    },
+    "Deadlock Night Shift/5/NA": {
+      "file": "Deadlock_Night_Shift__5__NA.wiki.gz",
+      "revision_id": 26054,
+      "revision_timestamp": "2026-04-17T10:52:34Z",
+      "fetched_utc": "2026-07-28T00:41:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/5/NA",
+      "bytes": 5875
+    },
+    "Deadlock Night Shift/6/EU": {
+      "file": "Deadlock_Night_Shift__6__EU.wiki.gz",
+      "revision_id": 26044,
+      "revision_timestamp": "2026-04-17T10:50:01Z",
+      "fetched_utc": "2026-07-28T00:41:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/6/EU",
+      "bytes": 5334
+    },
+    "Deadlock Night Shift/6/NA": {
+      "file": "Deadlock_Night_Shift__6__NA.wiki.gz",
+      "revision_id": 26055,
+      "revision_timestamp": "2026-04-17T10:52:46Z",
+      "fetched_utc": "2026-07-28T00:41:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/6/NA",
+      "bytes": 6117
+    },
+    "Deadlock Night Shift/7/EU": {
+      "file": "Deadlock_Night_Shift__7__EU.wiki.gz",
+      "revision_id": 26045,
+      "revision_timestamp": "2026-04-17T10:50:12Z",
+      "fetched_utc": "2026-07-28T00:41:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/7/EU",
+      "bytes": 5012
+    },
+    "Deadlock Night Shift/7/NA": {
+      "file": "Deadlock_Night_Shift__7__NA.wiki.gz",
+      "revision_id": 26056,
+      "revision_timestamp": "2026-04-17T10:52:58Z",
+      "fetched_utc": "2026-07-28T00:41:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/7/NA",
+      "bytes": 4878
+    },
+    "Deadlock Night Shift/8/EU": {
+      "file": "Deadlock_Night_Shift__8__EU.wiki.gz",
+      "revision_id": 26046,
+      "revision_timestamp": "2026-04-17T10:50:25Z",
+      "fetched_utc": "2026-07-28T00:41:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/8/EU",
+      "bytes": 5189
+    },
+    "Deadlock Night Shift/8/NA": {
+      "file": "Deadlock_Night_Shift__8__NA.wiki.gz",
+      "revision_id": 26057,
+      "revision_timestamp": "2026-04-17T10:53:16Z",
+      "fetched_utc": "2026-07-28T00:41:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/8/NA",
+      "bytes": 4551
+    },
+    "Deadlock Night Shift/9/EU": {
+      "file": "Deadlock_Night_Shift__9__EU.wiki.gz",
+      "revision_id": 26047,
+      "revision_timestamp": "2026-04-17T10:50:44Z",
+      "fetched_utc": "2026-07-28T00:41:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/9/EU",
+      "bytes": 4603
+    },
+    "Deadlock Night Shift/9/NA": {
+      "file": "Deadlock_Night_Shift__9__NA.wiki.gz",
+      "revision_id": 26058,
+      "revision_timestamp": "2026-04-17T10:53:27Z",
+      "fetched_utc": "2026-07-28T00:41:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/9/NA",
+      "bytes": 4999
+    }
+  }
+}
