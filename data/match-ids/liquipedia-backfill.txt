@@ -7,11 +7,18 @@
 # Editions #1 to #49, both regions. Of 404 games listed on the wiki, 118
 # carry no match id and 3 carry a malformed one, so 283 ids are listed here.
 #
+# SUPERSEDED. scripts/parse_liquipedia.py now regenerates this from the
+# wikitext cached in data/liquipedia/, and finds 284, not 283: this list is
+# missing 85256685 (#40 NA final game 1). Prefer
+# data/derived/liquipedia-games.json, which also carries sides, hero picks
+# and bracket stage. This file is kept because it is what the cache was
+# built from, and it is still valid input to scripts/fetch_matches.py.
+#
 # EXCLUDED as malformed, left uncorrected on purpose. Every real Night Shift
 # match id is 8 digits, and these are not. Guessing the intended value is not
 # safe: a truncated id can still resolve to a real but unrelated public match,
 # which would put wrong data in the cache under a Night Shift label.
-#     #4  EU qualifier game 3   '27'         (2 digits)
+#     #4  EU R2M1 game 2        '27:28'      (the length, duplicated)
 #     #16 EU finals    game 2   '479818572'  (9 digits)
 #     #37 NA finals    game 3   '8014968'    (7 digits)
 #

@@ -288,35 +288,55 @@ blocks, one per game, carrying:
 - `{{Substitution|out=X|in=Y}}` with a free text reason, when a stand-in
   played
 
-### Side mapping: solved, and verified two independent ways
+### Side mapping: use hero picks. `team1side` is 95% and must not be trusted
 
-This is the answer to the `unmapped-side` warning the builder emits.
-
-**Confirmed, 12 of 12, zero exceptions:**
+**This section previously said "solved, 12 of 12, zero exceptions". That was
+wrong, and the way it was wrong is worth keeping.** Re-tested on 261 games
+across all 49 editions with `scripts/check_side_mapping.py`:
 
 ```
 team1side = amber     ->  opponent1 is match_team_index 0
 team1side = sapphire  ->  opponent1 is match_team_index 1
 ```
 
-Note this is the **opposite** of the intuitive guess that sapphire is team
-0. I verified it by joining hero picks rather than assuming: for each of
-the 12 cached matches, I compared the wiki's six hero names per side to
-the `hero_id` values in our own match metadata. Ten matched 6 of 6 and two
-matched 5 of 6, and in every case the assignment was unambiguous, with the
-opposite index scoring 0 of 6.
+| Editions | Games tested | Rule correct |
+| --- | --- | --- |
+| #1 to #39 | 200 | 187 (93.5%) |
+| **#40 to #49** | **60** | **60 (100%)** |
+| **All** | **261** | **248 (95.02%)** |
 
-Two independent methods now agree on every shared match:
+The original 12 match sample was editions #46 to #48. It sat entirely inside
+the range where the rule happens to hold perfectly, so it read as a law when
+it is a tendency. A clean 12 of 12 across three consecutive editions was not
+evidence about editions #1 to #39, and treating it as such is the mistake to
+avoid repeating.
 
-1. **Hero picks**, which need no rosters and work on all 286 games that
-   carry a match ID.
-2. **Roster overlap**, which needs `steam64ID` coverage and gave a clean
-   4 to 6 hits on the correct side and 0 cross hits on all 12.
+The 13 failures are not noise or weak evidence. Twelve of them are complete
+6 to 0 inversions, meaning `team1side` is simply recorded backwards on those
+pages. Whatever the cause, editor convention drift is the obvious candidate,
+it cannot be detected from the wiki alone.
 
-The hero method is the better primary, because it works for editions #1 to
-#16 where no rosters exist, and because it does not inherit the
-`steam64ID` reliability problem. Keep the existing side validator and feed
-it both.
+**So do not use `team1side` as the side of record.** Use the hero pick join,
+which is not a second opinion but the actual answer:
+
+- **It decides 261 of 261 comparable games**, with a **median margin of 6 of
+  6** and 259 of 261 decided by a margin of 4 or more. There were no ties.
+- It needs **no rosters and no player identity**, so it works on editions #1
+  to #16 where the wiki names no players, and it does not inherit the
+  `steam64ID` reliability problem.
+- It is a multiset comparison, so a mirror pick of the same hero on both
+  sides still counts correctly.
+
+`team1side` remains useful as a **cross check**: a disagreement is a good
+signal that a page needs a human look. It should never silently win.
+
+Coverage of the join, out of 284 wiki games carrying a match ID: 270 are in
+our cache, 8 list no hero picks at all, and 1 has no `team1side`. That leaves
+261 comparable, and all 261 resolved.
+
+Two hero names need folding beyond lowercasing: `Mo & Krill` against `mo and
+krill`, and `The Doorman` against `doorman`. Both are handled generically.
+One game (#21 EU) writes `mo` alone, which is an explicit alias.
 
 ### Bracket stages
 
