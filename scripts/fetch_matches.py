@@ -17,12 +17,25 @@ A fetch that fails writes nothing, so re-running retries it. The rule is
 "never re-fetch data we already have", not "give up permanently on a match
 that timed out once".
 
+Because of that, this script is resumable by construction: kill it at any
+point and run it again, and it picks up exactly where it stopped. There is
+no state to clear and no partial file to clean up.
+
+Rate limits are the thing to understand before running this at any scale. A
+match the API already holds is cheap. A match it does not hold has to be
+pulled from Valve and is capped at **3 requests per hour per IP**, answered
+with a Retry-After of up to an hour. No amount of polite spacing helps,
+because the budget is per hour rather than per second. When that budget is
+gone this script stops and says so, rather than sleeping through it. See the
+rate limit section in API-NOTES.md.
+
 Standard library only, so there is nothing to install.
 
 Usage:
     python scripts/fetch_matches.py data/match-ids/night-shift.txt
     python scripts/fetch_matches.py 95172627 95180553
     python scripts/fetch_matches.py --dry-run ids.txt
+    python scripts/fetch_matches.py --max-wait 0 ids.txt   # never sleep on a 429
 """
 
 from __future__ import annotations
@@ -75,18 +88,44 @@ def collect_ids(sources: list[str]) -> list[str]:
     return parse_ids("\n".join(blob))
 
 
-def fetch_one(match_id: str, retries: int, timeout: int) -> bytes:
-    """Return the raw response body, or raise the final error after retries.
+class RateLimited(Exception):
+    """The API refused us for longer than we are willing to wait.
+
+    Carries the server's own Retry-After so the caller can report when the
+    budget actually resets, rather than guessing.
+    """
+
+    def __init__(self, retry_after: float):
+        self.retry_after = retry_after
+        super().__init__(f"rate limited, {retry_after:.0f}s until the budget resets")
+
+
+def fetch_one(match_id: str, retries: int, timeout: int, max_wait: float) -> bytes:
+    """Return the raw response body, or raise after retries.
 
     Retries only on conditions that can plausibly succeed later: rate limits,
     server errors, and transport failures. A 404 is a fact about the match,
     not a transient problem, so it fails immediately.
+
+    `max_wait` caps the *total* seconds spent sleeping on rate limits for this
+    one match. This matters more than it sounds. A cold match, one the API
+    does not hold and must pull from Valve, is limited to 3 requests an hour
+    per IP and answers 429 with a Retry-After of up to 3600. Sleeping that
+    blindly once per retry meant a single match could block for the best part
+    of an hour and a half, silently, which is exactly what it did. When the
+    wait exceeds the cap we raise RateLimited instead, so the caller can stop
+    the run and report honestly rather than appear to hang.
+
+    Every attempt is logged and flushed. Output that only appears at the end
+    is indistinguishable from a hang while it is happening.
     """
     url = f"{API_BASE}/matches/{match_id}/metadata"
     request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
     last_error: Exception | None = None
+    spent = 0.0
 
     for attempt in range(retries + 1):
+        label = f"attempt {attempt + 1}/{retries + 1}"
         try:
             with urllib.request.urlopen(request, timeout=timeout) as response:
                 return response.read()
@@ -94,16 +133,29 @@ def fetch_one(match_id: str, retries: int, timeout: int) -> bytes:
             last_error = exc
             if exc.code == 429:
                 wait = float(exc.headers.get("Retry-After") or 0) or (2 ** attempt)
-                print(f"    rate limited, waiting {wait:.0f}s", flush=True)
+                if spent + wait > max_wait:
+                    print(f"{label}: HTTP 429, Retry-After {wait:.0f}s exceeds the "
+                          f"{max_wait:.0f}s cap, giving up on this match", flush=True)
+                    raise RateLimited(wait) from exc
+                print(f"{label}: HTTP 429, waiting {wait:.0f}s "
+                      f"({spent + wait:.0f}s of {max_wait:.0f}s budget)", flush=True)
                 time.sleep(wait)
+                spent += wait
                 continue
             if 500 <= exc.code < 600:
-                time.sleep(2 ** attempt)
+                wait = 2 ** attempt
+                print(f"{label}: HTTP {exc.code}, retrying in {wait}s", flush=True)
+                time.sleep(wait)
+                spent += wait
                 continue
+            print(f"{label}: HTTP {exc.code}, not retryable", flush=True)
             raise
         except (urllib.error.URLError, TimeoutError, OSError) as exc:
             last_error = exc
-            time.sleep(2 ** attempt)
+            wait = 2 ** attempt
+            print(f"{label}: {type(exc).__name__}, retrying in {wait}s", flush=True)
+            time.sleep(wait)
+            spent += wait
 
     assert last_error is not None
     raise last_error
@@ -174,6 +226,9 @@ def main() -> int:
     parser.add_argument("--delay", type=float, default=0.25, help="Seconds to pause between network requests (default: 0.25)")
     parser.add_argument("--retries", type=int, default=3, help="Retry attempts per match on rate limits and server errors")
     parser.add_argument("--timeout", type=int, default=60, help="Per request timeout in seconds")
+    parser.add_argument("--max-wait", type=float, default=120.0,
+                        help="Total seconds this script will sleep on rate limits for one match "
+                             "before giving up on it (default: 120). A cold match can ask for 3600.")
     args = parser.parse_args()
 
     ids = collect_ids(args.sources)
@@ -196,19 +251,26 @@ def main() -> int:
         return 0
 
     fetched, failed = [], []
+    stopped_early: float | None = None
     for index, match_id in enumerate(to_fetch, start=1):
         destination = cache_path(args.out, match_id)
-        print(f"  [{index}/{len(to_fetch)}] {match_id} ... ", end="", flush=True)
+        print(f"[{index}/{len(to_fetch)}] {match_id}", flush=True)
         try:
-            body = fetch_one(match_id, args.retries, args.timeout)
+            body = fetch_one(match_id, args.retries, args.timeout, args.max_wait)
+        except RateLimited as exc:
+            # The budget is per IP, not per match, so every remaining match
+            # would hit the same wall. Stop rather than burn the list.
+            stopped_early = exc.retry_after
+            failed.append((match_id, str(exc)))
+            break
         except Exception as exc:  # noqa: BLE001 - report and continue to the next match
-            print(f"FAILED ({exc})")
+            print(f"    FAILED ({exc})", flush=True)
             failed.append((match_id, str(exc)))
             continue
 
         ok, reason = looks_like_match(body)
         if not ok:
-            print(f"REJECTED ({reason})")
+            print(f"    REJECTED ({reason})", flush=True)
             failed.append((match_id, reason))
             continue
 
@@ -218,20 +280,33 @@ def main() -> int:
         # so a corrupt write is caught now rather than discovered months later.
         if read_cached(destination) != body:
             destination.unlink()
-            print("REJECTED (compressed file did not round trip, nothing written)")
+            print("    REJECTED (compressed file did not round trip, nothing written)", flush=True)
             failed.append((match_id, "gzip round trip mismatch"))
             continue
-        print(f"cached {len(body):,} bytes as {len(packed):,} ({len(packed) / len(body):.0%})")
+        print(f"    cached {len(body):,} bytes as {len(packed):,} "
+              f"({len(packed) / len(body):.0%})", flush=True)
         fetched.append(match_id)
         if index < len(to_fetch):
             time.sleep(args.delay)
 
-    print()
-    print(f"Done. {len(fetched)} fetched, {len(cached)} skipped as already cached, {len(failed)} failed.")
+    remaining = len(to_fetch) - len(fetched) - len(failed)
+    print(flush=True)
+    print(f"Done. {len(fetched)} fetched, {len(cached)} skipped as already cached, "
+          f"{len(failed)} failed, {remaining} not attempted.", flush=True)
+    if stopped_early is not None:
+        # Every fetched match is already on disk, so this is a pause, not a loss.
+        resume_at = time.strftime("%H:%M:%S", time.localtime(time.time() + stopped_early))
+        print(f"\nStopped early: the per IP rate limit is exhausted and asks for "
+              f"{stopped_early:.0f}s (about {stopped_early / 60:.0f} min, near {resume_at}).",
+              flush=True)
+        print("Nothing is lost. Everything fetched is already written, and cached matches "
+              "are skipped, so simply run this again after that time to resume.", flush=True)
+        print("A cold match, one the API must pull from Valve, is capped at 3 per hour per IP. "
+              "See the rate limit section in API-NOTES.md.", flush=True)
     if failed:
-        print("Failures (nothing was written for these, so rerunning will retry them):")
+        print("\nFailures (nothing was written for these, so rerunning will retry them):", flush=True)
         for match_id, reason in failed:
-            print(f"  {match_id}: {reason}")
+            print(f"  {match_id}: {reason}", flush=True)
         return 1
     return 0
 
