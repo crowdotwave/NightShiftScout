@@ -21,6 +21,43 @@ tournament night, and which account ID is which player on which team.
 The two never share a file. Every hand-curated fact lives in a file that a
 generator will never write to, so no script can ever clobber your work.
 
+### The exception: reviewed appliers
+
+**Settled 2026-07-28, so it does not get re-litigated.**
+
+The rule's intent is that **generated output never contaminates curation**. It
+is not that curated files may only be typed by hand. Naming 82 accounts by
+hand from a candidate file would be slower and would introduce transcription
+errors into the one layer that cannot be rebuilt, which is the opposite of
+what the rule protects.
+
+So a script may write to `data/curated/` if, and only if, it meets **all** of:
+
+1. **It is not part of any build.** No pipeline calls it. `build_dataset.py`
+   and `build_site.py` must never invoke it, directly or otherwise.
+2. **It is gated on an explicit flag.** The default run reports what it would
+   do and writes nothing.
+3. **It never overwrites a curated value with a different one.** A
+   disagreement is reported and the curated value survives, because a human
+   put it there on evidence the script cannot see.
+4. **It never downgrades.** An existing `confirmed` is not lowered.
+5. **Its refusals are in code, not in silence.** An account the script
+   declines to apply carries its reason inline, so the decision is reviewable.
+6. **Its output is reviewed as a diff before committing.** The applier makes
+   the edit; git is where it gets approved.
+
+`scripts/apply_identities.py` is the first of these and is the reference
+implementation. The distinction to hold on to: a **generator** derives facts
+and owns its output file, so it may rewrite it wholesale at any time. An
+**applier** transcribes reviewed decisions into a file it does not own, and
+must therefore be conservative about everything already there.
+
+What is still forbidden, and is the actual failure this rule exists to
+prevent: a build step that regenerates curated data as a side effect of
+running. That would make the curated layer reproducible-looking while
+silently discarding the human judgement in it, and the loss would not show up
+until someone needed a fact that no longer existed.
+
 ---
 
 ## Layout

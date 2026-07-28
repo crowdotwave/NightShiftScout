@@ -50,6 +50,15 @@ from collections import Counter, defaultdict
 from pathlib import Path
 
 STEAM64_OFFSET = 76561197960265728
+
+# Confirmation bars, both added after the AVG case. A claimed account has to be
+# present in at least this share of the rosterings where its handle was listed
+# and we hold a match, and must not be out-appeared by another account on those
+# same rosterings by more than the margin. Neither is a law of nature; they are
+# set where they separate the one known bad mapping from the rest, and the
+# distribution has a clear gap there.
+CONFIRM_MIN_HIT_RATE = 0.5
+CONFIRM_RIVAL_MARGIN = 2
 STEAM_ID = re.compile(r"\|\s*steam64ID\s*=\s*([0-9]{5,25})\s*", re.IGNORECASE)
 SUBSTITUTION = re.compile(r"\{\{Substitution\s*\|([^{}]*)\}\}", re.IGNORECASE)
 PAGE_FILE = re.compile(r"^(?!Deadlock_Night_Shift__).+\.wiki\.gz$")
@@ -109,16 +118,32 @@ def main() -> int:
     # ---- observed sides, from the hero pick join in the night files --------
     # (edition, region, wiki_team) -> set of account ids seen playing for it
     observed: dict[tuple, set[str]] = defaultdict(set)
+    match_sides: list[set[str]] = []
     for path in sorted(args.nights.glob("*.json")):
         night = json.loads(path.read_text(encoding="utf-8"))
         key_base = (night.get("edition"), night.get("region"))
         for entry in night.get("matches", []):
             for side in entry.get("sides", []):
+                accounts = {str(a) for a in side.get("_observed_account_ids", [])}
+                if accounts:
+                    match_sides.append(accounts)
                 team = side.get("_wiki_team")
                 if not team:
                     continue
-                for account in side.get("_observed_account_ids", []):
-                    observed[key_base + (team.strip().lower(),)].add(str(account))
+                observed[key_base + (team.strip().lower(),)].update(accounts)
+
+    # ---- who has ever shared a side with whom -------------------------------
+    # Used by the rival test below. Sharing a side even once proves two
+    # accounts are two people, which rules them out as competitors for one
+    # roster slot.
+    # Built from individual match sides, not from the per edition union: two
+    # accounts that each played a different game of the same Bo3 have not
+    # shared a side, and that is exactly the substitution pattern being looked
+    # for.
+    co_occurring: dict[str, set[str]] = defaultdict(set)
+    for accounts in match_sides:
+        for account in accounts:
+            co_occurring[account].update(accounts - {account})
 
     # ---- steam64ID per page, and the collision check -----------------------
     id_to_titles: dict[int, set[str]] = defaultdict(set)
@@ -180,10 +205,57 @@ def main() -> int:
         record["testable_rosterings"] = testable
         record["confirming_rosterings"] = hits
 
+        # ---- how the claimed account behaves overall ----------------------
+        # AVG exposed that "one hit is enough" is too lax. Its wiki ID does
+        # appear on AVG's teams 5 times, and also spends most of its life on a
+        # team AVG is never rostered on, while a different account tracks the
+        # handle's roster lineage exactly. A rule that only asks "did it ever
+        # appear" cannot see any of that.
+        rate = hits / testable if testable else None
+        record["hit_rate"] = round(rate, 3) if rate is not None else None
+
+        # A rival is NOT simply the most present account on those teams: that
+        # is just the most reliable teammate, and punishing a handle for having
+        # one is nonsense. It demoted `cosmetical` on a first attempt purely
+        # for missing 3 games that a teammate played.
+        #
+        # A rival for the same slot is an account that appears on the handle's
+        # rosterings and **never once shares a side with the claimed account**.
+        # Two accounts that play together are two people. Two that are always
+        # substituted for one another, on the team this handle is rostered for,
+        # are a competing claim to one slot. That is exactly the AVG signature.
+        account_id = record.get("account_id")
+        rival_counts: Counter = Counter()
+        for row in by_title[title]:
+            side_key = (row["edition"], row["region"], row["team"].strip().lower())
+            for other in observed.get(side_key, ()):
+                if other != account_id and other not in co_occurring.get(account_id, ()):
+                    rival_counts[other] += 1
+        best_rival, best_rival_hits = (rival_counts.most_common(1) or [(None, 0)])[0]
+        record["strongest_rival"] = best_rival
+        record["strongest_rival_hits"] = best_rival_hits
+
         if testable == 0:
             record["status"] = "probable"
         elif hits > 0:
-            record["status"] = "confirmed"
+            # Both tests have to pass. Either one alone would clear AVG: the
+            # rate test alone would let through an account that appears twice
+            # of two while a rival appears in every rostering, and the rival
+            # test alone would let through a lineage with only one contender.
+            thin = rate < CONFIRM_MIN_HIT_RATE
+            outplayed = best_rival_hits > hits and (best_rival_hits - hits) >= CONFIRM_RIVAL_MARGIN
+            if thin or outplayed:
+                record["status"] = "probable"
+                reasons = []
+                if thin:
+                    reasons.append(f"present in only {hits} of {testable} testable rosterings, "
+                                   f"below the {CONFIRM_MIN_HIT_RATE:.0%} bar")
+                if outplayed:
+                    reasons.append(f"account {best_rival} appears in {best_rival_hits} of the same "
+                                   f"rosterings against this account's {hits}")
+                record["note"] = "demoted from confirmed: " + "; and ".join(reasons)
+            else:
+                record["status"] = "confirmed"
         elif handle.lower() in subs:
             record["status"] = "probable"
             record["note"] = "never observed on its own side, but the wiki records a substitution for this handle"
