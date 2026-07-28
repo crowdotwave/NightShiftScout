@@ -85,7 +85,8 @@
             1285605078,
             1840902834,
             1871217631
-          ]
+          ],
+          "_wiki_team": "Melee Creeps"
         },
         {
           "match_team_index": 1,
@@ -97,9 +98,20 @@
             1730032433,
             1871021649,
             1929248273
-          ]
+          ],
+          "_wiki_team": "Poppers' Pupils"
         }
-      ]
+      ],
+      "side_check": {
+        "method": "hero-picks",
+        "team1_index": 1,
+        "margin": 6,
+        "overlap": [
+          0,
+          6
+        ],
+        "team1side_agrees": true
+      }
     },
     {
       "match_id": "95180553",
@@ -117,7 +129,8 @@
             1730032433,
             1871021649,
             1929248273
-          ]
+          ],
+          "_wiki_team": "Poppers' Pupils"
         },
         {
           "match_team_index": 1,
@@ -129,9 +142,20 @@
             1285605078,
             1840902834,
             1871217631
-          ]
+          ],
+          "_wiki_team": "Melee Creeps"
         }
-      ]
+      ],
+      "side_check": {
+        "method": "hero-picks",
+        "team1_index": 0,
+        "margin": 6,
+        "overlap": [
+          6,
+          0
+        ],
+        "team1side_agrees": true
+      }
     },
     {
       "match_id": "95187371",
@@ -149,7 +173,8 @@
             1285605078,
             1840902834,
             1871217631
-          ]
+          ],
+          "_wiki_team": "Melee Creeps"
         },
         {
           "match_team_index": 1,
@@ -161,14 +186,26 @@
             1730032433,
             1871021649,
             1929248273
-          ]
+          ],
+          "_wiki_team": "Poppers' Pupils"
         }
-      ]
+      ],
+      "side_check": {
+        "method": "hero-picks",
+        "team1_index": 1,
+        "margin": 6,
+        "overlap": [
+          0,
+          6
+        ],
+        "team1side_agrees": true
+      }
     }
   ],
   "attribution": {
     "provider": "liquipedia",
     "url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/48/NA"
   },
-  "roster_note": "Six per side, being the players present in all three cached games. Liquipedia lists Braeden as a Melee Creeps starter and records {{Substitution|out=Braeden|in=snakes}} for this final. Braeden appears in none of the three games, so he is recorded here as absent rather than given an account id we cannot verify against play data."
+  "roster_note": "Six per side, being the players present in all three cached games. Liquipedia lists Braeden as a Melee Creeps starter and records {{Substitution|out=Braeden|in=snakes}} for this final. Braeden appears in none of the three games, so he is recorded here as absent rather than given an account id we cannot verify against play data.",
+  "side_note": "Sides are oriented by the hero pick join against our own match cache, never by the wiki's team1side, which inverts on 13 known games. _wiki_team is an annotation and is not a join key."
 }

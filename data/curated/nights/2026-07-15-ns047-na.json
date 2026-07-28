@@ -13,9 +13,9 @@
   "matches": [
     {
       "match_id": "94031068",
-      "stage": null,
-      "series_label": null,
-      "game_in_series": null,
+      "stage": "Finals",
+      "series_label": "Finals, best of 3",
+      "game_in_series": 1,
       "sides": [
         {
           "match_team_index": 0,
@@ -27,7 +27,8 @@
             108710262,
             244109796,
             1676299122
-          ]
+          ],
+          "_wiki_team": "Melee Creeps"
         },
         {
           "match_team_index": 1,
@@ -39,15 +40,26 @@
             1730032433,
             1871021649,
             1929248273
-          ]
+          ],
+          "_wiki_team": "Poppers' Pupils"
         }
-      ]
+      ],
+      "side_check": {
+        "method": "hero-picks",
+        "team1_index": 0,
+        "margin": 6,
+        "overlap": [
+          6,
+          0
+        ],
+        "team1side_agrees": true
+      }
     },
     {
       "match_id": "94038881",
-      "stage": null,
-      "series_label": null,
-      "game_in_series": null,
+      "stage": "Finals",
+      "series_label": "Finals, best of 3",
+      "game_in_series": 2,
       "sides": [
         {
           "match_team_index": 0,
@@ -59,7 +71,8 @@
             1730032433,
             1871021649,
             1929248273
-          ]
+          ],
+          "_wiki_team": "Poppers' Pupils"
         },
         {
           "match_team_index": 1,
@@ -71,15 +84,26 @@
             108710262,
             244109796,
             1676299122
-          ]
+          ],
+          "_wiki_team": "Melee Creeps"
         }
-      ]
+      ],
+      "side_check": {
+        "method": "hero-picks",
+        "team1_index": 1,
+        "margin": 6,
+        "overlap": [
+          0,
+          6
+        ],
+        "team1side_agrees": true
+      }
     },
     {
       "match_id": "94048508",
-      "stage": null,
-      "series_label": null,
-      "game_in_series": null,
+      "stage": "Finals",
+      "series_label": "Finals, best of 3",
+      "game_in_series": 3,
       "sides": [
         {
           "match_team_index": 0,
@@ -91,7 +115,8 @@
             108710262,
             244109796,
             1676299122
-          ]
+          ],
+          "_wiki_team": "Melee Creeps"
         },
         {
           "match_team_index": 1,
@@ -103,9 +128,21 @@
             1730032433,
             1871021649,
             1929248273
-          ]
+          ],
+          "_wiki_team": "Poppers' Pupils"
         }
-      ]
+      ],
+      "side_check": {
+        "method": "hero-picks",
+        "team1_index": 0,
+        "margin": 6,
+        "overlap": [
+          6,
+          0
+        ],
+        "team1side_agrees": true
+      }
     }
-  ]
+  ],
+  "side_note": "Sides are oriented by the hero pick join against our own match cache, never by the wiki's team1side, which inverts on 13 known games. _wiki_team is an annotation and is not a join key."
 }

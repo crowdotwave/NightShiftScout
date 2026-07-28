@@ -14,9 +14,9 @@
   "matches": [
     {
       "match_id": "94021619",
-      "stage": null,
-      "series_label": null,
-      "game_in_series": null,
+      "stage": "Finals",
+      "series_label": "Finals, best of 3",
+      "game_in_series": 3,
       "sides": [
         {
           "match_team_index": 0,
@@ -28,7 +28,8 @@
             906011648,
             1055638874,
             1444662928
-          ]
+          ],
+          "_wiki_team": "Abrahams"
         },
         {
           "match_team_index": 1,
@@ -40,9 +41,21 @@
             344946432,
             483770846,
             911856667
-          ]
+          ],
+          "_wiki_team": "Buff Enjoyers"
         }
-      ]
+      ],
+      "side_check": {
+        "method": "hero-picks",
+        "team1_index": 1,
+        "margin": 6,
+        "overlap": [
+          0,
+          6
+        ],
+        "team1side_agrees": true
+      }
     }
-  ]
+  ],
+  "side_note": "Sides are oriented by the hero pick join against our own match cache, never by the wiki's team1side, which inverts on 13 known games. _wiki_team is an annotation and is not a join key."
 }

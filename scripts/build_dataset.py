@@ -278,10 +278,28 @@ def main() -> int:
             match_day = datetime.fromtimestamp(start, timezone.utc).date()
             night_day = datetime.strptime(night["date"], "%Y-%m-%d").date()
             drift = abs((match_day - night_day).days)
+            # The check exists to catch a match filed under the wrong night. It
+            # assumes a night is one evening, and for most it is. It is not for
+            # every edition: on some, the qualifier was played days before the
+            # challenger and final, so a wide spread is the schedule rather than
+            # a mistake.
+            #
+            # Where membership comes from the Liquipedia bracket, the wiki is
+            # the authority on which edition a match belongs to and a date
+            # cannot overrule it, so this reports rather than accuses. Say that
+            # plainly instead of pretending it still validates anything: for
+            # those nights it is an observation. The error is kept for hand
+            # assigned nights, where it is the only guard there is.
             if drift > 2:
-                report.add("error", "date-drift",
-                           f"match {mid} starts {match_day} but night {night['night_id']} is dated {night_day} "
-                           f"({drift} days apart)")
+                if night.get("membership_source") == "liquipedia-bracket":
+                    report.add("info", "edition-spans-days",
+                               f"match {mid} starts {match_day}, {drift} days from the "
+                               f"{night_day} start of {night['night_id']}, which ran over "
+                               f"more than one day")
+                else:
+                    report.add("error", "date-drift",
+                               f"match {mid} starts {match_day} but night {night['night_id']} is dated {night_day} "
+                               f"({drift} days apart)")
 
         # ---- match level totals, numerator and denominator both stored -----
         totals = {}

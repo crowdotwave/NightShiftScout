@@ -13,9 +13,9 @@
   "matches": [
     {
       "match_id": "94767316",
-      "stage": null,
-      "series_label": null,
-      "game_in_series": null,
+      "stage": "Qualifier",
+      "series_label": "Qualifier, best of 3",
+      "game_in_series": 1,
       "sides": [
         {
           "match_team_index": 0,
@@ -27,7 +27,8 @@
             1046192556,
             1186801441,
             1840902834
-          ]
+          ],
+          "_wiki_team": "Silence"
         },
         {
           "match_team_index": 1,
@@ -39,15 +40,26 @@
             984254212,
             1009703898,
             1045169707
-          ]
+          ],
+          "_wiki_team": "Leviathan"
         }
-      ]
+      ],
+      "side_check": {
+        "method": "hero-picks",
+        "team1_index": 1,
+        "margin": 6,
+        "overlap": [
+          0,
+          6
+        ],
+        "team1side_agrees": true
+      }
     },
     {
       "match_id": "94773487",
-      "stage": null,
-      "series_label": null,
-      "game_in_series": null,
+      "stage": "Qualifier",
+      "series_label": "Qualifier, best of 3",
+      "game_in_series": 2,
       "sides": [
         {
           "match_team_index": 0,
@@ -59,7 +71,8 @@
             984254212,
             1009703898,
             1045169707
-          ]
+          ],
+          "_wiki_team": "Leviathan"
         },
         {
           "match_team_index": 1,
@@ -71,15 +84,26 @@
             1046192556,
             1186801441,
             1840902834
-          ]
+          ],
+          "_wiki_team": "Silence"
         }
-      ]
+      ],
+      "side_check": {
+        "method": "hero-picks",
+        "team1_index": 0,
+        "margin": 6,
+        "overlap": [
+          6,
+          0
+        ],
+        "team1side_agrees": true
+      }
     },
     {
       "match_id": "94779630",
-      "stage": null,
-      "series_label": null,
-      "game_in_series": null,
+      "stage": "Qualifier",
+      "series_label": "Qualifier, best of 3",
+      "game_in_series": 3,
       "sides": [
         {
           "match_team_index": 0,
@@ -91,7 +115,8 @@
             984254212,
             1009703898,
             1045169707
-          ]
+          ],
+          "_wiki_team": "Leviathan"
         },
         {
           "match_team_index": 1,
@@ -103,9 +128,21 @@
             1046192556,
             1186801441,
             1840902834
-          ]
+          ],
+          "_wiki_team": "Silence"
         }
-      ]
+      ],
+      "side_check": {
+        "method": "hero-picks",
+        "team1_index": 0,
+        "margin": 6,
+        "overlap": [
+          6,
+          0
+        ],
+        "team1side_agrees": true
+      }
     }
-  ]
+  ],
+  "side_note": "Sides are oriented by the hero pick join against our own match cache, never by the wiki's team1side, which inverts on 13 known games. _wiki_team is an annotation and is not a join key."
 }
