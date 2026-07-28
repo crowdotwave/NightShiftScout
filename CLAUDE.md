@@ -76,14 +76,14 @@ Response is `{ match_info: { ... } }`. Relevant fields on `match_info`:
   `winning_team`, `match_mode`
 - **Confirmed live:** `players[]` with `account_id`, `team`, `hero_id`,
   `net_worth`, `kills`, `deaths`, `assists`. Twelve players, six a side, on
-  269 of 270. Read the count anyway rather than dividing by 12, since it is
+  280 of 281. Read the count anyway rather than dividing by 12, since it is
   free. The one exception has 8 and is **not a Night Shift game**: it is a
   4v4 Street Brawl match that reached the cache through a wrong match ID on
   the wiki. See the contamination section in `API-NOTES.md`.
-- **Confirmed live, and re-tested on 3,236 player-games: damage is not a
+- **Confirmed live, and re-tested on 3,368 player-games: damage is not a
   top-level player field.** It lives in `players[].stats[]`, a time series.
   Take the entry with the highest `time_stamp_s` and read `player_damage`
-  from it. **3236 of 3236** across editions #1 to #48, no misses. The highest
+  from it. **3368 of 3368** across editions #1 to #48, no misses. The highest
   `time_stamp_s` equals `duration_s` exactly on every one, so that really is
   the end-of-game snapshot. This is the best tested claim we have.
 - **Do not use `average_badge_team0` / `average_badge_team1`.** The fields
@@ -92,15 +92,15 @@ Response is `{ match_info: { ... } }`. Relevant fields on `match_info`:
   return real values, so the field works, Valve simply never populates it for
   custom lobbies. Note that `?? null` will **not** catch this, because `0` is
   not nullish.
-- **Every genuine Night Shift game is `match_mode: 2`.** 268 of 270 cached
+- **Every genuine Night Shift game is `match_mode: 2`.** 279 of 281 cached
   are, and the 2 that are not turned out not to be Night Shift games at all
   but wrong wiki match IDs pointing at public games. This corrects an earlier
   note here saying mode 2 was not universal and warning against filtering on
   it. Filtering on mode 2 would have caught both bad IDs on ingest, so it is
   a **useful integrity check**, though the hero pick join is stronger because
   it also catches a wrong ID that happens to be another custom lobby.
-- **`teams[]` is often present, and always hollow.** Absent on 110 of 270
-  matches and present on 160, where every entry has only `team` and an empty
+- **`teams[]` is often present, and always hollow.** Absent on 110 of 281
+  matches and present on 171, where every entry has only `team` and an empty
   `team_tracked_stats`. No identity, no score. A truthiness check on it
   behaves differently across editions. **Checked 2026-07-27: nothing in this
   repository branches on it.** The only reader is
@@ -115,8 +115,8 @@ files), one of: `assassin`, `brawler`, `marksman`, `mystic`. Icons are at
 
 **Confirmed live and reliable.** Of 57 heroes, 37 carry a `hero_type`. The
 20 without one are almost all `disabled: true`, so among the 38 active
-heroes exactly one (Rem) is missing it. Across the full cache, **3188 of
-3236** player-games resolve to a role, 98.5%, with all 48 gaps on hero 79.
+heroes exactly one (Rem) is missing it. Across the full cache, **3319 of
+3368** player-games resolve to a role, 98.5%, with all 49 gaps on hero 79.
 The earlier figure of 143 of 144 came from 12 recent matches and was
 slightly optimistic. Treat role as optional in code, since it can be absent,
 but it is dense enough to base Role Score on. Every active hero has
@@ -130,12 +130,19 @@ All confirmed live. Note the endpoint takes **SteamID64**, but match data
 gives **account_id** (32-bit). Convert with `accountId + 76561197960265728n`.
 
 `last_team_avg_badge` is populated, but it is not a usable stand-in for the
-old Opposition column. **Provisional, and the weakest claim we rely on:** it
-rests on 45 profiles from three consecutive editions, which is the same shape
-of sample that produced the amber/sapphire error, and we now know of 170
-accounts. All 45 players across the sample tournament set came
-back as either 115 or 116. At Night Shift level everyone is Eternus V or VI,
-so badge cannot separate these teams no matter where the number comes from.
+old Opposition column. **This was the weakest claim in the project and is now
+settled**, re-tested on all **155 accounts** appearing in genuine tournament
+matches rather than the original 45: **128 of the 131 that return a value,
+97.7%, are 115 or 116**. A six player average drawn from a two point range at
+the top of the ladder cannot separate one Night Shift team from another, so
+the conclusion stands and Opposition stays dead.
+
+Two things the old 45 profile sample got wrong, both worth knowing before
+touching this field: three accounts sit **below** 115, one as low as 104, so
+"everyone is 115 or 116" is not literally true; and **24 accounts return
+`null`**, which never appeared in the small sample at all. Reproduce with
+`python scripts/check_badge_spread.py`, which counts in memory and writes
+nothing per account, since the field is outside the Steam allowlist by design.
 
 ### Badge encoding
 
@@ -220,7 +227,7 @@ hold to correct a distortion those metrics do not have.
 
 The sizes matter, and the earlier "a patch window is only about 20 games" was
 measured when the cache held 12 matches. Against the current boundary
-(2026-03-11) the 270 cached matches split **133 after, 137 before**, spanning
+(2026-03-11) the 281 cached matches split **144 after, 137 before**, spanning
 2025-08-13 to 2026-07-23 across four patch eras that contain Night Shift
 games.
 
@@ -242,9 +249,13 @@ is a much wider window than the phrase suggests.
 
 ## Known gaps
 
-- **No automatic match ID discovery.** IDs are pasted by hand, sourced from
-  lockblaze.com tournament pages. Liquipedia scraping was attempted and
-  returned HTTP 429; be careful about rate limits if revisiting this.
+- **Match ID discovery is solved.** Liquipedia's bracket wikitext carries the
+  Deadlock match ID per game, 284 of them across 49 editions, and the pages
+  are cached in `data/liquipedia/`. **281 are now ingested**, leaving 3 that
+  are genuinely cold at the API. The earlier HTTP 429 came from scraping
+  rendered HTML, which their terms forbid anyway; the `api.php` route at 1
+  request per 2 seconds has never been rate limited. See
+  `LIQUIPEDIA-NOTES.md`.
 - **No automatic Steam to tournament-handle mapping.** No such data source
   exists. Current fallback chain: manual alias, then Steam persona name if
   it contains real characters, then the vanity slug from `profileurl`
@@ -266,7 +277,7 @@ is a much wider window than the phrase suggests.
 
 ## Next steps, roughly prioritised
 
-1. Done for now: the cache holds 270 matches and 3,236 player-games across
+1. Done for now: the cache holds 281 matches and 3,368 player-games across
    four patch eras, so Role Score baselines clear their sample bar in every
    bucket. 14 known match IDs are still outstanding, blocked on the 3/hour
    cold fetch limit.

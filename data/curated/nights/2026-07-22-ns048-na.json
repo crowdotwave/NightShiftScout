@@ -70,6 +70,50 @@
   ],
   "matches": [
     {
+      "match_id": "95163554",
+      "stage": "Challenger",
+      "series_label": "Challenger, best of 1",
+      "game_in_series": 1,
+      "side_check": {
+        "method": "hero-picks",
+        "team1_index": 1,
+        "margin": 6,
+        "overlap": [
+          0,
+          6
+        ],
+        "team1side_agrees": true
+      },
+      "sides": [
+        {
+          "match_team_index": 0,
+          "team_id": null,
+          "_wiki_team": "Melee Creeps",
+          "_observed_account_ids": [
+            25821887,
+            225764206,
+            244109796,
+            1285605078,
+            1840902834,
+            1871217631
+          ]
+        },
+        {
+          "match_team_index": 1,
+          "team_id": null,
+          "_wiki_team": "Bird With Clock",
+          "_observed_account_ids": [
+            54151884,
+            139205933,
+            329035753,
+            1014484221,
+            1682391475,
+            1902828658
+          ]
+        }
+      ]
+    },
+    {
       "match_id": "95172627",
       "stage": "Finals",
       "series_label": "Finals, best of 3",

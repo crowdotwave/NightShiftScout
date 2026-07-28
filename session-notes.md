@@ -44,7 +44,7 @@ the team's result.
 - **Side mapping.** The side of record is the **per-game hero pick join**,
   not `team1side`. Joining the wiki's `t1h1..t1h6` against the hero IDs in
   our own match metadata decides which `match_team_index` the wiki's
-  opponent1 is. It resolves **262 of the 270 games we hold**, median margin
+  opponent1 is. It resolves **273 of the 281 games we hold**, median margin
   6 of 6, no ties; the 8 it cannot decide list no hero picks at all. It
   needs no rosters and no player identity.
   `team1side=amber` meaning index 0 is a **tendency, not a rule**: right on
@@ -83,6 +83,7 @@ the team's result.
   player can substitute in for one game of a Bo3. Under discussion.
 - **Opposition strength.** Still unmitigated. Bracket stage is now
   available for every game we can join, which is the input that was missing.
-- **Sampling bias.** 20 of the 32 game IDs for #46 to #48 are still not
-  cached, including every qualifier for #46 and #47, so the dataset skews
-  toward finals.
+- **Sampling bias, largely closed.** The cache now holds **281 of the 284**
+  wiki game IDs. Only 3 remain, all genuinely cold: `38766744`, `92586699`,
+  `92592573`. The last two are #46 NA qualifier games, so a small skew toward
+  finals survives in that one edition, but the series-wide skew is gone.

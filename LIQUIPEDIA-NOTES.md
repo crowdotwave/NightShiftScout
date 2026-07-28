@@ -338,7 +338,7 @@ which is not a second opinion but the actual answer:
 `team1side` remains useful as a **cross check**: a disagreement is a good
 signal that a page needs a human look. It should never silently win.
 
-Coverage of the join, out of 284 wiki games carrying a match ID: 270 are in
+Coverage of the join, out of 284 wiki games carrying a match ID: 281 are in
 our cache and 8 of those list no hero picks at all, so **the join itself
 resolves 262**. Of those 262, one more lacks `team1side`, leaving **261 that
 can also be used to score the `team1side` rule**. The two counts are different
@@ -401,7 +401,7 @@ flipping**, and the note removing.
 1. **Match ID discovery is solved.** `CLAUDE.md` lists "no automatic match
    ID discovery, IDs pasted by hand" as a known gap. Liquipedia yields 284
    usable game IDs across 49 editions in a handful of API calls. We now hold
-   270 of them, and 2 of those 270 turned out to be wrong IDs on the wiki
+   281 of them, and 2 of those 281 turned out to be wrong IDs on the wiki
    rather than Night Shift games. See the contamination section in
    [API-NOTES.md](API-NOTES.md).
 2. **Steam to handle mapping is mostly solved**, with the 1 in 10 caveat

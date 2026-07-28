@@ -98,7 +98,7 @@ hero IDs on each `match_team_index` in our own cached metadata. That is a
 join between two independent sources, and it needs no rosters and no player
 identity, so it does not inherit the `steam64ID` reliability problem.
 
-It resolves **262 of the 270 games we hold**, median margin 6 of 6, no ties.
+It resolves **273 of the 281 games we hold**, median margin 6 of 6, no ties.
 The 8 it cannot resolve list no hero picks on the wiki, so those games have
 no external side anchor at all and must be **reported, never assumed**.
 
