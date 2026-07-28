@@ -298,7 +298,7 @@ blocks, one per game, carrying:
 
 ### Side mapping: use hero picks. `team1side` is 95% and must not be trusted
 
-**This section previously said "solved, 12 of 12, zero exceptions". That was
+**This section previously said "solved, 12 of 12, zero exceptions" [R1]. That was
 wrong, and the way it was wrong is worth keeping.** Re-tested on 261 games
 across all 49 editions with `scripts/check_side_mapping.py`:
 

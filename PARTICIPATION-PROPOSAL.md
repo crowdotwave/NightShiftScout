@@ -1,6 +1,27 @@
 # Observed participation, curated identity
 
-Status: **proposal, nothing implemented.** Written 2026-07-27.
+Status: **partly implemented, 2026-07-28.** Written 2026-07-27.
+
+**What landed:** participation is now derived per match by
+`scripts/build_dataset.py` and published as `series[]` and `participation[]`
+in `dataset.json`. Match mode 2 is a hard gate at ingest.
+
+**What did not, deliberately:** `rosters`, `roster_note` and
+`_observed_account_ids` are still in the night files, and `team_id` is still
+curated rather than derived. Deriving the side needs team identity, which is
+unresolved, so the half of this proposal that depends on it is on hold. The
+side mapping validator therefore has not gone circular, because the curated
+roster is still an independent statement.
+
+**The premise was right, and the data now shows it.** This document argued
+that mid-series substitution was "a real mechanism that our data has not yet
+caught", on a six night sample where every Bo3 was stable. Across 279 ingested
+matches and 158 complete series there are **2 partial participations**, and
+they are the same series: in the #5 NA Finals, one account played game 1 only
+and another played game 2 only. A clean one for one swap mid-series, exactly
+the case a night level roster cannot express.
+
+The rest of this document is the original proposal, kept as written.
 
 The principle being proposed: **curate only what play data cannot tell us,
 and derive everything else.** Curation is expensive, goes stale weekly, and
@@ -104,7 +125,7 @@ no external side anchor at all and must be **reported, never assumed**.
 
 `team1side` is a cross check only. It is right on 248 of 261 games carrying
 both, 95.02%, with 12 of the 13 failures being complete 6 to 0 inversions.
-An earlier draft of this section called it verified 13 of 13 and made it the
+An earlier draft of this section called it verified 13 of 13 [R1] and made it the
 anchor. That was retracted after testing across all 49 editions, and
 building the validator on it would have swapped a check we deliberately
 removed for one that is wrong about 1 game in 20, silently.

@@ -154,7 +154,7 @@ Street Brawl works. It is not a 6v6 game and never was.
   The 8 player match is not a Night Shift match. Code should still read the
   count rather than assume 12, since that costs nothing, but the exception is
   contamination and not a property of tournament games.
-- "`match_mode: 2` is not universal, do not filter on it" was the wrong
+- "`match_mode: 2` is not universal, do not filter on it" [R2] was the wrong
   lesson. **Every genuine Night Shift game in the cache is `match_mode: 2`.**
   Filtering on it would have caught both bad IDs on ingest. It is a usable
   integrity check, though the hero pick join is the stronger one because it

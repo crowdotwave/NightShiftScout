@@ -51,7 +51,7 @@ the team's result.
   **248 of 261** games carrying both, 95.02%, and 12 of the 13 failures are
   complete 6 to 0 inversions. Keep it as a cross check that flags a page for
   human review. It must never win.
-  **This bullet previously read "verified 13 of 13".** That sample was three
+  **This bullet previously read "verified 13 of 13" [R1].** That sample was three
   consecutive recent editions, it sat entirely inside the range where the
   rule happens to hold, and it did not survive contact with all 49. Numbers
   above are reproducible with `python scripts/check_side_mapping.py`, which

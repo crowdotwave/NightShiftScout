@@ -34,6 +34,23 @@ Panel order is controlled by CSS `order` on a flex column wrapper, not by
 DOM position. This was deliberate: it lets the visual order change without
 moving large HTML blocks and breaking element IDs.
 
+## Retractions, and the rule about numbers
+
+`RETRACTIONS.md` is the single home for claims this project stated, acted on,
+and later found wrong. **Record a retraction there first, then edit the
+documents.** Correcting by hand across files does not work: it has failed
+twice, and a stale claim reads exactly like a live one.
+
+Each entry carries a block of forbidden patterns, and
+`python scripts/check_retractions.py` fails if a retracted claim reappears
+anywhere in the repository. To quote one deliberately, put its id in brackets
+on the same line, for example `previously read "13 of 13" [R1]`.
+
+**No number in a document unless a committed script prints it.** Every wrong
+count in that ledger was measured once, by hand, on a convenient sample, then
+copied. `scripts/verify_api_claims.py` writes
+`data/derived/verified-facts.json` so quoted figures are traceable.
+
 ## Verified API facts
 
 All data comes from `https://api.deadlock-api.com/v1`. It is a community
@@ -176,6 +193,27 @@ in one sentence is a hard requirement.
   one place the wide data window does not apply. See Data window below.
 - **KP%** = `(K + A) / team's total kills`, team-relative so it holds up
   whether a game had 20 kills or 80.
+
+**Participation is derived per match, never asserted per night.** A night
+level roster says "these six played tonight", which a Bo3 with a substitution
+in game 2 makes false, and the per-game truth is then unrecoverable.
+`scripts/build_dataset.py` groups matches into series from the bracket and
+records, per account per series, how many of that series' games they actually
+played. Three states:
+
+- `full`, played every game we hold for that series
+- `partial`, played some, so a substitution or rotation happened
+- `unknown`, the series is incomplete in our cache, so absence proves nothing
+
+That last one matters. The bracket numbers the games, so if we hold fewer
+games than the highest number, a player missing from one of them might have
+been benched or might just be in a match we never fetched. Those two are not
+distinguishable from our side, so they are not distinguished.
+
+**This is participation only, not attribution.** It says who played which
+game. It says nothing about which lineup a side was, because that needs team
+identity, and two rosters overlapping five of six means a single stand-in can
+flip the attribution silently. See `TEAM-IDENTITY-PROPOSAL.md`.
 
 **Minimum games.** Players below `DEFAULT_MIN_GAMES` (currently 3) are not
 ranked. Averages over one or two games are not scouting data, they are

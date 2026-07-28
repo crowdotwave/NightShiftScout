@@ -9,12 +9,22 @@ recent editions are not a random sample of 49 editions.
 
 **Every other conclusion drawn from those 12 matches inherits that weakness.**
 Not that they are wrong, but that they were never tested anywhere else. This
-script re-tests the ones the cache alone can settle, now across 270 matches
-and roughly 3,200 player-games spanning editions #1 to #48.
+script re-tests the ones the cache alone can settle, across every match in the
+cache. It prints the counts rather than hardcoding how many there are, because
+a hardcoded total is the same mistake one level up.
 
 Claims needing a live API call, the Steam profile endpoint, the leaderboard,
 or match history, cannot be re-tested here and are listed as such at the end
 rather than quietly omitted.
+
+It also writes `data/derived/verified-facts.json`. The project rule is that
+**no number appears in a document unless a committed script prints it**, since
+hand measured figures copied between files are exactly how the entries in
+RETRACTIONS.md came about.
+
+Note this counts the RAW CACHE, which deliberately includes matches that are
+excluded at ingest. `scripts/build_dataset.py` gates on `match_mode == 2`, so
+its totals are smaller and the two numbers are not meant to agree.
 
 Standard library only. Makes no network requests.
 
@@ -28,6 +38,7 @@ import argparse
 import gzip
 import json
 from collections import Counter
+from datetime import datetime, timezone
 from pathlib import Path
 
 
@@ -43,6 +54,8 @@ def main() -> int:
                                      formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--matches", type=Path, default=Path("data/matches"))
     parser.add_argument("--assets", type=Path, default=Path("data/assets"))
+    parser.add_argument("--facts", type=Path,
+                        default=Path("data/derived/verified-facts.json"))
     args = parser.parse_args()
 
     snapshots = sorted(args.assets.glob("heroes-*.json.gz"))
@@ -154,16 +167,32 @@ def main() -> int:
             print(f"           ... and {len(items) - 4} more")
 
     print("\nClaims this script CANNOT re-test, because the cache does not")
-    print("contain the data. These still rest on the original 12 match sample:")
+    print("contain the data:")
     for line in [
-        "last_team_avg_badge is 115 or 116 for everyone  (needs /players/steam, "
-        "and we hold only 45 profiles)",
         "possible_account_ids is unique only 58% of the time  (needs /leaderboard)",
         "match_result is the winning team index, 9/9  (needs /players/{id}/match-history)",
         "Role Score leave-one-out shift is at most +0.03x  (recomputable, but it is a "
         "property of our metric rather than of the API)",
     ]:
         print(f"  - {line}")
+    print("  (last_team_avg_badge is settled, see scripts/check_badge_spread.py)")
+
+    # ---- machine readable output -------------------------------------------
+    # Every count quoted in a document should be traceable to a script anyone
+    # can re-run. Numbers measured once by hand and then copied are how the
+    # entries in RETRACTIONS.md happened, so the counts get written to a file
+    # rather than only to a terminal nobody kept.
+    facts = {
+        "generated_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "generator": "scripts/verify_api_claims.py",
+        "note": "Counts over the raw match cache, including matches excluded at ingest. "
+                "See RETRACTIONS.md for the rule that produced this file.",
+        "counts": dict(sorted(c.items())),
+        "exceptions": {key: sorted(items) for key, items in sorted(exceptions.items())},
+    }
+    args.facts.parent.mkdir(parents=True, exist_ok=True)
+    args.facts.write_text(json.dumps(facts, indent=2) + "\n", encoding="utf-8")
+    print(f"\nwrote {args.facts}")
     return 0
 
 

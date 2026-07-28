@@ -229,6 +229,33 @@ def main() -> int:
         night = match_to_night.get(mid)
         entry = match_entry.get(mid)
 
+        # ---- tournament gate ----------------------------------------------
+        # Night Shift is played in custom lobbies, which the API reports as
+        # match_mode 2. Anything else is not a tournament game and must not
+        # reach the dataset, whatever a wiki bracket claims about it.
+        #
+        # This exists because two cached matches are wrong match IDs typed on
+        # Liquipedia, pointing at unrelated public games. See RETRACTIONS.md
+        # entry R2. They stay in the cache on purpose: the cache is a raw
+        # record of what the API returned, and those two are the evidence that
+        # the wiki can be wrong. The filter belongs here, at the point where
+        # raw data becomes a claim about Night Shift.
+        #
+        # The gate is mode alone, but the finding was not. Both matches were
+        # identified by three converging signals: a hero pick overlap of 2 of 6
+        # against a corpus where 265 of 273 score 6 of 6, a duration that
+        # disagreed with the wiki by 218 and 630 seconds against a corpus where
+        # 269 of 276 agree within 2, and match_mode. Mode is used as the gate
+        # because it is a single field with no join and no threshold, but it
+        # should never be the only thing that catches a bad ID: a wrong ID that
+        # happens to point at another custom lobby would pass this and be
+        # caught only by the hero pick check in scripts/check_side_mapping.py.
+        if info.get("match_mode") != 2:
+            report.add("warning", "non-tournament-match",
+                       f"match {mid} is match_mode {info.get('match_mode')!r}, not 2, so it is not a "
+                       f"custom lobby and not a Night Shift game. Kept in the cache, excluded here")
+            continue
+
         if night is None:
             report.add("warning", "orphan-match",
                        f"match {mid} is cached but assigned to no night, excluded from the dataset")
@@ -364,6 +391,89 @@ def main() -> int:
                 "denies": player.get("denies"),
             })
 
+    # ---- participation, derived per match ----------------------------------
+    # Who played which game is read from the match data, never asserted by a
+    # night level roster. A roster says "these six played tonight", which a Bo3
+    # with a substitution in game 2 makes false, and the per-game truth is then
+    # unrecoverable.
+    #
+    # This deliberately does NOT resolve which lineup a side was. That needs
+    # team identity, where two rosters overlapping five of six means a single
+    # stand-in can flip the attribution silently. Participation needs none of
+    # it: an account either appears in a match or it does not.
+    #
+    # Series are keyed by night plus stage plus label, all from the bracket.
+    # Grouping by side would need identity, because match_team_index is not
+    # stable across the games of a series. Grouping by account does not.
+    series_games: dict[tuple, list[dict]] = defaultdict(list)
+    for match in out_matches:
+        key = (match["night_id"], match.get("stage"), match.get("series_label"))
+        series_games[key].append(match)
+
+    played: dict[tuple, set[str]] = defaultdict(set)
+    match_series: dict[str, str] = {}
+    out_series, out_participation = [], []
+
+    for key, matches in sorted(series_games.items(), key=lambda kv: str(kv[0])):
+        night_id, stage, label = key
+        series_id = f"{night_id}|{stage or 'unknown'}|{label or 'unknown'}"
+        numbers = [m.get("game_in_series") for m in matches if m.get("game_in_series")]
+        cached_count = len(matches)
+        # The bracket numbers the games, so the highest number is how many were
+        # played. If we hold fewer than that, a player missing from the set has
+        # two possible explanations and we cannot tell them apart from here.
+        expected = max(numbers) if numbers else cached_count
+        complete = cached_count >= expected
+        if not complete:
+            report.add("info", "series-incomplete",
+                       f"series {series_id} has {cached_count} cached game(s) but the bracket numbers "
+                       f"up to {expected}, so absence from a game cannot be read as being benched")
+        out_series.append({
+            "series_id": series_id,
+            "night_id": night_id,
+            "stage": stage,
+            "series_label": label,
+            "games_cached": cached_count,
+            "games_expected": expected,
+            "complete": complete,
+        })
+        for m in matches:
+            match_series[m["match_id"]] = series_id
+
+    for row in out_player_matches:
+        series_id = match_series.get(row["match_id"])
+        row["series_id"] = series_id
+        if series_id:
+            played[(series_id, row["account_id"])].add(row["match_id"])
+
+    series_by_id = {s["series_id"]: s for s in out_series}
+    for (series_id, account_id), match_ids in sorted(played.items()):
+        series = series_by_id[series_id]
+        count = len(match_ids)
+        if not series["complete"]:
+            status = "unknown"
+        elif count == series["games_cached"]:
+            status = "full"
+        else:
+            status = "partial"
+        out_participation.append({
+            "series_id": series_id,
+            "account_id": account_id,
+            "games_played": count,
+            "games_in_series": series["games_cached"],
+            "series_complete": series["complete"],
+            # full    played every game we hold for this series
+            # partial played some, so a substitution or a rotation happened
+            # unknown the series is incomplete, so absence proves nothing
+            "participation": status,
+        })
+
+    partials = [p for p in out_participation if p["participation"] == "partial"]
+    if partials:
+        report.add("info", "partial-participation",
+                   f"{len(partials)} account-series where a player appeared in some but not all games "
+                   f"of a complete series. These are the observable substitutions")
+
     # ---- curated night entries pointing at matches we do not have ----------
     cached_ids = {p.name.split(".")[0] for p in cached}
     for mid, night in match_to_night.items():
@@ -441,6 +551,11 @@ def main() -> int:
             "outcome_rule": "winning_team_index is copied from match_info.winning_team. No win flag is stored. "
                             "A player won if match_team_index == winning_team_index.",
             "team_index_rule": "match_team_index is meaningful only within its own match and is never a join key.",
+            "tournament_gate": "Only match_mode 2 (custom lobby) is ingested. Other modes stay in the "
+                               "cache and are excluded here. See RETRACTIONS.md entry R2.",
+            "participation_rule": "participation[] is derived from the match data, never from a night "
+                                  "roster. It says who played which game and nothing about which "
+                                  "lineup a side was, which needs team identity.",
         },
         "teams": [{"team_id": k, **v,
                    "attribution": normalise_attribution(
@@ -456,8 +571,10 @@ def main() -> int:
         # generator renders one credit block per entry actually used.
         "attributions": [attributions[k] for k in sorted(attributions)],
         "players": out_players,
+        "series": out_series,
         "matches": out_matches,
         "player_matches": out_player_matches,
+        "participation": out_participation,
     }
 
     assert_no_outcome_flags(dataset, "dataset", report)
@@ -469,6 +586,13 @@ def main() -> int:
     errors = report.by_severity("error")
     print(f"Ingested {len(out_matches)} of {len(cached)} cached match(es), "
           f"{len(out_player_matches)} player-match row(s), {len(out_players)} player(s).")
+    complete_series = sum(1 for s in out_series if s["complete"])
+    by_status: dict[str, int] = defaultdict(int)
+    for row in out_participation:
+        by_status[row["participation"]] += 1
+    print(f"{len(out_series)} series ({complete_series} complete), "
+          f"{len(out_participation)} account-series: "
+          + ", ".join(f"{v} {k}" for k, v in sorted(by_status.items())))
     print(f"Wrote {args.out} ({args.out.stat().st_size:,} bytes)")
     print(report.render())
     if args.strict and errors:
