@@ -1,0 +1,11 @@
+These fonts are redistributed under the SIL Open Font License 1.1.
+
+  Chakra Petch    Copyright (c) Cadson Demak
+  Barlow          Copyright (c) Jeremy Tribby
+  JetBrains Mono  Copyright (c) JetBrains
+
+The OFL permits bundling and self-hosting. Full text:
+https://scripts.sil.org/OFL
+
+Downloaded by scripts/fetch_web_assets.py so the public site makes no request
+to a third party when someone views a page.
