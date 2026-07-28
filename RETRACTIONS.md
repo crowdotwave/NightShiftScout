@@ -194,6 +194,35 @@ uncommitted script is a number nobody can re-derive.
 
 ---
 
+## P1: validate a matcher against known answers before believing it
+
+A **process note**, not a retracted claim, so it has no forbidden patterns.
+It is here because this ledger is where methodological mistakes belong.
+
+**What happened.** A first pass at matching Steam personas against unresolved
+Liquipedia handles reported **0 matches out of 96 accounts**. That is a clean,
+plausible, decision-shaped result: it says the persona fallback is worthless
+and a whole line of work can be dropped. It was wrong. The real figure is 39.
+`steam-profiles.json` keys `account_id` as an int, the lookup used a string,
+and every profile fetch silently returned nothing.
+
+**What caught it.** Running the same matcher against the accounts whose handle
+was already known, where it returned 0% against an expected rate that turned
+out to be 68%. The bug was invisible in the real run and obvious in the
+control.
+
+**The rule.** A **clean negative is the easiest wrong result to believe**,
+because it agrees with the prior that the work is done and it demands nothing
+further. Before trusting a matcher, a filter, or a join, run it against cases
+whose answer is already known and check the hit rate is what it should be. A
+zero that arrives without a control is not a finding, it is an untested claim.
+
+This generalises past matchers. "No results" from a search, "no differences"
+from a diff, and "no matches" from a filter all deserve the same treatment,
+and all three have a failure mode that looks exactly like success.
+
+---
+
 ## R0: `average_badge_team0` / `average_badge_team1` are unusable
 
 Kept for completeness as the original instance, and still the clearest example

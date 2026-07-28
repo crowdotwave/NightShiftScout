@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_utc": "2026-07-28T03:43:19+00:00",
+  "generated_utc": "2026-07-28T04:37:50+00:00",
   "source": {
     "generator": "scripts/build_dataset.py",
-    "git_commit": "83d7cdb",
+    "git_commit": "b573904",
     "matches_cached": 281,
     "matches_ingested": 279,
     "nights_ingested": 81,
@@ -1403,10 +1403,10 @@
   "players": [
     {
       "account_id": "5278896",
-      "handle": null,
-      "identified": "guess",
+      "handle": "empty dreams",
+      "identified": "confirmed",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "empty dreams",
         "profileurl": "https://steamcommunity.com/id/emptydreams9/",
@@ -1466,10 +1466,10 @@
     },
     {
       "account_id": "35187362",
-      "handle": null,
-      "identified": "guess",
+      "handle": "Zerggy",
+      "identified": "confirmed",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "Zerggy",
         "profileurl": "https://steamcommunity.com/profiles/76561197995453090/",
@@ -1480,10 +1480,10 @@
     },
     {
       "account_id": "39488687",
-      "handle": null,
-      "identified": "unmapped",
+      "handle": "Hydration",
+      "identified": "confirmed",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "hydration",
         "profileurl": "https://steamcommunity.com/profiles/76561197999754415/",
@@ -1494,10 +1494,10 @@
     },
     {
       "account_id": "44899168",
-      "handle": null,
-      "identified": "guess",
+      "handle": "Boostio",
+      "identified": "probable",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "Boostio",
         "profileurl": "https://steamcommunity.com/id/kelden12345/",
@@ -1522,10 +1522,10 @@
     },
     {
       "account_id": "54151884",
-      "handle": null,
-      "identified": "unmapped",
+      "handle": "TANNER",
+      "identified": "confirmed",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "BOILINGPOOBRUV",
         "profileurl": "https://steamcommunity.com/id/IMJUNKINGMYSHITRNFR/",
@@ -1578,10 +1578,10 @@
     },
     {
       "account_id": "81662458",
-      "handle": null,
-      "identified": "guess",
+      "handle": "sharyk",
+      "identified": "confirmed",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "sh",
         "profileurl": "https://steamcommunity.com/id/3597236/",
@@ -1606,10 +1606,10 @@
     },
     {
       "account_id": "85898225",
-      "handle": null,
-      "identified": "unmapped",
+      "handle": "POSHYPOP",
+      "identified": "probable",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "retard one",
         "profileurl": "https://steamcommunity.com/id/poshypop/",
@@ -1620,10 +1620,10 @@
     },
     {
       "account_id": "87241154",
-      "handle": null,
-      "identified": "guess",
+      "handle": "Hoot",
+      "identified": "confirmed",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "hoot",
         "profileurl": "https://steamcommunity.com/profiles/76561198047506882/",
@@ -1676,10 +1676,10 @@
     },
     {
       "account_id": "96763589",
-      "handle": null,
-      "identified": "unmapped",
+      "handle": "blob",
+      "identified": "confirmed",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "JGLKNG",
         "profileurl": "https://steamcommunity.com/id/blob_/",
@@ -1690,10 +1690,10 @@
     },
     {
       "account_id": "97506421",
-      "handle": null,
-      "identified": "unmapped",
+      "handle": "gibz",
+      "identified": "confirmed",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "lexapro delirium",
         "profileurl": "https://steamcommunity.com/id/grandmastergibs/",
@@ -1704,10 +1704,10 @@
     },
     {
       "account_id": "97533101",
-      "handle": null,
-      "identified": "guess",
+      "handle": "lystic",
+      "identified": "confirmed",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "lystic",
         "profileurl": "https://steamcommunity.com/id/uncletajj/",
@@ -1746,10 +1746,10 @@
     },
     {
       "account_id": "102312863",
-      "handle": null,
-      "identified": "guess",
+      "handle": "Spooky",
+      "identified": "probable",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "--",
         "profileurl": "https://steamcommunity.com/id/Spookybuh/",
@@ -1760,10 +1760,10 @@
     },
     {
       "account_id": "108601750",
-      "handle": null,
-      "identified": "unmapped",
+      "handle": "gfreek",
+      "identified": "confirmed",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "gfreek",
         "profileurl": "https://steamcommunity.com/id/abc123efg/",
@@ -1774,10 +1774,10 @@
     },
     {
       "account_id": "108672673",
-      "handle": null,
-      "identified": "guess",
+      "handle": "Fishcake",
+      "identified": "probable",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "Draven",
         "profileurl": "https://steamcommunity.com/id/shwanfishcake/",
@@ -1788,10 +1788,10 @@
     },
     {
       "account_id": "108710262",
-      "handle": null,
-      "identified": "guess",
+      "handle": "dew",
+      "identified": "probable",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "dew",
         "profileurl": "https://steamcommunity.com/id/dewamoon/",
@@ -1816,10 +1816,10 @@
     },
     {
       "account_id": "112724001",
-      "handle": null,
-      "identified": "unmapped",
+      "handle": "cantsaymeow",
+      "identified": "probable",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "cantsaymeow",
         "profileurl": "https://steamcommunity.com/id/cantsaymeow/",
@@ -1851,10 +1851,10 @@
     },
     {
       "account_id": "119264432",
-      "handle": null,
-      "identified": "unmapped",
+      "handle": "flammable",
+      "identified": "confirmed",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "\u043d\u043e\u0432\u0438\u0447\u043e\u043a",
         "profileurl": "https://steamcommunity.com/id/thisishowitgoes-/",
@@ -1907,10 +1907,10 @@
     },
     {
       "account_id": "124540485",
-      "handle": null,
-      "identified": "guess",
+      "handle": "arzo",
+      "identified": "confirmed",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "arzo",
         "profileurl": "https://steamcommunity.com/id/0arzo/",
@@ -1949,10 +1949,10 @@
     },
     {
       "account_id": "136898005",
-      "handle": null,
-      "identified": "guess",
+      "handle": "IRezUmi",
+      "identified": "confirmed",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "say it loud",
         "profileurl": "https://steamcommunity.com/id/irezum1/",
@@ -1963,10 +1963,10 @@
     },
     {
       "account_id": "139205933",
-      "handle": null,
-      "identified": "unmapped",
+      "handle": "stryde",
+      "identified": "confirmed",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "stroodl",
         "profileurl": "https://steamcommunity.com/profiles/76561198099471661/",
@@ -1977,10 +1977,10 @@
     },
     {
       "account_id": "163819505",
-      "handle": null,
-      "identified": "unmapped",
+      "handle": "Trax",
+      "identified": "confirmed",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "BARCODE",
         "profileurl": "https://steamcommunity.com/id/Trax-_-/",
@@ -1991,10 +1991,10 @@
     },
     {
       "account_id": "164072337",
-      "handle": null,
-      "identified": "unmapped",
+      "handle": "ktall",
+      "identified": "probable",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "GazMyas.Academy ktall",
         "profileurl": "https://steamcommunity.com/id/ktal7/",
@@ -2033,10 +2033,10 @@
     },
     {
       "account_id": "185598645",
-      "handle": null,
-      "identified": "unmapped",
+      "handle": "lorence",
+      "identified": "probable",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "lorence",
         "profileurl": "https://steamcommunity.com/id/itzknock/",
@@ -2047,10 +2047,10 @@
     },
     {
       "account_id": "192227354",
-      "handle": null,
-      "identified": "unmapped",
+      "handle": "rocker",
+      "identified": "confirmed",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "0",
         "profileurl": "https://steamcommunity.com/id/a01415061/",
@@ -2103,10 +2103,10 @@
     },
     {
       "account_id": "225764206",
-      "handle": null,
-      "identified": "unmapped",
+      "handle": "braeden",
+      "identified": "confirmed",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "braeden",
         "profileurl": "https://steamcommunity.com/id/braedenow/",
@@ -2117,10 +2117,10 @@
     },
     {
       "account_id": "241312861",
-      "handle": null,
-      "identified": "unmapped",
+      "handle": "Scout",
+      "identified": "probable",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "Scout",
         "profileurl": "https://steamcommunity.com/profiles/76561198201578589/",
@@ -2152,10 +2152,10 @@
     },
     {
       "account_id": "244471627",
-      "handle": null,
-      "identified": "unmapped",
+      "handle": "coolcheese",
+      "identified": "confirmed",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "picklebob",
         "profileurl": "https://steamcommunity.com/id/CoolCheese101/",
@@ -2166,10 +2166,10 @@
     },
     {
       "account_id": "246214695",
-      "handle": null,
-      "identified": "unmapped",
+      "handle": "fl0z",
+      "identified": "confirmed",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "vitium",
         "profileurl": "https://steamcommunity.com/profiles/76561198206480423/",
@@ -2208,10 +2208,10 @@
     },
     {
       "account_id": "279125228",
-      "handle": null,
-      "identified": "unmapped",
+      "handle": "rocaine",
+      "identified": "probable",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "rocaine",
         "profileurl": "https://steamcommunity.com/id/levim8/",
@@ -2222,10 +2222,10 @@
     },
     {
       "account_id": "281768392",
-      "handle": null,
-      "identified": "unmapped",
+      "handle": "kapten",
+      "identified": "confirmed",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "BALANAR",
         "profileurl": "https://steamcommunity.com/id/kaptennn/",
@@ -2236,10 +2236,10 @@
     },
     {
       "account_id": "284870226",
-      "handle": null,
-      "identified": "unmapped",
+      "handle": "Jarate",
+      "identified": "probable",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "Jarate",
         "profileurl": "https://steamcommunity.com/profiles/76561198245135954/",
@@ -2250,10 +2250,10 @@
     },
     {
       "account_id": "288422074",
-      "handle": null,
-      "identified": "unmapped",
+      "handle": "Happex",
+      "identified": "confirmed",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "alexio",
         "profileurl": "https://steamcommunity.com/id/Happex123457654/",
@@ -2264,10 +2264,10 @@
     },
     {
       "account_id": "291902996",
-      "handle": null,
-      "identified": "unmapped",
+      "handle": "aidanthedestroye",
+      "identified": "confirmed",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "Squigly",
         "profileurl": "https://steamcommunity.com/profiles/76561198252168724/",
@@ -2292,10 +2292,10 @@
     },
     {
       "account_id": "298155885",
-      "handle": null,
-      "identified": "guess",
+      "handle": "together",
+      "identified": "confirmed",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "together",
         "profileurl": "https://steamcommunity.com/id/togetherdl/",
@@ -2306,10 +2306,10 @@
     },
     {
       "account_id": "298305257",
-      "handle": null,
-      "identified": "guess",
+      "handle": "Dimov",
+      "identified": "confirmed",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "Dimov",
         "profileurl": "https://steamcommunity.com/id/Dimov8/",
@@ -2362,10 +2362,10 @@
     },
     {
       "account_id": "313928930",
-      "handle": null,
-      "identified": "unmapped",
+      "handle": "cikp",
+      "identified": "probable",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "cikp",
         "profileurl": "https://steamcommunity.com/id/cikp/",
@@ -2390,10 +2390,10 @@
     },
     {
       "account_id": "323142724",
-      "handle": null,
-      "identified": "guess",
+      "handle": "balaclava",
+      "identified": "probable",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "balaclava",
         "profileurl": "https://steamcommunity.com/id/ba1ac1ava/",
@@ -2404,10 +2404,10 @@
     },
     {
       "account_id": "323196641",
-      "handle": null,
-      "identified": "unmapped",
+      "handle": "Bsqt",
+      "identified": "probable",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "bsqt",
         "profileurl": "https://steamcommunity.com/id/bisuqt/",
@@ -2418,10 +2418,10 @@
     },
     {
       "account_id": "329035753",
-      "handle": null,
-      "identified": "unmapped",
+      "handle": "Arctic",
+      "identified": "confirmed",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "Arctic",
         "profileurl": "https://steamcommunity.com/profiles/76561198289301481/",
@@ -2432,10 +2432,10 @@
     },
     {
       "account_id": "344946432",
-      "handle": null,
-      "identified": "guess",
+      "handle": "vraic",
+      "identified": "confirmed",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "vraic",
         "profileurl": "https://steamcommunity.com/id/vraic/",
@@ -2460,10 +2460,10 @@
     },
     {
       "account_id": "371621540",
-      "handle": null,
-      "identified": "unmapped",
+      "handle": "Doi",
+      "identified": "probable",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "Doi",
         "profileurl": "https://steamcommunity.com/id/Doi_3/",
@@ -2474,10 +2474,10 @@
     },
     {
       "account_id": "379745391",
-      "handle": null,
-      "identified": "unmapped",
+      "handle": "Afera",
+      "identified": "probable",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "Afera",
         "profileurl": "https://steamcommunity.com/profiles/76561198340011119/",
@@ -2488,10 +2488,10 @@
     },
     {
       "account_id": "385814004",
-      "handle": null,
-      "identified": "unmapped",
+      "handle": "MikaelS",
+      "identified": "confirmed",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "MikaelS",
         "profileurl": "https://steamcommunity.com/id/MikaelS1/",
@@ -2516,10 +2516,10 @@
     },
     {
       "account_id": "400239835",
-      "handle": null,
-      "identified": "unmapped",
+      "handle": "fargareko",
+      "identified": "confirmed",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "fargareko",
         "profileurl": "https://steamcommunity.com/id/assddaas/",
@@ -2530,10 +2530,10 @@
     },
     {
       "account_id": "407786402",
-      "handle": null,
-      "identified": "guess",
+      "handle": "Reyache",
+      "identified": "confirmed",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "reyache",
         "profileurl": "https://steamcommunity.com/id/reyache/",
@@ -2600,10 +2600,10 @@
     },
     {
       "account_id": "483770846",
-      "handle": null,
-      "identified": "guess",
+      "handle": "cosmetical",
+      "identified": "confirmed",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "invincible under the sun",
         "profileurl": "https://steamcommunity.com/id/heavenlydelusions/",
@@ -2698,10 +2698,10 @@
     },
     {
       "account_id": "888853854",
-      "handle": null,
-      "identified": "unmapped",
+      "handle": "ABL",
+      "identified": "confirmed",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "ABL",
         "profileurl": "https://steamcommunity.com/id/abl1234/",
@@ -2712,10 +2712,10 @@
     },
     {
       "account_id": "889536589",
-      "handle": null,
-      "identified": "unmapped",
+      "handle": "Venial",
+      "identified": "probable",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "venial",
         "profileurl": "https://steamcommunity.com/profiles/76561198849802317/",
@@ -2726,10 +2726,10 @@
     },
     {
       "account_id": "891136769",
-      "handle": null,
-      "identified": "unmapped",
+      "handle": "banw1se19",
+      "identified": "confirmed",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "sssss",
         "profileurl": "https://steamcommunity.com/id/banw1se19/",
@@ -2740,10 +2740,10 @@
     },
     {
       "account_id": "898514158",
-      "handle": null,
-      "identified": "unmapped",
+      "handle": "blur",
+      "identified": "probable",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "blur",
         "profileurl": "https://steamcommunity.com/id/blurence/",
@@ -2782,10 +2782,10 @@
     },
     {
       "account_id": "911856667",
-      "handle": null,
-      "identified": "guess",
+      "handle": "obikym",
+      "identified": "confirmed",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "obikym",
         "profileurl": "https://steamcommunity.com/id/obikym/",
@@ -2796,10 +2796,10 @@
     },
     {
       "account_id": "912304652",
-      "handle": null,
-      "identified": "unmapped",
+      "handle": "SURGERY",
+      "identified": "confirmed",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "I wanna die a million times",
         "profileurl": "https://steamcommunity.com/id/surrgery/",
@@ -2810,10 +2810,10 @@
     },
     {
       "account_id": "914913299",
-      "handle": null,
-      "identified": "guess",
+      "handle": "Mayonese",
+      "identified": "probable",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "Mayonese",
         "profileurl": "https://steamcommunity.com/id/mayaniz/",
@@ -2845,10 +2845,10 @@
     },
     {
       "account_id": "924889838",
-      "handle": null,
-      "identified": "unmapped",
+      "handle": "weAppp",
+      "identified": "confirmed",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "\u7070\u8272\u306e\u67a2\u6a5f\u537f",
         "profileurl": "https://steamcommunity.com/id/weAppp/",
@@ -2873,10 +2873,10 @@
     },
     {
       "account_id": "984254212",
-      "handle": null,
-      "identified": "guess",
+      "handle": "Overseas",
+      "identified": "confirmed",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "overseas",
         "profileurl": "https://steamcommunity.com/id/overseasd/",
@@ -2887,10 +2887,10 @@
     },
     {
       "account_id": "1009703898",
-      "handle": null,
-      "identified": "guess",
+      "handle": "freemok",
+      "identified": "confirmed",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "freemok",
         "profileurl": "https://steamcommunity.com/profiles/76561198969969626/",
@@ -2901,10 +2901,10 @@
     },
     {
       "account_id": "1012333396",
-      "handle": null,
-      "identified": "unmapped",
+      "handle": "ayano",
+      "identified": "confirmed",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "allmuted14",
         "profileurl": "https://steamcommunity.com/profiles/76561198972599124/",
@@ -2929,10 +2929,10 @@
     },
     {
       "account_id": "1045169707",
-      "handle": null,
-      "identified": "guess",
+      "handle": "sai",
+      "identified": "confirmed",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "8",
         "profileurl": "https://steamcommunity.com/id/saijkeee/",
@@ -2943,10 +2943,10 @@
     },
     {
       "account_id": "1046192556",
-      "handle": null,
-      "identified": "guess",
+      "handle": "w3aky",
+      "identified": "confirmed",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "w3aky",
         "profileurl": "https://steamcommunity.com/profiles/76561199006458284/",
@@ -2957,10 +2957,10 @@
     },
     {
       "account_id": "1049966963",
-      "handle": null,
-      "identified": "guess",
+      "handle": "DMB",
+      "identified": "confirmed",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "DMB",
         "profileurl": "https://steamcommunity.com/profiles/76561199010232691/",
@@ -2971,10 +2971,10 @@
     },
     {
       "account_id": "1053706881",
-      "handle": null,
-      "identified": "unmapped",
+      "handle": "Division",
+      "identified": "probable",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "Division",
         "profileurl": "https://steamcommunity.com/profiles/76561199013972609/",
@@ -2985,10 +2985,10 @@
     },
     {
       "account_id": "1055638874",
-      "handle": null,
-      "identified": "guess",
+      "handle": "saintmxsm",
+      "identified": "confirmed",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "twitch.tv/saintmxsm",
         "profileurl": "https://steamcommunity.com/id/saintmxsm/",
@@ -2999,10 +2999,10 @@
     },
     {
       "account_id": "1062664388",
-      "handle": null,
-      "identified": "unmapped",
+      "handle": "qult",
+      "identified": "confirmed",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "qult",
         "profileurl": "https://steamcommunity.com/id/qult-/",
@@ -3069,10 +3069,10 @@
     },
     {
       "account_id": "1141067246",
-      "handle": null,
-      "identified": "unmapped",
+      "handle": "Rumple",
+      "identified": "probable",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "Rumple",
         "profileurl": "https://steamcommunity.com/profiles/76561199101332974/",
@@ -3097,10 +3097,10 @@
     },
     {
       "account_id": "1186801441",
-      "handle": null,
-      "identified": "guess",
+      "handle": "zxcbobi2011",
+      "identified": "confirmed",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "zxcbobi",
         "profileurl": "https://steamcommunity.com/id/zxcbobi/",
@@ -3174,10 +3174,10 @@
     },
     {
       "account_id": "1387549649",
-      "handle": null,
-      "identified": "unmapped",
+      "handle": "LordNM",
+      "identified": "probable",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "lordnm",
         "profileurl": "https://steamcommunity.com/profiles/76561199347815377/",
@@ -3202,10 +3202,10 @@
     },
     {
       "account_id": "1444662928",
-      "handle": null,
-      "identified": "guess",
+      "handle": "Tas",
+      "identified": "confirmed",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "Tas",
         "profileurl": "https://steamcommunity.com/profiles/76561199404928656/",
@@ -3237,10 +3237,10 @@
     },
     {
       "account_id": "1482863137",
-      "handle": null,
-      "identified": "unmapped",
+      "handle": "playa",
+      "identified": "probable",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "playa",
         "profileurl": "https://steamcommunity.com/profiles/76561199443128865/",
@@ -3251,10 +3251,10 @@
     },
     {
       "account_id": "1557303666",
-      "handle": null,
-      "identified": "unmapped",
+      "handle": "Ayrien",
+      "identified": "confirmed",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "Ayrien",
         "profileurl": "https://steamcommunity.com/profiles/76561199517569394/",
@@ -3293,10 +3293,10 @@
     },
     {
       "account_id": "1673876903",
-      "handle": null,
-      "identified": "unmapped",
+      "handle": "apacycle",
+      "identified": "confirmed",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "apacycle",
         "profileurl": "https://steamcommunity.com/id/apacycle/",
@@ -3349,10 +3349,10 @@
     },
     {
       "account_id": "1710092569",
-      "handle": null,
-      "identified": "unmapped",
+      "handle": "epl1fine",
+      "identified": "confirmed",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "e",
         "profileurl": "https://steamcommunity.com/profiles/76561199670358297/",
@@ -3412,10 +3412,10 @@
     },
     {
       "account_id": "1787356635",
-      "handle": null,
-      "identified": "unmapped",
+      "handle": "MazaG",
+      "identified": "confirmed",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "MazaG",
         "profileurl": "https://steamcommunity.com/profiles/76561199747622363/",
@@ -3573,10 +3573,10 @@
     },
     {
       "account_id": "1902828658",
-      "handle": null,
-      "identified": "unmapped",
+      "handle": "Erebus",
+      "identified": "confirmed",
       "handle_attribution": null,
-      "publishable": false,
+      "publishable": true,
       "steam": {
         "personaname": "Erebus",
         "profileurl": "https://steamcommunity.com/profiles/76561199863094386/",

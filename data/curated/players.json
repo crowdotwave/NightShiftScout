@@ -3,10 +3,10 @@
   "_note": "Hand curated. Every entry starts as identified:guess with handle:null. Per the review decision, guess-level accounts get no player page and render as a bare account ID. Set handle and raise identified to probable or confirmed as you verify each one. _hint_* fields are curation aids, ignored by the builder and never published.",
   "players": {
     "5278896": {
-      "handle": null,
+      "handle": "empty dreams",
       "aka": [],
-      "identified": "guess",
-      "notes": "",
+      "identified": "confirmed",
+      "notes": "Liquipedia player page Empty dreams carries this steam64ID, and the account is observed playing on that handle's own team. See scripts/resolve_identities.py.",
       "_hint_steam_persona": "empty dreams",
       "_hint_vanity": "emptydreams9"
     },
@@ -23,68 +23,110 @@
       }
     },
     "35187362": {
-      "handle": null,
+      "handle": "Zerggy",
       "aka": [],
-      "identified": "guess",
-      "notes": "",
+      "identified": "confirmed",
+      "notes": "Liquipedia player page Zerggy carries this steam64ID, and the account is observed playing on that handle's own team. See scripts/resolve_identities.py.",
       "_hint_steam_persona": "Zerggy",
       "_hint_vanity": null
     },
-    "44899168": {
-      "handle": null,
+    "39488687": {
+      "handle": "Hydration",
       "aka": [],
-      "identified": "guess",
-      "notes": "",
+      "identified": "confirmed",
+      "notes": "Liquipedia player page Hydration carries this steam64ID, and the account is observed playing on that handle's own team. See scripts/resolve_identities.py."
+    },
+    "44899168": {
+      "handle": "Boostio",
+      "aka": [],
+      "identified": "probable",
+      "notes": "Steam persona 'Boostio' matches the Liquipedia handle 'Boostio' (no-page on the wiki), and the account is observed on that handle's own team in 1 of 1 testable rostering(s). Persona evidence caps at probable.",
       "_hint_steam_persona": "Boostio",
       "_hint_vanity": "kelden12345"
     },
-    "81662458": {
-      "handle": null,
+    "54151884": {
+      "handle": "TANNER",
       "aka": [],
-      "identified": "guess",
-      "notes": "",
+      "identified": "confirmed",
+      "notes": "Liquipedia player page TANNER carries this steam64ID, and the account is observed playing on that handle's own team. See scripts/resolve_identities.py."
+    },
+    "81662458": {
+      "handle": "sharyk",
+      "aka": [],
+      "identified": "confirmed",
+      "notes": "Liquipedia player page Sharyk carries this steam64ID, and the account is observed playing on that handle's own team. See scripts/resolve_identities.py.",
       "_hint_steam_persona": "sh",
       "_hint_vanity": "3597236"
     },
-    "87241154": {
-      "handle": null,
+    "85898225": {
+      "handle": "POSHYPOP",
       "aka": [],
-      "identified": "guess",
-      "notes": "",
+      "identified": "probable",
+      "notes": "Liquipedia player page POSHYPOP carries this steam64ID, and the account is observed playing on that handle's own team. See scripts/resolve_identities.py."
+    },
+    "87241154": {
+      "handle": "Hoot",
+      "aka": [],
+      "identified": "confirmed",
+      "notes": "Liquipedia player page Hoot carries this steam64ID, and the account is observed playing on that handle's own team. See scripts/resolve_identities.py.",
       "_hint_steam_persona": "hoot",
       "_hint_vanity": null
     },
-    "97533101": {
-      "handle": null,
+    "96763589": {
+      "handle": "blob",
       "aka": [],
-      "identified": "guess",
-      "notes": "",
+      "identified": "confirmed",
+      "notes": "Liquipedia player page Blob carries this steam64ID, and the account is observed playing on that handle's own team. See scripts/resolve_identities.py."
+    },
+    "97506421": {
+      "handle": "gibz",
+      "aka": [],
+      "identified": "confirmed",
+      "notes": "Liquipedia player page Gibz carries this steam64ID, and the account is observed playing on that handle's own team. See scripts/resolve_identities.py."
+    },
+    "97533101": {
+      "handle": "lystic",
+      "aka": [],
+      "identified": "confirmed",
+      "notes": "Liquipedia player page Lystic carries this steam64ID, and the account is observed playing on that handle's own team. See scripts/resolve_identities.py.",
       "_hint_steam_persona": "lystic",
       "_hint_vanity": "uncletajj"
     },
     "102312863": {
-      "handle": null,
+      "handle": "Spooky",
       "aka": [],
-      "identified": "guess",
-      "notes": "",
+      "identified": "probable",
+      "notes": "Steam persona '--' matches the Liquipedia handle 'Spooky' (no-page on the wiki), and the account is observed on that handle's own team in 2 of 2 testable rostering(s). Persona evidence caps at probable.",
       "_hint_steam_persona": "--",
       "_hint_vanity": "Spookybuh"
     },
-    "108672673": {
-      "handle": null,
+    "108601750": {
+      "handle": "gfreek",
       "aka": [],
-      "identified": "guess",
-      "notes": "",
+      "identified": "confirmed",
+      "notes": "Liquipedia player page Gfreek carries this steam64ID, and the account is observed playing on that handle's own team. See scripts/resolve_identities.py."
+    },
+    "108672673": {
+      "handle": "Fishcake",
+      "aka": [],
+      "identified": "probable",
+      "notes": "Steam persona 'Draven' matches the Liquipedia handle 'Fishcake' (no-id on the wiki), and the account is observed on that handle's own team in 21 of 21 testable rostering(s). Persona evidence caps at probable.",
       "_hint_steam_persona": "Draven",
       "_hint_vanity": "shwanfishcake"
     },
     "108710262": {
-      "handle": null,
+      "handle": "dew",
       "aka": [],
-      "identified": "guess",
-      "notes": "",
+      "identified": "probable",
+      "notes": "Steam persona 'dew' matches the Liquipedia handle 'dew' (no-id on the wiki), and the account is observed on that handle's own team in 17 of 18 testable rostering(s). Persona evidence caps at probable.",
       "_hint_steam_persona": "dew",
       "_hint_vanity": "dewamoon"
+    },
+    "112724001": {
+      "handle": "cantsaymeow",
+      "aka": [],
+      "identified": "probable",
+      "notes": "Steam persona 'cantsaymeow' matches the Liquipedia handle 'cantsaymeow' (no-page on the wiki), and the account is observed on that handle's own team in 2 of 2 testable rostering(s). Persona evidence caps at probable."
     },
     "114943410": {
       "handle": "Lefaa",
@@ -98,21 +140,69 @@
         "url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/48/NA"
       }
     },
-    "124540485": {
-      "handle": null,
+    "119264432": {
+      "handle": "flammable",
       "aka": [],
-      "identified": "guess",
-      "notes": "",
+      "identified": "confirmed",
+      "notes": "Liquipedia player page Flammable carries this steam64ID, and the account is observed playing on that handle's own team. See scripts/resolve_identities.py."
+    },
+    "124540485": {
+      "handle": "arzo",
+      "aka": [],
+      "identified": "confirmed",
+      "notes": "Liquipedia player page Arzo carries this steam64ID, and the account is observed playing on that handle's own team. See scripts/resolve_identities.py.",
       "_hint_steam_persona": "arzo",
       "_hint_vanity": "0arzo"
     },
     "136898005": {
-      "handle": null,
+      "handle": "IRezUmi",
       "aka": [],
-      "identified": "guess",
-      "notes": "",
+      "identified": "confirmed",
+      "notes": "Liquipedia player page IRezUmi carries this steam64ID, and the account is observed playing on that handle's own team. See scripts/resolve_identities.py.",
       "_hint_steam_persona": "say it loud",
       "_hint_vanity": "irezum1"
+    },
+    "139205933": {
+      "handle": "stryde",
+      "aka": [],
+      "identified": "confirmed",
+      "notes": "Liquipedia player page Stryde carries this steam64ID, and the account is observed playing on that handle's own team. See scripts/resolve_identities.py."
+    },
+    "163819505": {
+      "handle": "Trax",
+      "aka": [],
+      "identified": "confirmed",
+      "notes": "Liquipedia player page Trax carries this steam64ID, and the account is observed playing on that handle's own team. See scripts/resolve_identities.py."
+    },
+    "164072337": {
+      "handle": "ktall",
+      "aka": [],
+      "identified": "probable",
+      "notes": "Steam persona 'GazMyas.Academy ktall' matches the Liquipedia handle 'ktall' (no-page on the wiki), and the account is observed on that handle's own team in 1 of 1 testable rostering(s). Persona evidence caps at probable."
+    },
+    "185598645": {
+      "handle": "lorence",
+      "aka": [],
+      "identified": "probable",
+      "notes": "Steam persona 'lorence' matches the Liquipedia handle 'lorence' (no-page on the wiki), and the account is observed on that handle's own team in 1 of 1 testable rostering(s). Persona evidence caps at probable."
+    },
+    "192227354": {
+      "handle": "rocker",
+      "aka": [],
+      "identified": "confirmed",
+      "notes": "Liquipedia player page Rocker carries this steam64ID, and the account is observed playing on that handle's own team. See scripts/resolve_identities.py."
+    },
+    "225764206": {
+      "handle": "braeden",
+      "aka": [],
+      "identified": "confirmed",
+      "notes": "Liquipedia player page Braeden carries this steam64ID, and the account is observed playing on that handle's own team. See scripts/resolve_identities.py."
+    },
+    "241312861": {
+      "handle": "Scout",
+      "aka": [],
+      "identified": "probable",
+      "notes": "Steam persona 'Scout' matches the Liquipedia handle 'Scout' (no-id on the wiki), and the account is observed on that handle's own team in 12 of 12 testable rostering(s). Persona evidence caps at probable."
     },
     "244109796": {
       "handle": "JonJon",
@@ -126,83 +216,197 @@
         "url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/48/NA"
       }
     },
-    "298155885": {
-      "handle": null,
+    "244471627": {
+      "handle": "coolcheese",
       "aka": [],
-      "identified": "guess",
-      "notes": "",
+      "identified": "confirmed",
+      "notes": "Liquipedia player page Coolcheese carries this steam64ID, and the account is observed playing on that handle's own team. See scripts/resolve_identities.py."
+    },
+    "246214695": {
+      "handle": "fl0z",
+      "aka": [],
+      "identified": "confirmed",
+      "notes": "Liquipedia player page Fl0z carries this steam64ID, and the account is observed playing on that handle's own team. See scripts/resolve_identities.py."
+    },
+    "279125228": {
+      "handle": "rocaine",
+      "aka": [],
+      "identified": "probable",
+      "notes": "Steam persona 'rocaine' matches the Liquipedia handle 'rocaine' (collision on the wiki), and the account is observed on that handle's own team in 4 of 5 testable rostering(s). Persona evidence caps at probable."
+    },
+    "281768392": {
+      "handle": "kapten",
+      "aka": [],
+      "identified": "confirmed",
+      "notes": "Liquipedia player page Kapten carries this steam64ID, and the account is observed playing on that handle's own team. See scripts/resolve_identities.py."
+    },
+    "284870226": {
+      "handle": "Jarate",
+      "aka": [],
+      "identified": "probable",
+      "notes": "Steam persona 'Jarate' matches the Liquipedia handle 'Jarate' (no-page on the wiki), and the account is observed on that handle's own team in 1 of 2 testable rostering(s). Persona evidence caps at probable."
+    },
+    "288422074": {
+      "handle": "Happex",
+      "aka": [],
+      "identified": "confirmed",
+      "notes": "Liquipedia player page Happex carries this steam64ID, and the account is observed playing on that handle's own team. See scripts/resolve_identities.py."
+    },
+    "291902996": {
+      "handle": "aidanthedestroye",
+      "aka": [],
+      "identified": "confirmed",
+      "notes": "Liquipedia player page Aidanthedestroye carries this steam64ID, and the account is observed playing on that handle's own team. See scripts/resolve_identities.py."
+    },
+    "298155885": {
+      "handle": "together",
+      "aka": [],
+      "identified": "confirmed",
+      "notes": "Liquipedia player page Together carries this steam64ID, and the account is observed playing on that handle's own team. See scripts/resolve_identities.py.",
       "_hint_steam_persona": "together",
       "_hint_vanity": "togetherdl"
     },
     "298305257": {
-      "handle": null,
+      "handle": "Dimov",
       "aka": [],
-      "identified": "guess",
-      "notes": "",
+      "identified": "confirmed",
+      "notes": "Liquipedia player page Dimov carries this steam64ID, and the account is observed playing on that handle's own team. See scripts/resolve_identities.py.",
       "_hint_steam_persona": "Dimov",
       "_hint_vanity": "Dimov8"
     },
-    "323142724": {
-      "handle": null,
+    "313928930": {
+      "handle": "cikp",
       "aka": [],
-      "identified": "guess",
-      "notes": "",
+      "identified": "probable",
+      "notes": "Steam persona 'cikp' matches the Liquipedia handle 'cikp' (no-page on the wiki), and the account is observed on that handle's own team in 1 of 1 testable rostering(s). Persona evidence caps at probable."
+    },
+    "323142724": {
+      "handle": "balaclava",
+      "aka": [],
+      "identified": "probable",
+      "notes": "Steam persona 'balaclava' matches the Liquipedia handle 'balaclava' (no-page on the wiki), and the account is observed on that handle's own team in 4 of 4 testable rostering(s). Persona evidence caps at probable.",
       "_hint_steam_persona": "balaclava",
       "_hint_vanity": "ba1ac1ava"
     },
-    "344946432": {
-      "handle": null,
+    "323196641": {
+      "handle": "Bsqt",
       "aka": [],
-      "identified": "guess",
-      "notes": "",
+      "identified": "probable",
+      "notes": "Steam persona 'bsqt' matches the Liquipedia handle 'Bsqt' (no-page on the wiki), and the account is observed on that handle's own team in 1 of 1 testable rostering(s). Persona evidence caps at probable."
+    },
+    "329035753": {
+      "handle": "Arctic",
+      "aka": [],
+      "identified": "confirmed",
+      "notes": "Liquipedia player page Arctic carries this steam64ID, and the account is observed playing on that handle's own team. See scripts/resolve_identities.py."
+    },
+    "344946432": {
+      "handle": "vraic",
+      "aka": [],
+      "identified": "confirmed",
+      "notes": "Liquipedia player page Vraic carries this steam64ID, and the account is observed playing on that handle's own team. See scripts/resolve_identities.py.",
       "_hint_steam_persona": "vraic",
       "_hint_vanity": "vraic"
+    },
+    "371621540": {
+      "handle": "Doi",
+      "aka": [],
+      "identified": "probable",
+      "notes": "Steam persona 'Doi' matches the Liquipedia handle 'Doi' (no-page on the wiki), and the account is observed on that handle's own team in 3 of 3 testable rostering(s). Persona evidence caps at probable."
+    },
+    "379745391": {
+      "handle": "Afera",
+      "aka": [],
+      "identified": "probable",
+      "notes": "Steam persona 'Afera' matches the Liquipedia handle 'Afera' (no-page on the wiki), and the account is observed on that handle's own team in 1 of 1 testable rostering(s). Persona evidence caps at probable."
+    },
+    "385814004": {
+      "handle": "MikaelS",
+      "aka": [],
+      "identified": "confirmed",
+      "notes": "Liquipedia player page MikaelS carries this steam64ID, and the account is observed playing on that handle's own team. See scripts/resolve_identities.py."
     },
     "399289886": {
       "handle": null,
       "aka": [],
       "identified": "guess",
       "notes": "Almost certainly AVG, but not named. Closed-set elimination in match 74191976 and again on the #48 Poppers' Pupils side both leave AVG as the only unassigned roster slot. That is still elimination rather than direct evidence, the Steam persona is a single Greek letter and gives no signal, and Liquipedia's own steam64ID for AVG points at a different account (persona 'mrbob40') that appears in no cached match. Left unnamed deliberately: there is no cost to an account rendering as a number, and an identity error lands on a real person.",
-      "_hint_steam_persona": "Λ",
+      "_hint_steam_persona": "\u039b",
       "_hint_vanity": null
     },
-    "407786402": {
-      "handle": null,
+    "400239835": {
+      "handle": "fargareko",
       "aka": [],
-      "identified": "guess",
-      "notes": "",
+      "identified": "confirmed",
+      "notes": "Liquipedia player page Fargareko carries this steam64ID, and the account is observed playing on that handle's own team. See scripts/resolve_identities.py."
+    },
+    "407786402": {
+      "handle": "Reyache",
+      "aka": [],
+      "identified": "confirmed",
+      "notes": "Liquipedia player page Reyache carries this steam64ID, and the account is observed playing on that handle's own team. See scripts/resolve_identities.py.",
       "_hint_steam_persona": "reyache",
       "_hint_vanity": "reyache"
     },
     "483770846": {
-      "handle": null,
+      "handle": "cosmetical",
       "aka": [],
-      "identified": "guess",
-      "notes": "",
+      "identified": "confirmed",
+      "notes": "Liquipedia player page Cosmetical carries this steam64ID, and the account is observed playing on that handle's own team. See scripts/resolve_identities.py.",
       "_hint_steam_persona": "invincible under the sun",
       "_hint_vanity": "heavenlydelusions"
+    },
+    "888853854": {
+      "handle": "ABL",
+      "aka": [],
+      "identified": "confirmed",
+      "notes": "Liquipedia player page ABL carries this steam64ID, and the account is observed playing on that handle's own team. See scripts/resolve_identities.py."
+    },
+    "889536589": {
+      "handle": "Venial",
+      "aka": [],
+      "identified": "probable",
+      "notes": "Steam persona 'venial' matches the Liquipedia handle 'Venial' (no-page on the wiki), and the account is observed on that handle's own team in 1 of 1 testable rostering(s). Persona evidence caps at probable."
+    },
+    "891136769": {
+      "handle": "banw1se19",
+      "aka": [],
+      "identified": "confirmed",
+      "notes": "Liquipedia player page Banw1se19 carries this steam64ID, and the account is observed playing on that handle's own team. See scripts/resolve_identities.py."
+    },
+    "898514158": {
+      "handle": "blur",
+      "aka": [],
+      "identified": "probable",
+      "notes": "Steam persona 'blur' matches the Liquipedia handle 'blur' (no-id on the wiki), and the account is observed on that handle's own team in 1 of 1 testable rostering(s). Persona evidence caps at probable."
     },
     "906011648": {
       "handle": null,
       "aka": [],
       "identified": "guess",
       "notes": "",
-      "_hint_steam_persona": "плотнячок",
+      "_hint_steam_persona": "\u043f\u043b\u043e\u0442\u043d\u044f\u0447\u043e\u043a",
       "_hint_vanity": null
     },
     "911856667": {
-      "handle": null,
+      "handle": "obikym",
       "aka": [],
-      "identified": "guess",
-      "notes": "",
+      "identified": "confirmed",
+      "notes": "Liquipedia player page Obikym carries this steam64ID, and the account is observed playing on that handle's own team. See scripts/resolve_identities.py.",
       "_hint_steam_persona": "obikym",
       "_hint_vanity": "obikym"
     },
-    "914913299": {
-      "handle": null,
+    "912304652": {
+      "handle": "SURGERY",
       "aka": [],
-      "identified": "guess",
-      "notes": "",
+      "identified": "confirmed",
+      "notes": "Liquipedia player page SURGERY carries this steam64ID, and the account is observed playing on that handle's own team. See scripts/resolve_identities.py."
+    },
+    "914913299": {
+      "handle": "Mayonese",
+      "aka": [],
+      "identified": "probable",
+      "notes": "Steam persona 'Mayonese' matches the Liquipedia handle 'Mayonese' (no-page on the wiki), and the account is observed on that handle's own team in 2 of 2 testable rostering(s). Persona evidence caps at probable.",
       "_hint_steam_persona": "T.TV Mayonesedl LIVE EVERY DAY",
       "_hint_vanity": "mayaniz"
     },
@@ -218,53 +422,77 @@
         "url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/48/NA"
       }
     },
-    "984254212": {
-      "handle": null,
+    "924889838": {
+      "handle": "weAppp",
       "aka": [],
-      "identified": "guess",
-      "notes": "",
+      "identified": "confirmed",
+      "notes": "Liquipedia player page WeAppp carries this steam64ID, and the account is observed playing on that handle's own team. See scripts/resolve_identities.py."
+    },
+    "984254212": {
+      "handle": "Overseas",
+      "aka": [],
+      "identified": "confirmed",
+      "notes": "Liquipedia player page Overseas carries this steam64ID, and the account is observed playing on that handle's own team. See scripts/resolve_identities.py.",
       "_hint_steam_persona": "overseas",
       "_hint_vanity": "overseasd"
     },
     "1009703898": {
-      "handle": null,
+      "handle": "freemok",
       "aka": [],
-      "identified": "guess",
-      "notes": "",
+      "identified": "confirmed",
+      "notes": "Liquipedia player page Freemok carries this steam64ID, and the account is observed playing on that handle's own team. See scripts/resolve_identities.py.",
       "_hint_steam_persona": "freemok",
       "_hint_vanity": null
     },
-    "1045169707": {
-      "handle": null,
+    "1012333396": {
+      "handle": "ayano",
       "aka": [],
-      "identified": "guess",
-      "notes": "",
+      "identified": "confirmed",
+      "notes": "Liquipedia player page Ayano carries this steam64ID, and the account is observed playing on that handle's own team. See scripts/resolve_identities.py."
+    },
+    "1045169707": {
+      "handle": "sai",
+      "aka": [],
+      "identified": "confirmed",
+      "notes": "Liquipedia player page Sai carries this steam64ID, and the account is observed playing on that handle's own team. See scripts/resolve_identities.py.",
       "_hint_steam_persona": "8",
       "_hint_vanity": "saijkeee"
     },
     "1046192556": {
-      "handle": null,
+      "handle": "w3aky",
       "aka": [],
-      "identified": "guess",
-      "notes": "",
+      "identified": "confirmed",
+      "notes": "Liquipedia player page W3aky carries this steam64ID, and the account is observed playing on that handle's own team. See scripts/resolve_identities.py.",
       "_hint_steam_persona": "w3aky",
       "_hint_vanity": null
     },
     "1049966963": {
-      "handle": null,
+      "handle": "DMB",
       "aka": [],
-      "identified": "guess",
-      "notes": "",
+      "identified": "confirmed",
+      "notes": "Liquipedia player page DMB carries this steam64ID, and the account is observed playing on that handle's own team. See scripts/resolve_identities.py.",
       "_hint_steam_persona": "DMB",
       "_hint_vanity": null
     },
-    "1055638874": {
-      "handle": null,
+    "1053706881": {
+      "handle": "Division",
       "aka": [],
-      "identified": "guess",
-      "notes": "",
+      "identified": "probable",
+      "notes": "Steam persona 'Division' matches the Liquipedia handle 'Division' (no-page on the wiki), and the account is observed on that handle's own team in 1 of 1 testable rostering(s). Persona evidence caps at probable."
+    },
+    "1055638874": {
+      "handle": "saintmxsm",
+      "aka": [],
+      "identified": "confirmed",
+      "notes": "Liquipedia player page Saintmxsm carries this steam64ID, and the account is observed playing on that handle's own team. See scripts/resolve_identities.py.",
       "_hint_steam_persona": "twitch.tv/saintmxsm",
       "_hint_vanity": "saintmxsm"
+    },
+    "1062664388": {
+      "handle": "qult",
+      "aka": [],
+      "identified": "confirmed",
+      "notes": "Liquipedia player page Qult carries this steam64ID, and the account is observed playing on that handle's own team. See scripts/resolve_identities.py."
     },
     "1090618511": {
       "handle": null,
@@ -274,11 +502,17 @@
       "_hint_steam_persona": "sister",
       "_hint_vanity": null
     },
-    "1186801441": {
-      "handle": null,
+    "1141067246": {
+      "handle": "Rumple",
       "aka": [],
-      "identified": "guess",
-      "notes": "",
+      "identified": "probable",
+      "notes": "Steam persona 'Rumple' matches the Liquipedia handle 'Rumple' (no-page on the wiki), and the account is observed on that handle's own team in 1 of 1 testable rostering(s). Persona evidence caps at probable."
+    },
+    "1186801441": {
+      "handle": "zxcbobi2011",
+      "aka": [],
+      "identified": "confirmed",
+      "notes": "Liquipedia player page Zxcbobi2011 carries this steam64ID, and the account is observed playing on that handle's own team. See scripts/resolve_identities.py.",
       "_hint_steam_persona": "zxcbobi",
       "_hint_vanity": "zxcbobi"
     },
@@ -294,11 +528,17 @@
         "url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/48/NA"
       }
     },
-    "1444662928": {
-      "handle": null,
+    "1387549649": {
+      "handle": "LordNM",
       "aka": [],
-      "identified": "guess",
-      "notes": "",
+      "identified": "probable",
+      "notes": "Steam persona 'lordnm' matches the Liquipedia handle 'LordNM' (no-id on the wiki), and the account is observed on that handle's own team in 5 of 5 testable rostering(s). Persona evidence caps at probable."
+    },
+    "1444662928": {
+      "handle": "Tas",
+      "aka": [],
+      "identified": "confirmed",
+      "notes": "Liquipedia player page Tas carries this steam64ID, and the account is observed playing on that handle's own team. See scripts/resolve_identities.py.",
       "_hint_steam_persona": "Tas",
       "_hint_vanity": null
     },
@@ -314,6 +554,18 @@
         "url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/48/NA"
       }
     },
+    "1482863137": {
+      "handle": "playa",
+      "aka": [],
+      "identified": "probable",
+      "notes": "Steam persona 'playa' matches the Liquipedia handle 'playa' (no-page on the wiki), and the account is observed on that handle's own team in 1 of 1 testable rostering(s). Persona evidence caps at probable."
+    },
+    "1557303666": {
+      "handle": "Ayrien",
+      "aka": [],
+      "identified": "confirmed",
+      "notes": "Liquipedia player page Ayrien carries this steam64ID, and the account is observed playing on that handle's own team. See scripts/resolve_identities.py."
+    },
     "1591197043": {
       "handle": null,
       "aka": [],
@@ -321,6 +573,12 @@
       "notes": "",
       "_hint_steam_persona": "theac",
       "_hint_vanity": null
+    },
+    "1673876903": {
+      "handle": "apacycle",
+      "aka": [],
+      "identified": "confirmed",
+      "notes": "Liquipedia player page Apacycle carries this steam64ID, and the account is observed playing on that handle's own team. See scripts/resolve_identities.py."
     },
     "1676299122": {
       "handle": null,
@@ -338,6 +596,12 @@
       "_hint_steam_persona": "adofan11",
       "_hint_vanity": null
     },
+    "1710092569": {
+      "handle": "epl1fine",
+      "aka": [],
+      "identified": "confirmed",
+      "notes": "Liquipedia player page Epl1fine carries this steam64ID, and the account is observed playing on that handle's own team. See scripts/resolve_identities.py."
+    },
     "1730032433": {
       "handle": "Zeno",
       "aka": [],
@@ -349,6 +613,12 @@
         "provider": "liquipedia",
         "url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/48/NA"
       }
+    },
+    "1787356635": {
+      "handle": "MazaG",
+      "aka": [],
+      "identified": "confirmed",
+      "notes": "Liquipedia player page MazaG carries this steam64ID, and the account is observed playing on that handle's own team. See scripts/resolve_identities.py."
     },
     "1840902834": {
       "handle": "oses",
@@ -393,6 +663,12 @@
         "provider": "liquipedia",
         "url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/48/NA"
       }
+    },
+    "1902828658": {
+      "handle": "Erebus",
+      "aka": [],
+      "identified": "confirmed",
+      "notes": "Liquipedia player page Erebus carries this steam64ID, and the account is observed playing on that handle's own team. See scripts/resolve_identities.py."
     },
     "1929248273": {
       "handle": "Poppers",
