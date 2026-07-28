@@ -4,9 +4,18 @@ What `api.deadlock-api.com/v1` actually returns, established by real requests.
 
 Every claim below was checked against live responses on **July 27 2026**,
 using the 12 cached Night Shift matches (editions 46 to 48, 144 player-games)
-plus live calls to each endpoint. Nothing here is taken from documentation or
-inferred from field names. Where a field exists but is useless, that is stated
-rather than left for someone to rediscover.
+plus live calls to each endpoint. Nothing here is inferred from field names.
+Where a field exists but is useless, that is stated rather than left for
+someone to rediscover.
+
+One section is an exception and says so in its own opening line: **Rate
+limits** is read from the API's published OpenAPI spec, because rate limit
+policy cannot be established by observation without abusing the thing being
+measured. Everything else remains observation only.
+
+Anything fetched to establish a fact here belongs in the repository, not in a
+scratch directory. Rate limits were missing from these notes for exactly that
+reason, and it cost a backfill run that stalled with no visible cause.
 
 Counts like "144/144" mean the check ran over every player-game in the cache.
 
@@ -25,6 +34,72 @@ no key and no proxy needed.
 | `match_outcome` is always `0` | Does not indicate who won. Use `winning_team`. |
 | Leaderboard gives **candidate** account IDs | `possible_account_ids` is an array, exactly one candidate only 58% of the time. |
 | Match history **does** exist per account | And it includes tournament matches. |
+| Metadata rate limit depends on **where the match is stored** | Cached 100/s, S3 100/10s, **cold from Steam 3/hour**. See below. |
+
+---
+
+## Rate limits, and why they look inconsistent
+
+**This section is read from the API's own OpenAPI spec at
+`https://api.deadlock-api.com/openapi.json`, not from our own probing.** It is
+documentation, not an observed fact, and is marked as such. The 3/hour figure
+below was separately confirmed live: a cold match returned HTTP 429 carrying
+`ratelimit-limit: 3`, `ratelimit-period: 3600`, `retry-after: 1575`.
+
+The limit on `GET /matches/{match_id}/metadata` is **not one number**. It
+depends on which tier serves the request:
+
+| Tier | IP | With API key | Global |
+| --- | --- | --- | --- |
+| From Cache | 100 req/s | 100 req/s | 100 req/s |
+| From S3 | 100 req/10s | 100 req/s | 700 req/s |
+| **From Steam** | **3 req/hour** | **300 req/hour** | 1500 req/hour |
+
+"From Steam" means the API does not hold the match and has to pull it from
+Valve on our behalf. That is the expensive path and it is throttled roughly
+33,000 times harder than the cached path.
+
+**This explains a result that otherwise looks impossible.** Backfilling 258
+matches at 0.25s spacing succeeded with no rate limiting at all, and then 13
+matches from the same list refused to fetch at more than 3 per hour. Nothing
+changed at the API and our spacing was not at fault. The 258 were already in
+their cache or S3; the 13 are cold and each one costs a Steam pull. A match
+being old does not predict this, and there is no documented way to ask which
+tier a given match will hit without requesting it.
+
+Practical consequences:
+
+- **Spacing does not help a cold match.** No polite delay converts a 3/hour
+  budget into a workable one. Only a key, or the bulk endpoint, does.
+- **An API key raises the cold path 100x**, from 3/hour to 300/hour. Keys are
+  tied to sponsorship (Patreon or GitHub Sponsors), with the project Discord
+  `https://discord.gg/XMF9Xrgfqu` as the contact route. We do not have one.
+- `GET /matches/{match_id}/metadata/raw` carries **identical** limits, so
+  dropping to the raw protobuf buys nothing.
+
+### `GET /matches/metadata`, the bulk endpoint we were not using
+
+Undocumented in these notes until now, and it changes the backfill story.
+
+Takes `match_ids` as a comma separated list, **up to 1000 per call**, with a
+`limit` up to 10000 and optional `format=ndjson`. Rate limit is **10 req/min
+per IP**, with no Steam tier listed, which is consistent with it being served
+from their own store rather than pulled from Valve.
+
+Two cautions before relying on it:
+
+- **`match_mode` defaults to `ranked,unranked`, which excludes Night Shift.**
+  Tournament games are private lobbies. The filter has to be set explicitly or
+  the response comes back empty and looks like the matches do not exist.
+- Being served from their store means it can only return matches they already
+  hold. It is not a way to force a cold match to be ingested. It is, however, a
+  single cheap request that tells us **which** of our missing matches are cold,
+  instead of discovering it one 429 at a time.
+
+`include_player_final_stats` is also worth knowing: it returns the last sample
+of every `stats.*` series as one `final_stats` object. That is exactly the
+end-of-game snapshot we currently reconstruct by scanning `players[].stats[]`
+for the highest `time_stamp_s`, and the spec calls it far cheaper.
 
 ---
 
