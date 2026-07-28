@@ -75,18 +75,27 @@ Response is `{ match_info: { ... } }`. Relevant fields on `match_info`:
 - **Confirmed live:** `duration_s`, `start_time` (unix seconds),
   `winning_team`, `match_mode`
 - **Confirmed live:** `players[]` with `account_id`, `team`, `hero_id`,
-  `net_worth`, `kills`, `deaths`, `assists`. Twelve players per match.
-- **Confirmed live: damage is not a top-level player field.** It lives in
-  `players[].stats[]`, a time series. Take the entry with the highest
-  `time_stamp_s` and read `player_damage` from it. Checked on 144 of 144
-  player-games in the sample set, no misses. The highest `time_stamp_s`
-  equals `duration_s` exactly, so that really is the end-of-game snapshot.
+  `net_worth`, `kills`, `deaths`, `assists`. Usually twelve players per
+  match, but **not always**: one match in 270 has 8. Read the count, do not
+  assume it.
+- **Confirmed live, and re-tested on 3,236 player-games: damage is not a
+  top-level player field.** It lives in `players[].stats[]`, a time series.
+  Take the entry with the highest `time_stamp_s` and read `player_damage`
+  from it. **3236 of 3236** across editions #1 to #48, no misses. The highest
+  `time_stamp_s` equals `duration_s` exactly on every one, so that really is
+  the end-of-game snapshot. This is the best tested claim we have.
 - **Do not use `average_badge_team0` / `average_badge_team1`.** The fields
   exist, but on tournament matches (`match_mode: 2`) they are always `0`,
   not null and not absent. Public matchmaking games (`match_mode: 1`) do
-  return real values such as `116`, so the field works, Valve simply never
-  populates it for custom lobbies. All Night Shift games are `match_mode: 2`.
-  Note that `?? null` will **not** catch this, because `0` is not nullish.
+  return real values, so the field works, Valve simply never populates it for
+  custom lobbies. Note that `?? null` will **not** catch this, because `0` is
+  not nullish. **Almost all Night Shift games are `match_mode: 2`, but not
+  all**: 268 of 270 cached, with 2 coming back as mode 1 carrying a real
+  badge of 11. Do not filter on mode 2 assuming it is universal.
+- **`teams[]` is often present, and always hollow.** Absent on 110 of 270
+  matches and present on 160, where every entry has only `team` and an empty
+  `team_tracked_stats`. No identity, no score. A truthiness check on it
+  behaves differently across editions.
 
 ### Hero assets
 
@@ -96,10 +105,12 @@ files), one of: `assassin`, `brawler`, `marksman`, `mystic`. Icons are at
 
 **Confirmed live and reliable.** Of 57 heroes, 37 carry a `hero_type`. The
 20 without one are almost all `disabled: true`, so among the 38 active
-heroes exactly one (Rem) is missing it. Across the sample match set, 143 of
-144 player-games resolve to a role. Treat it as optional in code, since it
-can be absent, but it is dense enough in practice to base Role Score on.
-Every active hero has `icon_image_small`.
+heroes exactly one (Rem) is missing it. Across the full cache, **3188 of
+3236** player-games resolve to a role, 98.5%, with all 48 gaps on hero 79.
+The earlier figure of 143 of 144 came from 12 recent matches and was
+slightly optimistic. Treat role as optional in code, since it can be absent,
+but it is dense enough to base Role Score on. Every active hero has
+`icon_image_small`.
 
 ### Steam profiles
 
@@ -109,7 +120,10 @@ All confirmed live. Note the endpoint takes **SteamID64**, but match data
 gives **account_id** (32-bit). Convert with `accountId + 76561197960265728n`.
 
 `last_team_avg_badge` is populated, but it is not a usable stand-in for the
-old Opposition column: all 45 players across the sample tournament set came
+old Opposition column. **Provisional, and the weakest claim we rely on:** it
+rests on 45 profiles from three consecutive editions, which is the same shape
+of sample that produced the amber/sapphire error, and we now know of 170
+accounts. All 45 players across the sample tournament set came
 back as either 115 or 116. At Night Shift level everyone is Eternus V or VI,
 so badge cannot separate these teams no matter where the number comes from.
 
@@ -163,6 +177,12 @@ Night Shift is **weekly with no seasons**. Editions are numbered (#48 was
 July 22, 2026). Format is king of the hill: qualifier (Bo3), then
 challenger (Bo1), then final (Bo3). The final's winner returns directly to
 the next edition's final; the loser drops to the next challenger match.
+
+**An edition is not always a single evening.** On #36 NA the qualifier was
+played five days before the challenger and final, and on #37 NA three days
+before. Twenty two editions span more than one UTC date, though most of those
+are just a broadcast running past midnight. Night files therefore carry a
+`date_span`, and code should not assume one edition means one date.
 
 **This creates a real stats bias.** Established teams play fewer but harder
 games. Up and comers accumulate more games, including easy qualifier

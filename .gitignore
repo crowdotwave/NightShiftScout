@@ -10,3 +10,8 @@ __pycache__/
 # Generated site output
 site/
 site_preview/
+
+# Raw session transcript dumps. Durable decisions belong in session-notes.md
+# or the relevant doc, not in a verbatim log.
+session-*.md
+!session-notes.md

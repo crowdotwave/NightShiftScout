@@ -13,6 +13,11 @@ limits** is read from the API's published OpenAPI spec, because rate limit
 policy cannot be established by observation without abusing the thing being
 measured. Everything else remains observation only.
 
+**Read the sampling section below before trusting any "confirmed" count in
+this file.** Most of them were established on 12 matches from three
+consecutive editions. Some have since been re-tested on 270 and held. Some
+did not.
+
 Anything fetched to establish a fact here belongs in the repository, not in a
 scratch directory. Rate limits were missing from these notes for exactly that
 reason, and it cost a backfill run that stalled with no visible cause.
@@ -30,11 +35,78 @@ no key and no proxy needed.
 | --- | --- |
 | `match_result` is not win/loss | It is the **winning team index**. See below, verified 9/9. |
 | `average_badge_team0/1` is always `0` on tournament games | Present, typed `int`, never populated for `match_mode: 2`. |
-| `teams[]` and `team_score` are empty | Carry no team identity or score. |
+| `teams[]` carries nothing usable | Often **present** rather than absent, but every entry is hollow. See below. |
 | `match_outcome` is always `0` | Does not indicate who won. Use `winning_team`. |
 | Leaderboard gives **candidate** account IDs | `possible_account_ids` is an array, exactly one candidate only 58% of the time. |
 | Match history **does** exist per account | And it includes tournament matches. |
 | Metadata rate limit depends on **where the match is stored** | Cached 100/s, S3 100/10s, **cold from Steam 3/hour**. See below. |
+
+---
+
+## The 12 match sample, and what survived leaving it
+
+Every "confirmed" claim originally in this file came from the **same 12
+matches**: editions #46 to #48, 144 player-games, all from July 2026.
+
+That sample is what produced the amber/sapphire side mapping error. The rule
+held 12 of 12 and looked like a law; across 261 games it is 95% and inverts
+on 13. Three consecutive recent editions are not a random sample of 49, and
+**every conclusion drawn from those 12 inherits that weakness**. Not wrong,
+but untested anywhere else.
+
+`scripts/verify_api_claims.py` re-tests everything the cache alone can
+settle, now across **270 matches and 3,236 player-games, editions #1 to #48**.
+It makes no network requests. Results:
+
+### Held, and now on a 22x larger sample
+
+| Claim | Was | Now |
+| --- | --- | --- |
+| Final `stats[]` entry carries `player_damage` | 144/144 | **3236/3236** |
+| Max `time_stamp_s` equals `duration_s` exactly | 144/144 | **3236/3236** |
+| `winning_team` is 0 or 1 | 12/12 | **270/270** |
+| `match_outcome` is always 0 | 12/12 | **270/270** |
+| `banned_hero_ids` is empty | 12/12 | **270/270** |
+
+The damage extraction the whole app depends on is now genuinely well tested.
+
+### Did not survive
+
+- **`teams[]` is not "empty".** It is **present on 160 of 270 matches** and
+  absent on the rest. The 12 match sample happened to contain only the absent
+  case. The substance of the claim still holds and is why this is a wording
+  fix rather than a retraction: all 320 entries across those 160 matches
+  carry exactly two keys, `team` and an empty `team_tracked_stats`. There is
+  still no team identity and no score. But code that tests `if teams:` will
+  now take a branch it never took on the old sample.
+- **"All Night Shift games are `match_mode: 2`" is false.** 268 of 270 are,
+  and **2 are `match_mode: 1`**. Those two also carry a real
+  `average_badge_team0/1` of 11 rather than 0, which is exactly what the
+  badge section predicts and is therefore a confirmation of the mechanism
+  and a correction to the "all" at the same time.
+- **Twelve players per match is not universal.** Match `83756240` has **8**.
+  Anything dividing by 12, or assuming six a side, needs to read the actual
+  count.
+- **`hero_type` coverage is lower than measured.** Was 143/144, 99.3%. Across
+  the full cache it is **3188/3236, 98.5%**, and all 48 gaps are hero 79. The
+  conclusion that role is dense enough to build on survives, the exact figure
+  does not.
+
+### Still resting on the 12, and why
+
+These need data the cache does not hold, so they could not be re-tested
+without spending requests:
+
+- `last_team_avg_badge` is 115 or 116 for everyone. Needs `/players/steam`,
+  and we hold 45 profiles against 170 known accounts.
+- `possible_account_ids` is unique only 58% of the time. Needs `/leaderboard`.
+- `match_result` is the winning team index, 9/9. Needs
+  `/players/{id}/match-history`.
+
+Treat all three as provisional. The first is the one to be most careful with,
+because it is the basis for the claim that badge cannot separate Night Shift
+teams, and 45 players from three editions is precisely the shape of sample
+that has already misled us once.
 
 ---
 
