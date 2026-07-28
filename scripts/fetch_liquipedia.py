@@ -167,6 +167,10 @@ def main() -> int:
     parser.add_argument("--out", type=Path, default=DEFAULT_OUT)
     parser.add_argument("--force", action="store_true", help="Re-fetch pages already cached")
     parser.add_argument("--dry-run", action="store_true", help="Report without fetching content")
+    parser.add_argument("--titles-from", type=Path, default=None,
+                        help="JSON file with a 'player_page_titles' array, or a text file of one "
+                             "title per line. Fetches those pages instead of the edition pages. "
+                             "Used for player pages, which carry steam64ID.")
     args = parser.parse_args()
 
     pages_dir = args.out / "pages"
@@ -178,17 +182,29 @@ def main() -> int:
 
     client = Client()
     try:
-        print("Enumerating Night Shift pages ...", flush=True)
-        all_titles = list_series_pages(client)
-        titles = edition_pages(all_titles)
-        print(f"  {len(all_titles)} page(s) under the prefix, {len(titles)} edition page(s)",
-              flush=True)
-
-        if args.editions:
-            wanted = {str(int(e)) for e in args.editions}
-            titles = [t for t in titles if t.split("/")[1] in wanted]
-            print(f"  limited to editions {sorted(wanted, key=int)}: {len(titles)} page(s)",
+        if args.titles_from:
+            # Player pages are not under the series prefix, so allpages does not
+            # find them. They are named after the handle, which the roster parse
+            # already capitalises into a MediaWiki join key.
+            raw = args.titles_from.read_text(encoding="utf-8")
+            if args.titles_from.suffix.lower() == ".json":
+                titles = json.loads(raw).get("player_page_titles") or []
+            else:
+                titles = [line.strip() for line in raw.splitlines() if line.strip()]
+            titles = sorted(dict.fromkeys(titles))
+            print(f"{len(titles)} title(s) from {args.titles_from}", flush=True)
+        else:
+            print("Enumerating Night Shift pages ...", flush=True)
+            all_titles = list_series_pages(client)
+            titles = edition_pages(all_titles)
+            print(f"  {len(all_titles)} page(s) under the prefix, {len(titles)} edition page(s)",
                   flush=True)
+
+            if args.editions:
+                wanted = {str(int(e)) for e in args.editions}
+                titles = [t for t in titles if t.split("/")[1] in wanted]
+                print(f"  limited to editions {sorted(wanted, key=int)}: {len(titles)} page(s)",
+                      flush=True)
 
         todo = [t for t in titles
                 if args.force or not (pages_dir / f"{safe_name(t)}.wiki.gz").exists()]

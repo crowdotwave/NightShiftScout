@@ -5,6 +5,134 @@
   "attribution": "Content from Liquipedia, https://liquipedia.net/deadlock/, CC-BY-SA 3.0",
   "user_agent": "NightShiftScout/1.0 (https://github.com/crowdotwave/NightShiftScout; contact via GitHub issues)",
   "pages": {
+    "ABL": {
+      "file": "ABL.wiki.gz",
+      "revision_id": 25602,
+      "revision_timestamp": "2026-03-12T13:51:24Z",
+      "fetched_utc": "2026-07-28T04:12:54+00:00",
+      "source_url": "https://liquipedia.net/deadlock/ABL",
+      "bytes": 1215
+    },
+    "AVG": {
+      "file": "AVG.wiki.gz",
+      "revision_id": 26958,
+      "revision_timestamp": "2026-05-25T20:18:22Z",
+      "fetched_utc": "2026-07-28T04:12:54+00:00",
+      "source_url": "https://liquipedia.net/deadlock/AVG",
+      "bytes": 543
+    },
+    "Aidanthedestroye": {
+      "file": "Aidanthedestroye.wiki.gz",
+      "revision_id": 25472,
+      "revision_timestamp": "2026-03-06T11:59:02Z",
+      "fetched_utc": "2026-07-28T04:12:54+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Aidanthedestroye",
+      "bytes": 766
+    },
+    "Apacycle": {
+      "file": "Apacycle.wiki.gz",
+      "revision_id": 24508,
+      "revision_timestamp": "2025-11-17T23:05:26Z",
+      "fetched_utc": "2026-07-28T04:12:54+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Apacycle",
+      "bytes": 434
+    },
+    "Arctic": {
+      "file": "Arctic.wiki.gz",
+      "revision_id": 25513,
+      "revision_timestamp": "2026-03-08T22:48:31Z",
+      "fetched_utc": "2026-07-28T04:12:54+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Arctic",
+      "bytes": 374
+    },
+    "Arzo": {
+      "file": "Arzo.wiki.gz",
+      "revision_id": 27875,
+      "revision_timestamp": "2026-07-02T14:43:40Z",
+      "fetched_utc": "2026-07-28T04:12:54+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Arzo",
+      "bytes": 420
+    },
+    "Ayano": {
+      "file": "Ayano.wiki.gz",
+      "revision_id": 24603,
+      "revision_timestamp": "2025-11-20T12:55:17Z",
+      "fetched_utc": "2026-07-28T04:12:54+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Ayano",
+      "bytes": 455
+    },
+    "Ayrien": {
+      "file": "Ayrien.wiki.gz",
+      "revision_id": 26304,
+      "revision_timestamp": "2026-04-27T13:21:04Z",
+      "fetched_utc": "2026-07-28T04:12:54+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Ayrien",
+      "bytes": 463
+    },
+    "Banw1se19": {
+      "file": "Banw1se19.wiki.gz",
+      "revision_id": 26381,
+      "revision_timestamp": "2026-04-28T15:50:40Z",
+      "fetched_utc": "2026-07-28T04:12:54+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Banw1se19",
+      "bytes": 638
+    },
+    "Blob": {
+      "file": "Blob.wiki.gz",
+      "revision_id": 26316,
+      "revision_timestamp": "2026-04-27T15:24:19Z",
+      "fetched_utc": "2026-07-28T04:12:54+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Blob",
+      "bytes": 426
+    },
+    "Blur": {
+      "file": "Blur.wiki.gz",
+      "revision_id": 27490,
+      "revision_timestamp": "2026-06-21T10:35:29Z",
+      "fetched_utc": "2026-07-28T04:12:54+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Blur",
+      "bytes": 401
+    },
+    "Braeden": {
+      "file": "Braeden.wiki.gz",
+      "revision_id": 28395,
+      "revision_timestamp": "2026-07-23T04:07:43Z",
+      "fetched_utc": "2026-07-28T04:12:54+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Braeden",
+      "bytes": 371
+    },
+    "Calculator": {
+      "file": "Calculator.wiki.gz",
+      "revision_id": 19136,
+      "revision_timestamp": "2025-03-23T18:18:52Z",
+      "fetched_utc": "2026-07-28T04:12:54+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Calculator",
+      "bytes": 588
+    },
+    "Coolcheese": {
+      "file": "Coolcheese.wiki.gz",
+      "revision_id": 25474,
+      "revision_timestamp": "2026-03-06T12:00:31Z",
+      "fetched_utc": "2026-07-28T04:12:54+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Coolcheese",
+      "bytes": 411
+    },
+    "Cosmetical": {
+      "file": "Cosmetical.wiki.gz",
+      "revision_id": 27368,
+      "revision_timestamp": "2026-06-16T22:21:55Z",
+      "fetched_utc": "2026-07-28T04:12:54+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Cosmetical",
+      "bytes": 467
+    },
+    "DMB": {
+      "file": "DMB.wiki.gz",
+      "revision_id": 26917,
+      "revision_timestamp": "2026-05-18T09:34:12Z",
+      "fetched_utc": "2026-07-28T04:12:54+00:00",
+      "source_url": "https://liquipedia.net/deadlock/DMB",
+      "bytes": 354
+    },
     "Deadlock Night Shift/1/EU": {
       "file": "Deadlock_Night_Shift__1__EU.wiki.gz",
       "revision_id": 26039,
@@ -788,6 +916,478 @@
       "fetched_utc": "2026-07-28T00:41:56+00:00",
       "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/9/NA",
       "bytes": 4999
+    },
+    "Dew": {
+      "file": "Dew.wiki.gz",
+      "revision_id": 25668,
+      "revision_timestamp": "2026-03-22T01:54:33Z",
+      "fetched_utc": "2026-07-28T04:12:54+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Dew",
+      "bytes": 370
+    },
+    "Dimov": {
+      "file": "Dimov.wiki.gz",
+      "revision_id": 24510,
+      "revision_timestamp": "2025-11-17T23:07:26Z",
+      "fetched_utc": "2026-07-28T04:12:54+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Dimov",
+      "bytes": 476
+    },
+    "Eidorian": {
+      "file": "Eidorian.wiki.gz",
+      "revision_id": 26955,
+      "revision_timestamp": "2026-05-25T20:12:08Z",
+      "fetched_utc": "2026-07-28T04:12:54+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Eidorian",
+      "bytes": 534
+    },
+    "Empty dreams": {
+      "file": "Empty_dreams.wiki.gz",
+      "revision_id": 27597,
+      "revision_timestamp": "2026-06-24T18:56:33Z",
+      "fetched_utc": "2026-07-28T04:12:54+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Empty_dreams",
+      "bytes": 462
+    },
+    "Epl1fine": {
+      "file": "Epl1fine.wiki.gz",
+      "revision_id": 24514,
+      "revision_timestamp": "2025-11-17T23:11:26Z",
+      "fetched_utc": "2026-07-28T04:12:54+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Epl1fine",
+      "bytes": 464
+    },
+    "Erebus": {
+      "file": "Erebus.wiki.gz",
+      "revision_id": 26020,
+      "revision_timestamp": "2026-04-16T15:51:47Z",
+      "fetched_utc": "2026-07-28T04:12:54+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Erebus",
+      "bytes": 392
+    },
+    "Fargareko": {
+      "file": "Fargareko.wiki.gz",
+      "revision_id": 24515,
+      "revision_timestamp": "2025-11-17T23:12:26Z",
+      "fetched_utc": "2026-07-28T04:12:54+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Fargareko",
+      "bytes": 443
+    },
+    "Fishcake": {
+      "file": "Fishcake.wiki.gz",
+      "revision_id": 25077,
+      "revision_timestamp": "2026-02-05T11:47:55Z",
+      "fetched_utc": "2026-07-28T04:12:54+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Fishcake",
+      "bytes": 514
+    },
+    "Fl0z": {
+      "file": "Fl0z.wiki.gz",
+      "revision_id": 27701,
+      "revision_timestamp": "2026-06-27T10:53:40Z",
+      "fetched_utc": "2026-07-28T04:12:54+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Fl0z",
+      "bytes": 393
+    },
+    "Flammable": {
+      "file": "Flammable.wiki.gz",
+      "revision_id": 24517,
+      "revision_timestamp": "2025-11-17T23:14:26Z",
+      "fetched_utc": "2026-07-28T04:12:54+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Flammable",
+      "bytes": 648
+    },
+    "Freemok": {
+      "file": "Freemok.wiki.gz",
+      "revision_id": 24518,
+      "revision_timestamp": "2025-11-17T23:15:26Z",
+      "fetched_utc": "2026-07-28T04:12:54+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Freemok",
+      "bytes": 716
+    },
+    "Gfreek": {
+      "file": "Gfreek.wiki.gz",
+      "revision_id": 28238,
+      "revision_timestamp": "2026-07-15T22:35:17Z",
+      "fetched_utc": "2026-07-28T04:12:54+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Gfreek",
+      "bytes": 367
+    },
+    "Gibz": {
+      "file": "Gibz.wiki.gz",
+      "revision_id": 25473,
+      "revision_timestamp": "2026-03-06T11:59:51Z",
+      "fetched_utc": "2026-07-28T04:12:54+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Gibz",
+      "bytes": 662
+    },
+    "Goober": {
+      "file": "Goober.wiki.gz",
+      "revision_id": 25783,
+      "revision_timestamp": "2026-04-02T22:49:16Z",
+      "fetched_utc": "2026-07-28T04:12:54+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Goober",
+      "bytes": 561
+    },
+    "Happex": {
+      "file": "Happex.wiki.gz",
+      "revision_id": 27342,
+      "revision_timestamp": "2026-06-11T11:55:27Z",
+      "fetched_utc": "2026-07-28T04:12:54+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Happex",
+      "bytes": 467
+    },
+    "Hoot": {
+      "file": "Hoot.wiki.gz",
+      "revision_id": 24571,
+      "revision_timestamp": "2025-11-18T18:18:35Z",
+      "fetched_utc": "2026-07-28T04:12:54+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Hoot",
+      "bytes": 408
+    },
+    "Hydration": {
+      "file": "Hydration.wiki.gz",
+      "revision_id": 24521,
+      "revision_timestamp": "2025-11-17T23:18:26Z",
+      "fetched_utc": "2026-07-28T04:12:54+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Hydration",
+      "bytes": 1104
+    },
+    "IRezUmi": {
+      "file": "IRezUmi.wiki.gz",
+      "revision_id": 24522,
+      "revision_timestamp": "2025-11-17T23:19:26Z",
+      "fetched_utc": "2026-07-28T04:12:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/IRezUmi",
+      "bytes": 479
+    },
+    "JonJon": {
+      "file": "JonJon.wiki.gz",
+      "revision_id": 25626,
+      "revision_timestamp": "2026-03-16T21:37:08Z",
+      "fetched_utc": "2026-07-28T04:12:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/JonJon",
+      "bytes": 536
+    },
+    "Kapten": {
+      "file": "Kapten.wiki.gz",
+      "revision_id": 26313,
+      "revision_timestamp": "2026-04-27T14:43:05Z",
+      "fetched_utc": "2026-07-28T04:12:57+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Kapten",
+      "bytes": 440
+    },
+    "League": {
+      "file": "League.wiki.gz",
+      "revision_id": 26918,
+      "revision_timestamp": "2026-05-18T09:35:17Z",
+      "fetched_utc": "2026-07-28T04:12:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/League",
+      "bytes": 422
+    },
+    "Lefaa": {
+      "file": "Lefaa.wiki.gz",
+      "revision_id": 24526,
+      "revision_timestamp": "2025-11-17T23:23:26Z",
+      "fetched_utc": "2026-07-28T04:12:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Lefaa",
+      "bytes": 492
+    },
+    "Leviathan": {
+      "file": "Leviathan.wiki.gz",
+      "revision_id": 27233,
+      "revision_timestamp": "2026-06-06T17:21:46Z",
+      "fetched_utc": "2026-07-28T04:12:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Leviathan",
+      "bytes": 1262
+    },
+    "Lomein": {
+      "file": "Lomein.wiki.gz",
+      "revision_id": 24528,
+      "revision_timestamp": "2025-11-17T23:25:26Z",
+      "fetched_utc": "2026-07-28T04:12:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Lomein",
+      "bytes": 412
+    },
+    "LordNM": {
+      "file": "LordNM.wiki.gz",
+      "revision_id": 25510,
+      "revision_timestamp": "2026-03-08T22:42:53Z",
+      "fetched_utc": "2026-07-28T04:12:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/LordNM",
+      "bytes": 498
+    },
+    "Lystic": {
+      "file": "Lystic.wiki.gz",
+      "revision_id": 25675,
+      "revision_timestamp": "2026-03-23T14:51:45Z",
+      "fetched_utc": "2026-07-28T04:12:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Lystic",
+      "bytes": 486
+    },
+    "Maht": {
+      "file": "Maht.wiki.gz",
+      "revision_id": 25443,
+      "revision_timestamp": "2026-03-05T08:34:22Z",
+      "fetched_utc": "2026-07-28T04:12:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Maht",
+      "bytes": 361
+    },
+    "MazaG": {
+      "file": "MazaG.wiki.gz",
+      "revision_id": 26323,
+      "revision_timestamp": "2026-04-27T18:49:22Z",
+      "fetched_utc": "2026-07-28T04:12:57+00:00",
+      "source_url": "https://liquipedia.net/deadlock/MazaG",
+      "bytes": 426
+    },
+    "MikaelS": {
+      "file": "MikaelS.wiki.gz",
+      "revision_id": 26331,
+      "revision_timestamp": "2026-04-27T21:17:04Z",
+      "fetched_utc": "2026-07-28T04:12:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/MikaelS",
+      "bytes": 452
+    },
+    "Obikym": {
+      "file": "Obikym.wiki.gz",
+      "revision_id": 24534,
+      "revision_timestamp": "2025-11-17T23:31:26Z",
+      "fetched_utc": "2026-07-28T04:12:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Obikym",
+      "bytes": 509
+    },
+    "Oses": {
+      "file": "Oses.wiki.gz",
+      "revision_id": 27340,
+      "revision_timestamp": "2026-06-11T10:04:16Z",
+      "fetched_utc": "2026-07-28T04:12:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Oses",
+      "bytes": 622
+    },
+    "Overseas": {
+      "file": "Overseas.wiki.gz",
+      "revision_id": 24535,
+      "revision_timestamp": "2025-11-17T23:32:26Z",
+      "fetched_utc": "2026-07-28T04:12:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Overseas",
+      "bytes": 475
+    },
+    "POSHYPOP": {
+      "file": "POSHYPOP.wiki.gz",
+      "revision_id": 26954,
+      "revision_timestamp": "2026-05-25T17:56:07Z",
+      "fetched_utc": "2026-07-28T04:12:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/POSHYPOP",
+      "bytes": 463
+    },
+    "Poppers": {
+      "file": "Poppers.wiki.gz",
+      "revision_id": 27696,
+      "revision_timestamp": "2026-06-27T10:31:24Z",
+      "fetched_utc": "2026-07-28T04:12:57+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Poppers",
+      "bytes": 368
+    },
+    "Qult": {
+      "file": "Qult.wiki.gz",
+      "revision_id": 28250,
+      "revision_timestamp": "2026-07-15T23:59:09Z",
+      "fetched_utc": "2026-07-28T04:12:57+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Qult",
+      "bytes": 365
+    },
+    "Ranger": {
+      "file": "Ranger.wiki.gz",
+      "revision_id": 26969,
+      "revision_timestamp": "2026-05-25T22:57:20Z",
+      "fetched_utc": "2026-07-28T04:12:57+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Ranger",
+      "bytes": 498
+    },
+    "Reyache": {
+      "file": "Reyache.wiki.gz",
+      "revision_id": 25715,
+      "revision_timestamp": "2026-03-31T15:36:05Z",
+      "fetched_utc": "2026-07-28T04:12:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Reyache",
+      "bytes": 487
+    },
+    "Rocaine": {
+      "file": "Rocaine.wiki.gz",
+      "revision_id": 25470,
+      "revision_timestamp": "2026-03-06T11:56:53Z",
+      "fetched_utc": "2026-07-28T04:12:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Rocaine",
+      "bytes": 540
+    },
+    "Rocker": {
+      "file": "Rocker.wiki.gz",
+      "revision_id": 25469,
+      "revision_timestamp": "2026-03-06T11:56:41Z",
+      "fetched_utc": "2026-07-28T04:12:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Rocker",
+      "bytes": 632
+    },
+    "SURGERY": {
+      "file": "SURGERY.wiki.gz",
+      "revision_id": 24722,
+      "revision_timestamp": "2025-12-01T15:23:19Z",
+      "fetched_utc": "2026-07-28T04:12:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/SURGERY",
+      "bytes": 451
+    },
+    "Sai": {
+      "file": "Sai.wiki.gz",
+      "revision_id": 25833,
+      "revision_timestamp": "2026-04-05T12:49:59Z",
+      "fetched_utc": "2026-07-28T04:12:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Sai",
+      "bytes": 537
+    },
+    "Saiah": {
+      "file": "Saiah.wiki.gz",
+      "revision_id": 25691,
+      "revision_timestamp": "2026-03-25T20:15:39Z",
+      "fetched_utc": "2026-07-28T04:12:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Saiah",
+      "bytes": 559
+    },
+    "Saintmxsm": {
+      "file": "Saintmxsm.wiki.gz",
+      "revision_id": 25144,
+      "revision_timestamp": "2026-02-12T19:52:43Z",
+      "fetched_utc": "2026-07-28T04:12:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Saintmxsm",
+      "bytes": 833
+    },
+    "Sanya sniper": {
+      "file": "Sanya_sniper.wiki.gz",
+      "revision_id": 26499,
+      "revision_timestamp": "2026-05-02T12:06:55Z",
+      "fetched_utc": "2026-07-28T04:12:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Sanya_sniper",
+      "bytes": 524
+    },
+    "Scout": {
+      "file": "Scout.wiki.gz",
+      "revision_id": 25063,
+      "revision_timestamp": "2026-02-04T10:36:09Z",
+      "fetched_utc": "2026-07-28T04:12:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Scout",
+      "bytes": 417
+    },
+    "Sharyk": {
+      "file": "Sharyk.wiki.gz",
+      "revision_id": 24548,
+      "revision_timestamp": "2025-11-17T23:45:26Z",
+      "fetched_utc": "2026-07-28T04:12:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Sharyk",
+      "bytes": 652
+    },
+    "Snakes": {
+      "file": "Snakes.wiki.gz",
+      "revision_id": 26242,
+      "revision_timestamp": "2026-04-20T16:51:27Z",
+      "fetched_utc": "2026-07-28T04:12:57+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Snakes",
+      "bytes": 397
+    },
+    "Stryde": {
+      "file": "Stryde.wiki.gz",
+      "revision_id": 27942,
+      "revision_timestamp": "2026-07-06T15:51:34Z",
+      "fetched_utc": "2026-07-28T04:12:57+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Stryde",
+      "bytes": 382
+    },
+    "TANNER": {
+      "file": "TANNER.wiki.gz",
+      "revision_id": 25465,
+      "revision_timestamp": "2026-03-06T11:52:37Z",
+      "fetched_utc": "2026-07-28T04:12:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/TANNER",
+      "bytes": 674
+    },
+    "Tas": {
+      "file": "Tas.wiki.gz",
+      "revision_id": 25986,
+      "revision_timestamp": "2026-04-14T08:48:00Z",
+      "fetched_utc": "2026-07-28T04:12:56+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Tas",
+      "bytes": 436
+    },
+    "Together": {
+      "file": "Together.wiki.gz",
+      "revision_id": 24986,
+      "revision_timestamp": "2026-01-21T19:06:44Z",
+      "fetched_utc": "2026-07-28T04:12:59+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Together",
+      "bytes": 1106
+    },
+    "Trax": {
+      "file": "Trax.wiki.gz",
+      "revision_id": 24552,
+      "revision_timestamp": "2025-11-17T23:49:26Z",
+      "fetched_utc": "2026-07-28T04:12:59+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Trax",
+      "bytes": 683
+    },
+    "Vraic": {
+      "file": "Vraic.wiki.gz",
+      "revision_id": 25757,
+      "revision_timestamp": "2026-04-01T23:21:41Z",
+      "fetched_utc": "2026-07-28T04:12:59+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Vraic",
+      "bytes": 415
+    },
+    "W3aky": {
+      "file": "W3aky.wiki.gz",
+      "revision_id": 28462,
+      "revision_timestamp": "2026-07-24T11:50:29Z",
+      "fetched_utc": "2026-07-28T04:12:59+00:00",
+      "source_url": "https://liquipedia.net/deadlock/W3aky",
+      "bytes": 483
+    },
+    "WeAppp": {
+      "file": "WeAppp.wiki.gz",
+      "revision_id": 28301,
+      "revision_timestamp": "2026-07-19T17:03:51Z",
+      "fetched_utc": "2026-07-28T04:12:59+00:00",
+      "source_url": "https://liquipedia.net/deadlock/WeAppp",
+      "bytes": 454
+    },
+    "Zeno": {
+      "file": "Zeno.wiki.gz",
+      "revision_id": 26919,
+      "revision_timestamp": "2026-05-18T09:36:20Z",
+      "fetched_utc": "2026-07-28T04:12:59+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Zeno",
+      "bytes": 420
+    },
+    "Zerggy": {
+      "file": "Zerggy.wiki.gz",
+      "revision_id": 24558,
+      "revision_timestamp": "2025-11-17T23:55:26Z",
+      "fetched_utc": "2026-07-28T04:12:59+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Zerggy",
+      "bytes": 634
+    },
+    "Zirbzy": {
+      "file": "Zirbzy.wiki.gz",
+      "revision_id": 25731,
+      "revision_timestamp": "2026-04-01T11:38:04Z",
+      "fetched_utc": "2026-07-28T04:12:59+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Zirbzy",
+      "bytes": 363
+    },
+    "Zxcbobi2011": {
+      "file": "Zxcbobi2011.wiki.gz",
+      "revision_id": 26227,
+      "revision_timestamp": "2026-04-19T17:13:20Z",
+      "fetched_utc": "2026-07-28T04:12:59+00:00",
+      "source_url": "https://liquipedia.net/deadlock/Zxcbobi2011",
+      "bytes": 525
     }
   }
 }

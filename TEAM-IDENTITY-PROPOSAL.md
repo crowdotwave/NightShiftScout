@@ -1,7 +1,25 @@
 # Team identity across renames, a proposal
 
-Status: **proposal, nothing implemented.** Written 2026-07-27 after the
-Liquipedia probe. Evidence is from all 49 editions, both regions.
+Status: **declined, 2026-07-28. Not being implemented, and not a backlog
+item.** Written 2026-07-27 after the Liquipedia probe. Evidence is from all 49
+editions, both regions.
+
+**Why it was declined.** The question this document answers, "which continuous
+team entity is this", is not one the project needs. What was actually needed
+was **side attribution**, and that is solved by the hero pick join with no
+rosters, no lineups and no succession model. A team name is now a label
+displayed when known and omitted when not, and nothing joins or aggregates on
+it. Team career stats are out of scope, which removes the only consumer this
+model had.
+
+**Kept because the evidence is still worth having.** Sections 1 to 4 below
+record real findings: most apparent renames are capitalisation, genuine
+rebrands run about one in ten editions, `floormen` and `FPS Lounge` competed
+on the same night before merging, and a stable name hides more roster churn
+than a rename does. Anyone tempted to add team aggregates later should read
+section 4 first, because it is the argument against doing so.
+
+The rest of this document is the original proposal, kept as written.
 
 ## The problem, stated precisely
 

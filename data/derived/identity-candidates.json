@@ -1,0 +1,3634 @@
+{
+  "schema_version": 1,
+  "generator": "scripts/resolve_identities.py",
+  "note": "Candidates only. Nothing here is curated or published. See LIQUIPEDIA-NOTES.md for the guardrails encoded in the status values.",
+  "source": "https://liquipedia.net/deadlock/",
+  "license": "CC-BY-SA 3.0",
+  "handles": [
+    {
+      "page_title": "ABL",
+      "handle": "ABL",
+      "editions": [
+        "16eu",
+        "17eu"
+      ],
+      "teams": [
+        "Abrahams"
+      ],
+      "roster_rows": 2,
+      "account_id": "888853854",
+      "in_our_data": true,
+      "testable_rosterings": 2,
+      "confirming_rosterings": 2,
+      "status": "confirmed"
+    },
+    {
+      "page_title": "Afera",
+      "handle": "Afera",
+      "editions": [
+        "47eu"
+      ],
+      "teams": [
+        "Slice and Dice (European team)"
+      ],
+      "roster_rows": 1,
+      "status": "no-page"
+    },
+    {
+      "page_title": "Aidanthedestroye",
+      "handle": "aidanthedestroye",
+      "editions": [
+        "17na",
+        "18na",
+        "19na",
+        "20na",
+        "21na",
+        "22na",
+        "23na",
+        "24na",
+        "25na",
+        "27na",
+        "28na",
+        "29na",
+        "32na",
+        "46na"
+      ],
+      "teams": [
+        "Bird with Clock",
+        "Bunny With Clock",
+        "Work in Progress",
+        "bird with clock"
+      ],
+      "roster_rows": 14,
+      "account_id": "291902996",
+      "in_our_data": true,
+      "testable_rosterings": 6,
+      "confirming_rosterings": 5,
+      "status": "confirmed"
+    },
+    {
+      "page_title": "Apacycle",
+      "handle": "apacycle",
+      "editions": [
+        "20eu",
+        "22eu"
+      ],
+      "teams": [
+        "Fearless Furies"
+      ],
+      "roster_rows": 2,
+      "account_id": "1673876903",
+      "in_our_data": true,
+      "testable_rosterings": 1,
+      "confirming_rosterings": 1,
+      "status": "confirmed"
+    },
+    {
+      "page_title": "Arctic",
+      "handle": "Arctic",
+      "editions": [
+        "17na",
+        "18na",
+        "19na",
+        "20na",
+        "21na",
+        "22na",
+        "23na",
+        "24na",
+        "25na",
+        "27na",
+        "28na",
+        "29na",
+        "32na",
+        "35na",
+        "37na",
+        "38na",
+        "41na",
+        "42na",
+        "43na",
+        "44na",
+        "45na",
+        "46na",
+        "48na",
+        "49na"
+      ],
+      "teams": [
+        "Bird With Clock",
+        "Bird with Clock",
+        "Bunny With Clock",
+        "Get Candy",
+        "bird with clock"
+      ],
+      "roster_rows": 24,
+      "account_id": "329035753",
+      "in_our_data": true,
+      "testable_rosterings": 15,
+      "confirming_rosterings": 13,
+      "status": "confirmed"
+    },
+    {
+      "page_title": "Arzo",
+      "handle": "arzo",
+      "editions": [
+        "16eu",
+        "17eu",
+        "20eu",
+        "22eu",
+        "23eu",
+        "33eu",
+        "34eu",
+        "35eu",
+        "36eu",
+        "37eu",
+        "38eu",
+        "39eu",
+        "40eu",
+        "41eu",
+        "42eu",
+        "43eu",
+        "44eu",
+        "45eu",
+        "46eu",
+        "47eu",
+        "48eu",
+        "49eu"
+      ],
+      "teams": [
+        "Abrahams",
+        "Fearless Furies"
+      ],
+      "roster_rows": 22,
+      "account_id": "124540485",
+      "in_our_data": true,
+      "testable_rosterings": 18,
+      "confirming_rosterings": 14,
+      "status": "confirmed"
+    },
+    {
+      "page_title": "AVG",
+      "handle": "AVG",
+      "editions": [
+        "17na",
+        "18na",
+        "21na",
+        "22na",
+        "24na",
+        "25na",
+        "26na",
+        "27na",
+        "28na",
+        "29na",
+        "30na",
+        "31na",
+        "32na",
+        "33na",
+        "34na",
+        "35na",
+        "36na",
+        "37na",
+        "38na",
+        "39na",
+        "40na",
+        "42na",
+        "43na",
+        "44na",
+        "45na",
+        "46na",
+        "47na",
+        "48na",
+        "49na"
+      ],
+      "teams": [
+        "FPS Lounge",
+        "Floormen",
+        "Poppers' Pupils",
+        "Sneaky Golem",
+        "floormen"
+      ],
+      "roster_rows": 29,
+      "account_id": "271562520",
+      "in_our_data": true,
+      "testable_rosterings": 20,
+      "confirming_rosterings": 5,
+      "status": "confirmed"
+    },
+    {
+      "page_title": "Ayano",
+      "handle": "ayano",
+      "editions": [
+        "16eu",
+        "17eu",
+        "23eu"
+      ],
+      "teams": [
+        "Fearless Furies"
+      ],
+      "roster_rows": 3,
+      "account_id": "1012333396",
+      "in_our_data": true,
+      "testable_rosterings": 3,
+      "confirming_rosterings": 2,
+      "status": "confirmed"
+    },
+    {
+      "page_title": "Ayrien",
+      "handle": "Ayrien",
+      "editions": [
+        "28eu",
+        "45eu"
+      ],
+      "teams": [
+        "No Mercy",
+        "Oblivion"
+      ],
+      "roster_rows": 2,
+      "account_id": "1557303666",
+      "in_our_data": true,
+      "testable_rosterings": 2,
+      "confirming_rosterings": 2,
+      "status": "confirmed"
+    },
+    {
+      "page_title": "Balaclava",
+      "handle": "balaclava",
+      "editions": [
+        "28eu",
+        "45eu",
+        "46eu",
+        "48eu",
+        "49eu"
+      ],
+      "teams": [
+        "No Mercy",
+        "Oblivion",
+        "Silence"
+      ],
+      "roster_rows": 5,
+      "status": "no-page"
+    },
+    {
+      "page_title": "Banw1se19",
+      "handle": "banw1se19",
+      "editions": [
+        "45eu"
+      ],
+      "teams": [
+        "Oblivion"
+      ],
+      "roster_rows": 1,
+      "account_id": "891136769",
+      "in_our_data": true,
+      "testable_rosterings": 1,
+      "confirming_rosterings": 1,
+      "status": "confirmed"
+    },
+    {
+      "page_title": "Benas",
+      "handle": "Benas",
+      "editions": [
+        "19na",
+        "41na",
+        "43na",
+        "46na"
+      ],
+      "teams": [
+        "Work In Progress",
+        "Work in Progress",
+        "kawaii crew"
+      ],
+      "roster_rows": 4,
+      "status": "no-page"
+    },
+    {
+      "page_title": "Birdee",
+      "handle": "Birdee",
+      "editions": [
+        "48na",
+        "49na"
+      ],
+      "teams": [
+        "Melee Creeps"
+      ],
+      "roster_rows": 2,
+      "status": "no-page"
+    },
+    {
+      "page_title": "Blob",
+      "handle": "blob",
+      "editions": [
+        "18eu",
+        "19eu",
+        "21eu",
+        "24eu",
+        "25eu",
+        "26eu",
+        "27eu"
+      ],
+      "teams": [
+        "Lowkey W",
+        "lowkey w"
+      ],
+      "roster_rows": 7,
+      "account_id": "96763589",
+      "in_our_data": true,
+      "testable_rosterings": 4,
+      "confirming_rosterings": 3,
+      "status": "confirmed"
+    },
+    {
+      "page_title": "Blur",
+      "handle": "blur",
+      "editions": [
+        "23na",
+        "26na",
+        "30na"
+      ],
+      "teams": [
+        "no earnings"
+      ],
+      "roster_rows": 3,
+      "status": "no-id"
+    },
+    {
+      "page_title": "Boger",
+      "handle": "Boger",
+      "editions": [
+        "19na"
+      ],
+      "teams": [
+        "kawaii crew"
+      ],
+      "roster_rows": 1,
+      "status": "no-page"
+    },
+    {
+      "page_title": "Boostio",
+      "handle": "Boostio",
+      "editions": [
+        "47na"
+      ],
+      "teams": [
+        "Melee Creeps"
+      ],
+      "roster_rows": 1,
+      "status": "no-page"
+    },
+    {
+      "page_title": "Braeden",
+      "handle": "braeden",
+      "editions": [
+        "23na",
+        "26na",
+        "30na",
+        "36na",
+        "37na",
+        "39na",
+        "40na",
+        "48na",
+        "49na"
+      ],
+      "teams": [
+        "Chubby Bunnies",
+        "FPS Lounge",
+        "Melee Creeps",
+        "No Earnings",
+        "no earnings"
+      ],
+      "roster_rows": 9,
+      "account_id": "225764206",
+      "in_our_data": true,
+      "testable_rosterings": 5,
+      "confirming_rosterings": 5,
+      "status": "confirmed"
+    },
+    {
+      "page_title": "Bsqt",
+      "handle": "Bsqt",
+      "editions": [
+        "41na",
+        "43na"
+      ],
+      "teams": [
+        "Work In Progress",
+        "Work in Progress"
+      ],
+      "roster_rows": 2,
+      "status": "no-page"
+    },
+    {
+      "page_title": "Calculator",
+      "handle": "Calculator",
+      "editions": [
+        "37na",
+        "39na"
+      ],
+      "teams": [
+        "Chubby Bunnies"
+      ],
+      "roster_rows": 2,
+      "status": "no-id"
+    },
+    {
+      "page_title": "Cantsaymeow",
+      "handle": "cantsaymeow",
+      "editions": [
+        "28eu",
+        "47eu"
+      ],
+      "teams": [
+        "No Mercy",
+        "Slice and Dice (European team)"
+      ],
+      "roster_rows": 2,
+      "status": "no-page"
+    },
+    {
+      "page_title": "Cikp",
+      "handle": "cikp",
+      "editions": [
+        "27na"
+      ],
+      "teams": [
+        "floormen"
+      ],
+      "roster_rows": 1,
+      "status": "no-page"
+    },
+    {
+      "page_title": "Cobz",
+      "handle": "cobz",
+      "editions": [
+        "45na"
+      ],
+      "teams": [
+        "Get Candy"
+      ],
+      "roster_rows": 1,
+      "status": "no-page"
+    },
+    {
+      "page_title": "Coolcheese",
+      "handle": "coolcheese",
+      "editions": [
+        "17na",
+        "18na",
+        "19na",
+        "20na",
+        "21na",
+        "22na",
+        "23na",
+        "24na",
+        "25na",
+        "27na",
+        "28na",
+        "29na",
+        "32na"
+      ],
+      "teams": [
+        "Bird with Clock",
+        "Bunny With Clock",
+        "bird with clock"
+      ],
+      "roster_rows": 13,
+      "account_id": "244471627",
+      "in_our_data": true,
+      "testable_rosterings": 6,
+      "confirming_rosterings": 5,
+      "status": "confirmed"
+    },
+    {
+      "page_title": "Cosmetical",
+      "handle": "cosmetical",
+      "editions": [
+        "18eu",
+        "19eu",
+        "21eu",
+        "24eu",
+        "25eu",
+        "26eu",
+        "27eu",
+        "29eu",
+        "30eu",
+        "31eu",
+        "32eu",
+        "33eu",
+        "34eu",
+        "35eu",
+        "36eu",
+        "37eu",
+        "38eu",
+        "39eu",
+        "40eu",
+        "41eu",
+        "42eu",
+        "43eu",
+        "44eu",
+        "45eu",
+        "46eu",
+        "47eu",
+        "48eu",
+        "49eu"
+      ],
+      "teams": [
+        "Buff Enjoyers",
+        "Lowkey W",
+        "lowkey w"
+      ],
+      "roster_rows": 28,
+      "account_id": "483770846",
+      "in_our_data": true,
+      "testable_rosterings": 22,
+      "confirming_rosterings": 19,
+      "status": "confirmed"
+    },
+    {
+      "page_title": "Dew",
+      "handle": "dew",
+      "editions": [
+        "24na",
+        "25na",
+        "26na",
+        "27na",
+        "28na",
+        "29na",
+        "30na",
+        "31na",
+        "32na",
+        "33na",
+        "34na",
+        "35na",
+        "36na",
+        "37na",
+        "38na",
+        "39na",
+        "40na",
+        "41na",
+        "42na",
+        "43na",
+        "44na",
+        "45na",
+        "47na"
+      ],
+      "teams": [
+        "Melee Creeps"
+      ],
+      "roster_rows": 23,
+      "status": "no-id"
+    },
+    {
+      "page_title": "Dimov",
+      "handle": "Dimov",
+      "editions": [
+        "16eu",
+        "17eu",
+        "18eu",
+        "19eu",
+        "20eu",
+        "21eu",
+        "22eu",
+        "23eu",
+        "24eu",
+        "25eu",
+        "26eu",
+        "27eu",
+        "28eu",
+        "29eu",
+        "30eu",
+        "31eu",
+        "32eu",
+        "33na",
+        "34na",
+        "35na",
+        "36na",
+        "37na",
+        "38na",
+        "39na",
+        "40na",
+        "41na",
+        "42eu",
+        "43eu",
+        "44eu",
+        "45eu",
+        "46eu",
+        "47eu",
+        "48eu",
+        "49eu"
+      ],
+      "teams": [
+        "Abrahams",
+        "Buff Enjoyers",
+        "Floormen",
+        "Leviathan",
+        "Melee Creeps",
+        "floormen"
+      ],
+      "roster_rows": 34,
+      "account_id": "298305257",
+      "in_our_data": true,
+      "testable_rosterings": 28,
+      "confirming_rosterings": 28,
+      "status": "confirmed"
+    },
+    {
+      "page_title": "Division",
+      "handle": "Division",
+      "editions": [
+        "41na",
+        "43na",
+        "46na"
+      ],
+      "teams": [
+        "Work In Progress",
+        "Work in Progress"
+      ],
+      "roster_rows": 3,
+      "status": "no-page"
+    },
+    {
+      "page_title": "DMB",
+      "handle": "DMB",
+      "editions": [
+        "17na",
+        "18na",
+        "19na",
+        "20na",
+        "21na",
+        "22na",
+        "23na",
+        "29na",
+        "30na",
+        "31na",
+        "32na",
+        "33na",
+        "34na",
+        "35na",
+        "36na",
+        "37na",
+        "38na",
+        "39na",
+        "40na",
+        "42na",
+        "43na",
+        "44na",
+        "45na",
+        "46na"
+      ],
+      "teams": [
+        "FPS Lounge",
+        "Floormen",
+        "Melee Creeps",
+        "floormen"
+      ],
+      "roster_rows": 24,
+      "account_id": "1049966963",
+      "in_our_data": true,
+      "testable_rosterings": 17,
+      "confirming_rosterings": 17,
+      "status": "confirmed"
+    },
+    {
+      "page_title": "Doi",
+      "handle": "Doi",
+      "editions": [
+        "18eu",
+        "19eu",
+        "21eu"
+      ],
+      "teams": [
+        "Lowkey W",
+        "lowkey w"
+      ],
+      "roster_rows": 3,
+      "status": "no-page"
+    },
+    {
+      "page_title": "Dorian",
+      "handle": "Dorian",
+      "editions": [
+        "47eu"
+      ],
+      "teams": [
+        "Slice and Dice (European team)"
+      ],
+      "roster_rows": 1,
+      "status": "no-page"
+    },
+    {
+      "page_title": "Eidorian",
+      "handle": "eidorian",
+      "editions": [
+        "17na",
+        "18na",
+        "19na",
+        "20na",
+        "21na",
+        "22na",
+        "23na",
+        "24na",
+        "25na",
+        "26na",
+        "27na",
+        "28na",
+        "29na",
+        "30na",
+        "31na",
+        "32na",
+        "33na",
+        "34na",
+        "35na",
+        "36na",
+        "37na",
+        "38na",
+        "39na",
+        "40na",
+        "41na",
+        "42na",
+        "43na",
+        "44na",
+        "45na",
+        "46na",
+        "47na"
+      ],
+      "teams": [
+        "Melee Creeps"
+      ],
+      "roster_rows": 31,
+      "status": "no-id"
+    },
+    {
+      "page_title": "Empty dreams",
+      "handle": "empty dreams",
+      "editions": [
+        "16eu",
+        "17eu",
+        "18eu",
+        "19eu",
+        "20eu",
+        "22eu",
+        "23eu",
+        "24eu",
+        "25eu",
+        "26eu",
+        "29eu",
+        "30eu",
+        "31eu",
+        "32eu",
+        "33eu",
+        "36eu",
+        "37eu",
+        "38eu",
+        "39eu",
+        "40eu",
+        "41eu",
+        "42eu",
+        "43eu",
+        "44eu",
+        "45eu",
+        "46eu",
+        "47eu",
+        "48eu",
+        "49eu"
+      ],
+      "teams": [
+        "Abrahams",
+        "Leviathan",
+        "lowkey w"
+      ],
+      "roster_rows": 29,
+      "account_id": "5278896",
+      "in_our_data": true,
+      "testable_rosterings": 23,
+      "confirming_rosterings": 23,
+      "status": "confirmed"
+    },
+    {
+      "page_title": "Epl1fine",
+      "handle": "epl1fine",
+      "editions": [
+        "23eu"
+      ],
+      "teams": [
+        "Fearless Furies"
+      ],
+      "roster_rows": 1,
+      "account_id": "1710092569",
+      "in_our_data": true,
+      "testable_rosterings": 1,
+      "confirming_rosterings": 1,
+      "status": "confirmed"
+    },
+    {
+      "page_title": "Erebus",
+      "handle": "Erebus",
+      "editions": [
+        "31na",
+        "33na",
+        "34na",
+        "35na",
+        "36na",
+        "48na",
+        "49na"
+      ],
+      "teams": [
+        "Bird With Clock",
+        "FPS Lounge",
+        "fps lounge"
+      ],
+      "roster_rows": 7,
+      "account_id": "1902828658",
+      "in_our_data": true,
+      "testable_rosterings": 4,
+      "confirming_rosterings": 4,
+      "status": "confirmed"
+    },
+    {
+      "page_title": "Fargareko",
+      "handle": "fargareko",
+      "editions": [
+        "46eu",
+        "47eu"
+      ],
+      "teams": [
+        "Leviathan"
+      ],
+      "roster_rows": 2,
+      "account_id": "400239835",
+      "in_our_data": true,
+      "testable_rosterings": 2,
+      "confirming_rosterings": 1,
+      "status": "confirmed"
+    },
+    {
+      "page_title": "Fishcake",
+      "handle": "Fishcake",
+      "editions": [
+        "17na",
+        "18na",
+        "19na",
+        "20na",
+        "21na",
+        "22na",
+        "23na",
+        "24na",
+        "25na",
+        "26na",
+        "27na",
+        "28na",
+        "29na",
+        "30na",
+        "31na",
+        "32na",
+        "33na",
+        "34na",
+        "35na",
+        "36na",
+        "37na",
+        "38na",
+        "39na",
+        "40na",
+        "41na",
+        "42na",
+        "43na",
+        "44na",
+        "45na",
+        "46na",
+        "47na"
+      ],
+      "teams": [
+        "Melee Creeps"
+      ],
+      "roster_rows": 31,
+      "status": "no-id"
+    },
+    {
+      "page_title": "Fl0z",
+      "handle": "fl0z",
+      "editions": [
+        "35na",
+        "37na",
+        "38na",
+        "41na",
+        "42na",
+        "43na",
+        "44na",
+        "45na"
+      ],
+      "teams": [
+        "Bird With Clock",
+        "Bird with Clock"
+      ],
+      "roster_rows": 8,
+      "account_id": "246214695",
+      "in_our_data": true,
+      "testable_rosterings": 7,
+      "confirming_rosterings": 6,
+      "status": "confirmed"
+    },
+    {
+      "page_title": "Flammable",
+      "handle": "flammable",
+      "editions": [
+        "16eu",
+        "17eu",
+        "18eu",
+        "19eu",
+        "20eu",
+        "21eu",
+        "22eu",
+        "23eu",
+        "24eu",
+        "25eu"
+      ],
+      "teams": [
+        "Leviathan"
+      ],
+      "roster_rows": 10,
+      "account_id": "119264432",
+      "in_our_data": true,
+      "testable_rosterings": 7,
+      "confirming_rosterings": 7,
+      "status": "confirmed"
+    },
+    {
+      "page_title": "FredTheFinch",
+      "handle": "FredTheFinch",
+      "editions": [
+        "19na"
+      ],
+      "teams": [
+        "kawaii crew"
+      ],
+      "roster_rows": 1,
+      "status": "no-page"
+    },
+    {
+      "page_title": "Freemok",
+      "handle": "freemok",
+      "editions": [
+        "16eu",
+        "17eu",
+        "18eu",
+        "19eu",
+        "20eu",
+        "21eu",
+        "22eu",
+        "23eu",
+        "24eu",
+        "25eu",
+        "26eu",
+        "27eu",
+        "28eu",
+        "29eu",
+        "30eu",
+        "31eu",
+        "32eu",
+        "33eu",
+        "34eu",
+        "35eu",
+        "36eu",
+        "37eu",
+        "38eu",
+        "39eu",
+        "40eu",
+        "41eu",
+        "42eu",
+        "43eu",
+        "44eu",
+        "46eu",
+        "47eu",
+        "48eu",
+        "49eu"
+      ],
+      "teams": [
+        "Leviathan",
+        "leviathan"
+      ],
+      "roster_rows": 33,
+      "account_id": "1009703898",
+      "in_our_data": true,
+      "testable_rosterings": 25,
+      "confirming_rosterings": 24,
+      "status": "confirmed"
+    },
+    {
+      "page_title": "GenericEdBoi",
+      "handle": "GenericEdBoi",
+      "editions": [
+        "19na"
+      ],
+      "teams": [
+        "kawaii crew"
+      ],
+      "roster_rows": 1,
+      "status": "no-page"
+    },
+    {
+      "page_title": "Geo",
+      "handle": "Geo",
+      "editions": [
+        "28na",
+        "45na",
+        "46na"
+      ],
+      "teams": [
+        "Get Candy",
+        "bird with clock"
+      ],
+      "roster_rows": 3,
+      "status": "no-page"
+    },
+    {
+      "page_title": "Gfreek",
+      "handle": "gfreek",
+      "editions": [
+        "23na",
+        "26na",
+        "30na",
+        "36na",
+        "37na",
+        "39na"
+      ],
+      "teams": [
+        "Chubby Bunnies",
+        "No Earnings",
+        "no earnings"
+      ],
+      "roster_rows": 6,
+      "account_id": "108601750",
+      "in_our_data": true,
+      "testable_rosterings": 3,
+      "confirming_rosterings": 3,
+      "status": "confirmed"
+    },
+    {
+      "page_title": "Gibz",
+      "handle": "gibz",
+      "editions": [
+        "17na",
+        "18na",
+        "19na",
+        "20na",
+        "21na",
+        "22na",
+        "23na",
+        "24na",
+        "25na",
+        "27na",
+        "28na",
+        "29na",
+        "32na",
+        "35na",
+        "37na",
+        "38na",
+        "41na",
+        "42na",
+        "43na",
+        "44na",
+        "45na"
+      ],
+      "teams": [
+        "Bird With Clock",
+        "Bird with Clock",
+        "Bunny With Clock",
+        "bird with clock"
+      ],
+      "roster_rows": 21,
+      "account_id": "97506421",
+      "in_our_data": true,
+      "testable_rosterings": 13,
+      "confirming_rosterings": 12,
+      "status": "confirmed"
+    },
+    {
+      "page_title": "Goober",
+      "handle": "Goober",
+      "editions": [
+        "17na",
+        "24na",
+        "25na",
+        "26na",
+        "27na",
+        "28na",
+        "29na",
+        "30na",
+        "31na",
+        "32na",
+        "37na",
+        "39na",
+        "48na",
+        "49na"
+      ],
+      "teams": [
+        "Chubby Bunnies",
+        "Melee Creeps",
+        "Sneaky Golem",
+        "floormen"
+      ],
+      "roster_rows": 14,
+      "account_id": "1285605078",
+      "in_our_data": true,
+      "testable_rosterings": 8,
+      "confirming_rosterings": 7,
+      "status": "confirmed"
+    },
+    {
+      "page_title": "Happex",
+      "handle": "Happex",
+      "editions": [
+        "42eu"
+      ],
+      "teams": [
+        "Leviathan"
+      ],
+      "roster_rows": 1,
+      "account_id": "288422074",
+      "in_our_data": true,
+      "testable_rosterings": 1,
+      "confirming_rosterings": 1,
+      "status": "confirmed"
+    },
+    {
+      "page_title": "Hoot",
+      "handle": "Hoot",
+      "editions": [
+        "18eu",
+        "19eu",
+        "20eu",
+        "21eu",
+        "22eu",
+        "23eu",
+        "24eu",
+        "25eu",
+        "26eu",
+        "27eu",
+        "28eu",
+        "29eu",
+        "30eu",
+        "31eu",
+        "32eu",
+        "33eu",
+        "34eu",
+        "35eu",
+        "36eu",
+        "37eu",
+        "38eu",
+        "39eu",
+        "40eu",
+        "41eu",
+        "42eu",
+        "43eu",
+        "44eu",
+        "45eu",
+        "46eu",
+        "47eu",
+        "48eu",
+        "49eu"
+      ],
+      "teams": [
+        "Abrahams",
+        "Buff Enjoyers",
+        "Lowkey W",
+        "lowkey w"
+      ],
+      "roster_rows": 32,
+      "account_id": "87241154",
+      "in_our_data": true,
+      "testable_rosterings": 25,
+      "confirming_rosterings": 23,
+      "status": "confirmed"
+    },
+    {
+      "page_title": "Hydration",
+      "handle": "Hydration",
+      "editions": [
+        "17na",
+        "18na",
+        "20na",
+        "21na",
+        "22na",
+        "31na",
+        "33na",
+        "34na",
+        "35na",
+        "36na",
+        "38na",
+        "39na",
+        "40na"
+      ],
+      "teams": [
+        "FPS Lounge",
+        "Sneaky Golem",
+        "floormen",
+        "fps lounge"
+      ],
+      "roster_rows": 13,
+      "account_id": "39488687",
+      "in_our_data": true,
+      "testable_rosterings": 7,
+      "confirming_rosterings": 6,
+      "status": "confirmed"
+    },
+    {
+      "page_title": "Hypno",
+      "handle": "Hypno",
+      "editions": [
+        "23na",
+        "26na",
+        "30na"
+      ],
+      "teams": [
+        "no earnings"
+      ],
+      "roster_rows": 3,
+      "status": "no-page"
+    },
+    {
+      "page_title": "HYPNO",
+      "handle": "HYPNO",
+      "editions": [
+        "36na"
+      ],
+      "teams": [
+        "No Earnings"
+      ],
+      "roster_rows": 1,
+      "status": "no-page"
+    },
+    {
+      "page_title": "IRezUmi",
+      "handle": "IRezUmi",
+      "editions": [
+        "26eu",
+        "27eu",
+        "28eu",
+        "29eu",
+        "30eu",
+        "31eu",
+        "32eu",
+        "33eu",
+        "34eu",
+        "35eu",
+        "36eu",
+        "37eu",
+        "38eu",
+        "39eu",
+        "40eu",
+        "41eu",
+        "44eu",
+        "46eu",
+        "47eu",
+        "48eu",
+        "49eu"
+      ],
+      "teams": [
+        "Leviathan",
+        "leviathan"
+      ],
+      "roster_rows": 21,
+      "account_id": "136898005",
+      "in_our_data": true,
+      "testable_rosterings": 16,
+      "confirming_rosterings": 15,
+      "status": "confirmed"
+    },
+    {
+      "page_title": "Jarate",
+      "handle": "Jarate",
+      "editions": [
+        "45na",
+        "46na"
+      ],
+      "teams": [
+        "Get Candy"
+      ],
+      "roster_rows": 2,
+      "status": "no-page"
+    },
+    {
+      "page_title": "Jbk",
+      "handle": "jbk",
+      "editions": [
+        "41na",
+        "43na",
+        "46na"
+      ],
+      "teams": [
+        "Work In Progress",
+        "Work in Progress"
+      ],
+      "roster_rows": 3,
+      "status": "no-page"
+    },
+    {
+      "page_title": "Jitizm",
+      "handle": "Jitizm",
+      "editions": [
+        "26na"
+      ],
+      "teams": [
+        "no earnings"
+      ],
+      "roster_rows": 1,
+      "status": "no-page"
+    },
+    {
+      "page_title": "Jitzim",
+      "handle": "Jitzim",
+      "editions": [
+        "23na",
+        "30na"
+      ],
+      "teams": [
+        "no earnings"
+      ],
+      "roster_rows": 2,
+      "status": "no-page"
+    },
+    {
+      "page_title": "JonJon",
+      "handle": "JonJon",
+      "editions": [
+        "17na",
+        "18na",
+        "19na",
+        "20na",
+        "21na",
+        "22na",
+        "23na",
+        "24na",
+        "25na",
+        "26na",
+        "27na",
+        "28na",
+        "29na",
+        "30na",
+        "31na",
+        "32na",
+        "33na",
+        "34na",
+        "35na",
+        "36na",
+        "37na",
+        "38na",
+        "39na",
+        "40na",
+        "41na",
+        "42na",
+        "43na",
+        "44na",
+        "45na",
+        "46na",
+        "47na",
+        "48na",
+        "49na"
+      ],
+      "teams": [
+        "Melee Creeps"
+      ],
+      "roster_rows": 33,
+      "account_id": "244109796",
+      "in_our_data": true,
+      "testable_rosterings": 22,
+      "confirming_rosterings": 22,
+      "status": "confirmed"
+    },
+    {
+      "page_title": "Kapten",
+      "handle": "kapten",
+      "editions": [
+        "18eu",
+        "19eu",
+        "21eu",
+        "26eu",
+        "27eu",
+        "32eu",
+        "44eu"
+      ],
+      "teams": [
+        "Abrahams",
+        "Lowkey W",
+        "Sneaky Team",
+        "lowkey w"
+      ],
+      "roster_rows": 7,
+      "account_id": "281768392",
+      "in_our_data": true,
+      "testable_rosterings": 6,
+      "confirming_rosterings": 5,
+      "status": "confirmed"
+    },
+    {
+      "page_title": "KennKan",
+      "handle": "KennKan",
+      "editions": [
+        "19na"
+      ],
+      "teams": [
+        "kawaii crew"
+      ],
+      "roster_rows": 1,
+      "status": "no-page"
+    },
+    {
+      "page_title": "Ktall",
+      "handle": "ktall",
+      "editions": [
+        "47eu"
+      ],
+      "teams": [
+        "Slice and Dice (European team)"
+      ],
+      "roster_rows": 1,
+      "status": "no-page"
+    },
+    {
+      "page_title": "League",
+      "handle": "League",
+      "editions": [
+        "17na",
+        "20na",
+        "21na",
+        "22na",
+        "24na",
+        "25na",
+        "26na",
+        "27na",
+        "28na",
+        "29na",
+        "30na",
+        "31na",
+        "32na",
+        "33na",
+        "34na",
+        "35na",
+        "36na",
+        "37na",
+        "38na",
+        "39na",
+        "40na",
+        "43na",
+        "46na",
+        "47na",
+        "48na",
+        "49na"
+      ],
+      "teams": [
+        "Floormen",
+        "Melee Creeps",
+        "Poppers' Pupils",
+        "Sneaky Golem",
+        "floormen"
+      ],
+      "roster_rows": 26,
+      "account_id": "1477660209",
+      "in_our_data": true,
+      "testable_rosterings": 17,
+      "confirming_rosterings": 17,
+      "status": "confirmed"
+    },
+    {
+      "page_title": "Lefaa",
+      "handle": "Lefaa",
+      "editions": [
+        "31na",
+        "33na",
+        "34na",
+        "35na",
+        "36na",
+        "38na",
+        "39na",
+        "40na",
+        "42na",
+        "43na",
+        "44na",
+        "45na",
+        "46na",
+        "47na",
+        "48na",
+        "49na"
+      ],
+      "teams": [
+        "FPS Lounge",
+        "Poppers' Pupils",
+        "fps lounge"
+      ],
+      "roster_rows": 16,
+      "account_id": "114943410",
+      "in_our_data": true,
+      "testable_rosterings": 13,
+      "confirming_rosterings": 12,
+      "status": "confirmed"
+    },
+    {
+      "page_title": "Leviathan",
+      "handle": "Leviathan",
+      "editions": [
+        "19na"
+      ],
+      "teams": [
+        "kawaii crew"
+      ],
+      "roster_rows": 1,
+      "status": "no-id"
+    },
+    {
+      "page_title": "Lomein",
+      "handle": "Lomein",
+      "editions": [
+        "31na",
+        "33na",
+        "34na",
+        "35na",
+        "36na",
+        "37na",
+        "38na",
+        "39na",
+        "42na",
+        "43na",
+        "44na",
+        "45na",
+        "46na",
+        "47na",
+        "48na",
+        "49na"
+      ],
+      "teams": [
+        "FPS Lounge",
+        "Floormen",
+        "Poppers' Pupils",
+        "fps lounge"
+      ],
+      "roster_rows": 17,
+      "account_id": "1164034146",
+      "in_our_data": true,
+      "testable_rosterings": 14,
+      "confirming_rosterings": 0,
+      "status": "rejected",
+      "note": "observed rosterings exist but the account never appears on that side"
+    },
+    {
+      "page_title": "LordNM",
+      "handle": "LordNM",
+      "editions": [
+        "18na",
+        "20na",
+        "21na",
+        "22na",
+        "24na",
+        "25na",
+        "26na",
+        "36na",
+        "37na",
+        "39na",
+        "40na",
+        "45na",
+        "46na"
+      ],
+      "teams": [
+        "Chubby Bunnies",
+        "FPS Lounge",
+        "Melee Creeps",
+        "No Earnings",
+        "Sneaky Golem",
+        "floormen"
+      ],
+      "roster_rows": 13,
+      "status": "no-id"
+    },
+    {
+      "page_title": "Lorence",
+      "handle": "lorence",
+      "editions": [
+        "47eu"
+      ],
+      "teams": [
+        "Slice and Dice (European team)"
+      ],
+      "roster_rows": 1,
+      "status": "no-page"
+    },
+    {
+      "page_title": "Lystic",
+      "handle": "lystic",
+      "editions": [
+        "18eu",
+        "24eu",
+        "25eu",
+        "26eu",
+        "27eu",
+        "29eu",
+        "30eu",
+        "31eu",
+        "32eu",
+        "33eu",
+        "34eu",
+        "35eu",
+        "36eu",
+        "37eu",
+        "38eu",
+        "39eu",
+        "40eu",
+        "41eu",
+        "42eu",
+        "43eu",
+        "44eu",
+        "45eu",
+        "46eu",
+        "47eu",
+        "48eu",
+        "49eu"
+      ],
+      "teams": [
+        "Abrahams",
+        "Buff Enjoyers",
+        "Lowkey W",
+        "lowkey w"
+      ],
+      "roster_rows": 26,
+      "account_id": "97533101",
+      "in_our_data": true,
+      "testable_rosterings": 20,
+      "confirming_rosterings": 19,
+      "status": "confirmed"
+    },
+    {
+      "page_title": "Maht",
+      "handle": "Maht",
+      "editions": [
+        "19na",
+        "20na",
+        "21na",
+        "22na",
+        "23na",
+        "24na",
+        "25na",
+        "27na",
+        "29na",
+        "32na",
+        "35na",
+        "37na",
+        "38na",
+        "41na",
+        "42na",
+        "43na",
+        "44na",
+        "45na",
+        "48na",
+        "49na"
+      ],
+      "teams": [
+        "Bird With Clock",
+        "Bird with Clock",
+        "Bunny With Clock",
+        "bird with clock"
+      ],
+      "roster_rows": 20,
+      "status": "no-id"
+    },
+    {
+      "page_title": "Mayonese",
+      "handle": "Mayonese",
+      "editions": [
+        "45eu",
+        "48eu",
+        "49eu"
+      ],
+      "teams": [
+        "Oblivion",
+        "Silence"
+      ],
+      "roster_rows": 3,
+      "status": "no-page"
+    },
+    {
+      "page_title": "MazaG",
+      "handle": "MazaG",
+      "editions": [
+        "29eu",
+        "30eu",
+        "31eu",
+        "44eu",
+        "48eu"
+      ],
+      "teams": [
+        "Abrahams",
+        "Sneaky Team",
+        "lowkey w"
+      ],
+      "roster_rows": 5,
+      "account_id": "1787356635",
+      "in_our_data": true,
+      "testable_rosterings": 5,
+      "confirming_rosterings": 4,
+      "status": "confirmed"
+    },
+    {
+      "page_title": "MikaelS",
+      "handle": "MikaelS",
+      "editions": [
+        "32eu"
+      ],
+      "teams": [
+        "Abrahams"
+      ],
+      "roster_rows": 1,
+      "account_id": "385814004",
+      "in_our_data": true,
+      "testable_rosterings": 1,
+      "confirming_rosterings": 1,
+      "status": "confirmed"
+    },
+    {
+      "page_title": "Moe",
+      "handle": "Moe",
+      "editions": [
+        "41na",
+        "43na",
+        "46na"
+      ],
+      "teams": [
+        "Work In Progress",
+        "Work in Progress"
+      ],
+      "roster_rows": 3,
+      "status": "no-page"
+    },
+    {
+      "page_title": "Obikym",
+      "handle": "obikym",
+      "editions": [
+        "16eu",
+        "17eu",
+        "18eu",
+        "19eu",
+        "20eu",
+        "21eu",
+        "22eu",
+        "23eu",
+        "29eu",
+        "30eu",
+        "31eu",
+        "32eu",
+        "33eu",
+        "34eu",
+        "35eu",
+        "36eu",
+        "37eu",
+        "38eu",
+        "39eu",
+        "40eu",
+        "41eu",
+        "42eu",
+        "43eu",
+        "44eu",
+        "45eu",
+        "46eu",
+        "47eu",
+        "48eu",
+        "49eu"
+      ],
+      "teams": [
+        "Buff Enjoyers",
+        "Leviathan",
+        "Lowkey W",
+        "lowkey w"
+      ],
+      "roster_rows": 29,
+      "account_id": "911856667",
+      "in_our_data": true,
+      "testable_rosterings": 25,
+      "confirming_rosterings": 25,
+      "status": "confirmed"
+    },
+    {
+      "page_title": "Oses",
+      "handle": "oses",
+      "editions": [
+        "16eu",
+        "17eu",
+        "18eu",
+        "19eu",
+        "20eu",
+        "21eu",
+        "22eu",
+        "23eu",
+        "27eu",
+        "28eu",
+        "29eu",
+        "30eu",
+        "31eu",
+        "32eu",
+        "33eu",
+        "34eu",
+        "35eu",
+        "36eu",
+        "37eu",
+        "38eu",
+        "39eu",
+        "40eu",
+        "41eu",
+        "42eu",
+        "44eu",
+        "46eu",
+        "48eu",
+        "48na",
+        "49na"
+      ],
+      "teams": [
+        "Leviathan",
+        "Melee Creeps",
+        "Silence",
+        "Sneaky Team",
+        "leviathan"
+      ],
+      "roster_rows": 29,
+      "account_id": "1840902834",
+      "in_our_data": true,
+      "testable_rosterings": 24,
+      "confirming_rosterings": 23,
+      "status": "confirmed"
+    },
+    {
+      "page_title": "Oskito",
+      "handle": "Oskito",
+      "editions": [
+        "28eu"
+      ],
+      "teams": [
+        "No Mercy"
+      ],
+      "roster_rows": 1,
+      "status": "no-page"
+    },
+    {
+      "page_title": "Overseas",
+      "handle": "Overseas",
+      "editions": [
+        "16eu",
+        "17eu",
+        "18eu",
+        "19eu",
+        "20eu",
+        "21eu",
+        "22eu",
+        "23eu",
+        "24eu",
+        "25eu",
+        "26eu",
+        "27eu",
+        "28eu",
+        "29eu",
+        "30eu",
+        "31eu",
+        "32eu",
+        "33eu",
+        "34eu",
+        "35eu",
+        "36eu",
+        "37eu",
+        "38eu",
+        "39eu",
+        "40eu",
+        "41eu",
+        "42eu",
+        "43eu",
+        "44eu",
+        "46eu",
+        "47eu",
+        "48eu",
+        "49eu"
+      ],
+      "teams": [
+        "Leviathan",
+        "leviathan"
+      ],
+      "roster_rows": 33,
+      "account_id": "984254212",
+      "in_our_data": true,
+      "testable_rosterings": 25,
+      "confirming_rosterings": 24,
+      "status": "confirmed"
+    },
+    {
+      "page_title": "Playa",
+      "handle": "playa",
+      "editions": [
+        "47eu"
+      ],
+      "teams": [
+        "Slice and Dice (European team)"
+      ],
+      "roster_rows": 1,
+      "status": "no-page"
+    },
+    {
+      "page_title": "Poppers",
+      "handle": "Poppers",
+      "editions": [
+        "38na",
+        "39na",
+        "40na",
+        "42na",
+        "43na",
+        "44na",
+        "45na",
+        "46na",
+        "47na",
+        "48na",
+        "49na"
+      ],
+      "teams": [
+        "FPS Lounge",
+        "Poppers' Pupils"
+      ],
+      "roster_rows": 11,
+      "account_id": "1929248273",
+      "in_our_data": true,
+      "testable_rosterings": 10,
+      "confirming_rosterings": 9,
+      "status": "confirmed"
+    },
+    {
+      "page_title": "POSHYPOP",
+      "handle": "POSHYPOP",
+      "editions": [
+        "17na",
+        "18na",
+        "20na",
+        "21na",
+        "22na",
+        "24na",
+        "25na",
+        "26na",
+        "27na",
+        "28na",
+        "41na"
+      ],
+      "teams": [
+        "Bunny With Clock",
+        "Work in Progress",
+        "floormen"
+      ],
+      "roster_rows": 11,
+      "account_id": "85898225",
+      "in_our_data": true,
+      "testable_rosterings": 5,
+      "confirming_rosterings": 0,
+      "status": "probable",
+      "note": "never observed on its own side, but the wiki records a substitution for this handle"
+    },
+    {
+      "page_title": "Qult",
+      "handle": "qult",
+      "editions": [
+        "16eu",
+        "17eu",
+        "20eu",
+        "22eu",
+        "23eu",
+        "45eu",
+        "46eu"
+      ],
+      "teams": [
+        "Fearless Furies",
+        "Oblivion",
+        "Silence"
+      ],
+      "roster_rows": 7,
+      "account_id": "1062664388",
+      "in_our_data": true,
+      "testable_rosterings": 6,
+      "confirming_rosterings": 6,
+      "status": "confirmed"
+    },
+    {
+      "page_title": "Ranger",
+      "handle": "Ranger",
+      "editions": [
+        "39na",
+        "40na",
+        "41na",
+        "42na"
+      ],
+      "teams": [
+        "Melee Creeps"
+      ],
+      "roster_rows": 4,
+      "status": "no-id"
+    },
+    {
+      "page_title": "Recon",
+      "handle": "recon",
+      "editions": [
+        "45na",
+        "46na",
+        "48na",
+        "49na"
+      ],
+      "teams": [
+        "Bird With Clock",
+        "Get Candy"
+      ],
+      "roster_rows": 4,
+      "status": "no-page"
+    },
+    {
+      "page_title": "Reyache",
+      "handle": "Reyache",
+      "editions": [
+        "21eu",
+        "24eu",
+        "25eu",
+        "26eu",
+        "27eu",
+        "28eu",
+        "29eu",
+        "30eu",
+        "31eu",
+        "32eu",
+        "33eu",
+        "34eu",
+        "35eu",
+        "36eu",
+        "37eu",
+        "38eu",
+        "39eu",
+        "40eu",
+        "41eu",
+        "44eu",
+        "46eu",
+        "48eu",
+        "49eu"
+      ],
+      "teams": [
+        "Leviathan",
+        "Silence",
+        "Sneaky Team",
+        "leviathan"
+      ],
+      "roster_rows": 23,
+      "account_id": "407786402",
+      "in_our_data": true,
+      "testable_rosterings": 16,
+      "confirming_rosterings": 15,
+      "status": "confirmed"
+    },
+    {
+      "page_title": "Rhino",
+      "handle": "rhino",
+      "editions": [
+        "45na",
+        "46na"
+      ],
+      "teams": [
+        "Get Candy"
+      ],
+      "roster_rows": 2,
+      "status": "no-page"
+    },
+    {
+      "page_title": "Rocaine",
+      "handle": "rocaine",
+      "editions": [
+        "31na",
+        "33na",
+        "34na",
+        "35na",
+        "36na",
+        "38na",
+        "39na"
+      ],
+      "teams": [
+        "FPS Lounge",
+        "fps lounge"
+      ],
+      "roster_rows": 7,
+      "status": "collision",
+      "collides_with": [
+        "Zeno"
+      ]
+    },
+    {
+      "page_title": "Rocker",
+      "handle": "rocker",
+      "editions": [
+        "17na",
+        "18na",
+        "20na",
+        "24na",
+        "25na",
+        "26na",
+        "27na",
+        "28na",
+        "29na",
+        "30na",
+        "31na",
+        "32na",
+        "33na",
+        "34na",
+        "35na",
+        "36na",
+        "39na",
+        "40na"
+      ],
+      "teams": [
+        "Floormen",
+        "Sneaky Golem",
+        "floormen"
+      ],
+      "roster_rows": 18,
+      "account_id": "192227354",
+      "in_our_data": true,
+      "testable_rosterings": 11,
+      "confirming_rosterings": 10,
+      "status": "confirmed"
+    },
+    {
+      "page_title": "Rumple",
+      "handle": "Rumple",
+      "editions": [
+        "41na",
+        "43na"
+      ],
+      "teams": [
+        "Work In Progress",
+        "Work in Progress"
+      ],
+      "roster_rows": 2,
+      "status": "no-page"
+    },
+    {
+      "page_title": "Sai",
+      "handle": "sai",
+      "editions": [
+        "16eu",
+        "17eu",
+        "20eu",
+        "22eu",
+        "23eu",
+        "27eu",
+        "28eu",
+        "29eu",
+        "30eu",
+        "31eu",
+        "33eu",
+        "34eu",
+        "35eu",
+        "36eu",
+        "37eu",
+        "38eu",
+        "39eu",
+        "40eu",
+        "41eu",
+        "43eu",
+        "44eu",
+        "46eu",
+        "48eu",
+        "49eu"
+      ],
+      "teams": [
+        "Fearless Furies",
+        "Leviathan",
+        "leviathan"
+      ],
+      "roster_rows": 24,
+      "account_id": "1045169707",
+      "in_our_data": true,
+      "testable_rosterings": 19,
+      "confirming_rosterings": 15,
+      "status": "confirmed"
+    },
+    {
+      "page_title": "Saiah",
+      "handle": "Saiah",
+      "editions": [
+        "17na",
+        "18na",
+        "19na",
+        "20na",
+        "21na",
+        "22na",
+        "23na",
+        "24na",
+        "25na",
+        "26na",
+        "27na",
+        "28na",
+        "29na",
+        "30na",
+        "31na",
+        "32na",
+        "33na",
+        "34na",
+        "35na",
+        "36na",
+        "37na",
+        "38na",
+        "39na",
+        "40na",
+        "41na",
+        "42na",
+        "43na",
+        "44na",
+        "45na",
+        "46na",
+        "47na",
+        "48na",
+        "49na"
+      ],
+      "teams": [
+        "Melee Creeps"
+      ],
+      "roster_rows": 33,
+      "account_id": "25821887",
+      "in_our_data": true,
+      "testable_rosterings": 22,
+      "confirming_rosterings": 22,
+      "status": "confirmed"
+    },
+    {
+      "page_title": "Saintmxsm",
+      "handle": "saintmxsm",
+      "editions": [
+        "16eu",
+        "17eu",
+        "18eu",
+        "19eu",
+        "20eu",
+        "21eu",
+        "22eu",
+        "23eu",
+        "24eu",
+        "25eu",
+        "26eu",
+        "27eu",
+        "28eu",
+        "29eu",
+        "30eu",
+        "31eu",
+        "32eu",
+        "33eu",
+        "34eu",
+        "35eu",
+        "36eu",
+        "37eu",
+        "38eu",
+        "39eu",
+        "40eu",
+        "41eu",
+        "42eu",
+        "43eu",
+        "44eu",
+        "45eu",
+        "46eu",
+        "47eu",
+        "48eu",
+        "49eu"
+      ],
+      "teams": [
+        "Abrahams"
+      ],
+      "roster_rows": 34,
+      "account_id": "1055638874",
+      "in_our_data": true,
+      "testable_rosterings": 27,
+      "confirming_rosterings": 27,
+      "status": "confirmed"
+    },
+    {
+      "page_title": "Sanya_sniper",
+      "handle": "sanya_sniper",
+      "editions": [
+        "16eu",
+        "17eu",
+        "19eu",
+        "20eu",
+        "21eu",
+        "22eu",
+        "23eu",
+        "24eu",
+        "25eu",
+        "26eu",
+        "27eu",
+        "28eu",
+        "29eu",
+        "30eu",
+        "31eu",
+        "32eu",
+        "33eu",
+        "34eu",
+        "35eu",
+        "36eu",
+        "37eu",
+        "38eu",
+        "39eu",
+        "40eu",
+        "41eu",
+        "42eu",
+        "43eu",
+        "44eu",
+        "45eu",
+        "46eu",
+        "47eu",
+        "48eu",
+        "49eu"
+      ],
+      "teams": [
+        "Abrahams"
+      ],
+      "roster_rows": 33,
+      "status": "no-page"
+    },
+    {
+      "page_title": "Scout",
+      "handle": "Scout",
+      "editions": [
+        "17na",
+        "18na",
+        "19na",
+        "20na",
+        "21na",
+        "22na",
+        "23na",
+        "24na",
+        "25na",
+        "26na",
+        "27na",
+        "28na",
+        "29na",
+        "30na",
+        "31na",
+        "32na",
+        "33na",
+        "34na",
+        "35na",
+        "36na",
+        "37na",
+        "38na"
+      ],
+      "teams": [
+        "Melee Creeps"
+      ],
+      "roster_rows": 22,
+      "status": "no-id"
+    },
+    {
+      "page_title": "Sharyk",
+      "handle": "sharyk",
+      "editions": [
+        "24eu",
+        "25eu",
+        "47eu",
+        "48eu",
+        "49eu"
+      ],
+      "teams": [
+        "Abrahams",
+        "lowkey w"
+      ],
+      "roster_rows": 5,
+      "account_id": "81662458",
+      "in_our_data": true,
+      "testable_rosterings": 2,
+      "confirming_rosterings": 2,
+      "status": "confirmed"
+    },
+    {
+      "page_title": "Snakes",
+      "handle": "snakes",
+      "editions": [
+        "31na",
+        "33na",
+        "34na",
+        "35na",
+        "36na",
+        "38na",
+        "39na",
+        "40na",
+        "46na",
+        "48na"
+      ],
+      "teams": [
+        "FPS Lounge",
+        "Get Candy",
+        "Melee Creeps",
+        "fps lounge"
+      ],
+      "roster_rows": 10,
+      "status": "no-id"
+    },
+    {
+      "page_title": "Spooky",
+      "handle": "Spooky",
+      "editions": [
+        "45na",
+        "46na"
+      ],
+      "teams": [
+        "Get Candy"
+      ],
+      "roster_rows": 2,
+      "status": "no-page"
+    },
+    {
+      "page_title": "Stryde",
+      "handle": "stryde",
+      "editions": [
+        "30na",
+        "35na",
+        "36na",
+        "37na",
+        "38na",
+        "41na",
+        "42na",
+        "43na",
+        "44na",
+        "45na",
+        "46na",
+        "48na",
+        "49na"
+      ],
+      "teams": [
+        "Bird With Clock",
+        "Bird with Clock",
+        "No Earnings",
+        "Work in Progress",
+        "no earnings"
+      ],
+      "roster_rows": 13,
+      "account_id": "139205933",
+      "in_our_data": true,
+      "testable_rosterings": 10,
+      "confirming_rosterings": 8,
+      "status": "confirmed"
+    },
+    {
+      "page_title": "Stryder",
+      "handle": "Stryder",
+      "editions": [
+        "23na",
+        "26na"
+      ],
+      "teams": [
+        "no earnings"
+      ],
+      "roster_rows": 2,
+      "status": "no-page"
+    },
+    {
+      "page_title": "SURGERY",
+      "handle": "SURGERY",
+      "editions": [
+        "16eu",
+        "17eu",
+        "20eu",
+        "22eu",
+        "23eu"
+      ],
+      "teams": [
+        "Fearless Furies"
+      ],
+      "roster_rows": 5,
+      "account_id": "912304652",
+      "in_our_data": true,
+      "testable_rosterings": 4,
+      "confirming_rosterings": 4,
+      "status": "confirmed"
+    },
+    {
+      "page_title": "TANNER",
+      "handle": "TANNER",
+      "editions": [
+        "17na",
+        "18na",
+        "19na",
+        "20na",
+        "21na",
+        "22na",
+        "23na",
+        "24na",
+        "25na",
+        "27na",
+        "28na",
+        "29na",
+        "32na",
+        "35na",
+        "37na",
+        "38na",
+        "41na",
+        "42na",
+        "43na",
+        "44na",
+        "45na",
+        "48na",
+        "49na"
+      ],
+      "teams": [
+        "Bird With Clock",
+        "Bird with Clock",
+        "Bunny With Clock",
+        "bird with clock"
+      ],
+      "roster_rows": 23,
+      "account_id": "54151884",
+      "in_our_data": true,
+      "testable_rosterings": 14,
+      "confirming_rosterings": 13,
+      "status": "confirmed"
+    },
+    {
+      "page_title": "Tas",
+      "handle": "Tas",
+      "editions": [
+        "16eu",
+        "17eu",
+        "18eu",
+        "19eu",
+        "20eu",
+        "21eu",
+        "22eu",
+        "23eu",
+        "24eu",
+        "25eu",
+        "26eu",
+        "27eu",
+        "28eu",
+        "29eu",
+        "30eu",
+        "31eu",
+        "32eu",
+        "33eu",
+        "34eu",
+        "35eu",
+        "36eu",
+        "37eu",
+        "38eu",
+        "39eu",
+        "40eu",
+        "41eu",
+        "42eu",
+        "43eu",
+        "44eu",
+        "45eu",
+        "46eu",
+        "47eu",
+        "48eu",
+        "49eu"
+      ],
+      "teams": [
+        "Abrahams"
+      ],
+      "roster_rows": 34,
+      "account_id": "1444662928",
+      "in_our_data": true,
+      "testable_rosterings": 27,
+      "confirming_rosterings": 27,
+      "status": "confirmed"
+    },
+    {
+      "page_title": "Together",
+      "handle": "together",
+      "editions": [
+        "16eu",
+        "17eu",
+        "18eu",
+        "19eu",
+        "20eu",
+        "21eu",
+        "22eu",
+        "23eu",
+        "24eu",
+        "25eu",
+        "26eu",
+        "27eu",
+        "28eu",
+        "29eu",
+        "30eu",
+        "31eu",
+        "32eu",
+        "33eu",
+        "34eu",
+        "35eu",
+        "36eu",
+        "37eu",
+        "38eu",
+        "39eu",
+        "40eu",
+        "41eu",
+        "42eu",
+        "43eu",
+        "44eu",
+        "45eu",
+        "46eu",
+        "47eu",
+        "48eu",
+        "49eu"
+      ],
+      "teams": [
+        "Abrahams"
+      ],
+      "roster_rows": 34,
+      "account_id": "298155885",
+      "in_our_data": true,
+      "testable_rosterings": 27,
+      "confirming_rosterings": 27,
+      "status": "confirmed"
+    },
+    {
+      "page_title": "Trax",
+      "handle": "Trax",
+      "editions": [
+        "18eu",
+        "19eu",
+        "21eu",
+        "24eu",
+        "25eu",
+        "26eu",
+        "27eu"
+      ],
+      "teams": [
+        "Lowkey W",
+        "lowkey w"
+      ],
+      "roster_rows": 7,
+      "account_id": "163819505",
+      "in_our_data": true,
+      "testable_rosterings": 4,
+      "confirming_rosterings": 3,
+      "status": "confirmed"
+    },
+    {
+      "page_title": "Venial",
+      "handle": "Venial",
+      "editions": [
+        "44na"
+      ],
+      "teams": [
+        "Melee Creeps"
+      ],
+      "roster_rows": 1,
+      "status": "no-page"
+    },
+    {
+      "page_title": "Vraic",
+      "handle": "vraic",
+      "editions": [
+        "18eu",
+        "19eu",
+        "21eu",
+        "24eu",
+        "25eu",
+        "26eu",
+        "27eu",
+        "29eu",
+        "30eu",
+        "31eu",
+        "32eu",
+        "33eu",
+        "34eu",
+        "35eu",
+        "36eu",
+        "37eu",
+        "38eu",
+        "39eu",
+        "40eu",
+        "41eu",
+        "42eu",
+        "43eu",
+        "44eu",
+        "45eu",
+        "46eu",
+        "47eu",
+        "48eu",
+        "49eu"
+      ],
+      "teams": [
+        "Buff Enjoyers",
+        "Lowkey W",
+        "lowkey w"
+      ],
+      "roster_rows": 28,
+      "account_id": "344946432",
+      "in_our_data": true,
+      "testable_rosterings": 22,
+      "confirming_rosterings": 21,
+      "status": "confirmed"
+    },
+    {
+      "page_title": "W3aky",
+      "handle": "w3aky",
+      "editions": [
+        "28eu",
+        "44eu",
+        "46eu",
+        "48eu",
+        "49eu"
+      ],
+      "teams": [
+        "No Mercy",
+        "Silence",
+        "Sneaky Team"
+      ],
+      "roster_rows": 5,
+      "account_id": "1046192556",
+      "in_our_data": true,
+      "testable_rosterings": 4,
+      "confirming_rosterings": 4,
+      "status": "confirmed"
+    },
+    {
+      "page_title": "WeAppp",
+      "handle": "weAppp",
+      "editions": [
+        "44eu"
+      ],
+      "teams": [
+        "Sneaky Team"
+      ],
+      "roster_rows": 1,
+      "account_id": "924889838",
+      "in_our_data": true,
+      "testable_rosterings": 1,
+      "confirming_rosterings": 1,
+      "status": "confirmed"
+    },
+    {
+      "page_title": "Werkom",
+      "handle": "Werkom",
+      "editions": [
+        "42eu",
+        "43eu",
+        "44eu"
+      ],
+      "teams": [
+        "Leviathan",
+        "Sneaky Team"
+      ],
+      "roster_rows": 3,
+      "status": "no-page"
+    },
+    {
+      "page_title": "Zeno",
+      "handle": "Zeno",
+      "editions": [
+        "17na",
+        "18na",
+        "28na",
+        "29na",
+        "30na",
+        "31na",
+        "32na",
+        "33na",
+        "34na",
+        "35na",
+        "36na",
+        "37na",
+        "38na",
+        "39na",
+        "40na",
+        "42na",
+        "43na",
+        "44na",
+        "45na",
+        "46na",
+        "47na",
+        "48na",
+        "49na"
+      ],
+      "teams": [
+        "FPS Lounge",
+        "Floormen",
+        "Poppers' Pupils",
+        "Sneaky Golem",
+        "floormen"
+      ],
+      "roster_rows": 23,
+      "status": "collision",
+      "collides_with": [
+        "Rocaine"
+      ]
+    },
+    {
+      "page_title": "Zerggy",
+      "handle": "Zerggy",
+      "editions": [
+        "34eu",
+        "35eu",
+        "36eu",
+        "37eu",
+        "38eu",
+        "39eu",
+        "40eu",
+        "41eu",
+        "42eu",
+        "43eu",
+        "44eu",
+        "45eu",
+        "46eu",
+        "47eu",
+        "48eu",
+        "49eu"
+      ],
+      "teams": [
+        "Buff Enjoyers",
+        "Lowkey W",
+        "lowkey w"
+      ],
+      "roster_rows": 16,
+      "account_id": "35187362",
+      "in_our_data": true,
+      "testable_rosterings": 13,
+      "confirming_rosterings": 13,
+      "status": "confirmed"
+    },
+    {
+      "page_title": "Zirbzy",
+      "handle": "Zirbzy",
+      "editions": [
+        "18na",
+        "20na",
+        "21na",
+        "22na",
+        "36na",
+        "37na",
+        "39na"
+      ],
+      "teams": [
+        "Chubby Bunnies",
+        "No Earnings",
+        "Sneaky Golem",
+        "floormen"
+      ],
+      "roster_rows": 7,
+      "status": "no-id"
+    },
+    {
+      "page_title": "Zxcbobi2011",
+      "handle": "zxcbobi2011",
+      "editions": [
+        "16eu",
+        "17eu",
+        "20eu",
+        "22eu",
+        "24eu",
+        "25eu",
+        "26eu",
+        "28eu",
+        "33eu",
+        "34eu",
+        "35eu",
+        "43eu",
+        "44eu",
+        "45eu",
+        "46eu",
+        "48eu",
+        "49eu"
+      ],
+      "teams": [
+        "Abrahams",
+        "Fearless Furies",
+        "Leviathan",
+        "No Mercy",
+        "Oblivion",
+        "Silence"
+      ],
+      "roster_rows": 17,
+      "account_id": "1186801441",
+      "in_our_data": true,
+      "testable_rosterings": 11,
+      "confirming_rosterings": 11,
+      "status": "confirmed"
+    }
+  ],
+  "account_candidates": {
+    "5278896": {
+      "handle": "empty dreams",
+      "status": "confirmed",
+      "page_title": "Empty dreams"
+    },
+    "25821887": {
+      "handle": "Saiah",
+      "status": "confirmed",
+      "page_title": "Saiah"
+    },
+    "35187362": {
+      "handle": "Zerggy",
+      "status": "confirmed",
+      "page_title": "Zerggy"
+    },
+    "39488687": {
+      "handle": "Hydration",
+      "status": "confirmed",
+      "page_title": "Hydration"
+    },
+    "54151884": {
+      "handle": "TANNER",
+      "status": "confirmed",
+      "page_title": "TANNER"
+    },
+    "81662458": {
+      "handle": "sharyk",
+      "status": "confirmed",
+      "page_title": "Sharyk"
+    },
+    "85898225": {
+      "handle": "POSHYPOP",
+      "status": "probable",
+      "page_title": "POSHYPOP"
+    },
+    "87241154": {
+      "handle": "Hoot",
+      "status": "confirmed",
+      "page_title": "Hoot"
+    },
+    "96763589": {
+      "handle": "blob",
+      "status": "confirmed",
+      "page_title": "Blob"
+    },
+    "97506421": {
+      "handle": "gibz",
+      "status": "confirmed",
+      "page_title": "Gibz"
+    },
+    "97533101": {
+      "handle": "lystic",
+      "status": "confirmed",
+      "page_title": "Lystic"
+    },
+    "108601750": {
+      "handle": "gfreek",
+      "status": "confirmed",
+      "page_title": "Gfreek"
+    },
+    "114943410": {
+      "handle": "Lefaa",
+      "status": "confirmed",
+      "page_title": "Lefaa"
+    },
+    "119264432": {
+      "handle": "flammable",
+      "status": "confirmed",
+      "page_title": "Flammable"
+    },
+    "124540485": {
+      "handle": "arzo",
+      "status": "confirmed",
+      "page_title": "Arzo"
+    },
+    "136898005": {
+      "handle": "IRezUmi",
+      "status": "confirmed",
+      "page_title": "IRezUmi"
+    },
+    "139205933": {
+      "handle": "stryde",
+      "status": "confirmed",
+      "page_title": "Stryde"
+    },
+    "163819505": {
+      "handle": "Trax",
+      "status": "confirmed",
+      "page_title": "Trax"
+    },
+    "192227354": {
+      "handle": "rocker",
+      "status": "confirmed",
+      "page_title": "Rocker"
+    },
+    "225764206": {
+      "handle": "braeden",
+      "status": "confirmed",
+      "page_title": "Braeden"
+    },
+    "244109796": {
+      "handle": "JonJon",
+      "status": "confirmed",
+      "page_title": "JonJon"
+    },
+    "244471627": {
+      "handle": "coolcheese",
+      "status": "confirmed",
+      "page_title": "Coolcheese"
+    },
+    "246214695": {
+      "handle": "fl0z",
+      "status": "confirmed",
+      "page_title": "Fl0z"
+    },
+    "271562520": {
+      "handle": "AVG",
+      "status": "confirmed",
+      "page_title": "AVG"
+    },
+    "281768392": {
+      "handle": "kapten",
+      "status": "confirmed",
+      "page_title": "Kapten"
+    },
+    "288422074": {
+      "handle": "Happex",
+      "status": "confirmed",
+      "page_title": "Happex"
+    },
+    "291902996": {
+      "handle": "aidanthedestroye",
+      "status": "confirmed",
+      "page_title": "Aidanthedestroye"
+    },
+    "298155885": {
+      "handle": "together",
+      "status": "confirmed",
+      "page_title": "Together"
+    },
+    "298305257": {
+      "handle": "Dimov",
+      "status": "confirmed",
+      "page_title": "Dimov"
+    },
+    "329035753": {
+      "handle": "Arctic",
+      "status": "confirmed",
+      "page_title": "Arctic"
+    },
+    "344946432": {
+      "handle": "vraic",
+      "status": "confirmed",
+      "page_title": "Vraic"
+    },
+    "385814004": {
+      "handle": "MikaelS",
+      "status": "confirmed",
+      "page_title": "MikaelS"
+    },
+    "400239835": {
+      "handle": "fargareko",
+      "status": "confirmed",
+      "page_title": "Fargareko"
+    },
+    "407786402": {
+      "handle": "Reyache",
+      "status": "confirmed",
+      "page_title": "Reyache"
+    },
+    "483770846": {
+      "handle": "cosmetical",
+      "status": "confirmed",
+      "page_title": "Cosmetical"
+    },
+    "888853854": {
+      "handle": "ABL",
+      "status": "confirmed",
+      "page_title": "ABL"
+    },
+    "891136769": {
+      "handle": "banw1se19",
+      "status": "confirmed",
+      "page_title": "Banw1se19"
+    },
+    "911856667": {
+      "handle": "obikym",
+      "status": "confirmed",
+      "page_title": "Obikym"
+    },
+    "912304652": {
+      "handle": "SURGERY",
+      "status": "confirmed",
+      "page_title": "SURGERY"
+    },
+    "924889838": {
+      "handle": "weAppp",
+      "status": "confirmed",
+      "page_title": "WeAppp"
+    },
+    "984254212": {
+      "handle": "Overseas",
+      "status": "confirmed",
+      "page_title": "Overseas"
+    },
+    "1009703898": {
+      "handle": "freemok",
+      "status": "confirmed",
+      "page_title": "Freemok"
+    },
+    "1012333396": {
+      "handle": "ayano",
+      "status": "confirmed",
+      "page_title": "Ayano"
+    },
+    "1045169707": {
+      "handle": "sai",
+      "status": "confirmed",
+      "page_title": "Sai"
+    },
+    "1046192556": {
+      "handle": "w3aky",
+      "status": "confirmed",
+      "page_title": "W3aky"
+    },
+    "1049966963": {
+      "handle": "DMB",
+      "status": "confirmed",
+      "page_title": "DMB"
+    },
+    "1055638874": {
+      "handle": "saintmxsm",
+      "status": "confirmed",
+      "page_title": "Saintmxsm"
+    },
+    "1062664388": {
+      "handle": "qult",
+      "status": "confirmed",
+      "page_title": "Qult"
+    },
+    "1186801441": {
+      "handle": "zxcbobi2011",
+      "status": "confirmed",
+      "page_title": "Zxcbobi2011"
+    },
+    "1285605078": {
+      "handle": "Goober",
+      "status": "confirmed",
+      "page_title": "Goober"
+    },
+    "1444662928": {
+      "handle": "Tas",
+      "status": "confirmed",
+      "page_title": "Tas"
+    },
+    "1477660209": {
+      "handle": "League",
+      "status": "confirmed",
+      "page_title": "League"
+    },
+    "1557303666": {
+      "handle": "Ayrien",
+      "status": "confirmed",
+      "page_title": "Ayrien"
+    },
+    "1673876903": {
+      "handle": "apacycle",
+      "status": "confirmed",
+      "page_title": "Apacycle"
+    },
+    "1710092569": {
+      "handle": "epl1fine",
+      "status": "confirmed",
+      "page_title": "Epl1fine"
+    },
+    "1787356635": {
+      "handle": "MazaG",
+      "status": "confirmed",
+      "page_title": "MazaG"
+    },
+    "1840902834": {
+      "handle": "oses",
+      "status": "confirmed",
+      "page_title": "Oses"
+    },
+    "1902828658": {
+      "handle": "Erebus",
+      "status": "confirmed",
+      "page_title": "Erebus"
+    },
+    "1929248273": {
+      "handle": "Poppers",
+      "status": "confirmed",
+      "page_title": "Poppers"
+    }
+  },
+  "account_clashes": {},
+  "persona_candidates": [
+    {
+      "page_title": "KennKan",
+      "handle": "KennKan",
+      "account_id": "32639412",
+      "personaname": "KennKan",
+      "match": "exact",
+      "wiki_status": "no-page",
+      "testable_rosterings": 0,
+      "confirming_rosterings": 0,
+      "side_confirmed": false
+    },
+    {
+      "page_title": "Boostio",
+      "handle": "Boostio",
+      "account_id": "44899168",
+      "personaname": "Boostio",
+      "match": "exact",
+      "wiki_status": "no-page",
+      "testable_rosterings": 1,
+      "confirming_rosterings": 1,
+      "side_confirmed": true
+    },
+    {
+      "page_title": "Jitizm",
+      "handle": "Jitizm",
+      "account_id": "82571600",
+      "personaname": "twitch.tv/Jitizm12301",
+      "match": "contained",
+      "wiki_status": "no-page",
+      "testable_rosterings": 0,
+      "confirming_rosterings": 0,
+      "side_confirmed": false
+    },
+    {
+      "page_title": "Spooky",
+      "handle": "Spooky",
+      "account_id": "102312863",
+      "personaname": "--",
+      "match": "contained",
+      "wiki_status": "no-page",
+      "testable_rosterings": 2,
+      "confirming_rosterings": 2,
+      "side_confirmed": true
+    },
+    {
+      "page_title": "Fishcake",
+      "handle": "Fishcake",
+      "account_id": "108672673",
+      "personaname": "Draven",
+      "match": "contained",
+      "wiki_status": "no-id",
+      "testable_rosterings": 21,
+      "confirming_rosterings": 21,
+      "side_confirmed": true
+    },
+    {
+      "page_title": "Dew",
+      "handle": "dew",
+      "account_id": "108710262",
+      "personaname": "dew",
+      "match": "exact",
+      "wiki_status": "no-id",
+      "testable_rosterings": 18,
+      "confirming_rosterings": 17,
+      "side_confirmed": true
+    },
+    {
+      "page_title": "Cantsaymeow",
+      "handle": "cantsaymeow",
+      "account_id": "112724001",
+      "personaname": "cantsaymeow",
+      "match": "exact",
+      "wiki_status": "no-page",
+      "testable_rosterings": 2,
+      "confirming_rosterings": 2,
+      "side_confirmed": true
+    },
+    {
+      "page_title": "GenericEdBoi",
+      "handle": "GenericEdBoi",
+      "account_id": "123933607",
+      "personaname": "GenericEdBoi",
+      "match": "exact",
+      "wiki_status": "no-page",
+      "testable_rosterings": 0,
+      "confirming_rosterings": 0,
+      "side_confirmed": false
+    },
+    {
+      "page_title": "Ktall",
+      "handle": "ktall",
+      "account_id": "164072337",
+      "personaname": "GazMyas.Academy ktall",
+      "match": "contained",
+      "wiki_status": "no-page",
+      "testable_rosterings": 1,
+      "confirming_rosterings": 1,
+      "side_confirmed": true
+    },
+    {
+      "page_title": "Lorence",
+      "handle": "lorence",
+      "account_id": "185598645",
+      "personaname": "lorence",
+      "match": "exact",
+      "wiki_status": "no-page",
+      "testable_rosterings": 1,
+      "confirming_rosterings": 1,
+      "side_confirmed": true
+    },
+    {
+      "page_title": "Scout",
+      "handle": "Scout",
+      "account_id": "241312861",
+      "personaname": "Scout",
+      "match": "exact",
+      "wiki_status": "no-id",
+      "testable_rosterings": 12,
+      "confirming_rosterings": 12,
+      "side_confirmed": true
+    },
+    {
+      "page_title": "Rocaine",
+      "handle": "rocaine",
+      "account_id": "279125228",
+      "personaname": "rocaine",
+      "match": "exact",
+      "wiki_status": "collision",
+      "testable_rosterings": 5,
+      "confirming_rosterings": 4,
+      "side_confirmed": true
+    },
+    {
+      "page_title": "Jarate",
+      "handle": "Jarate",
+      "account_id": "284870226",
+      "personaname": "Jarate",
+      "match": "exact",
+      "wiki_status": "no-page",
+      "testable_rosterings": 2,
+      "confirming_rosterings": 1,
+      "side_confirmed": true
+    },
+    {
+      "page_title": "Cikp",
+      "handle": "cikp",
+      "account_id": "313928930",
+      "personaname": "cikp",
+      "match": "exact",
+      "wiki_status": "no-page",
+      "testable_rosterings": 1,
+      "confirming_rosterings": 1,
+      "side_confirmed": true
+    },
+    {
+      "page_title": "Balaclava",
+      "handle": "balaclava",
+      "account_id": "323142724",
+      "personaname": "balaclava",
+      "match": "exact",
+      "wiki_status": "no-page",
+      "testable_rosterings": 4,
+      "confirming_rosterings": 4,
+      "side_confirmed": true
+    },
+    {
+      "page_title": "Bsqt",
+      "handle": "Bsqt",
+      "account_id": "323196641",
+      "personaname": "bsqt",
+      "match": "exact",
+      "wiki_status": "no-page",
+      "testable_rosterings": 1,
+      "confirming_rosterings": 1,
+      "side_confirmed": true
+    },
+    {
+      "page_title": "Doi",
+      "handle": "Doi",
+      "account_id": "371621540",
+      "personaname": "Doi",
+      "match": "exact",
+      "wiki_status": "no-page",
+      "testable_rosterings": 3,
+      "confirming_rosterings": 3,
+      "side_confirmed": true
+    },
+    {
+      "page_title": "Afera",
+      "handle": "Afera",
+      "account_id": "379745391",
+      "personaname": "Afera",
+      "match": "exact",
+      "wiki_status": "no-page",
+      "testable_rosterings": 1,
+      "confirming_rosterings": 1,
+      "side_confirmed": true
+    },
+    {
+      "page_title": "Boger",
+      "handle": "Boger",
+      "account_id": "413364876",
+      "personaname": "Boger",
+      "match": "exact",
+      "wiki_status": "no-page",
+      "testable_rosterings": 0,
+      "confirming_rosterings": 0,
+      "side_confirmed": false
+    },
+    {
+      "page_title": "Leviathan",
+      "handle": "Leviathan",
+      "account_id": "837629074",
+      "personaname": "LeviathanMVS",
+      "match": "contained",
+      "wiki_status": "no-id",
+      "testable_rosterings": 0,
+      "confirming_rosterings": 0,
+      "side_confirmed": false
+    },
+    {
+      "page_title": "Venial",
+      "handle": "Venial",
+      "account_id": "889536589",
+      "personaname": "venial",
+      "match": "exact",
+      "wiki_status": "no-page",
+      "testable_rosterings": 1,
+      "confirming_rosterings": 1,
+      "side_confirmed": true
+    },
+    {
+      "page_title": "Blur",
+      "handle": "blur",
+      "account_id": "898514158",
+      "personaname": "blur",
+      "match": "exact",
+      "wiki_status": "no-id",
+      "testable_rosterings": 1,
+      "confirming_rosterings": 1,
+      "side_confirmed": true
+    },
+    {
+      "page_title": "Stryder",
+      "handle": "Stryder",
+      "account_id": "900993442",
+      "personaname": "LFT Stryder",
+      "match": "contained",
+      "wiki_status": "no-page",
+      "testable_rosterings": 0,
+      "confirming_rosterings": 0,
+      "side_confirmed": false
+    },
+    {
+      "page_title": "Mayonese",
+      "handle": "Mayonese",
+      "account_id": "914913299",
+      "personaname": "Mayonese",
+      "match": "exact",
+      "wiki_status": "no-page",
+      "testable_rosterings": 2,
+      "confirming_rosterings": 2,
+      "side_confirmed": true
+    },
+    {
+      "page_title": "Snakes",
+      "handle": "snakes",
+      "account_id": "924812291",
+      "personaname": "Snakes",
+      "match": "exact",
+      "wiki_status": "no-id",
+      "testable_rosterings": 8,
+      "confirming_rosterings": 7,
+      "side_confirmed": true
+    },
+    {
+      "page_title": "Division",
+      "handle": "Division",
+      "account_id": "1053706881",
+      "personaname": "Division",
+      "match": "exact",
+      "wiki_status": "no-page",
+      "testable_rosterings": 1,
+      "confirming_rosterings": 1,
+      "side_confirmed": true
+    },
+    {
+      "page_title": "Rumple",
+      "handle": "Rumple",
+      "account_id": "1141067246",
+      "personaname": "Rumple",
+      "match": "exact",
+      "wiki_status": "no-page",
+      "testable_rosterings": 1,
+      "confirming_rosterings": 1,
+      "side_confirmed": true
+    },
+    {
+      "page_title": "LordNM",
+      "handle": "LordNM",
+      "account_id": "1387549649",
+      "personaname": "lordnm",
+      "match": "exact",
+      "wiki_status": "no-id",
+      "testable_rosterings": 5,
+      "confirming_rosterings": 5,
+      "side_confirmed": true
+    },
+    {
+      "page_title": "Playa",
+      "handle": "playa",
+      "account_id": "1482863137",
+      "personaname": "playa",
+      "match": "exact",
+      "wiki_status": "no-page",
+      "testable_rosterings": 1,
+      "confirming_rosterings": 1,
+      "side_confirmed": true
+    },
+    {
+      "page_title": "Birdee",
+      "handle": "Birdee",
+      "account_id": "1871217631",
+      "personaname": "birdee",
+      "match": "exact",
+      "wiki_status": "no-page",
+      "testable_rosterings": 1,
+      "confirming_rosterings": 1,
+      "side_confirmed": true
+    }
+  ],
+  "persona_ambiguous": [
+    {
+      "page_title": "Ranger",
+      "handle": "Ranger",
+      "account_id": "123819912",
+      "personaname": "RangeRns",
+      "match": "contained",
+      "wiki_status": "no-id",
+      "testable_rosterings": 4,
+      "confirming_rosterings": 1,
+      "side_confirmed": true
+    },
+    {
+      "page_title": "Hypno",
+      "handle": "Hypno",
+      "account_id": "215398243",
+      "personaname": "HYPNO",
+      "match": "exact",
+      "wiki_status": "no-page",
+      "testable_rosterings": 1,
+      "confirming_rosterings": 1,
+      "side_confirmed": true
+    },
+    {
+      "page_title": "HYPNO",
+      "handle": "HYPNO",
+      "account_id": "215398243",
+      "personaname": "HYPNO",
+      "match": "exact",
+      "wiki_status": "no-page",
+      "testable_rosterings": 1,
+      "confirming_rosterings": 1,
+      "side_confirmed": true
+    },
+    {
+      "page_title": "Dorian",
+      "handle": "Dorian",
+      "account_id": "969113214",
+      "personaname": "Dorian",
+      "match": "exact",
+      "wiki_status": "no-page",
+      "testable_rosterings": 1,
+      "confirming_rosterings": 1,
+      "side_confirmed": true
+    },
+    {
+      "page_title": "Ranger",
+      "handle": "Ranger",
+      "account_id": "1068913860",
+      "personaname": "ranger",
+      "match": "exact",
+      "wiki_status": "no-id",
+      "testable_rosterings": 4,
+      "confirming_rosterings": 3,
+      "side_confirmed": true
+    },
+    {
+      "page_title": "Lomein",
+      "handle": "Lomein",
+      "account_id": "1164034146",
+      "personaname": "Lomein",
+      "match": "exact",
+      "wiki_status": "rejected",
+      "testable_rosterings": 14,
+      "confirming_rosterings": 0,
+      "side_confirmed": false
+    },
+    {
+      "page_title": "Dorian",
+      "handle": "Dorian",
+      "account_id": "1676299122",
+      "personaname": "eidorian",
+      "match": "contained",
+      "wiki_status": "no-page",
+      "testable_rosterings": 1,
+      "confirming_rosterings": 0,
+      "side_confirmed": false
+    },
+    {
+      "page_title": "Eidorian",
+      "handle": "eidorian",
+      "account_id": "1676299122",
+      "personaname": "eidorian",
+      "match": "exact",
+      "wiki_status": "no-id",
+      "testable_rosterings": 21,
+      "confirming_rosterings": 20,
+      "side_confirmed": true
+    },
+    {
+      "page_title": "Lomein",
+      "handle": "Lomein",
+      "account_id": "1871021649",
+      "personaname": "fpsl lomein",
+      "match": "contained",
+      "wiki_status": "rejected",
+      "testable_rosterings": 14,
+      "confirming_rosterings": 12,
+      "side_confirmed": true
+    }
+  ]
+}

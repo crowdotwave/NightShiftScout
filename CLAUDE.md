@@ -211,9 +211,36 @@ been benched or might just be in a match we never fetched. Those two are not
 distinguishable from our side, so they are not distinguished.
 
 **This is participation only, not attribution.** It says who played which
-game. It says nothing about which lineup a side was, because that needs team
-identity, and two rosters overlapping five of six means a single stand-in can
-flip the attribution silently. See `TEAM-IDENTITY-PROPOSAL.md`.
+game. It says nothing about which lineup a side was.
+
+## Explicitly out of scope
+
+Do not build these, and do not build toward them. They were considered,
+scoped, and dropped on purpose, so finding no code for them is not an
+oversight to correct.
+
+- **Team career stats.** No team aggregates, no team pages, no "Melee Creeps
+  all time record". LockBlaze already publishes team level results, and this
+  project exists to do the opposite: separate a player from their team's
+  result. A team span is also not a stable thing to measure, since
+  `Melee Creeps` kept its name across 33 appearances while replacing four of
+  six players.
+- **Org and lineup modelling.** The succession, rebrand and absorption model
+  in `TEAM-IDENTITY-PROPOSAL.md` is **not being implemented.** That document
+  stays as a record of the evidence and of why the obvious fix is wrong, not
+  as a plan.
+- **Team identity as a join key.** A team name is a **label we display when
+  we know it and omit when we do not**. Nothing joins on it, nothing
+  aggregates by it, and no number changes if it is missing.
+
+What is actually needed is **side attribution**, and that is already solved
+without any of the above: the hero pick join resolves which
+`match_team_index` the bracket's opponent1 was, on 273 of the 281 games we
+hold, needing no rosters, no lineups and no player identity.
+
+The thing that does matter is **naming players by the alias they compete
+under**, which is what the scouting audience recognises. See
+`scripts/resolve_identities.py`.
 
 **Minimum games.** Players below `DEFAULT_MIN_GAMES` (currently 3) are not
 ranked. Averages over one or two games are not scouting data, they are
