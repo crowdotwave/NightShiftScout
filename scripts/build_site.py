@@ -1,10 +1,24 @@
 #!/usr/bin/env python3
 """Generate the static site from data/derived/dataset.json.
 
-Emits exactly one page type: a player page at /players/<account_id>/.
+Emits two page types: a player index at /, and a player page at
+/players/<account_id>/.
 
-Plain HTML and CSS. No framework, no build step, no JavaScript, and no
-client side fetching: every number is baked in at generation time.
+Plain HTML and CSS. No framework, no build step, and **no client side
+fetching: every number is baked in at generation time.**
+
+The index carries the only script on the site, an inline filter over the
+player list. It is held to the rule the no-JavaScript line was protecting:
+**it computes no number and fetches nothing.** Every row, every count and
+every link is already in the HTML, and the script only sets `hidden` on rows
+that do not match what you typed. With JavaScript off the search box is
+removed and the complete list renders, so nothing is reachable only by
+script.
+
+Deliberately NOT emitted: a leaderboard. Ranking players on the front page
+would publish the format bias documented in CLAUDE.md at maximum prominence,
+where it is least likely to be read with the caveat. That waits for the
+opposition-strength work.
 
 Three rules this generator is built around:
 
@@ -138,6 +152,20 @@ td.num { text-align: right; font-variant-numeric: tabular-nums; }
 .credit a { word-break: break-all; }
 footer { margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid var(--line);
          color: var(--dim); font-size: .84rem; }
+.avatar-fallback { display: inline-flex; align-items: center; justify-content: center;
+                   background: var(--panel); border: 1px solid var(--line); border-radius: 8px;
+                   color: var(--dim); font-weight: 650; flex: none; }
+.lede { color: var(--dim); margin: 1.4rem 0 1rem; }
+.filter { display: block; font-size: .84rem; text-transform: uppercase;
+          letter-spacing: .05em; color: var(--dim); font-weight: 600; }
+.filter input { display: block; width: 100%; max-width: 22rem; margin-top: .35rem;
+                padding: .5rem .7rem; font: inherit; color: var(--fg);
+                background: var(--bg); border: 1px solid var(--line); border-radius: 6px; }
+#filter-count { margin: .4rem 0 0; min-height: 1.2em; }
+td.player { display: flex; align-items: center; gap: .55rem; }
+td.player img { width: 28px; height: 28px; border-radius: 5px; flex: none; }
+#players td, #players th { white-space: nowrap; }
+#players tbody tr:hover { background: var(--panel); }
 """
 
 
@@ -174,7 +202,145 @@ def render_attribution(sink: dict) -> str:
     return "".join(parts)
 
 
-def render_player(account_id, ds, idx, heroes, banner, sink: dict) -> str:
+def avatar_tag(avatar: str | None, name: str, assets_dir: Path, depth: str, size: int) -> str:
+    """An avatar image, or a lettered placeholder when the file is not there.
+
+    Steam returns 404 for some avatars, so `avatar_local` in the dataset is a
+    claim about a URL rather than proof of a file. Rendering it unchecked put
+    one broken image on the site. The check is against the file on disk at
+    build time, which is the only thing that can actually be wrong later.
+
+    The placeholder is a styled span rather than an image, so it costs no
+    request and cannot itself 404.
+    """
+    if avatar and (assets_dir / avatar).exists():
+        return (f'<img src="{depth}assets/{esc(avatar)}" alt="" '
+                f'width="{size}" height="{size}">')
+    letter = next((c for c in (name or "?") if c.isalnum()), "?").upper()
+    return (f'<span class="avatar-fallback" aria-hidden="true" '
+            f'style="width:{size}px;height:{size}px;font-size:{max(12, size // 2)}px">'
+            f'{esc(letter)}</span>')
+
+
+def render_index(ds, idx, banner, assets_dir: Path, sink: dict) -> str:
+    """The way in: every published player, searchable and alphabetical."""
+    rows = []
+    for account_id, player in idx["players"].items():
+        if not player.get("publishable"):
+            continue
+        games = idx["by_account"][account_id]
+        nights, last_night = set(), None
+        for row in games:
+            match = idx["matches"].get(row["match_id"]) or {}
+            night = idx["nights"].get(match.get("night_id"))
+            if not night:
+                continue
+            nights.add(night["night_id"])
+            if last_night is None or (night.get("date") or "") > (last_night.get("date") or ""):
+                last_night = night
+        credit(sink, player)
+        if last_night:
+            credit(sink, last_night)
+        rows.append({
+            "account_id": account_id,
+            "handle": player.get("handle") or f"Account {account_id}",
+            "identified": player.get("identified"),
+            "avatar": (player.get("steam") or {}).get("avatar_local"),
+            "country": (player.get("steam") or {}).get("countrycode"),
+            "games": len(games),
+            "nights": len(nights),
+            "last_night": last_night,
+        })
+    rows.sort(key=lambda r: (r["handle"].lower(), r["account_id"]))
+
+    unnamed = sum(1 for p in idx["players"].values() if not p.get("publishable"))
+    out = ['<!doctype html>', '<html lang="en">', '<head>',
+           '<meta charset="utf-8">',
+           '<meta name="viewport" content="width=device-width, initial-scale=1">',
+           '<title>Night Shift Scout</title>',
+           '<link rel="stylesheet" href="assets/site.css">',
+           '</head>', '<body>', '<main>']
+    if banner:
+        out.append(f'<div class="banner">{esc(banner)}</div>')
+    out.append('<div class="head"><div>')
+    out.append('<h1>Night Shift Scout</h1>')
+    out.append('<div class="sub">Per-player performance from the Deadlock Night Shift weekly series, '
+               'measured against the player\'s own team in the same game.</div>')
+    out.append('</div></div>')
+
+    out.append(f'<p class="lede">{len(rows)} players across {len(ds["matches"])} games. '
+               f'{unnamed} more accounts have played but are not identified yet, and appear as '
+               f'plain numbers rather than being guessed at.</p>')
+
+    # Removed by the script below when it runs, so a no-JavaScript visitor is
+    # never shown a box that does nothing.
+    out.append('<div id="filter-wrap" hidden><label class="filter">Search players '
+               '<input type="search" id="filter" autocomplete="off" '
+               'placeholder="Type a name"></label>'
+               '<p class="sub" id="filter-count" role="status"></p></div>')
+
+    # Wrapped like every other table on the site: the cells are nowrap, so on a
+    # narrow phone this has to scroll inside its own box rather than pushing the
+    # page sideways.
+    out.append('<div class="scroll"><table id="players"><thead><tr>'
+               '<th>Player</th><th class="num">Games</th><th class="num">Nights</th>'
+               '<th>Last played</th></tr></thead><tbody>')
+    for row in rows:
+        tag = ' <span class="tag">probable</span>' if row["identified"] == "probable" else ""
+        night = row["last_night"]
+        if night:
+            label, _ = night_label(night)
+            last = f'{esc(label)} <span class="sub">{esc(fmt_date(night.get("date")))}</span>'
+        else:
+            last = '<span class="sub">not recorded</span>'
+        country = f' <span class="sub">{esc(row["country"])}</span>' if row["country"] else ""
+        out.append(
+            f'<tr data-name="{esc(row["handle"].lower())}">'
+            f'<td class="player">'
+            f'{avatar_tag(row["avatar"], row["handle"], assets_dir, "", 28)}'
+            f'<a href="players/{esc(row["account_id"])}/">{esc(row["handle"])}</a>{tag}{country}</td>'
+            f'<td class="num">{row["games"]}</td>'
+            f'<td class="num">{row["nights"]}</td>'
+            f'<td>{last}</td></tr>')
+    out.append('</tbody></table></div>')
+
+    out.append('<footer>'
+               '<p>Names come from the alias a player competes under. An account is only named '
+               'when the evidence supports it, so an unnamed account means we do not know, '
+               'not that nobody played.</p>'
+               f'<p>Generated {esc(ds.get("generated_utc", ""))} from match data supplied by the '
+               'community run <a href="https://deadlock-api.com/" rel="noopener">deadlock-api</a>.</p>')
+    out.append(render_attribution(sink))
+    out.append('</footer>')
+
+    # Filtering only. No number here is computed, nothing is fetched, and the
+    # table is complete in the HTML above whether or not this runs.
+    out.append("""<script>
+(function () {
+  var wrap = document.getElementById('filter-wrap');
+  var input = document.getElementById('filter');
+  var count = document.getElementById('filter-count');
+  var rows = Array.prototype.slice.call(
+    document.querySelectorAll('#players tbody tr'));
+  wrap.hidden = false;
+  function apply() {
+    var q = input.value.trim().toLowerCase();
+    var shown = 0;
+    rows.forEach(function (row) {
+      var hit = !q || row.getAttribute('data-name').indexOf(q) !== -1;
+      row.hidden = !hit;
+      if (hit) { shown++; }
+    });
+    count.textContent = q ? shown + ' of ' + rows.length + ' players' : '';
+  }
+  input.addEventListener('input', apply);
+})();
+</script>""")
+    out.append('</main></body></html>')
+    return "".join(out)
+
+
+def render_player(account_id, ds, idx, heroes, banner, assets_dir: Path, sink: dict) -> str:
     player = idx["players"][account_id]
     rows = sorted(idx["by_account"][account_id],
                   key=lambda r: idx["matches"][r["match_id"]].get("start_time") or 0)
@@ -223,8 +389,7 @@ def render_player(account_id, ds, idx, heroes, banner, sink: dict) -> str:
         out.append(f'<div class="banner">{esc(banner)}</div>')
 
     out.append('<div class="head">')
-    if avatar:
-        out.append(f'<img src="../../assets/{esc(avatar)}" alt="" width="64" height="64">')
+    out.append(avatar_tag(avatar, name, assets_dir, "../../", 64))
     out.append('<div>')
     tag = ' <span class="tag">identity probable</span>' if player.get("identified") == "probable" else ""
     out.append(f'<h1>{esc(name)}{tag}</h1>')
@@ -389,6 +554,11 @@ def main() -> int:
     (args.out / "assets").mkdir(exist_ok=True)
     (args.out / "assets" / "site.css").write_text(CSS.strip() + "\n", encoding="utf-8")
 
+    # Avatar existence is checked against the SOURCE assets, since that is what
+    # exists while pages render. The copy into the output happens afterwards
+    # and only for files that are actually there.
+    avatars_dir = args.assets
+
     published, skipped = [], []
     credited: set[str] = set()
     for account_id, player in sorted(idx["players"].items(), key=lambda kv: int(kv[0])):
@@ -398,7 +568,7 @@ def main() -> int:
         page_dir = args.out / "players" / account_id
         page_dir.mkdir(parents=True, exist_ok=True)
         sink: dict = {}
-        page = render_player(account_id, ds, idx, heroes, args.banner, sink)
+        page = render_player(account_id, ds, idx, heroes, args.banner, avatars_dir, sink)
         # A licence obligation is created by rendering the name, so the check
         # is against the finished HTML rather than against intent. If a page
         # owes a credit and does not carry one, the build fails: publishing
@@ -435,7 +605,19 @@ def main() -> int:
                 shutil.copy2(candidate, dest / candidate.name)
                 copied += 1
 
+    # The index is rendered last, so it can only ever list pages that exist.
+    index_sink: dict = {}
+    index_html = render_index(ds, idx, args.banner, avatars_dir, index_sink)
+    for provider, attr in index_sink.items():
+        if attr["url"] not in index_html and not any(u in index_html for u in attr["urls"]):
+            raise SystemExit(
+                f"attribution missing: the index renders names from {attr['name']} "
+                f"but carries no link back to them")
+        credited.add(provider)
+    (args.out / "index.html").write_text(index_html, encoding="utf-8")
+
     print(f"Generated {len(published)} player page(s) into {args.out}/players/")
+    print(f"  index at {args.out}/index.html listing {len(published)} player(s)")
     print(f"  {len(skipped)} account(s) not published (unidentified or guess level); "
           f"they render as bare account IDs inside other pages")
     print(f"  {copied} avatar(s) copied, {len(ds['matches'])} match(es) represented")
