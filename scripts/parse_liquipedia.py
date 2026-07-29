@@ -293,9 +293,15 @@ def main() -> int:
     parser.add_argument("--out", type=Path, default=DEFAULT_OUT)
     args = parser.parse_args()
 
-    files = sorted(args.pages.glob("*.wiki.gz"))
+    # The cache directory also holds player pages, which carry steam64ID and no
+    # bracket. Only edition pages are parsed here. Without this filter a player
+    # page reaches parse_page and its title fails to split into three parts,
+    # which is how this crashed the first time publish.py ran end to end.
+    files = sorted(p for p in args.pages.glob("*.wiki.gz")
+                   if p.name.startswith("Deadlock_Night_Shift__"))
     if not files:
-        parser.error(f"no cached pages in {args.pages}, run scripts/fetch_liquipedia.py first")
+        parser.error(f"no cached edition pages in {args.pages}, "
+                     f"run scripts/fetch_liquipedia.py first")
 
     problems: list[str] = []
     rows: list[dict] = []

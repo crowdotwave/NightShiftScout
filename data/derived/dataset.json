@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_utc": "2026-07-28T04:37:50+00:00",
+  "generated_utc": "2026-07-29T00:25:59+00:00",
   "source": {
     "generator": "scripts/build_dataset.py",
-    "git_commit": "b573904",
+    "git_commit": "bbd42d1",
     "matches_cached": 281,
     "matches_ingested": 279,
     "nights_ingested": 81,
@@ -1422,7 +1422,7 @@
       "handle_attribution": null,
       "publishable": false,
       "steam": {
-        "personaname": "wander (real)",
+        "personaname": "wander",
         "profileurl": "https://steamcommunity.com/id/mxer16/",
         "countrycode": "US",
         "avatar_local": "avatars/17403205.jpg",
@@ -1527,7 +1527,7 @@
       "handle_attribution": null,
       "publishable": true,
       "steam": {
-        "personaname": "BOILINGPOOBRUV",
+        "personaname": "THE AC",
         "profileurl": "https://steamcommunity.com/id/IMJUNKINGMYSHITRNFR/",
         "countrycode": "GB",
         "avatar_local": "avatars/54151884.jpg",
@@ -1954,7 +1954,7 @@
       "handle_attribution": null,
       "publishable": true,
       "steam": {
-        "personaname": "say it loud",
+        "personaname": "\u0431\u0430\u0440\u0430\u0433\u043e\u0437",
         "profileurl": "https://steamcommunity.com/id/irezum1/",
         "countrycode": "SO",
         "avatar_local": "avatars/136898005.jpg",
@@ -2227,11 +2227,11 @@
       "handle_attribution": null,
       "publishable": true,
       "steam": {
-        "personaname": "BALANAR",
+        "personaname": "bossdogg23",
         "profileurl": "https://steamcommunity.com/id/kaptennn/",
         "countrycode": null,
         "avatar_local": "avatars/281768392.jpg",
-        "avatar_source": "https://avatars.steamstatic.com/2f9bbb2ff7e27079b737368fb53bb1886da40a85_medium.jpg"
+        "avatar_source": "https://avatars.steamstatic.com/38f55b5f125039d2c38a4259093cc24c42dc7698_medium.jpg"
       }
     },
     {
@@ -2483,7 +2483,7 @@
         "profileurl": "https://steamcommunity.com/profiles/76561198340011119/",
         "countrycode": "RU",
         "avatar_local": "avatars/379745391.jpg",
-        "avatar_source": "https://avatars.steamstatic.com/518f33607ab1872acf88a1efdb8dd81752f73891_medium.jpg"
+        "avatar_source": "https://avatars.steamstatic.com/dda70d02e8e49c0a20590f76504f5eb65d418af9_medium.jpg"
       }
     },
     {
@@ -2577,7 +2577,7 @@
       "handle_attribution": null,
       "publishable": false,
       "steam": {
-        "personaname": "Momba",
+        "personaname": "HAZE SCALES NOW",
         "profileurl": "https://steamcommunity.com/profiles/76561198380447412/",
         "countrycode": "US",
         "avatar_local": "avatars/420181684.jpg",
@@ -2605,11 +2605,11 @@
       "handle_attribution": null,
       "publishable": true,
       "steam": {
-        "personaname": "invincible under the sun",
+        "personaname": "cosmetical",
         "profileurl": "https://steamcommunity.com/id/heavenlydelusions/",
         "countrycode": null,
         "avatar_local": "avatars/483770846.jpg",
-        "avatar_source": "https://avatars.steamstatic.com/1d0888516c1cd90079527a83910dfe5b632627a4_medium.jpg"
+        "avatar_source": "https://avatars.steamstatic.com/ed7feacff8ea35f1a4ce1d5dc97e689740e39f1c_medium.jpg"
       }
     },
     {
@@ -3389,11 +3389,11 @@
       "handle_attribution": null,
       "publishable": false,
       "steam": {
-        "personaname": "Forever Second",
+        "personaname": "The Robot",
         "profileurl": "https://steamcommunity.com/profiles/76561199705973781/",
         "countrycode": null,
         "avatar_local": "avatars/1745708053.jpg",
-        "avatar_source": "https://avatars.steamstatic.com/92a3ae4f58f9572650226a6566a2cbdb6c64f7e9_medium.jpg"
+        "avatar_source": "https://avatars.steamstatic.com/ba149c68ad0d962f94e112d80b3e03956854df0c_medium.jpg"
       }
     },
     {
@@ -3459,11 +3459,11 @@
       "handle_attribution": null,
       "publishable": false,
       "steam": {
-        "personaname": "GopaGopnick",
+        "personaname": "Chiikawa With PTSD",
         "profileurl": "https://steamcommunity.com/id/deadlocknoob/",
         "countrycode": null,
         "avatar_local": "avatars/1839231747.jpg",
-        "avatar_source": "https://avatars.steamstatic.com/296b7e5fa0c22c10af817d6951ad450e67b650a9_medium.jpg"
+        "avatar_source": "https://avatars.steamstatic.com/a28990205477bc9fe4eda3b02ae2d88ce512566f_medium.jpg"
       }
     },
     {

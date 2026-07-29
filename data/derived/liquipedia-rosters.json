@@ -30,6 +30,7 @@
     "Cobz",
     "Coolcheese",
     "Cosmetical",
+    "Crayon",
     "DMB",
     "Dew",
     "Dimov",
@@ -82,6 +83,7 @@
     "Oskito",
     "Overseas",
     "POSHYPOP",
+    "Parzelion",
     "Playa",
     "Poppers",
     "Qult",
@@ -14121,9 +14123,9 @@
     {
       "edition": 49,
       "region": "na",
-      "team": "Bird With Clock",
-      "handle": "Arctic",
-      "page_title": "Arctic",
+      "team": "Pulsar Esports",
+      "handle": "Hydration",
+      "page_title": "Hydration",
       "role": "player",
       "status": null,
       "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/49/NA"
@@ -14131,9 +14133,9 @@
     {
       "edition": 49,
       "region": "na",
-      "team": "Bird With Clock",
-      "handle": "TANNER",
-      "page_title": "TANNER",
+      "team": "Pulsar Esports",
+      "handle": "aidanthedestroye",
+      "page_title": "Aidanthedestroye",
       "role": "player",
       "status": null,
       "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/49/NA"
@@ -14141,50 +14143,30 @@
     {
       "edition": 49,
       "region": "na",
-      "team": "Bird With Clock",
-      "handle": "Maht",
-      "page_title": "Maht",
-      "role": "player",
-      "status": null,
-      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/49/NA"
-    },
-    {
-      "edition": 49,
-      "region": "na",
-      "team": "Bird With Clock",
-      "handle": "Stryde",
-      "page_title": "Stryde",
-      "role": "player",
-      "status": null,
-      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/49/NA"
-    },
-    {
-      "edition": 49,
-      "region": "na",
-      "team": "Bird With Clock",
-      "handle": "Erebus",
-      "page_title": "Erebus",
-      "role": "player",
-      "status": null,
-      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/49/NA"
-    },
-    {
-      "edition": 49,
-      "region": "na",
-      "team": "Bird With Clock",
-      "handle": "recon",
-      "page_title": "Recon",
-      "role": "player",
-      "status": null,
-      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/49/NA"
-    },
-    {
-      "edition": 49,
-      "region": "na",
-      "team": "Bird With Clock",
+      "team": "Pulsar Esports",
       "handle": "Scout",
       "page_title": "Scout",
-      "role": "staff",
+      "role": "player",
+      "status": null,
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/49/NA"
+    },
+    {
+      "edition": 49,
+      "region": "na",
+      "team": "Pulsar Esports",
+      "handle": "Parzelion",
+      "page_title": "Parzelion",
+      "role": "player",
+      "status": null,
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/49/NA"
+    },
+    {
+      "edition": 49,
+      "region": "na",
+      "team": "Pulsar Esports",
+      "handle": "crayon",
+      "page_title": "Crayon",
+      "role": "player",
       "status": null,
       "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/49/NA"
     }

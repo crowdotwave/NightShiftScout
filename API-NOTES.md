@@ -254,7 +254,14 @@ Two cautions before relying on it:
    match against roughly 1.1 MB for full metadata. Each player carries
    `account_id`, `hero_id`, `player_slot`, `team`, `hero_build_id` and a
    `final_stats` object that does include `net_worth` and `player_damage`.
-3. `match_mode` here takes **names, not integers**. Valid values are
+3. **A 404 means "we hold none of these", and it is an answer rather than an
+   error.** Measured: requesting only the 3 known cold IDs returns HTTP 404,
+   while requesting one warm ID plus one cold one returns 200 with just the
+   warm entry. So the endpoint 404s when its result set would be empty.
+   Reading that as a failed request is what made the first end to end
+   `publish.py` run fall back to fetching cold matches and then die on their
+   404s.
+4. `match_mode` here takes **names, not integers**. Valid values are
    `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`,
    `tutorial`, `hero_labs`, and Night Shift is `private_lobby`. The default of
    `ranked,unranked` excludes every tournament game, so an unfiltered request
