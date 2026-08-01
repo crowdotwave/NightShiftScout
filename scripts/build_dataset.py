@@ -145,6 +145,34 @@ def final_damage(player: dict) -> int | None:
     return last.get("player_damage")
 
 
+# The lane phase snapshot. 540 seconds is on the sampling grid for every one of
+# the 3,348 player-games in the cache, so this is never interpolated and never
+# missing. It was chosen by measurement rather than taste: split-half
+# reliability of early hero damage and denies is high at 9 minutes while the
+# game is still lane phase, whereas later samples are more reliable only
+# because they are contaminated by which team was already winning.
+EARLY_TIMESTAMP_S = 540
+
+
+def early_snapshot(player: dict) -> dict | None:
+    """Raw counters at EARLY_TIMESTAMP_S, or None if that sample is absent.
+
+    Stored raw, never as a ratio. A hero normalised figure is computed at
+    render time from these and the hero's baseline, so both sides of every
+    comparison stay visible and re-checkable.
+    """
+    for entry in player.get("stats") or []:
+        if entry.get("time_stamp_s") == EARLY_TIMESTAMP_S:
+            return {
+                "damage": entry.get("player_damage"),
+                "denies": entry.get("denies"),
+                "net_worth": entry.get("net_worth"),
+                "kills": entry.get("kills"),
+                "deaths": entry.get("deaths"),
+            }
+    return None
+
+
 def assert_no_outcome_flags(node, path: str, report: Report) -> None:
     """Recursively confirm no derived win flag was persisted anywhere."""
     if isinstance(node, dict):
@@ -389,6 +417,11 @@ def main() -> int:
                 "damage": damage,
                 "last_hits": player.get("last_hits"),
                 "denies": player.get("denies"),
+                # Lane assignment is 1, 4 or 6 and is exactly 2 players a side
+                # on every cached match, so a lane is a 2v2 that can be joined
+                # without any roster or identity work.
+                "assigned_lane": player.get("assigned_lane"),
+                "early": early_snapshot(player),
             })
 
     # ---- participation, derived per match ----------------------------------

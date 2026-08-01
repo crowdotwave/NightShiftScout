@@ -578,6 +578,121 @@ def avatar_tag(avatar: str | None, name: str, assets_dir: Path, depth: str, size
             f'{esc(letter)}</span>')
 
 
+def possessive(name: str) -> str:
+    """Apostrophe for a name, without doubling the s on Abrams or Graves."""
+    return "'" if name.endswith(("s", "S")) else "'s"
+
+
+def render_early_game(ds, idx, assets_dir: Path, sink: dict) -> str:
+    """The lane phase cards. Named findings with the arithmetic underneath.
+
+    Every card states both numbers it compared, so nothing here needs a scale
+    to be understood: "9,173 hero damage at 9 minutes, against an average
+    Abrams' 2,867" is a sentence, not a metric.
+    """
+    early = idx["early"]
+    heroes = idx["heroes"]
+    published = {a for a, p in idx["players"].items() if p.get("publishable")}
+
+    def named(account_id):
+        player = idx["players"].get(account_id) or {}
+        if account_id not in published:
+            return None
+        credit(sink, player)
+        tag = (' <span class="tag">probable</span>'
+               if player.get("identified") == "probable" else "")
+        return (f'<a href="players/{esc(account_id)}/">'
+                f'{esc(player.get("handle"))}</a>{tag}')
+
+    def card(label, headline, detail, footnote=None):
+        note = f'<div class="of">{footnote}</div>' if footnote else ""
+        return (f'<div class="card"><div class="of">{esc(label)}</div>'
+                f'<div class="big">{headline}</div>'
+                f'<div class="what">{detail}</div>{note}</div>')
+
+    cards = []
+
+    # 1. Won the lane, lost the game. The launch finding, and the only card
+    #    here that is a count rather than a person.
+    lost = early["lanes_lost_anyway"]
+    biggest = max(lost, key=lambda l: l["margin"]) if lost else None
+    if biggest:
+        who = [named(a) for a in biggest["accounts"]]
+        who = [w for w in who if w]
+        match = idx["matches"].get(biggest["match_id"]) or {}
+        night = idx["nights"].get(match.get("night_id")) or {}
+        label, _ = night_label(night) if night else ("", None)
+        if night:
+            credit(sink, night)
+        detail = (f'Biggest: {" and ".join(who)} were {biggest["margin"]:,} souls ahead in '
+                  f'their lane at 9 minutes and lost the match.') if who else (
+                  f'Biggest margin: {biggest["margin"]:,} souls.')
+        cards.append(card(
+            "Won the lane, lost the game",
+            f'{len(lost)} of {len(early["lanes"])}',
+            detail,
+            f'{esc(label)}. A lane is two players a side, so both are credited '
+            f'with the lead equally. Nothing here splits a lane between them.'))
+
+    # 2. Lane demon. Best average early hero damage against their own heroes.
+    ratings = {a: r for a, r in early["ratings"].items() if a in published}
+    if ratings:
+        top = max(ratings, key=lambda a: ratings[a]["damage_z"])
+        r = ratings[top]
+        who = named(top)
+        cards.append(card(
+            "Lane demon",
+            f'{round(r["damage"]):,}',
+            f'{who} averages {round(r["damage"]):,} hero damage by 9 minutes, against '
+            f'{round(r["baseline_damage"]):,} for an average game on the same heroes.',
+            f'Across {r["games"]} games. Each game compared to that hero, not pooled.'))
+
+    # 3. Ahead by nine. The single most dominant early game.
+    scored = [s for s in early["scored"] if s["account_id"] in published]
+    if scored:
+        best = max(scored, key=lambda s: s["damage_z"])
+        who = named(best["account_id"])
+        hero = heroes.get(best["hero_id"], "?")
+        cards.append(card(
+            "Ahead by nine",
+            f'{best["early"]["damage"]:,}',
+            f'{who} dealt {best["early"]["damage"]:,} hero damage in nine minutes on '
+            f'{esc(hero)}, against an average {esc(hero)}{possessive(hero)} '
+            f'{round(best["hero_baseline_damage"]):,}.',
+            f'Baseline from {best["hero_baseline_games"]} games on {esc(hero)}.'))
+
+    # 4. Denied. Shown, deliberately not headlined: see the note under the row.
+    if scored:
+        best = max(scored, key=lambda s: s["denies_vs_hero"])
+        who = named(best["account_id"])
+        hero = heroes.get(best["hero_id"], "?")
+        cards.append(card(
+            "Denied",
+            f'{best["early"]["denies"]}',
+            f'{who} took {best["early"]["denies"]} denies in nine minutes on {esc(hero)}, '
+            f'against {best["hero_baseline_denies"]:.1f} for an average {esc(hero)}.',
+            'A deny has to be taken off the opponent, so it is contested.'))
+
+    if not cards:
+        return ""
+
+    out = ['<h2>The lane phase</h2>']
+    out.append('<p class="section-note">State at exactly 9 minutes, which is a real sample '
+               'rather than an interpolation: the API records every player at 3, 6, 9, 12 and '
+               '15 minutes on all 3,348 player-games we hold. Early numbers are compared to '
+               'the same hero rather than pooled, because pooling damage across heroes ranks '
+               f'heroes rather than players. {early["hero_count"]} heroes have enough games '
+               'for a baseline.</p>')
+    out.append('<div class="cards">' + "".join(cards) + '</div>')
+    out.append('<p class="section-note">Denies are shown because they are the most stable and '
+               'most independent early figure we measured, and they are not headlined because '
+               'we cannot yet say what they are worth: a side ahead on denies at 9 minutes wins '
+               '50.9% of matches, which is a coin flip. Early hero damage is the one that also '
+               'predicts, at 61.2%. Last hits are deliberately absent, since they favour whoever '
+               'is already ahead and so measure the state of the lane rather than the player.</p>')
+    return "".join(out)
+
+
 def render_index(ds, idx, banner, assets_dir: Path, sink: dict) -> str:
     """The front page: Stars of the Show, then the full board.
 
@@ -656,6 +771,8 @@ def render_index(ds, idx, banner, assets_dir: Path, sink: dict) -> str:
                    f'<div class="what">{player_cell(top["account_id"], 22)}</div>'
                    f'<div class="of">{esc(sub(top))}</div></div>')
     out.append('</div>')
+
+    out.append(render_early_game(ds, idx, assets_dir, sink))
 
     out.append('<h2>The board</h2>')
     out.append('<p class="section-note">Role score compares a player to the average player on the '
@@ -934,6 +1051,7 @@ def main() -> int:
         # floating point precision, worst relative difference 3.4e-16.
         "metric_rows": metrics.compute_rows(ds, args.assets),
         "heroes": heroes,
+        "early": metrics.compute_early(ds),
     }
     for row in ds["player_matches"]:
         idx["by_account"][row["account_id"]].append(row)

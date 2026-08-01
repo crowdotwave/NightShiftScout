@@ -325,6 +325,50 @@ in one sentence is a hard requirement.
 - **KP%** = `(K + A) / team's total kills`, team-relative so it holds up
   whether a game had 20 kills or 80.
 
+## Early game, the lane phase view
+
+The one thing no competitor has: **state at a fixed timestamp**, not a
+full-match aggregate. All three of LockBlaze, EDL and Deadfrag publish
+season totals. None publish what the game looked like at nine minutes.
+
+The API samples every player at **3, 6, 9, 12 and 15 minutes on 100% of the
+3,348 player-games**, plus a final sample at `duration_s`. Those five are on a
+regular grid, never interpolated, never missing. 41 scalar fields per sample,
+including kills, deaths, souls, denies and hero damage.
+
+**Nine minutes is the timestamp, chosen by measurement.** Reliability rises
+with time, but only because later samples are contaminated by who was already
+winning, which is the thing we are trying to escape. At 9 minutes the stats
+are stable and the game is still lane phase.
+
+**Hero normalised, never pooled.** Damage is not comparable across heroes, so
+a pooled early damage board ranks heroes rather than players. Every figure is
+compared to the same hero at the same minute, which also removes the support
+confound, since the hero encodes the role. `EARLY_MIN_HERO_GAMES` is 30, which
+keeps 34 heroes covering 97.7% of player-games.
+
+What is in and what is out, by split-half reliability measured on the real
+data (1.0 is perfectly stable, 0 is noise):
+
+| Stat | Reliability at 9m | vs Role Score | Verdict |
+| --- | --- | --- | --- |
+| hero damage | 0.69 | +0.15 | **primary.** Stable, new, and a team's leave-one-out rating predicts the winner 61.2% |
+| denies | 0.80 | +0.16 | **shown, never headlined.** Most stable and most independent, but a side ahead on denies wins 50.9%, a coin flip |
+| souls | 0.75 | +0.54 | off this surface, it largely repeats the board |
+| kills | 0.40 | +0.22 | card colour only, never a metric. Zero on 44% of games |
+| assists | **-0.06** | | dropped entirely |
+| last hits | 0.79 | | **deliberately unused**, see the domain facts above |
+
+That last row is the point of the whole table: last hits is among the most
+reliable stats measured and is still the wrong thing. **Reliability is not
+validity.** A number can be perfectly stable and be measuring who was ahead.
+
+**Lanes are 2v2 on every cached match**, `assigned_lane` in {1, 4, 6} with
+exactly two players a side, 279 of 279. So a lane matchup joins with no
+rosters and no identity work. **Nothing attributes a lane to one of its two
+players**, and the cards say so, because splitting a duo lane is an unsolved
+modelling question rather than a rendering choice.
+
 **Participation is derived per match, never asserted per night.** A night
 level roster says "these six played tonight", which a Bo3 with a substitution
 in game 2 makes false, and the per-game truth is then unrecoverable.

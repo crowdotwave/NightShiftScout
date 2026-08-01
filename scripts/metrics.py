@@ -210,3 +210,142 @@ def compute_rows(ds: dict, assets_dir: Path) -> list[dict]:
         })
     rows.sort(key=lambda r: -(r["role_score"] or -1))
     return rows
+
+
+# ---------------------------------------------------------------------------
+# Early game, the lane phase view
+# ---------------------------------------------------------------------------
+#
+# Raw early numbers are not comparable across heroes: a pooled early damage
+# board would rank heroes rather than players. Every figure below is compared
+# to the same hero at the same minute, which removes that and removes the
+# support confound with it, since the hero encodes the role.
+#
+# What is measured, and why each is here or not, from the reliability work in
+# scripts/measure_stage_weighting.py's sibling analysis:
+#
+#   hero damage   split-half reliability 0.69 at 9 minutes, correlates +0.15
+#                 with the full match Role Score, and a team's leave-one-out
+#                 rating predicts the winner 61.2% of the time. Stable, new,
+#                 and it means something. This is the primary early stat.
+#   denies        reliability 0.80, correlation with Role Score +0.16, so it
+#                 is the most stable and most independent thing here. But a
+#                 side ahead on denies wins only 50.9% of matches, so we do
+#                 NOT claim it predicts winning. Shown, never headlined.
+#   kills         reliability 0.40 and zero on 44% of games. Card colour only,
+#                 never a metric.
+#   assists       reliability at 9 minutes is -0.06. Dropped entirely.
+#   souls         reliable, but correlates +0.54 with Role Score, so it mostly
+#                 repeats what the board already says. Kept off this surface.
+#   last hits     the most reliable stat measured, 0.82, and deliberately
+#                 unused. See the domain facts section of CLAUDE.md: last hits
+#                 favour whoever is already ahead, so it is a consequence of
+#                 winning the lane rather than evidence of skill. A stable
+#                 number measuring the wrong thing is still the wrong thing.
+
+EARLY_MIN_HERO_GAMES = 30      # heroes below this have no trustworthy baseline
+EARLY_MIN_PLAYER_GAMES = 10    # the bar the reliability figures were measured at
+
+
+def compute_early(ds: dict) -> dict:
+    """Hero normalised lane phase figures, plus the lane matchup record."""
+    matches = {m["match_id"]: m for m in ds["matches"]}
+    rows = [r for r in ds["player_matches"] if r.get("early")]
+
+    hero_games = defaultdict(list)
+    for r in rows:
+        hero_games[r["hero_id"]].append(r)
+    eligible_heroes = {h for h, v in hero_games.items() if len(v) >= EARLY_MIN_HERO_GAMES}
+
+    # Baselines are plain averages, stored with their sample size so a card can
+    # always show what it compared against.
+    baselines = {}
+    for hero in eligible_heroes:
+        games = hero_games[hero]
+        baselines[hero] = {
+            "games": len(games),
+            "damage": mean([g["early"]["damage"] for g in games]),
+            "denies": mean([g["early"]["denies"] for g in games]),
+        }
+
+    def spread(hero, key):
+        values = [g["early"][key] for g in hero_games[hero]]
+        average = mean(values)
+        variance = mean([(v - average) ** 2 for v in values]) or 1.0
+        return variance ** 0.5
+
+    scored = []
+    for r in rows:
+        hero = r["hero_id"]
+        if hero not in eligible_heroes:
+            continue
+        base = baselines[hero]
+        sd = spread(hero, "damage") or 1.0
+        scored.append({
+            **r,
+            "hero_baseline_damage": base["damage"],
+            "hero_baseline_denies": base["denies"],
+            "hero_baseline_games": base["games"],
+            "damage_vs_hero": r["early"]["damage"] - base["damage"],
+            "damage_z": (r["early"]["damage"] - base["damage"]) / sd,
+            "denies_vs_hero": r["early"]["denies"] - base["denies"],
+        })
+
+    by_player = defaultdict(list)
+    for r in scored:
+        by_player[r["account_id"]].append(r)
+    ratings = {}
+    for account_id, games in by_player.items():
+        if len(games) < EARLY_MIN_PLAYER_GAMES:
+            continue
+        ratings[account_id] = {
+            "games": len(games),
+            "damage_z": mean([g["damage_z"] for g in games]),
+            "damage": mean([g["early"]["damage"] for g in games]),
+            "baseline_damage": mean([g["hero_baseline_damage"] for g in games]),
+            "denies": mean([g["early"]["denies"] for g in games]),
+            "baseline_denies": mean([g["hero_baseline_denies"] for g in games]),
+        }
+
+    # ---- lane matchups -----------------------------------------------------
+    # A lane is 2v2 on every cached match, so this needs no rosters. The two
+    # players on a side share one outcome and the cards say so: nothing here
+    # attributes a lane to one of the pair.
+    lanes = defaultdict(lambda: defaultdict(list))
+    for r in rows:
+        if r.get("assigned_lane") is not None:
+            lanes[(r["match_id"], r["assigned_lane"])][r["match_team_index"]].append(r)
+
+    lane_rows, ahead_by_match = [], defaultdict(list)
+    for (match_id, lane), sides in lanes.items():
+        if set(sides) != {0, 1}:
+            continue
+        souls = {i: sum(x["early"]["net_worth"] for x in sides[i]) for i in (0, 1)}
+        if souls[0] == souls[1]:
+            continue
+        ahead = 0 if souls[0] > souls[1] else 1
+        winner = matches[match_id].get("winning_team_index")
+        ahead_by_match[match_id].append(ahead)
+        lane_rows.append({
+            "match_id": match_id, "lane": lane, "ahead": ahead,
+            "margin": abs(souls[0] - souls[1]),
+            "souls": souls, "winner": winner,
+            "lost_anyway": ahead != winner,
+            "accounts": [x["account_id"] for x in sides[ahead]],
+        })
+
+    swept = [m for m, a in ahead_by_match.items() if len(a) == 3 and len(set(a)) == 1]
+    swept_lost = [m for m in swept
+                  if ahead_by_match[m][0] != matches[m].get("winning_team_index")]
+
+    return {
+        "timestamp_s": 540,
+        "baselines": baselines,
+        "hero_count": len(eligible_heroes),
+        "scored": scored,
+        "ratings": ratings,
+        "lanes": lane_rows,
+        "lanes_lost_anyway": [l for l in lane_rows if l["lost_anyway"]],
+        "swept_lanes": swept,
+        "swept_and_lost": swept_lost,
+    }
