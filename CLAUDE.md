@@ -1,12 +1,30 @@
 # Night Shift Scout
 
-A single-file browser app for scouting Deadlock esports talent, focused
-specifically on the Deadlock Night Shift weekly tournament series.
+Deadlock esports talent scouting, focused on the Deadlock Night Shift
+weekly tournament series. The question this project exists to answer is
+**who played well**, attributed to an individual and separated from their
+team's result.
 
-Everything lives in `index.html`. No build step, no server, no
-dependencies. Open it directly in a browser and it runs. Keep it that way
-unless there is a strong reason not to: the zero-install property is what
-makes it easy to share with orgs, players, and community members.
+## Two surfaces, one pipeline
+
+This is no longer a single file. Read this before assuming where code lives.
+
+1. **`index.html`, the private curation console.** Single file, no build
+   step, no server, no dependencies. Open it directly in a browser and it
+   runs. Paste match IDs, get a scouting leaderboard, tag aliases and teams.
+   Keep the zero-install property unless there is a strong reason not to.
+   `DEFAULT_MIN_GAMES` is 3 here **on purpose**: this surface is for
+   scouting, and surfacing thin-sample players is the point.
+2. **The public static site.** Hosted on GitHub Pages at
+   `crowdotwave.github.io/NightShiftScout/`. Built from the derived data,
+   not from live API calls. `LEADERBOARD_MIN_GAMES` is 8 here, deliberately
+   higher than the console, because a public ranking is a claim and three
+   games is not enough to make one.
+3. **`scripts/`, the Python pipeline.** Fetch, cache, verify, build. This is
+   what turns raw API responses into `data/derived/`.
+
+Those two min-games constants are **supposed** to differ. Do not unify
+them. Each is defined once in its own surface with a comment saying why.
 
 ## House rules
 
@@ -17,22 +35,13 @@ makes it easy to share with orgs, players, and community members.
 - Do not use `localStorage` for anything the user has not explicitly asked
   to persist. Currently persisted: match IDs, aliases, team tags,
   watchlist, top-elo match log.
-
-## What it does
-
-Paste Deadlock match IDs, get a scouting leaderboard. Core panels in
-display order:
-
-1. **Match IDs** input, remembers the last set and re-analyses on load
-2. **Stars of the Show**, auto-generated headline cards
-3. **Leaderboard**, full sortable table
-4. **Team View**, rollups from manually tagged player to team mappings
-5. **Share Card**, generates a PNG for Reddit and Twitter
-6. Config panels: Aliases, Team Tags, Watchlist, Top Elo Lobby
-
-Panel order is controlled by CSS `order` on a flex column wrapper, not by
-DOM position. This was deliberate: it lets the visual order change without
-moving large HTML blocks and breaking element IDs.
+- **Curated and derived data never mix.** Anything a human asserted lives in
+  the curated store. Anything a script computed lives in `data/derived/`.
+  A curated field never appears in generated output as though it were
+  measured.
+- **Numerator and denominator are both stored.** A derived stat is never
+  persisted alone. "31% of their team's damage" is stored as 100793 and
+  633604, and the percentage is computed at render time.
 
 ## Retractions, and the rule about numbers
 
@@ -50,6 +59,61 @@ on the same line, for example `previously read "13 of 13" [R1]`.
 count in that ledger was measured once, by hand, on a convenient sample, then
 copied. `scripts/verify_api_claims.py` writes
 `data/derived/verified-facts.json` so quoted figures are traceable.
+
+## Unsettled numbers, do not quote until resolved
+
+These figures conflict between this file, the public site, and working
+notes. Each pair cannot both be right. **Do not propagate either value into
+new code or documents.** Settle each by running the relevant verifier and
+recording the answer, and open a retraction for whichever side was wrong.
+
+| Claim | Conflicting values | Settle with |
+| --- | --- | --- |
+| Player-game rows in cache | 3,368 vs 3,348 | `verify_api_claims.py` |
+| Outstanding match IDs | 3 cold at the API vs 14 known outstanding | `build_dataset.py` against the Liquipedia ID list |
+| Hero pick join coverage | 273 of 281 vs 261 of 261 | the side attribution verifier |
+| Unique accounts in tournament matches | 155 vs 170 | `resolve_identities.py` |
+
+The last one may be two different populations rather than a contradiction,
+for example accounts returning a Steam profile versus accounts appearing at
+all. If so, say which is which here rather than deleting the row.
+
+## Competitive landscape
+
+Two other sites cover this scene. The distinction between them matters,
+because an earlier version of this file assumed only the first existed.
+
+**LockBlaze.** Win/loss and placement only. No per-game stats, no Steam
+account IDs, so it cannot attribute a performance to a player. Verified via
+page source.
+
+**EDL.gg.** A real operation, and the one to position against. Multiple
+bylines, a Deadlock news desk, forums, LFP/LFT boards, a Twitch channel,
+and EDL COMP, a matchmaking platform with draft, ELO and prizes. Domain and
+X handle registered May 2024, site launched 31 January 2026, rewritten to
+2.0 by July 2026. Liquipedia now cites them as a source for roster moves.
+
+**EDL does publish per-player stats.** K/D, KDA, SPM, earnings, series and
+match records, filterable by hero, region, tier and time window, with
+individual player pages. They pull hero assets from the same
+`deadlock-api.com` we do.
+
+So **"nobody attributes performance to individual players" is retired and
+must not be restated.** The accurate claim is narrower and still true:
+their stats are raw rate metrics published without a denominator, and
+nothing they show separates individual performance from the team's result.
+That separation, and showing the arithmetic, is this project's differentiator.
+
+**Consequences for scope.** Do not try to match their surface area. No news
+desk, no forums, no matchmaking, no LFP boards. This project's advantage is
+that it costs almost nothing to run and can stay narrow indefinitely.
+
+## Stats are phrased as arithmetic, not as coined metrics
+
+Public-facing output states the sum: "31% of their team's damage, 100,793 of
+633,604". No invented metric names, no learned scale, no requirement that a
+reader knows what a good number looks like. The internal metrics below keep
+their names in the console, where the audience is us.
 
 ## Verified API facts
 
@@ -85,6 +149,13 @@ every tournament match, which shipped a leaderboard column of zeros.
 | `GET /leaderboard/{region}` | Ranked ladder, regions like `Europe`, `NAmerica` |
 | `GET /patches/big-days` | Balance patch dates, used for the stale-data warning |
 
+### Cache architecture
+
+Raw API responses are stored gzipped, one file per match, hash-verified, and
+**never re-fetched**. Writes go to a temp file and are then renamed, so an
+interrupted run cannot leave a half-written entry that later reads as valid.
+Treat the cache as append-only.
+
 ### Match metadata shape
 
 Response is `{ match_info: { ... } }`. Relevant fields on `match_info`:
@@ -97,12 +168,13 @@ Response is `{ match_info: { ... } }`. Relevant fields on `match_info`:
   free. The one exception has 8 and is **not a Night Shift game**: it is a
   4v4 Street Brawl match that reached the cache through a wrong match ID on
   the wiki. See the contamination section in `API-NOTES.md`.
-- **Confirmed live, and re-tested on 3,368 player-games: damage is not a
+- **Confirmed live, and re-tested across the full cache: damage is not a
   top-level player field.** It lives in `players[].stats[]`, a time series.
   Take the entry with the highest `time_stamp_s` and read `player_damage`
-  from it. **3368 of 3368** across editions #1 to #48, no misses. The highest
-  `time_stamp_s` equals `duration_s` exactly on every one, so that really is
-  the end-of-game snapshot. This is the best tested claim we have.
+  from it. No misses across editions #1 to #48. The highest `time_stamp_s`
+  equals `duration_s` exactly on every one, so that really is the
+  end-of-game snapshot. This is the best tested claim we have. (Exact row
+  count is in the unsettled table above.)
 - **Do not use `average_badge_team0` / `average_badge_team1`.** The fields
   exist, but on tournament matches (`match_mode: 2`) they are always `0`,
   not null and not absent. Public matchmaking games (`match_mode: 1`) do
@@ -132,12 +204,11 @@ files), one of: `assassin`, `brawler`, `marksman`, `mystic`. Icons are at
 
 **Confirmed live and reliable.** Of 57 heroes, 37 carry a `hero_type`. The
 20 without one are almost all `disabled: true`, so among the 38 active
-heroes exactly one (Rem) is missing it. Across the full cache, **3319 of
-3368** player-games resolve to a role, 98.5%, with all 49 gaps on hero 79.
-The earlier figure of 143 of 144 came from 12 recent matches and was
-slightly optimistic. Treat role as optional in code, since it can be absent,
-but it is dense enough to base Role Score on. Every active hero has
-`icon_image_small`.
+heroes exactly one (Rem) is missing it. Across the full cache role coverage
+is 98.5%, with all gaps on hero 79. The earlier figure of 143 of 144 came
+from 12 recent matches and was slightly optimistic. Treat role as optional
+in code, since it can be absent, but it is dense enough to base Role Score
+on. Every active hero has `icon_image_small`.
 
 ### Steam profiles
 
@@ -148,11 +219,11 @@ gives **account_id** (32-bit). Convert with `accountId + 76561197960265728n`.
 
 `last_team_avg_badge` is populated, but it is not a usable stand-in for the
 old Opposition column. **This was the weakest claim in the project and is now
-settled**, re-tested on all **155 accounts** appearing in genuine tournament
-matches rather than the original 45: **128 of the 131 that return a value,
-97.7%, are 115 or 116**. A six player average drawn from a two point range at
-the top of the ladder cannot separate one Night Shift team from another, so
-the conclusion stands and Opposition stays dead.
+settled**, re-tested on all accounts appearing in genuine tournament matches
+rather than the original 45: **128 of the 131 that return a value, 97.7%,
+are 115 or 116**. A six player average drawn from a two point range at the
+top of the ladder cannot separate one Night Shift team from another, so the
+conclusion stands and Opposition stays dead.
 
 Two things the old 45 profile sample got wrong, both worth knowing before
 touching this field: three accounts sit **below** 115, one as low as 104, so
@@ -167,6 +238,66 @@ Badge value is `tier * 10 + subrank`. Eternus is tier 11, so Eternus VI is
 116. It is unconfirmed whether Eternus actually subdivides into I-VI; the
 Eternus scan falls back to the whole tier and says so if the strict filter
 returns nothing.
+
+## Identity, and the six rules
+
+Naming players by the alias they compete under is the join nobody else has:
+match ID to account ID to in-game performance. It is also where this project
+has been wrong most often. Each rule below was earned by being wrong at
+least once.
+
+1. **Read substitution records before flagging a player mismatch.** A player
+   appearing where you did not expect is usually a sub, not an error.
+2. **A steam64ID appearing on two player pages corroborates neither.** Two
+   sources repeating the same wrong value is one source.
+3. **`match_result`, `team1side`, wiki rosters, and badge fields have each
+   been wrong at least once.** Trust none of them unconditionally.
+4. **Play data beats external metadata every time.** Liquipedia steam64IDs
+   are wrong roughly 1 in 10 cases, and wrong in plausible ways that survive
+   a sanity check.
+5. **Anything verified only on the original 12 matches inherits a
+   finals-only sampling bias.** The full backfill exists specifically to
+   kill that bias. Do not revive a finding that predates it without re-running.
+6. **No number goes into a document that is not verifier output.**
+
+**Elimination is not confirmation.** One account is deliberately left
+unnamed despite strong circumstantial evidence, because "it cannot be anyone
+else" is an argument, not a record. Leaving it unnamed is the correct
+behaviour, not an unfinished task.
+
+### Twitch handles, curated only
+
+Handles are **curated data**, stored beside the player name, never derived
+and never inferred. Every handle carries a required `source` field, one of:
+
+- `self_reported`
+- `player_x_profile`
+- `team_announcement`
+- `broadcast_graphic`
+
+**A Twitch username matching the in-game name is not a valid source.** Do
+not add a helper that infers handles from name similarity, and do not use
+name matching as a fallback anywhere. Rule 4 applies: a plausible-looking
+external match is exactly the failure mode. A wrong stream linked next to a
+strong performance is the error this scene notices fastest.
+
+Handles are optional. A player without one renders exactly as before.
+
+## Domain facts the API cannot tell us
+
+Things that are true about how Deadlock is played, which no amount of reading
+the data will reveal, and which have to constrain what we build from it.
+
+- **Last hits are not a skill metric in Deadlock.** `creep_kills` over
+  `possible_creeps` looks like a clean efficiency ratio and is not one:
+  last hits favour whoever is already ahead in the lane, so a high ratio is
+  mostly a **consequence** of winning rather than evidence of skill. Do not
+  build a stat on last-hit ratio, and do not put it in a card. **Denies are
+  the contested resource** and are the field worth looking at, since taking
+  one requires beating the opponent to it.
+- The same caution applies to anything else that measures uncontested
+  farming. If a number goes up because nobody is stopping you, it is
+  measuring the state of the lane, not the player in it.
 
 ## Metric design, and why
 
@@ -213,6 +344,15 @@ distinguishable from our side, so they are not distinguished.
 **This is participation only, not attribution.** It says who played which
 game. It says nothing about which lineup a side was.
 
+## Stage weighting: measured, and deliberately not shipped
+
+Weighting games by bracket stage was implemented, measured, and dropped.
+Spearman correlation against the unweighted ranking was about 0.999 at mild
+weights across 113 eligible players, and qualifier games are only about 7%
+of player-games. The decision is structurally sound rather than a matter of
+taste, so **do not reintroduce it** without a materially different data
+shape to justify it.
+
 ## Explicitly out of scope
 
 Do not build these, and do not build toward them. They were considered,
@@ -220,11 +360,11 @@ scoped, and dropped on purpose, so finding no code for them is not an
 oversight to correct.
 
 - **Team career stats.** No team aggregates, no team pages, no "Melee Creeps
-  all time record". LockBlaze already publishes team level results, and this
-  project exists to do the opposite: separate a player from their team's
-  result. A team span is also not a stable thing to measure, since
-  `Melee Creeps` kept its name across 33 appearances while replacing four of
-  six players.
+  all time record". This project exists to do the opposite: separate a player
+  from their team's result. A team span is also not a stable thing to
+  measure, since `Melee Creeps` kept its name across 33 appearances while
+  replacing four of six players. This one consumed disproportionate effort
+  before being cut. Minimum viable team identity only.
 - **Org and lineup modelling.** The succession, rebrand and absorption model
   in `TEAM-IDENTITY-PROPOSAL.md` is **not being implemented.** That document
   stays as a record of the evidence and of why the obvious fix is wrong, not
@@ -232,23 +372,14 @@ oversight to correct.
 - **Team identity as a join key.** A team name is a **label we display when
   we know it and omit when we do not**. Nothing joins on it, nothing
   aggregates by it, and no number changes if it is missing.
+- **News, forums, matchmaking, LFP boards.** See the competitive landscape
+  section. EDL.gg does all of this. Matching their breadth trades away the
+  only structural advantage this project has.
 
 What is actually needed is **side attribution**, and that is already solved
 without any of the above: the hero pick join resolves which
-`match_team_index` the bracket's opponent1 was, on 273 of the 281 games we
-hold, needing no rosters, no lineups and no player identity.
-
-The thing that does matter is **naming players by the alias they compete
-under**, which is what the scouting audience recognises. See
-`scripts/resolve_identities.py`.
-
-**Minimum games.** Players below `DEFAULT_MIN_GAMES` (currently 3) are not
-ranked. Averages over one or two games are not scouting data, they are
-noise, and without this the board opened on whoever had a single good game.
-The constant is defined once at the top of the script and drives both the
-leaderboard filter and the Stars panel eligibility bar. Do not reintroduce
-a second hardcoded copy: the two used to disagree, and the table happily
-ranked one-game players while Stars quietly required three.
+`match_team_index` the bracket's opponent1 was, needing no rosters, no
+lineups and no player identity. (Coverage figure is in the unsettled table.)
 
 **Removed: Opposition.** This was average enemy team badge, intended to
 expose the format bias described below. It shipped as a column of zeros
@@ -276,9 +407,10 @@ stomps. That inflates newcomer averages.
 Opposition column was the intended fix and it did not work, because neither
 the match badge fields nor Steam's `last_team_avg_badge` can tell these
 teams apart (see the API notes above). Anything that replaces it has to be
-computed from data the app already trusts, for example bracket stage, or
-opponent quality derived from the loaded dataset such as the average Role
-Score of the enemy team. Do not reach for a badge field again.
+computed from data the app already trusts, for example opponent quality
+derived from the loaded dataset such as the average Role Score of the enemy
+team. Do not reach for a badge field again, and note that bracket stage was
+already tried and measured out (see stage weighting above).
 
 **Data window: use every game, and flag cross-patch on the page.** This
 reverses the earlier rule that the window is the current balance patch.
@@ -316,8 +448,8 @@ is a much wider window than the phrase suggests.
 
 - **Match ID discovery is solved.** Liquipedia's bracket wikitext carries the
   Deadlock match ID per game, 284 of them across 49 editions, and the pages
-  are cached in `data/liquipedia/`. **281 are now ingested**, leaving 3 that
-  are genuinely cold at the API. The earlier HTTP 429 came from scraping
+  are cached in `data/liquipedia/`. The remaining outstanding count is
+  disputed, see the unsettled table. The earlier HTTP 429 came from scraping
   rendered HTML, which their terms forbid anyway; the `api.php` route at 1
   request per 2 seconds has never been rate limited. See
   `LIQUIPEDIA-NOTES.md`.
@@ -325,6 +457,9 @@ is a much wider window than the phrase suggests.
   exists. Current fallback chain: manual alias, then Steam persona name if
   it contains real characters, then the vanity slug from `profileurl`
   (`steamcommunity.com/id/<handle>`), then `realname`, then account ID.
+- **Name coverage is incomplete by design.** Roughly 81% of player-games
+  resolve to a named account. The unnamed remainder is not a backlog to
+  clear by guessing, see rule 6 and the elimination note.
 - **No automatic team rosters.** Team tagging is manual for the same reason.
 - **Role Score needs volume, now per patch era.** Under
   `ROLE_BASELINE_MIN_GAMES` (10) games per role *within a patch*, that era's
@@ -342,14 +477,21 @@ is a much wider window than the phrase suggests.
 
 ## Next steps, roughly prioritised
 
-1. Done for now: the cache holds 281 matches and 3,368 player-games across
-   four patch eras, so Role Score baselines clear their sample bar in every
-   bucket. 14 known match IDs are still outstanding, blocked on the 3/hour
-   cold fetch limit.
-2. Auto-render an infographic-style summary view in the page itself, not
+1. **Settle the unsettled numbers table.** Everything else quotes figures,
+   and four of them currently contradict each other.
+2. **Twitch handles, step 1:** curated field with required source, console
+   editing, static links on the public site. No live detection yet.
+3. **Twitch handles, step 2:** live indicator. The site is static and cannot
+   hold a Twitch client secret, so this needs a small Cloudflare Worker
+   proxying Helix `/streams`, cached about 60 seconds. Helix accepts up to
+   100 `user_login` values per call, so every handle fits in one request:
+   one call per page load, never one per player. A scheduled commit of live
+   status was considered and rejected, since cron lateness would show stale
+   LIVE badges, which is worse than none.
+4. Auto-render an infographic-style summary view in the page itself, not
    just the downloadable share card
-3. Consider hero-specific baselines once there is enough data
-4. Lane phase splits, using the time series data already being fetched
+5. Consider hero-specific baselines once there is enough data
+6. Lane phase splits, using the time series data already being fetched
 
 ## Verifying changes
 
@@ -362,6 +504,7 @@ There is no test suite. Before considering a change done:
    count. This has broken twice when adding columns. Currently both are 14,
    and the inner per-game table is 12 wide.
 5. Search the file for em dashes and remove any that crept in
+6. Run `python scripts/check_retractions.py` and confirm it passes
 
 **Verify behaviour by running a full Analyze, not by poking the DOM.** A
 default that is correct in the HTML can still be overwritten at runtime.
