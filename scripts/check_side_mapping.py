@@ -55,6 +55,13 @@ SIDE_RULE = {"amber": 0, "sapphire": 1}
 # be visible and auditable rather than buried in a regex.
 HERO_ALIASES = {
     "mo": "moandkrill",  # #21 EU, one game, the usual shorthand for Mo & Krill
+    # #49 NA finals games 2 and 3, where an editor wrote the short name. Both
+    # matches were left side-unresolved by the ingest until this was added,
+    # because one unknown hero name rejects the whole game rather than
+    # resolving on the other five. That refusal is correct: five of six is how
+    # a wrong match ID looks too, so the parser must not guess. The fix is to
+    # teach it the name, not to lower the bar.
+    "geist": "ladygeist",
 }
 
 

@@ -65,6 +65,7 @@
     "JonJon",
     "Kapten",
     "KennKan",
+    "Konr",
     "Ktall",
     "League",
     "Lefaa",
@@ -13904,8 +13905,8 @@
       "edition": 49,
       "region": "eu",
       "team": "Leviathan",
-      "handle": "sai",
-      "page_title": "Sai",
+      "handle": "kapten",
+      "page_title": "Kapten",
       "role": "player",
       "status": null,
       "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/49/EU"
@@ -13914,9 +13915,19 @@
       "edition": 49,
       "region": "eu",
       "team": "Leviathan",
-      "handle": "Saf",
-      "page_title": "Saf",
+      "handle": "sai",
+      "page_title": "Sai",
       "role": "staff",
+      "status": null,
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/49/EU"
+    },
+    {
+      "edition": 49,
+      "region": "eu",
+      "team": "Silence",
+      "handle": "qult",
+      "page_title": "Qult",
+      "role": "player",
       "status": null,
       "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/49/EU"
     },
@@ -14043,16 +14054,6 @@
     {
       "edition": 49,
       "region": "na",
-      "team": "Poppers' Pupils",
-      "handle": "PeerContent",
-      "page_title": "PeerContent",
-      "role": "staff",
-      "status": null,
-      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/49/NA"
-    },
-    {
-      "edition": 49,
-      "region": "na",
       "team": "Melee Creeps",
       "handle": "Saiah",
       "page_title": "Saiah",
@@ -14167,6 +14168,26 @@
       "handle": "crayon",
       "page_title": "Crayon",
       "role": "player",
+      "status": null,
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/49/NA"
+    },
+    {
+      "edition": 49,
+      "region": "na",
+      "team": "Pulsar Esports",
+      "handle": "Konr",
+      "page_title": "Konr",
+      "role": "player",
+      "status": null,
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/49/NA"
+    },
+    {
+      "edition": 49,
+      "region": "na",
+      "team": "Pulsar Esports",
+      "handle": "MP",
+      "page_title": "MP",
+      "role": "staff",
       "status": null,
       "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/49/NA"
     }

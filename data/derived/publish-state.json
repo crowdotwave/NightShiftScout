@@ -1,10 +1,10 @@
 {
-  "finished_utc": "2026-07-29T00:26:01+00:00",
+  "finished_utc": "2026-08-01T05:18:46+00:00",
   "players_published": 84,
-  "awaiting_review": 71,
-  "pushed": false,
-  "matches": 279,
-  "player_matches": 3348,
-  "accounts": 155,
+  "awaiting_review": 74,
+  "pushed": true,
+  "matches": 288,
+  "player_matches": 3456,
+  "accounts": 158,
   "publishable": 84
 }
