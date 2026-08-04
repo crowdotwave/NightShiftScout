@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_utc": "2026-08-04T05:25:45+00:00",
+  "generated_utc": "2026-08-04T05:54:10+00:00",
   "source": {
     "generator": "scripts/build_dataset.py",
-    "git_commit": "108926b",
+    "git_commit": "b1dd368",
     "matches_cached": 290,
     "matches_ingested": 288,
     "nights_ingested": 83,
@@ -1617,7 +1617,7 @@
       "handle_attribution": null,
       "publishable": true,
       "steam": {
-        "personaname": "shhhhh",
+        "personaname": "sharyk",
         "profileurl": "https://steamcommunity.com/id/3597236/",
         "countrycode": null,
         "avatar_local": "avatars/81662458.jpg",
@@ -1659,11 +1659,11 @@
       "handle_attribution": null,
       "publishable": true,
       "steam": {
-        "personaname": "retard one",
+        "personaname": "\u4e00\u8a00\u65e2\u51fa\uff0c\u9a77\u9a6c\u96be\u8ffd",
         "profileurl": "https://steamcommunity.com/id/poshypop/",
         "countrycode": null,
         "avatar_local": "avatars/85898225.jpg",
-        "avatar_source": "https://avatars.steamstatic.com/50f43ca76a94a3433fa079a9259c37f27cbd4ccc_medium.jpg"
+        "avatar_source": "https://avatars.steamstatic.com/0a6d25f0366c73fa53a683d1d47dc31759809c5e_medium.jpg"
       }
     },
     {
@@ -1757,11 +1757,11 @@
       "handle_attribution": null,
       "publishable": true,
       "steam": {
-        "personaname": "lystic",
+        "personaname": "jeremy",
         "profileurl": "https://steamcommunity.com/id/uncletajj/",
         "countrycode": null,
         "avatar_local": "avatars/97533101.jpg",
-        "avatar_source": "https://avatars.steamstatic.com/e04f46a7921fa57ac493fb20b5547ad5f59c6b99_medium.jpg"
+        "avatar_source": "https://avatars.steamstatic.com/161c014b89d5922cefa6d649d526b2b55550091f_medium.jpg"
       }
     },
     {
@@ -1803,7 +1803,7 @@
         "profileurl": "https://steamcommunity.com/id/Spookybuh/",
         "countrycode": null,
         "avatar_local": "avatars/102312863.jpg",
-        "avatar_source": "https://avatars.steamstatic.com/bb73f880f49ef5685f92099fa7c7c24133e6e766_medium.jpg"
+        "avatar_source": "https://avatars.steamstatic.com/6cc4827330a2180cfc726e55d0c22cecf1123e99_medium.jpg"
       }
     },
     {
@@ -1960,11 +1960,11 @@
       "handle_attribution": null,
       "publishable": true,
       "steam": {
-        "personaname": "marmok",
+        "personaname": "4580",
         "profileurl": "https://steamcommunity.com/id/0arzo/",
         "countrycode": null,
         "avatar_local": "avatars/124540485.jpg",
-        "avatar_source": "https://avatars.steamstatic.com/3112b7be14b192b7da7447eed336f1b8f3a594e8_medium.jpg"
+        "avatar_source": "https://avatars.steamstatic.com/0594730392a4405ffc59375bb5bc3be38f3b7337_medium.jpg"
       }
     },
     {
@@ -2044,7 +2044,7 @@
       "handle_attribution": null,
       "publishable": true,
       "steam": {
-        "personaname": "GazMyas.Academy ktall",
+        "personaname": "drozd 6 mentality",
         "profileurl": "https://steamcommunity.com/id/ktal7/",
         "countrycode": "AL",
         "avatar_local": "avatars/164072337.jpg",
@@ -2058,7 +2058,7 @@
       "handle_attribution": null,
       "publishable": false,
       "steam": {
-        "personaname": "POSHYPOP",
+        "personaname": "want to gaem",
         "profileurl": "https://steamcommunity.com/id/poshypop2/",
         "countrycode": null,
         "avatar_local": "avatars/176115006.jpg",
@@ -2114,7 +2114,7 @@
       "handle_attribution": null,
       "publishable": false,
       "steam": {
-        "personaname": "Waige",
+        "personaname": "Paparazi\u706c",
         "profileurl": "https://steamcommunity.com/id/waiige/",
         "countrycode": "CA",
         "avatar_local": "avatars/194833486.jpg",
@@ -2191,7 +2191,7 @@
       },
       "publishable": true,
       "steam": {
-        "personaname": "JonJon69",
+        "personaname": "Saucemaster87",
         "profileurl": "https://steamcommunity.com/profiles/76561198204375524/",
         "countrycode": "US",
         "avatar_local": "avatars/244109796.jpg",
@@ -2251,7 +2251,7 @@
         "profileurl": "https://steamcommunity.com/profiles/76561198237841356/",
         "countrycode": null,
         "avatar_local": "avatars/277575628.jpg",
-        "avatar_source": "https://avatars.steamstatic.com/79b74c07381918d9195ee68d3a7f243d669948b4_medium.jpg"
+        "avatar_source": "https://avatars.steamstatic.com/275788356790e73da89f645fc99eca2539c2d6ef_medium.jpg"
       }
     },
     {
@@ -2261,11 +2261,11 @@
       "handle_attribution": null,
       "publishable": false,
       "steam": {
-        "personaname": "\u0674",
+        "personaname": "Parzelion",
         "profileurl": "https://steamcommunity.com/id/Parzeli/",
         "countrycode": "KR",
         "avatar_local": "avatars/278919272.jpg",
-        "avatar_source": "https://avatars.steamstatic.com/4a8b88bd61d2942971d0b8d5845a3fe98f2cf967_medium.jpg"
+        "avatar_source": "https://avatars.steamstatic.com/8a2f40333d077e2b458192f0cdf42cc996056f64_medium.jpg"
       }
     },
     {
@@ -2289,11 +2289,11 @@
       "handle_attribution": null,
       "publishable": true,
       "steam": {
-        "personaname": "bossdogg23",
+        "personaname": "crazypig3",
         "profileurl": "https://steamcommunity.com/id/kaptennn/",
         "countrycode": null,
         "avatar_local": "avatars/281768392.jpg",
-        "avatar_source": "https://avatars.steamstatic.com/38f55b5f125039d2c38a4259093cc24c42dc7698_medium.jpg"
+        "avatar_source": "https://avatars.steamstatic.com/9b667e589d62d794d4107b3103bc25ed7801a10b_medium.jpg"
       }
     },
     {
@@ -2345,7 +2345,7 @@
       "handle_attribution": null,
       "publishable": false,
       "steam": {
-        "personaname": "secret agent c",
+        "personaname": "patient zero (AIDS)",
         "profileurl": "https://steamcommunity.com/profiles/76561198257231531/",
         "countrycode": null,
         "avatar_local": "avatars/296965803.jpg",
@@ -2485,7 +2485,7 @@
       "handle_attribution": null,
       "publishable": true,
       "steam": {
-        "personaname": "Arctic",
+        "personaname": "zxcv",
         "profileurl": "https://steamcommunity.com/profiles/76561198289301481/",
         "countrycode": null,
         "avatar_local": "avatars/329035753.jpg",
@@ -2499,7 +2499,7 @@
       "handle_attribution": null,
       "publishable": true,
       "steam": {
-        "personaname": "vraic",
+        "personaname": "cheesestriker26",
         "profileurl": "https://steamcommunity.com/id/vraic/",
         "countrycode": null,
         "avatar_local": "avatars/344946432.jpg",
@@ -2569,7 +2569,7 @@
       "handle_attribution": null,
       "publishable": false,
       "steam": {
-        "personaname": "mcdonald43",
+        "personaname": "cheeseburger200",
         "profileurl": "https://steamcommunity.com/profiles/76561198359555614/",
         "countrycode": null,
         "avatar_local": "avatars/399289886.jpg",
@@ -2681,7 +2681,7 @@
       "handle_attribution": null,
       "publishable": false,
       "steam": {
-        "personaname": "stri42131",
+        "personaname": "Werkom",
         "profileurl": "https://steamcommunity.com/profiles/76561198712501236/",
         "countrycode": null,
         "avatar_local": "avatars/752235508.jpg",
@@ -2807,7 +2807,7 @@
       "handle_attribution": null,
       "publishable": true,
       "steam": {
-        "personaname": "blur",
+        "personaname": "blurence ttv",
         "profileurl": "https://steamcommunity.com/id/blurence/",
         "countrycode": null,
         "avatar_local": "avatars/898514158.jpg",
@@ -2835,7 +2835,7 @@
       "handle_attribution": null,
       "publishable": false,
       "steam": {
-        "personaname": "\u043f\u043b\u043e\u0442\u043d\u044f\u0447\u043e\u043a",
+        "personaname": "sanya_sniper",
         "profileurl": "https://steamcommunity.com/profiles/76561198866277376/",
         "countrycode": null,
         "avatar_local": "avatars/906011648.jpg",
@@ -2863,7 +2863,7 @@
       "handle_attribution": null,
       "publishable": true,
       "steam": {
-        "personaname": "SURGERY",
+        "personaname": "\u041a\u0410\u041f\u0423\u0421\u0422\u041e\u0413\u041e\u041b\u041e\u0412\u042b\u0419",
         "profileurl": "https://steamcommunity.com/id/surrgery/",
         "countrycode": null,
         "avatar_local": "avatars/912304652.jpg",
@@ -2912,7 +2912,7 @@
       "handle_attribution": null,
       "publishable": true,
       "steam": {
-        "personaname": "weAppp",
+        "personaname": "\u7070\u8272\u306e\u67a2\u6a5f\u537f weAppp",
         "profileurl": "https://steamcommunity.com/id/weAppp/",
         "countrycode": "RU",
         "avatar_local": "avatars/924889838.jpg",
@@ -2982,7 +2982,7 @@
       "handle_attribution": null,
       "publishable": false,
       "steam": {
-        "personaname": "g",
+        "personaname": "v",
         "profileurl": "https://steamcommunity.com/profiles/76561198974749949/",
         "countrycode": null,
         "avatar_local": "avatars/1014484221.jpg",
@@ -3136,7 +3136,7 @@
       "handle_attribution": null,
       "publishable": true,
       "steam": {
-        "personaname": "Elpmur",
+        "personaname": "tv/Rumplefartskin32",
         "profileurl": "https://steamcommunity.com/profiles/76561199101332974/",
         "countrycode": null,
         "avatar_local": "avatars/1141067246.jpg",
@@ -3182,7 +3182,7 @@
         "profileurl": "https://steamcommunity.com/profiles/76561199177895076/",
         "countrycode": null,
         "avatar_local": "avatars/1217629348.jpg",
-        "avatar_source": "https://avatars.steamstatic.com/7c62c5374a94227a2d8596f1ed9a1c3e05502e92_medium.jpg"
+        "avatar_source": "https://avatars.steamstatic.com/24e40bd172a9e969a297e7575033db01d463ba77_medium.jpg"
       }
     },
     {
@@ -3220,7 +3220,7 @@
       "handle_attribution": null,
       "publishable": false,
       "steam": {
-        "personaname": "ayano-_-",
+        "personaname": "ayanami rei",
         "profileurl": "https://steamcommunity.com/profiles/76561199226604396/",
         "countrycode": null,
         "avatar_local": "avatars/1266338668.jpg",
@@ -3416,7 +3416,7 @@
       "handle_attribution": null,
       "publishable": false,
       "steam": {
-        "personaname": "xenon",
+        "personaname": "washedupbum",
         "profileurl": "https://steamcommunity.com/id/xenonreformed/",
         "countrycode": "RU",
         "avatar_local": "avatars/1694632809.jpg",
@@ -3451,11 +3451,11 @@
       },
       "publishable": true,
       "steam": {
-        "personaname": "fyxjfthzrdzg",
+        "personaname": "dgfd",
         "profileurl": "https://steamcommunity.com/profiles/76561199690298161/",
         "countrycode": null,
         "avatar_local": "avatars/1730032433.jpg",
-        "avatar_source": "https://avatars.steamstatic.com/a1d4120d5f160b471faff19ccf7d94bd12e05221_medium.jpg"
+        "avatar_source": "https://avatars.steamstatic.com/eed983556e25d16c9fe7882eaa217d0de8657ccc_medium.jpg"
       }
     },
     {

@@ -70,7 +70,7 @@
       "testable_rosterings": 7,
       "confirming_rosterings": 6,
       "hit_rate": 0.857,
-      "strongest_rival": "1285605078",
+      "strongest_rival": "1477660209",
       "strongest_rival_hits": 1,
       "status": "confirmed"
     },
@@ -135,7 +135,7 @@
       "testable_rosterings": 15,
       "confirming_rosterings": 13,
       "hit_rate": 0.867,
-      "strongest_rival": "1285605078",
+      "strongest_rival": "1477660209",
       "strongest_rival_hits": 1,
       "status": "confirmed"
     },
@@ -363,7 +363,7 @@
       "testable_rosterings": 4,
       "confirming_rosterings": 3,
       "hit_rate": 0.75,
-      "strongest_rival": "407786402",
+      "strongest_rival": "1009703898",
       "strongest_rival_hits": 1,
       "status": "confirmed"
     },
@@ -530,7 +530,7 @@
       "testable_rosterings": 6,
       "confirming_rosterings": 5,
       "hit_rate": 0.833,
-      "strongest_rival": "1285605078",
+      "strongest_rival": "1477660209",
       "strongest_rival_hits": 1,
       "status": "confirmed"
     },
@@ -741,7 +741,7 @@
       "testable_rosterings": 17,
       "confirming_rosterings": 17,
       "hit_rate": 1.0,
-      "strongest_rival": "1014484221",
+      "strongest_rival": "291902996",
       "strongest_rival_hits": 1,
       "status": "confirmed"
     },
@@ -1180,7 +1180,7 @@
       "testable_rosterings": 13,
       "confirming_rosterings": 12,
       "hit_rate": 0.923,
-      "strongest_rival": "1285605078",
+      "strongest_rival": "1477660209",
       "strongest_rival_hits": 1,
       "status": "confirmed"
     },
@@ -1215,7 +1215,7 @@
       "testable_rosterings": 9,
       "confirming_rosterings": 8,
       "hit_rate": 0.889,
-      "strongest_rival": "1014484221",
+      "strongest_rival": "291902996",
       "strongest_rival_hits": 1,
       "status": "confirmed"
     },
@@ -1323,7 +1323,7 @@
       "testable_rosterings": 8,
       "confirming_rosterings": 7,
       "hit_rate": 0.875,
-      "strongest_rival": "108710262",
+      "strongest_rival": "244109796",
       "strongest_rival_hits": 1,
       "status": "confirmed"
     },
@@ -1493,7 +1493,7 @@
       "testable_rosterings": 23,
       "confirming_rosterings": 23,
       "hit_rate": 1.0,
-      "strongest_rival": "39488687",
+      "strongest_rival": "114943410",
       "strongest_rival_hits": 1,
       "status": "confirmed"
     },
@@ -1607,7 +1607,7 @@
       "testable_rosterings": 18,
       "confirming_rosterings": 18,
       "hit_rate": 1.0,
-      "strongest_rival": "1014484221",
+      "strongest_rival": "291902996",
       "strongest_rival_hits": 1,
       "status": "confirmed"
     },
@@ -1643,7 +1643,7 @@
       "testable_rosterings": 14,
       "confirming_rosterings": 13,
       "hit_rate": 0.929,
-      "strongest_rival": "108710262",
+      "strongest_rival": "244109796",
       "strongest_rival_hits": 1,
       "status": "confirmed"
     },
@@ -1781,7 +1781,7 @@
       "testable_rosterings": 21,
       "confirming_rosterings": 20,
       "hit_rate": 0.952,
-      "strongest_rival": "407786402",
+      "strongest_rival": "1009703898",
       "strongest_rival_hits": 1,
       "status": "confirmed"
     },
@@ -1854,7 +1854,7 @@
       "testable_rosterings": 5,
       "confirming_rosterings": 4,
       "hit_rate": 0.8,
-      "strongest_rival": "298155885",
+      "strongest_rival": "906011648",
       "strongest_rival_hits": 1,
       "status": "confirmed"
     },
@@ -2107,7 +2107,7 @@
       "testable_rosterings": 11,
       "confirming_rosterings": 10,
       "hit_rate": 0.909,
-      "strongest_rival": "108710262",
+      "strongest_rival": "123819912",
       "strongest_rival_hits": 1,
       "status": "confirmed"
     },
@@ -2422,7 +2422,7 @@
       "testable_rosterings": 23,
       "confirming_rosterings": 23,
       "hit_rate": 1.0,
-      "strongest_rival": "39488687",
+      "strongest_rival": "114943410",
       "strongest_rival_hits": 1,
       "status": "confirmed"
     },
@@ -2648,7 +2648,7 @@
       "testable_rosterings": 10,
       "confirming_rosterings": 8,
       "hit_rate": 0.8,
-      "strongest_rival": "225764206",
+      "strongest_rival": "215398243",
       "strongest_rival_hits": 2,
       "status": "confirmed"
     },
@@ -2727,7 +2727,7 @@
       "testable_rosterings": 14,
       "confirming_rosterings": 13,
       "hit_rate": 0.929,
-      "strongest_rival": "1285605078",
+      "strongest_rival": "1477660209",
       "strongest_rival_hits": 1,
       "status": "confirmed"
     },
@@ -2857,7 +2857,7 @@
       "testable_rosterings": 4,
       "confirming_rosterings": 3,
       "hit_rate": 0.75,
-      "strongest_rival": "407786402",
+      "strongest_rival": "1009703898",
       "strongest_rival_hits": 1,
       "status": "confirmed"
     },
@@ -2917,7 +2917,7 @@
       "testable_rosterings": 23,
       "confirming_rosterings": 22,
       "hit_rate": 0.957,
-      "strongest_rival": "407786402",
+      "strongest_rival": "1009703898",
       "strongest_rival_hits": 1,
       "status": "confirmed"
     },
@@ -3518,17 +3518,6 @@
       "side_confirmed": false
     },
     {
-      "page_title": "Ktall",
-      "handle": "ktall",
-      "account_id": "164072337",
-      "personaname": "GazMyas.Academy ktall",
-      "match": "contained",
-      "wiki_status": "no-page",
-      "testable_rosterings": 1,
-      "confirming_rosterings": 1,
-      "side_confirmed": true
-    },
-    {
       "page_title": "Lorence",
       "handle": "lorence",
       "account_id": "185598645",
@@ -3548,6 +3537,17 @@
       "wiki_status": "no-id",
       "testable_rosterings": 13,
       "confirming_rosterings": 13,
+      "side_confirmed": true
+    },
+    {
+      "page_title": "Parzelion",
+      "handle": "Parzelion",
+      "account_id": "278919272",
+      "personaname": "Parzelion",
+      "match": "exact",
+      "wiki_status": "no-page",
+      "testable_rosterings": 1,
+      "confirming_rosterings": 1,
       "side_confirmed": true
     },
     {
@@ -3639,6 +3639,17 @@
       "side_confirmed": false
     },
     {
+      "page_title": "Werkom",
+      "handle": "Werkom",
+      "account_id": "752235508",
+      "personaname": "Werkom",
+      "match": "exact",
+      "wiki_status": "no-page",
+      "testable_rosterings": 3,
+      "confirming_rosterings": 3,
+      "side_confirmed": true
+    },
+    {
       "page_title": "Leviathan",
       "handle": "Leviathan",
       "account_id": "837629074",
@@ -3661,17 +3672,6 @@
       "side_confirmed": true
     },
     {
-      "page_title": "Blur",
-      "handle": "blur",
-      "account_id": "898514158",
-      "personaname": "blur",
-      "match": "exact",
-      "wiki_status": "no-id",
-      "testable_rosterings": 1,
-      "confirming_rosterings": 1,
-      "side_confirmed": true
-    },
-    {
       "page_title": "Stryder",
       "handle": "Stryder",
       "account_id": "900993442",
@@ -3681,6 +3681,17 @@
       "testable_rosterings": 0,
       "confirming_rosterings": 0,
       "side_confirmed": false
+    },
+    {
+      "page_title": "Sanya_sniper",
+      "handle": "sanya_sniper",
+      "account_id": "906011648",
+      "personaname": "sanya_sniper",
+      "match": "exact",
+      "wiki_status": "no-page",
+      "testable_rosterings": 27,
+      "confirming_rosterings": 27,
+      "side_confirmed": true
     },
     {
       "page_title": "Snakes",
@@ -3699,6 +3710,17 @@
       "account_id": "1053706881",
       "personaname": "Division",
       "match": "exact",
+      "wiki_status": "no-page",
+      "testable_rosterings": 1,
+      "confirming_rosterings": 1,
+      "side_confirmed": true
+    },
+    {
+      "page_title": "Rumple",
+      "handle": "Rumple",
+      "account_id": "1141067246",
+      "personaname": "tv/Rumplefartskin32",
+      "match": "contained",
       "wiki_status": "no-page",
       "testable_rosterings": 1,
       "confirming_rosterings": 1,
