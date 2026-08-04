@@ -167,9 +167,20 @@ def merge_match(existing: dict, generated: dict) -> list[str]:
         if existing.get(field) is None and generated.get(field) is not None:
             existing[field] = generated[field]
             changed.append(field)
-    if "side_check" not in existing:
+    # side_check is generator output, not a human judgement, so a stale failure
+    # has to be able to heal. It is written when absent, and also when the
+    # stored one gave up and the generator can now decide: adding a hero name
+    # alias fixed two #49 NA games that stayed "unresolved" through a rerun
+    # because this only ever filled a gap. A resolved value is never
+    # overwritten, so a decision that was once made is never quietly revised.
+    stored = existing.get("side_check")
+    if stored is None:
         existing["side_check"] = generated["side_check"]
         changed.append("side_check")
+    elif (stored.get("method") == "unresolved"
+          and generated["side_check"].get("method") != "unresolved"):
+        existing["side_check"] = generated["side_check"]
+        changed.append("side_check resolved")
 
     by_index = {s.get("match_team_index"): s for s in existing.get("sides", [])}
     for side in generated["sides"]:

@@ -168,6 +168,20 @@ def deploy(site_dir: Path, dry: bool) -> tuple[bool, str]:
         print(f"  would copy {site_dir} onto {PAGES_BRANCH} and push")
         return False, "dry run"
 
+    # The main working tree must never end up on the pages branch. It happened
+    # once: the repository was found checked out on gh-pages with every file
+    # tracked on main deleted from disk, which is alarming even though nothing
+    # was lost because it was all committed and pushed. The exact mechanism was
+    # not reproducible from the reflog, so this guards the outcome rather than
+    # the suspected cause: refuse to start from the pages branch, and put HEAD
+    # back afterwards whatever happens in between.
+    starting_branch = git("rev-parse", "--abbrev-ref", "HEAD")
+    if starting_branch == PAGES_BRANCH:
+        raise Failed(
+            f"the working tree is on {PAGES_BRANCH}, which is the published output and not "
+            f"source.\nSwitch back to your working branch first, for example:\n"
+            f"  git checkout main\nNothing has been published.")
+
     worktree = Path(tempfile.mkdtemp(prefix="ns-pages-"))
     # mkdtemp creates it; git worktree add needs it absent or empty.
     shutil.rmtree(worktree, ignore_errors=True)
@@ -211,6 +225,16 @@ def deploy(site_dir: Path, dry: bool) -> tuple[bool, str]:
         subprocess.run(["git", "worktree", "remove", str(worktree), "--force"],
                        capture_output=True, text=True)
         shutil.rmtree(worktree, ignore_errors=True)
+        subprocess.run(["git", "worktree", "prune"], capture_output=True, text=True)
+        # Belt and braces. If anything moved HEAD, put it back and say so
+        # loudly rather than leaving the checkout somewhere surprising.
+        ended_on = subprocess.run(["git", "rev-parse", "--abbrev-ref", "HEAD"],
+                                  capture_output=True, text=True).stdout.strip()
+        if ended_on and ended_on != starting_branch:
+            print(f"  WARNING: HEAD moved to {ended_on} during deploy, restoring "
+                  f"{starting_branch}")
+            subprocess.run(["git", "checkout", starting_branch],
+                           capture_output=True, text=True)
 
 
 def main() -> int:

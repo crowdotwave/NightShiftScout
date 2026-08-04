@@ -8808,6 +8808,285 @@
       "winner": 1,
       "length_s": 2296,
       "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/48/NA"
+    },
+    {
+      "match_id": "96111552",
+      "edition": 49,
+      "region": "eu",
+      "stage": "qualifier",
+      "bestof": 3,
+      "game_in_series": 1,
+      "team1": "Silence",
+      "team2": "Leviathan",
+      "team1side": "amber",
+      "team2side": "sapphire",
+      "team1_heroes": [
+        "pocket",
+        "shiv",
+        "lady geist",
+        "holliday",
+        "rem",
+        "silver"
+      ],
+      "team2_heroes": [
+        "billy",
+        "infernus",
+        "drifter",
+        "viscous",
+        "wraith",
+        "haze"
+      ],
+      "winner": 2,
+      "length_s": 2465,
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/49/EU"
+    },
+    {
+      "match_id": "96119633",
+      "edition": 49,
+      "region": "eu",
+      "stage": "qualifier",
+      "bestof": 3,
+      "game_in_series": 2,
+      "team1": "Silence",
+      "team2": "Leviathan",
+      "team1side": "amber",
+      "team2side": "sapphire",
+      "team1_heroes": [
+        "pocket",
+        "shiv",
+        "drifter",
+        "bebop",
+        "wraith",
+        "rem"
+      ],
+      "team2_heroes": [
+        "infernus",
+        "billy",
+        "holliday",
+        "viscous",
+        "mina",
+        "abrams"
+      ],
+      "winner": 2,
+      "length_s": 1533,
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/49/EU"
+    },
+    {
+      "match_id": "96296607",
+      "edition": 49,
+      "region": "eu",
+      "stage": "challenger",
+      "bestof": 1,
+      "game_in_series": 1,
+      "team1": "Buff Enjoyers",
+      "team2": "Leviathan",
+      "team1side": "amber",
+      "team2side": "leviathan",
+      "team1_heroes": [
+        "billy",
+        "calico",
+        "lady geist",
+        "abrams",
+        "mina",
+        "ivy"
+      ],
+      "team2_heroes": [
+        "infernus",
+        "pocket",
+        "mo and krill",
+        "holliday",
+        "shiv",
+        "vindicta"
+      ],
+      "winner": 1,
+      "length_s": 1966,
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/49/EU"
+    },
+    {
+      "match_id": "96306309",
+      "edition": 49,
+      "region": "eu",
+      "stage": "final",
+      "bestof": 3,
+      "game_in_series": 1,
+      "team1": "Abrahams",
+      "team2": "Buff Enjoyers",
+      "team1side": "sapphire",
+      "team2side": "amber",
+      "team1_heroes": [
+        "mirage",
+        "calico",
+        "venator",
+        "abrams",
+        "bebop",
+        "vindicta"
+      ],
+      "team2_heroes": [
+        "billy",
+        "lady geist",
+        "infernus",
+        "rem",
+        "apollo",
+        "lash"
+      ],
+      "winner": 2,
+      "length_s": 2472,
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/49/EU"
+    },
+    {
+      "match_id": "96316159",
+      "edition": 49,
+      "region": "eu",
+      "stage": "final",
+      "bestof": 3,
+      "game_in_series": 2,
+      "team1": "Abrahams",
+      "team2": "Buff Enjoyers",
+      "team1side": "amber",
+      "team2side": "sapphire",
+      "team1_heroes": [
+        "billy",
+        "venator",
+        "calico",
+        "infernus",
+        "drifter",
+        "sinclair"
+      ],
+      "team2_heroes": [
+        "mirage",
+        "apollo",
+        "abrams",
+        "rem",
+        "lash",
+        "mina"
+      ],
+      "winner": 2,
+      "length_s": 2079,
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/49/EU"
+    },
+    {
+      "match_id": "96325538",
+      "edition": 49,
+      "region": "na",
+      "stage": "challenger",
+      "bestof": 1,
+      "game_in_series": 1,
+      "team1": "Melee Creeps",
+      "team2": "Pulsar Esports",
+      "team1side": "amber",
+      "team2side": "sapphire",
+      "team1_heroes": [
+        "billy",
+        "mcginnis",
+        "pocket",
+        "holliday",
+        "lash",
+        "dynamo"
+      ],
+      "team2_heroes": [
+        "mirage",
+        "geist",
+        "viscous",
+        "apollo",
+        "paradox",
+        "abrams"
+      ],
+      "winner": 1,
+      "length_s": 1819,
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/49/NA"
+    },
+    {
+      "match_id": "96333692",
+      "edition": 49,
+      "region": "na",
+      "stage": "final",
+      "bestof": 3,
+      "game_in_series": 1,
+      "team1": "Poppers' Pupils",
+      "team2": "Melee Creeps",
+      "team1side": "sapphire",
+      "team2side": "amber",
+      "team1_heroes": [
+        "mirage",
+        "calico",
+        "pocket",
+        "holliday",
+        "ivy",
+        "yamato"
+      ],
+      "team2_heroes": [
+        "geist",
+        "lash",
+        "mcginnis",
+        "drifter",
+        "apollo",
+        "shiv"
+      ],
+      "winner": 1,
+      "length_s": 1846,
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/49/NA"
+    },
+    {
+      "match_id": "96341507",
+      "edition": 49,
+      "region": "na",
+      "stage": "final",
+      "bestof": 3,
+      "game_in_series": 2,
+      "team1": "Poppers' Pupils",
+      "team2": "Melee Creeps",
+      "team1side": "sapphire",
+      "team2side": "amber",
+      "team1_heroes": [
+        "calico",
+        "holliday",
+        "pocket",
+        "geist",
+        "viscous",
+        "apollo"
+      ],
+      "team2_heroes": [
+        "mirage",
+        "bebop",
+        "lash",
+        "victor",
+        "mcginnis",
+        "venator"
+      ],
+      "winner": 2,
+      "length_s": 2160,
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/49/NA"
+    },
+    {
+      "match_id": "96349946",
+      "edition": 49,
+      "region": "na",
+      "stage": "final",
+      "bestof": 3,
+      "game_in_series": 3,
+      "team1": "Poppers' Pupils",
+      "team2": "Melee Creeps",
+      "team1side": "amber",
+      "team2side": "sapphire",
+      "team1_heroes": [
+        "doorman",
+        "pocket",
+        "geist",
+        "apollo",
+        "lash",
+        "yamato"
+      ],
+      "team2_heroes": [
+        "calico",
+        "bebop",
+        "venator",
+        "viscous",
+        "abrams",
+        "infernus"
+      ],
+      "winner": 2,
+      "length_s": 1991,
+      "source_url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/49/NA"
     }
   ]
 }

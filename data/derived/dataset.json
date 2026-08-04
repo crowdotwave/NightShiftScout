@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
-  "generated_utc": "2026-08-01T05:14:04+00:00",
+  "generated_utc": "2026-08-04T05:54:10+00:00",
   "source": {
     "generator": "scripts/build_dataset.py",
-    "git_commit": "d95e514",
-    "matches_cached": 281,
-    "matches_ingested": 279,
-    "nights_ingested": 81,
+    "git_commit": "b1dd368",
+    "matches_cached": 290,
+    "matches_ingested": 288,
+    "nights_ingested": 83,
     "outcome_rule": "winning_team_index is copied from match_info.winning_team. No win flag is stored. A player won if match_team_index == winning_team_index.",
     "team_index_rule": "match_team_index is meaningful only within its own match and is never a join key.",
     "tournament_gate": "Only match_mode 2 (custom lobby) is ingested. Other modes stay in the cache and are excluded here. See RETRACTIONS.md entry R2.",
@@ -1388,6 +1388,40 @@
         "licence_url": "https://creativecommons.org/licenses/by-sa/3.0/",
         "share_alike": true
       }
+    },
+    {
+      "night_id": "ns049-eu",
+      "series": "night-shift",
+      "edition": 49,
+      "region": "eu",
+      "region_confirmed": true,
+      "date": "2026-07-28",
+      "source": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/49/EU",
+      "attribution": {
+        "provider": "liquipedia",
+        "name": "Liquipedia",
+        "url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/49/EU",
+        "licence": "CC-BY-SA 3.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "share_alike": true
+      }
+    },
+    {
+      "night_id": "ns049-na",
+      "series": "night-shift",
+      "edition": 49,
+      "region": "na",
+      "region_confirmed": true,
+      "date": "2026-07-30",
+      "source": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/49/NA",
+      "attribution": {
+        "provider": "liquipedia",
+        "name": "Liquipedia",
+        "url": "https://liquipedia.net/deadlock/Deadlock_Night_Shift/49/NA",
+        "licence": "CC-BY-SA 3.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "share_alike": true
+      }
     }
   ],
   "attributions": [
@@ -1527,7 +1561,7 @@
       "handle_attribution": null,
       "publishable": true,
       "steam": {
-        "personaname": "THE AC",
+        "personaname": "TANNERD",
         "profileurl": "https://steamcommunity.com/id/IMJUNKINGMYSHITRNFR/",
         "countrycode": "GB",
         "avatar_local": "avatars/54151884.jpg",
@@ -1583,7 +1617,7 @@
       "handle_attribution": null,
       "publishable": true,
       "steam": {
-        "personaname": "sh",
+        "personaname": "sharyk",
         "profileurl": "https://steamcommunity.com/id/3597236/",
         "countrycode": null,
         "avatar_local": "avatars/81662458.jpg",
@@ -1605,17 +1639,31 @@
       }
     },
     {
+      "account_id": "84379844",
+      "handle": null,
+      "identified": "unmapped",
+      "handle_attribution": null,
+      "publishable": false,
+      "steam": {
+        "personaname": "crayon !adddraft",
+        "profileurl": "https://steamcommunity.com/id/HoardingShit/",
+        "countrycode": "VN",
+        "avatar_local": "avatars/84379844.jpg",
+        "avatar_source": "https://avatars.steamstatic.com/e66c266e984de07ba8db60efe8360bfad159a033_medium.jpg"
+      }
+    },
+    {
       "account_id": "85898225",
       "handle": "POSHYPOP",
       "identified": "probable",
       "handle_attribution": null,
       "publishable": true,
       "steam": {
-        "personaname": "retard one",
+        "personaname": "\u4e00\u8a00\u65e2\u51fa\uff0c\u9a77\u9a6c\u96be\u8ffd",
         "profileurl": "https://steamcommunity.com/id/poshypop/",
         "countrycode": null,
         "avatar_local": "avatars/85898225.jpg",
-        "avatar_source": "https://avatars.steamstatic.com/50f43ca76a94a3433fa079a9259c37f27cbd4ccc_medium.jpg"
+        "avatar_source": "https://avatars.steamstatic.com/0a6d25f0366c73fa53a683d1d47dc31759809c5e_medium.jpg"
       }
     },
     {
@@ -1709,11 +1757,11 @@
       "handle_attribution": null,
       "publishable": true,
       "steam": {
-        "personaname": "lystic",
+        "personaname": "jeremy",
         "profileurl": "https://steamcommunity.com/id/uncletajj/",
         "countrycode": null,
         "avatar_local": "avatars/97533101.jpg",
-        "avatar_source": "https://avatars.steamstatic.com/e04f46a7921fa57ac493fb20b5547ad5f59c6b99_medium.jpg"
+        "avatar_source": "https://avatars.steamstatic.com/161c014b89d5922cefa6d649d526b2b55550091f_medium.jpg"
       }
     },
     {
@@ -1737,7 +1785,7 @@
       "handle_attribution": null,
       "publishable": false,
       "steam": {
-        "personaname": "trimming armor 4 free",
+        "personaname": "Xera",
         "profileurl": "https://steamcommunity.com/profiles/76561198060730596/",
         "countrycode": null,
         "avatar_local": "avatars/100464868.jpg",
@@ -1755,7 +1803,7 @@
         "profileurl": "https://steamcommunity.com/id/Spookybuh/",
         "countrycode": null,
         "avatar_local": "avatars/102312863.jpg",
-        "avatar_source": "https://avatars.steamstatic.com/bb73f880f49ef5685f92099fa7c7c24133e6e766_medium.jpg"
+        "avatar_source": "https://avatars.steamstatic.com/6cc4827330a2180cfc726e55d0c22cecf1123e99_medium.jpg"
       }
     },
     {
@@ -1842,7 +1890,7 @@
       },
       "publishable": true,
       "steam": {
-        "personaname": "FPSL Lefaa",
+        "personaname": "Lefaa",
         "profileurl": "https://steamcommunity.com/profiles/76561198075209138/",
         "countrycode": null,
         "avatar_local": "avatars/114943410.jpg",
@@ -1912,11 +1960,11 @@
       "handle_attribution": null,
       "publishable": true,
       "steam": {
-        "personaname": "arzo",
+        "personaname": "4580",
         "profileurl": "https://steamcommunity.com/id/0arzo/",
         "countrycode": null,
         "avatar_local": "avatars/124540485.jpg",
-        "avatar_source": "https://avatars.steamstatic.com/3112b7be14b192b7da7447eed336f1b8f3a594e8_medium.jpg"
+        "avatar_source": "https://avatars.steamstatic.com/0594730392a4405ffc59375bb5bc3be38f3b7337_medium.jpg"
       }
     },
     {
@@ -1954,7 +2002,7 @@
       "handle_attribution": null,
       "publishable": true,
       "steam": {
-        "personaname": "\u0431\u0430\u0440\u0430\u0433\u043e\u0437",
+        "personaname": "IREZUMI",
         "profileurl": "https://steamcommunity.com/id/irezum1/",
         "countrycode": "SO",
         "avatar_local": "avatars/136898005.jpg",
@@ -1968,7 +2016,7 @@
       "handle_attribution": null,
       "publishable": true,
       "steam": {
-        "personaname": "stroodl",
+        "personaname": "stryde",
         "profileurl": "https://steamcommunity.com/profiles/76561198099471661/",
         "countrycode": "US",
         "avatar_local": "avatars/139205933.jpg",
@@ -1982,11 +2030,11 @@
       "handle_attribution": null,
       "publishable": true,
       "steam": {
-        "personaname": "BARCODE",
+        "personaname": "Trooper#1,000-7",
         "profileurl": "https://steamcommunity.com/id/Trax-_-/",
         "countrycode": null,
         "avatar_local": "avatars/163819505.jpg",
-        "avatar_source": "https://avatars.steamstatic.com/b61d867d872bf7f9fb10c2ab60a4009ae7f8c2bd_medium.jpg"
+        "avatar_source": "https://avatars.steamstatic.com/78ed82aca329e87d102cd454037b33dfa4cd6dfc_medium.jpg"
       }
     },
     {
@@ -1996,7 +2044,7 @@
       "handle_attribution": null,
       "publishable": true,
       "steam": {
-        "personaname": "GazMyas.Academy ktall",
+        "personaname": "drozd 6 mentality",
         "profileurl": "https://steamcommunity.com/id/ktal7/",
         "countrycode": "AL",
         "avatar_local": "avatars/164072337.jpg",
@@ -2066,7 +2114,7 @@
       "handle_attribution": null,
       "publishable": false,
       "steam": {
-        "personaname": "Waige",
+        "personaname": "Paparazi\u706c",
         "profileurl": "https://steamcommunity.com/id/waiige/",
         "countrycode": "CA",
         "avatar_local": "avatars/194833486.jpg",
@@ -2094,7 +2142,7 @@
       "handle_attribution": null,
       "publishable": false,
       "steam": {
-        "personaname": "i have candy =)",
+        "personaname": "player =)",
         "profileurl": "https://steamcommunity.com/id/osk1to/",
         "countrycode": "RU",
         "avatar_local": "avatars/223305242.jpg",
@@ -2143,7 +2191,7 @@
       },
       "publishable": true,
       "steam": {
-        "personaname": "JonJon69",
+        "personaname": "Saucemaster87",
         "profileurl": "https://steamcommunity.com/profiles/76561198204375524/",
         "countrycode": "US",
         "avatar_local": "avatars/244109796.jpg",
@@ -2203,7 +2251,21 @@
         "profileurl": "https://steamcommunity.com/profiles/76561198237841356/",
         "countrycode": null,
         "avatar_local": "avatars/277575628.jpg",
-        "avatar_source": "https://avatars.steamstatic.com/79b74c07381918d9195ee68d3a7f243d669948b4_medium.jpg"
+        "avatar_source": "https://avatars.steamstatic.com/275788356790e73da89f645fc99eca2539c2d6ef_medium.jpg"
+      }
+    },
+    {
+      "account_id": "278919272",
+      "handle": null,
+      "identified": "unmapped",
+      "handle_attribution": null,
+      "publishable": false,
+      "steam": {
+        "personaname": "Parzelion",
+        "profileurl": "https://steamcommunity.com/id/Parzeli/",
+        "countrycode": "KR",
+        "avatar_local": "avatars/278919272.jpg",
+        "avatar_source": "https://avatars.steamstatic.com/8a2f40333d077e2b458192f0cdf42cc996056f64_medium.jpg"
       }
     },
     {
@@ -2227,11 +2289,11 @@
       "handle_attribution": null,
       "publishable": true,
       "steam": {
-        "personaname": "bossdogg23",
+        "personaname": "crazypig3",
         "profileurl": "https://steamcommunity.com/id/kaptennn/",
         "countrycode": null,
         "avatar_local": "avatars/281768392.jpg",
-        "avatar_source": "https://avatars.steamstatic.com/38f55b5f125039d2c38a4259093cc24c42dc7698_medium.jpg"
+        "avatar_source": "https://avatars.steamstatic.com/9b667e589d62d794d4107b3103bc25ed7801a10b_medium.jpg"
       }
     },
     {
@@ -2255,7 +2317,7 @@
       "handle_attribution": null,
       "publishable": true,
       "steam": {
-        "personaname": "alexio",
+        "personaname": "happex",
         "profileurl": "https://steamcommunity.com/id/Happex123457654/",
         "countrycode": null,
         "avatar_local": "avatars/288422074.jpg",
@@ -2283,7 +2345,7 @@
       "handle_attribution": null,
       "publishable": false,
       "steam": {
-        "personaname": "Calc",
+        "personaname": "patient zero (AIDS)",
         "profileurl": "https://steamcommunity.com/profiles/76561198257231531/",
         "countrycode": null,
         "avatar_local": "avatars/296965803.jpg",
@@ -2423,7 +2485,7 @@
       "handle_attribution": null,
       "publishable": true,
       "steam": {
-        "personaname": "Arctic",
+        "personaname": "zxcv",
         "profileurl": "https://steamcommunity.com/profiles/76561198289301481/",
         "countrycode": null,
         "avatar_local": "avatars/329035753.jpg",
@@ -2437,7 +2499,7 @@
       "handle_attribution": null,
       "publishable": true,
       "steam": {
-        "personaname": "vraic",
+        "personaname": "cheesestriker26",
         "profileurl": "https://steamcommunity.com/id/vraic/",
         "countrycode": null,
         "avatar_local": "avatars/344946432.jpg",
@@ -2451,7 +2513,7 @@
       "handle_attribution": null,
       "publishable": false,
       "steam": {
-        "personaname": "Supreme Commander",
+        "personaname": "Kavunjkee",
         "profileurl": "https://steamcommunity.com/id/kavunchello/",
         "countrycode": "UA",
         "avatar_local": "avatars/355039561.jpg",
@@ -2479,7 +2541,7 @@
       "handle_attribution": null,
       "publishable": true,
       "steam": {
-        "personaname": "Afera",
+        "personaname": "Aferist",
         "profileurl": "https://steamcommunity.com/profiles/76561198340011119/",
         "countrycode": "RU",
         "avatar_local": "avatars/379745391.jpg",
@@ -2507,11 +2569,11 @@
       "handle_attribution": null,
       "publishable": false,
       "steam": {
-        "personaname": "\u039b",
+        "personaname": "cheeseburger200",
         "profileurl": "https://steamcommunity.com/profiles/76561198359555614/",
         "countrycode": null,
         "avatar_local": "avatars/399289886.jpg",
-        "avatar_source": "https://avatars.steamstatic.com/e844d4501efaebfbb1119c96c031d09ad805825e_medium.jpg"
+        "avatar_source": "https://avatars.steamstatic.com/34708ad5ed858b58b41db3f834f0bef79bedc2bb_medium.jpg"
       }
     },
     {
@@ -2535,11 +2597,11 @@
       "handle_attribution": null,
       "publishable": true,
       "steam": {
-        "personaname": "reyache",
+        "personaname": "rey",
         "profileurl": "https://steamcommunity.com/id/reyache/",
         "countrycode": "JP",
         "avatar_local": "avatars/407786402.jpg",
-        "avatar_source": "https://avatars.steamstatic.com/f28fdcf11bb803633cc9ad423835db73a38c3bf6_medium.jpg"
+        "avatar_source": "https://avatars.steamstatic.com/7c818996c86674dee52c1557fa9138f185c76ac2_medium.jpg"
       }
     },
     {
@@ -2619,7 +2681,7 @@
       "handle_attribution": null,
       "publishable": false,
       "steam": {
-        "personaname": "stri42131",
+        "personaname": "Werkom",
         "profileurl": "https://steamcommunity.com/profiles/76561198712501236/",
         "countrycode": null,
         "avatar_local": "avatars/752235508.jpg",
@@ -2745,11 +2807,11 @@
       "handle_attribution": null,
       "publishable": true,
       "steam": {
-        "personaname": "blur",
+        "personaname": "blurence ttv",
         "profileurl": "https://steamcommunity.com/id/blurence/",
         "countrycode": null,
         "avatar_local": "avatars/898514158.jpg",
-        "avatar_source": "https://avatars.steamstatic.com/57fc393f195a0410654a6cf4cd5c7df29e9d37df_medium.jpg"
+        "avatar_source": "https://avatars.steamstatic.com/cee3772644df5d05cfc8dd101f425ed23bb67dcf_medium.jpg"
       }
     },
     {
@@ -2773,7 +2835,7 @@
       "handle_attribution": null,
       "publishable": false,
       "steam": {
-        "personaname": "\u043f\u043b\u043e\u0442\u043d\u044f\u0447\u043e\u043a",
+        "personaname": "sanya_sniper",
         "profileurl": "https://steamcommunity.com/profiles/76561198866277376/",
         "countrycode": null,
         "avatar_local": "avatars/906011648.jpg",
@@ -2801,7 +2863,7 @@
       "handle_attribution": null,
       "publishable": true,
       "steam": {
-        "personaname": "I wanna die a million times",
+        "personaname": "\u041a\u0410\u041f\u0423\u0421\u0422\u041e\u0413\u041e\u041b\u041e\u0412\u042b\u0419",
         "profileurl": "https://steamcommunity.com/id/surrgery/",
         "countrycode": null,
         "avatar_local": "avatars/912304652.jpg",
@@ -2850,7 +2912,7 @@
       "handle_attribution": null,
       "publishable": true,
       "steam": {
-        "personaname": "\u7070\u8272\u306e\u67a2\u6a5f\u537f",
+        "personaname": "\u7070\u8272\u306e\u67a2\u6a5f\u537f weAppp",
         "profileurl": "https://steamcommunity.com/id/weAppp/",
         "countrycode": "RU",
         "avatar_local": "avatars/924889838.jpg",
@@ -2882,7 +2944,7 @@
         "profileurl": "https://steamcommunity.com/id/overseasd/",
         "countrycode": null,
         "avatar_local": "avatars/984254212.jpg",
-        "avatar_source": "https://avatars.steamstatic.com/ff7a336a64a8edac6fe1329da307e0ca60a8ef12_medium.jpg"
+        "avatar_source": "https://avatars.steamstatic.com/1b053cedf7e2ca5ba148ceaa9690175e3883163b_medium.jpg"
       }
     },
     {
@@ -2920,7 +2982,7 @@
       "handle_attribution": null,
       "publishable": false,
       "steam": {
-        "personaname": "c",
+        "personaname": "v",
         "profileurl": "https://steamcommunity.com/profiles/76561198974749949/",
         "countrycode": null,
         "avatar_local": "avatars/1014484221.jpg",
@@ -2990,7 +3052,7 @@
       "handle_attribution": null,
       "publishable": true,
       "steam": {
-        "personaname": "twitch.tv/saintmxsm",
+        "personaname": "saint",
         "profileurl": "https://steamcommunity.com/id/saintmxsm/",
         "countrycode": "RU",
         "avatar_local": "avatars/1055638874.jpg",
@@ -3032,7 +3094,7 @@
       "handle_attribution": null,
       "publishable": false,
       "steam": {
-        "personaname": "worker\u043d\u044f \u0435\u0431\u0430\u043d\u0430\u044f",
+        "personaname": "pomson",
         "profileurl": "https://steamcommunity.com/profiles/76561199040393837/",
         "countrycode": null,
         "avatar_local": "avatars/1080128109.jpg",
@@ -3046,11 +3108,11 @@
       "handle_attribution": null,
       "publishable": false,
       "steam": {
-        "personaname": "sister",
+        "personaname": "beautiful day",
         "profileurl": "https://steamcommunity.com/profiles/76561199050884239/",
         "countrycode": null,
         "avatar_local": "avatars/1090618511.jpg",
-        "avatar_source": "https://avatars.steamstatic.com/2910bce12da7546b2784906398f326ca8e5f9534_medium.jpg"
+        "avatar_source": "https://avatars.steamstatic.com/8dd1fd3823b6c1fca3f13b89fcbd3940c0c7de27_medium.jpg"
       }
     },
     {
@@ -3060,7 +3122,7 @@
       "handle_attribution": null,
       "publishable": false,
       "steam": {
-        "personaname": "cfif",
+        "personaname": "\u0448\u043b\u044e\u0445\u0430 \u0441 \u043c\u0441\u043a",
         "profileurl": "https://steamcommunity.com/profiles/76561199080634240/",
         "countrycode": null,
         "avatar_local": "avatars/1120368512.jpg",
@@ -3074,7 +3136,7 @@
       "handle_attribution": null,
       "publishable": true,
       "steam": {
-        "personaname": "Rumple",
+        "personaname": "tv/Rumplefartskin32",
         "profileurl": "https://steamcommunity.com/profiles/76561199101332974/",
         "countrycode": null,
         "avatar_local": "avatars/1141067246.jpg",
@@ -3102,11 +3164,25 @@
       "handle_attribution": null,
       "publishable": true,
       "steam": {
-        "personaname": "zxcbobi",
+        "personaname": "promise",
         "profileurl": "https://steamcommunity.com/id/zxcbobi/",
         "countrycode": null,
         "avatar_local": "avatars/1186801441.jpg",
-        "avatar_source": "https://avatars.steamstatic.com/06100d69e9ef47021171b527a471e5a3b64f8b4d_medium.jpg"
+        "avatar_source": "https://avatars.steamstatic.com/ade0267613c9fa69b7b9070a708d88b6392e93cd_medium.jpg"
+      }
+    },
+    {
+      "account_id": "1217629348",
+      "handle": null,
+      "identified": "unmapped",
+      "handle_attribution": null,
+      "publishable": false,
+      "steam": {
+        "personaname": "Mayonese",
+        "profileurl": "https://steamcommunity.com/profiles/76561199177895076/",
+        "countrycode": null,
+        "avatar_local": "avatars/1217629348.jpg",
+        "avatar_source": "https://avatars.steamstatic.com/24e40bd172a9e969a297e7575033db01d463ba77_medium.jpg"
       }
     },
     {
@@ -3144,7 +3220,7 @@
       "handle_attribution": null,
       "publishable": false,
       "steam": {
-        "personaname": "allmuted03",
+        "personaname": "ayanami rei",
         "profileurl": "https://steamcommunity.com/profiles/76561199226604396/",
         "countrycode": null,
         "avatar_local": "avatars/1266338668.jpg",
@@ -3228,7 +3304,7 @@
       },
       "publishable": true,
       "steam": {
-        "personaname": "Bogo",
+        "personaname": "League",
         "profileurl": "https://steamcommunity.com/profiles/76561199437925937/",
         "countrycode": null,
         "avatar_local": "avatars/1477660209.jpg",
@@ -3326,11 +3402,11 @@
       "handle_attribution": null,
       "publishable": false,
       "steam": {
-        "personaname": "adofan11",
+        "personaname": "qwptqpypasd",
         "profileurl": "https://steamcommunity.com/profiles/76561199642657203/",
         "countrycode": "US",
         "avatar_local": "avatars/1682391475.jpg",
-        "avatar_source": "https://avatars.steamstatic.com/778bb2ee64def8ece022b03727b78e0c628eb2df_medium.jpg"
+        "avatar_source": "https://avatars.steamstatic.com/331a19fed308e9a8e347514f2520dc85941c98ad_medium.jpg"
       }
     },
     {
@@ -3340,7 +3416,7 @@
       "handle_attribution": null,
       "publishable": false,
       "steam": {
-        "personaname": "\u0440\u043e\u043c\u0441\u043e\u043d\u0414\u041b #\u0420\u0410\u0414\u0418\u041d\u0415\u0415",
+        "personaname": "washedupbum",
         "profileurl": "https://steamcommunity.com/id/xenonreformed/",
         "countrycode": "RU",
         "avatar_local": "avatars/1694632809.jpg",
@@ -3354,7 +3430,7 @@
       "handle_attribution": null,
       "publishable": true,
       "steam": {
-        "personaname": "e",
+        "personaname": "eplifine",
         "profileurl": "https://steamcommunity.com/profiles/76561199670358297/",
         "countrycode": null,
         "avatar_local": "avatars/1710092569.jpg",
@@ -3375,11 +3451,11 @@
       },
       "publishable": true,
       "steam": {
-        "personaname": "abcd_fg",
+        "personaname": "dgfd",
         "profileurl": "https://steamcommunity.com/profiles/76561199690298161/",
         "countrycode": null,
         "avatar_local": "avatars/1730032433.jpg",
-        "avatar_source": "https://avatars.steamstatic.com/d5052278ff37e0b27f9207a0184a4e6fc7cfa259_medium.jpg"
+        "avatar_source": "https://avatars.steamstatic.com/eed983556e25d16c9fe7882eaa217d0de8657ccc_medium.jpg"
       }
     },
     {
@@ -3431,11 +3507,11 @@
       "handle_attribution": null,
       "publishable": false,
       "steam": {
-        "personaname": "burger",
+        "personaname": "obsession",
         "profileurl": "https://steamcommunity.com/profiles/76561199768332990/",
         "countrycode": null,
         "avatar_local": "avatars/1808067262.jpg",
-        "avatar_source": "https://avatars.steamstatic.com/5397a656e6250bbf8592b65c70a4cd7a907fb11e_medium.jpg"
+        "avatar_source": "https://avatars.steamstatic.com/c99e248e1f22c6e62ab7b20d38efb8b799d91049_medium.jpg"
       }
     },
     {
@@ -3459,7 +3535,7 @@
       "handle_attribution": null,
       "publishable": false,
       "steam": {
-        "personaname": "Chiikawa With PTSD",
+        "personaname": "YOSHI = A BIRD",
         "profileurl": "https://steamcommunity.com/id/deadlocknoob/",
         "countrycode": null,
         "avatar_local": "avatars/1839231747.jpg",
@@ -3484,7 +3560,7 @@
         "profileurl": "https://steamcommunity.com/profiles/76561199801168562/",
         "countrycode": "LU",
         "avatar_local": "avatars/1840902834.jpg",
-        "avatar_source": "https://avatars.steamstatic.com/47966eab244699017cda9f920846fcfa99857e39_medium.jpg"
+        "avatar_source": "https://avatars.steamstatic.com/6c5869b073fd47fc0aee48fff4384f7f04c87a25_medium.jpg"
       }
     },
     {
@@ -3508,7 +3584,7 @@
       "handle_attribution": null,
       "publishable": false,
       "steam": {
-        "personaname": "\u3148\u3132",
+        "personaname": "\u3148\u3132\u3146\u3142\u3134\u3147",
         "profileurl": "https://steamcommunity.com/profiles/76561199812845471/",
         "countrycode": null,
         "avatar_local": "avatars/1852579743.jpg",
@@ -3543,7 +3619,7 @@
       },
       "publishable": true,
       "steam": {
-        "personaname": "fpsl lomein",
+        "personaname": "Lomein",
         "profileurl": "https://steamcommunity.com/profiles/76561199831287377/",
         "countrycode": null,
         "avatar_local": "avatars/1871021649.jpg",
@@ -3610,7 +3686,7 @@
         "profileurl": "https://steamcommunity.com/id/swaggersaurus/",
         "countrycode": null,
         "avatar_local": "avatars/1912069048.jpg",
-        "avatar_source": "https://avatars.steamstatic.com/36b182baea42a9b407f49e3b157c6b72ab73a72f_medium.jpg"
+        "avatar_source": "https://avatars.steamstatic.com/92ad1db4904834da2b4734bb0049690caef4b923_medium.jpg"
       }
     },
     {
@@ -3620,7 +3696,7 @@
       "handle_attribution": null,
       "publishable": false,
       "steam": {
-        "personaname": "bountyenjoyer",
+        "personaname": "gay",
         "profileurl": "https://steamcommunity.com/profiles/76561199878527220/",
         "countrycode": "NE",
         "avatar_local": "avatars/1918261492.jpg",
@@ -5102,6 +5178,51 @@
     {
       "series_id": "ns048-na|Finals|Finals, best of 3",
       "night_id": "ns048-na",
+      "stage": "Finals",
+      "series_label": "Finals, best of 3",
+      "games_cached": 3,
+      "games_expected": 3,
+      "complete": true
+    },
+    {
+      "series_id": "ns049-eu|Challenger|Challenger, best of 1",
+      "night_id": "ns049-eu",
+      "stage": "Challenger",
+      "series_label": "Challenger, best of 1",
+      "games_cached": 1,
+      "games_expected": 1,
+      "complete": true
+    },
+    {
+      "series_id": "ns049-eu|Finals|Finals, best of 3",
+      "night_id": "ns049-eu",
+      "stage": "Finals",
+      "series_label": "Finals, best of 3",
+      "games_cached": 2,
+      "games_expected": 2,
+      "complete": true
+    },
+    {
+      "series_id": "ns049-eu|Qualifier|Qualifier, best of 3",
+      "night_id": "ns049-eu",
+      "stage": "Qualifier",
+      "series_label": "Qualifier, best of 3",
+      "games_cached": 2,
+      "games_expected": 2,
+      "complete": true
+    },
+    {
+      "series_id": "ns049-na|Challenger|Challenger, best of 1",
+      "night_id": "ns049-na",
+      "stage": "Challenger",
+      "series_label": "Challenger, best of 1",
+      "games_cached": 1,
+      "games_expected": 1,
+      "complete": true
+    },
+    {
+      "series_id": "ns049-na|Finals|Finals, best of 3",
+      "night_id": "ns049-na",
       "stage": "Finals",
       "series_label": "Finals, best of 3",
       "games_cached": 3,
@@ -17104,6 +17225,393 @@
       "lobby": {
         "net_worth_total": 487390,
         "net_worth_avg": 40615.8,
+        "player_count": 12
+      }
+    },
+    {
+      "match_id": "96111552",
+      "night_id": "ns049-eu",
+      "stage": "Qualifier",
+      "series_label": "Qualifier, best of 3",
+      "game_in_series": 1,
+      "start_time": 1785262948,
+      "duration_s": 2465,
+      "winning_team_index": 1,
+      "sides": [
+        {
+          "match_team_index": 0,
+          "team_id": null
+        },
+        {
+          "match_team_index": 1,
+          "team_id": null
+        }
+      ],
+      "totals": {
+        "0": {
+          "net_worth": 240885,
+          "kills": 36,
+          "deaths": 48,
+          "assists": 78,
+          "damage": 217116,
+          "player_count": 6
+        },
+        "1": {
+          "net_worth": 301548,
+          "kills": 48,
+          "deaths": 36,
+          "assists": 133,
+          "damage": 252484,
+          "player_count": 6
+        }
+      },
+      "lobby": {
+        "net_worth_total": 542433,
+        "net_worth_avg": 45202.8,
+        "player_count": 12
+      }
+    },
+    {
+      "match_id": "96119633",
+      "night_id": "ns049-eu",
+      "stage": "Qualifier",
+      "series_label": "Qualifier, best of 3",
+      "game_in_series": 2,
+      "start_time": 1785266315,
+      "duration_s": 1533,
+      "winning_team_index": 1,
+      "sides": [
+        {
+          "match_team_index": 0,
+          "team_id": null
+        },
+        {
+          "match_team_index": 1,
+          "team_id": null
+        }
+      ],
+      "totals": {
+        "0": {
+          "net_worth": 124128,
+          "kills": 16,
+          "deaths": 60,
+          "assists": 26,
+          "damage": 115187,
+          "player_count": 6
+        },
+        "1": {
+          "net_worth": 189421,
+          "kills": 60,
+          "deaths": 16,
+          "assists": 140,
+          "damage": 164207,
+          "player_count": 6
+        }
+      },
+      "lobby": {
+        "net_worth_total": 313549,
+        "net_worth_avg": 26129.1,
+        "player_count": 12
+      }
+    },
+    {
+      "match_id": "96296607",
+      "night_id": "ns049-eu",
+      "stage": "Challenger",
+      "series_label": "Challenger, best of 1",
+      "game_in_series": 1,
+      "start_time": 1785357088,
+      "duration_s": 1966,
+      "winning_team_index": 0,
+      "sides": [
+        {
+          "match_team_index": 0,
+          "team_id": null
+        },
+        {
+          "match_team_index": 1,
+          "team_id": null
+        }
+      ],
+      "totals": {
+        "0": {
+          "net_worth": 206892,
+          "kills": 25,
+          "deaths": 33,
+          "assists": 75,
+          "damage": 167304,
+          "player_count": 6
+        },
+        "1": {
+          "net_worth": 185235,
+          "kills": 33,
+          "deaths": 25,
+          "assists": 68,
+          "damage": 180493,
+          "player_count": 6
+        }
+      },
+      "lobby": {
+        "net_worth_total": 392127,
+        "net_worth_avg": 32677.2,
+        "player_count": 12
+      }
+    },
+    {
+      "match_id": "96306309",
+      "night_id": "ns049-eu",
+      "stage": "Finals",
+      "series_label": "Finals, best of 3",
+      "game_in_series": 1,
+      "start_time": 1785361236,
+      "duration_s": 2472,
+      "winning_team_index": 0,
+      "sides": [
+        {
+          "match_team_index": 0,
+          "team_id": null
+        },
+        {
+          "match_team_index": 1,
+          "team_id": null
+        }
+      ],
+      "totals": {
+        "0": {
+          "net_worth": 280510,
+          "kills": 40,
+          "deaths": 29,
+          "assists": 114,
+          "damage": 227126,
+          "player_count": 6
+        },
+        "1": {
+          "net_worth": 253533,
+          "kills": 28,
+          "deaths": 40,
+          "assists": 77,
+          "damage": 255778,
+          "player_count": 6
+        }
+      },
+      "lobby": {
+        "net_worth_total": 534043,
+        "net_worth_avg": 44503.6,
+        "player_count": 12
+      }
+    },
+    {
+      "match_id": "96316159",
+      "night_id": "ns049-eu",
+      "stage": "Finals",
+      "series_label": "Finals, best of 3",
+      "game_in_series": 2,
+      "start_time": 1785365552,
+      "duration_s": 2079,
+      "winning_team_index": 1,
+      "sides": [
+        {
+          "match_team_index": 0,
+          "team_id": null
+        },
+        {
+          "match_team_index": 1,
+          "team_id": null
+        }
+      ],
+      "totals": {
+        "0": {
+          "net_worth": 204709,
+          "kills": 19,
+          "deaths": 56,
+          "assists": 44,
+          "damage": 156900,
+          "player_count": 6
+        },
+        "1": {
+          "net_worth": 229001,
+          "kills": 56,
+          "deaths": 19,
+          "assists": 124,
+          "damage": 217766,
+          "player_count": 6
+        }
+      },
+      "lobby": {
+        "net_worth_total": 433710,
+        "net_worth_avg": 36142.5,
+        "player_count": 12
+      }
+    },
+    {
+      "match_id": "96325538",
+      "night_id": "ns049-na",
+      "stage": "Challenger",
+      "series_label": "Challenger, best of 1",
+      "game_in_series": 1,
+      "start_time": 1785369891,
+      "duration_s": 1819,
+      "winning_team_index": 0,
+      "sides": [
+        {
+          "match_team_index": 0,
+          "team_id": null
+        },
+        {
+          "match_team_index": 1,
+          "team_id": null
+        }
+      ],
+      "totals": {
+        "0": {
+          "net_worth": 220522,
+          "kills": 43,
+          "deaths": 5,
+          "assists": 95,
+          "damage": 184302,
+          "player_count": 6
+        },
+        "1": {
+          "net_worth": 164683,
+          "kills": 5,
+          "deaths": 43,
+          "assists": 7,
+          "damage": 123061,
+          "player_count": 6
+        }
+      },
+      "lobby": {
+        "net_worth_total": 385205,
+        "net_worth_avg": 32100.4,
+        "player_count": 12
+      }
+    },
+    {
+      "match_id": "96333692",
+      "night_id": "ns049-na",
+      "stage": "Finals",
+      "series_label": "Finals, best of 3",
+      "game_in_series": 1,
+      "start_time": 1785373565,
+      "duration_s": 1846,
+      "winning_team_index": 1,
+      "sides": [
+        {
+          "match_team_index": 0,
+          "team_id": null
+        },
+        {
+          "match_team_index": 1,
+          "team_id": null
+        }
+      ],
+      "totals": {
+        "0": {
+          "net_worth": 161889,
+          "kills": 13,
+          "deaths": 36,
+          "assists": 21,
+          "damage": 135996,
+          "player_count": 6
+        },
+        "1": {
+          "net_worth": 238000,
+          "kills": 36,
+          "deaths": 13,
+          "assists": 122,
+          "damage": 191333,
+          "player_count": 6
+        }
+      },
+      "lobby": {
+        "net_worth_total": 399889,
+        "net_worth_avg": 33324.1,
+        "player_count": 12
+      }
+    },
+    {
+      "match_id": "96341507",
+      "night_id": "ns049-na",
+      "stage": "Finals",
+      "series_label": "Finals, best of 3",
+      "game_in_series": 2,
+      "start_time": 1785376900,
+      "duration_s": 2160,
+      "winning_team_index": 0,
+      "sides": [
+        {
+          "match_team_index": 0,
+          "team_id": null
+        },
+        {
+          "match_team_index": 1,
+          "team_id": null
+        }
+      ],
+      "totals": {
+        "0": {
+          "net_worth": 254318,
+          "kills": 41,
+          "deaths": 29,
+          "assists": 112,
+          "damage": 183873,
+          "player_count": 6
+        },
+        "1": {
+          "net_worth": 222517,
+          "kills": 29,
+          "deaths": 41,
+          "assists": 65,
+          "damage": 219252,
+          "player_count": 6
+        }
+      },
+      "lobby": {
+        "net_worth_total": 476835,
+        "net_worth_avg": 39736.2,
+        "player_count": 12
+      }
+    },
+    {
+      "match_id": "96349946",
+      "night_id": "ns049-na",
+      "stage": "Finals",
+      "series_label": "Finals, best of 3",
+      "game_in_series": 3,
+      "start_time": 1785380515,
+      "duration_s": 1991,
+      "winning_team_index": 1,
+      "sides": [
+        {
+          "match_team_index": 0,
+          "team_id": null
+        },
+        {
+          "match_team_index": 1,
+          "team_id": null
+        }
+      ],
+      "totals": {
+        "0": {
+          "net_worth": 195630,
+          "kills": 16,
+          "deaths": 55,
+          "assists": 27,
+          "damage": 190573,
+          "player_count": 6
+        },
+        "1": {
+          "net_worth": 220961,
+          "kills": 55,
+          "deaths": 16,
+          "assists": 153,
+          "damage": 192737,
+          "player_count": 6
+        }
+      },
+      "lobby": {
+        "net_worth_total": 416591,
+        "net_worth_avg": 34715.9,
         "player_count": 12
       }
     }
@@ -97460,6 +97968,2598 @@
         "deaths": 0
       },
       "series_id": "ns048-na|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96111552",
+      "account_id": "984254212",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 72,
+      "kills": 8,
+      "deaths": 3,
+      "assists": 25,
+      "net_worth": 55053,
+      "damage": 36644,
+      "last_hits": 286,
+      "denies": 9,
+      "assigned_lane": 1,
+      "early": {
+        "damage": 3637,
+        "denies": 4,
+        "net_worth": 6108,
+        "kills": 1,
+        "deaths": 1
+      },
+      "series_id": "ns049-eu|Qualifier|Qualifier, best of 3"
+    },
+    {
+      "match_id": "96111552",
+      "account_id": "281768392",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 64,
+      "kills": 10,
+      "deaths": 9,
+      "assists": 25,
+      "net_worth": 46823,
+      "damage": 48712,
+      "last_hits": 159,
+      "denies": 1,
+      "assigned_lane": 6,
+      "early": {
+        "damage": 6358,
+        "denies": 1,
+        "net_worth": 7754,
+        "kills": 3,
+        "deaths": 0
+      },
+      "series_id": "ns049-eu|Qualifier|Qualifier, best of 3"
+    },
+    {
+      "match_id": "96111552",
+      "account_id": "1186801441",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 80,
+      "kills": 4,
+      "deaths": 11,
+      "assists": 13,
+      "net_worth": 37423,
+      "damage": 34700,
+      "last_hits": 176,
+      "denies": 5,
+      "assigned_lane": 6,
+      "early": {
+        "damage": 4565,
+        "denies": 4,
+        "net_worth": 6574,
+        "kills": 0,
+        "deaths": 3
+      },
+      "series_id": "ns049-eu|Qualifier|Qualifier, best of 3"
+    },
+    {
+      "match_id": "96111552",
+      "account_id": "1046192556",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 19,
+      "kills": 8,
+      "deaths": 5,
+      "assists": 12,
+      "net_worth": 37683,
+      "damage": 25616,
+      "last_hits": 180,
+      "denies": 6,
+      "assigned_lane": 6,
+      "early": {
+        "damage": 3079,
+        "denies": 4,
+        "net_worth": 8327,
+        "kills": 1,
+        "deaths": 0
+      },
+      "series_id": "ns049-eu|Qualifier|Qualifier, best of 3"
+    },
+    {
+      "match_id": "96111552",
+      "account_id": "5278896",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 1,
+      "kills": 7,
+      "deaths": 5,
+      "assists": 15,
+      "net_worth": 52860,
+      "damage": 43448,
+      "last_hits": 288,
+      "denies": 1,
+      "assigned_lane": 4,
+      "early": {
+        "damage": 2946,
+        "denies": 1,
+        "net_worth": 6066,
+        "kills": 1,
+        "deaths": 2
+      },
+      "series_id": "ns049-eu|Qualifier|Qualifier, best of 3"
+    },
+    {
+      "match_id": "96111552",
+      "account_id": "1009703898",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 13,
+      "kills": 12,
+      "deaths": 6,
+      "assists": 22,
+      "net_worth": 44922,
+      "damage": 52207,
+      "last_hits": 139,
+      "denies": 3,
+      "assigned_lane": 1,
+      "early": {
+        "damage": 2926,
+        "denies": 2,
+        "net_worth": 7123,
+        "kills": 2,
+        "deaths": 0
+      },
+      "series_id": "ns049-eu|Qualifier|Qualifier, best of 3"
+    },
+    {
+      "match_id": "96111552",
+      "account_id": "136898005",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 35,
+      "kills": 0,
+      "deaths": 7,
+      "assists": 32,
+      "net_worth": 43456,
+      "damage": 25988,
+      "last_hits": 145,
+      "denies": 3,
+      "assigned_lane": 4,
+      "early": {
+        "damage": 4203,
+        "denies": 2,
+        "net_worth": 5117,
+        "kills": 0,
+        "deaths": 3
+      },
+      "series_id": "ns049-eu|Qualifier|Qualifier, best of 3"
+    },
+    {
+      "match_id": "96111552",
+      "account_id": "1062664388",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 50,
+      "kills": 9,
+      "deaths": 9,
+      "assists": 11,
+      "net_worth": 46949,
+      "damage": 56159,
+      "last_hits": 228,
+      "denies": 8,
+      "assigned_lane": 1,
+      "early": {
+        "damage": 6037,
+        "denies": 0,
+        "net_worth": 6925,
+        "kills": 2,
+        "deaths": 1
+      },
+      "series_id": "ns049-eu|Qualifier|Qualifier, best of 3"
+    },
+    {
+      "match_id": "96111552",
+      "account_id": "407786402",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 14,
+      "kills": 8,
+      "deaths": 8,
+      "assists": 12,
+      "net_worth": 42896,
+      "damage": 45079,
+      "last_hits": 207,
+      "denies": 1,
+      "assigned_lane": 1,
+      "early": {
+        "damage": 2484,
+        "denies": 0,
+        "net_worth": 6752,
+        "kills": 2,
+        "deaths": 2
+      },
+      "series_id": "ns049-eu|Qualifier|Qualifier, best of 3"
+    },
+    {
+      "match_id": "96111552",
+      "account_id": "298305257",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 7,
+      "kills": 11,
+      "deaths": 6,
+      "assists": 14,
+      "net_worth": 58434,
+      "damage": 45485,
+      "last_hits": 257,
+      "denies": 1,
+      "assigned_lane": 6,
+      "early": {
+        "damage": 4518,
+        "denies": 1,
+        "net_worth": 6003,
+        "kills": 2,
+        "deaths": 1
+      },
+      "series_id": "ns049-eu|Qualifier|Qualifier, best of 3"
+    },
+    {
+      "match_id": "96111552",
+      "account_id": "1217629348",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 4,
+      "kills": 6,
+      "deaths": 10,
+      "assists": 11,
+      "net_worth": 41505,
+      "damage": 42632,
+      "last_hits": 216,
+      "denies": 3,
+      "assigned_lane": 4,
+      "early": {
+        "damage": 3878,
+        "denies": 2,
+        "net_worth": 6500,
+        "kills": 1,
+        "deaths": 2
+      },
+      "series_id": "ns049-eu|Qualifier|Qualifier, best of 3"
+    },
+    {
+      "match_id": "96111552",
+      "account_id": "323142724",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 79,
+      "kills": 1,
+      "deaths": 5,
+      "assists": 19,
+      "net_worth": 34429,
+      "damage": 12930,
+      "last_hits": 82,
+      "denies": 10,
+      "assigned_lane": 4,
+      "early": {
+        "damage": 2209,
+        "denies": 1,
+        "net_worth": 7020,
+        "kills": 1,
+        "deaths": 1
+      },
+      "series_id": "ns049-eu|Qualifier|Qualifier, best of 3"
+    },
+    {
+      "match_id": "96119633",
+      "account_id": "281768392",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 6,
+      "kills": 11,
+      "deaths": 3,
+      "assists": 14,
+      "net_worth": 29525,
+      "damage": 22422,
+      "last_hits": 133,
+      "denies": 4,
+      "assigned_lane": 1,
+      "early": {
+        "damage": 2438,
+        "denies": 4,
+        "net_worth": 6452,
+        "kills": 2,
+        "deaths": 1
+      },
+      "series_id": "ns049-eu|Qualifier|Qualifier, best of 3"
+    },
+    {
+      "match_id": "96119633",
+      "account_id": "1009703898",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 14,
+      "kills": 10,
+      "deaths": 5,
+      "assists": 30,
+      "net_worth": 34917,
+      "damage": 33985,
+      "last_hits": 79,
+      "denies": 1,
+      "assigned_lane": 6,
+      "early": {
+        "damage": 8239,
+        "denies": 1,
+        "net_worth": 6504,
+        "kills": 4,
+        "deaths": 3
+      },
+      "series_id": "ns049-eu|Qualifier|Qualifier, best of 3"
+    },
+    {
+      "match_id": "96119633",
+      "account_id": "5278896",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 1,
+      "kills": 12,
+      "deaths": 2,
+      "assists": 23,
+      "net_worth": 36174,
+      "damage": 32648,
+      "last_hits": 165,
+      "denies": 2,
+      "assigned_lane": 4,
+      "early": {
+        "damage": 4910,
+        "denies": 0,
+        "net_worth": 8259,
+        "kills": 2,
+        "deaths": 1
+      },
+      "series_id": "ns049-eu|Qualifier|Qualifier, best of 3"
+    },
+    {
+      "match_id": "96119633",
+      "account_id": "323142724",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 79,
+      "kills": 1,
+      "deaths": 11,
+      "assists": 3,
+      "net_worth": 16420,
+      "damage": 10664,
+      "last_hits": 71,
+      "denies": 1,
+      "assigned_lane": 1,
+      "early": {
+        "damage": 3895,
+        "denies": 1,
+        "net_worth": 5502,
+        "kills": 1,
+        "deaths": 3
+      },
+      "series_id": "ns049-eu|Qualifier|Qualifier, best of 3"
+    },
+    {
+      "match_id": "96119633",
+      "account_id": "984254212",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 72,
+      "kills": 11,
+      "deaths": 2,
+      "assists": 26,
+      "net_worth": 29923,
+      "damage": 28386,
+      "last_hits": 98,
+      "denies": 6,
+      "assigned_lane": 1,
+      "early": {
+        "damage": 5492,
+        "denies": 5,
+        "net_worth": 7249,
+        "kills": 3,
+        "deaths": 1
+      },
+      "series_id": "ns049-eu|Qualifier|Qualifier, best of 3"
+    },
+    {
+      "match_id": "96119633",
+      "account_id": "1046192556",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 19,
+      "kills": 4,
+      "deaths": 10,
+      "assists": 4,
+      "net_worth": 18824,
+      "damage": 19741,
+      "last_hits": 93,
+      "denies": 3,
+      "assigned_lane": 6,
+      "early": {
+        "damage": 2465,
+        "denies": 1,
+        "net_worth": 5274,
+        "kills": 0,
+        "deaths": 3
+      },
+      "series_id": "ns049-eu|Qualifier|Qualifier, best of 3"
+    },
+    {
+      "match_id": "96119633",
+      "account_id": "1062664388",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 50,
+      "kills": 5,
+      "deaths": 5,
+      "assists": 0,
+      "net_worth": 29862,
+      "damage": 28864,
+      "last_hits": 164,
+      "denies": 1,
+      "assigned_lane": 1,
+      "early": {
+        "damage": 7087,
+        "denies": 1,
+        "net_worth": 6002,
+        "kills": 2,
+        "deaths": 1
+      },
+      "series_id": "ns049-eu|Qualifier|Qualifier, best of 3"
+    },
+    {
+      "match_id": "96119633",
+      "account_id": "1186801441",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 64,
+      "kills": 5,
+      "deaths": 13,
+      "assists": 7,
+      "net_worth": 18328,
+      "damage": 19801,
+      "last_hits": 84,
+      "denies": 0,
+      "assigned_lane": 6,
+      "early": {
+        "damage": 7275,
+        "denies": 0,
+        "net_worth": 7752,
+        "kills": 4,
+        "deaths": 3
+      },
+      "series_id": "ns049-eu|Qualifier|Qualifier, best of 3"
+    },
+    {
+      "match_id": "96119633",
+      "account_id": "407786402",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 15,
+      "kills": 0,
+      "deaths": 11,
+      "assists": 9,
+      "net_worth": 18915,
+      "damage": 14422,
+      "last_hits": 81,
+      "denies": 4,
+      "assigned_lane": 4,
+      "early": {
+        "damage": 2995,
+        "denies": 3,
+        "net_worth": 6556,
+        "kills": 0,
+        "deaths": 3
+      },
+      "series_id": "ns049-eu|Qualifier|Qualifier, best of 3"
+    },
+    {
+      "match_id": "96119633",
+      "account_id": "136898005",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 35,
+      "kills": 8,
+      "deaths": 1,
+      "assists": 25,
+      "net_worth": 27298,
+      "damage": 22839,
+      "last_hits": 65,
+      "denies": 0,
+      "assigned_lane": 4,
+      "early": {
+        "damage": 4166,
+        "denies": 0,
+        "net_worth": 5523,
+        "kills": 1,
+        "deaths": 1
+      },
+      "series_id": "ns049-eu|Qualifier|Qualifier, best of 3"
+    },
+    {
+      "match_id": "96119633",
+      "account_id": "1217629348",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 7,
+      "kills": 1,
+      "deaths": 10,
+      "assists": 3,
+      "net_worth": 21779,
+      "damage": 21695,
+      "last_hits": 124,
+      "denies": 5,
+      "assigned_lane": 4,
+      "early": {
+        "damage": 4404,
+        "denies": 2,
+        "net_worth": 5343,
+        "kills": 0,
+        "deaths": 3
+      },
+      "series_id": "ns049-eu|Qualifier|Qualifier, best of 3"
+    },
+    {
+      "match_id": "96119633",
+      "account_id": "298305257",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 63,
+      "kills": 8,
+      "deaths": 3,
+      "assists": 22,
+      "net_worth": 31584,
+      "damage": 23927,
+      "last_hits": 181,
+      "denies": 2,
+      "assigned_lane": 6,
+      "early": {
+        "damage": 5493,
+        "denies": 1,
+        "net_worth": 7802,
+        "kills": 3,
+        "deaths": 1
+      },
+      "series_id": "ns049-eu|Qualifier|Qualifier, best of 3"
+    },
+    {
+      "match_id": "96296607",
+      "account_id": "281768392",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 18,
+      "kills": 7,
+      "deaths": 5,
+      "assists": 16,
+      "net_worth": 26726,
+      "damage": 27374,
+      "last_hits": 147,
+      "denies": 2,
+      "assigned_lane": 4,
+      "early": {
+        "damage": 4662,
+        "denies": 1,
+        "net_worth": 7067,
+        "kills": 3,
+        "deaths": 0
+      },
+      "series_id": "ns049-eu|Challenger|Challenger, best of 1"
+    },
+    {
+      "match_id": "96296607",
+      "account_id": "984254212",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 3,
+      "kills": 7,
+      "deaths": 2,
+      "assists": 10,
+      "net_worth": 31791,
+      "damage": 39019,
+      "last_hits": 95,
+      "denies": 3,
+      "assigned_lane": 6,
+      "early": {
+        "damage": 5236,
+        "denies": 3,
+        "net_worth": 6540,
+        "kills": 1,
+        "deaths": 0
+      },
+      "series_id": "ns049-eu|Challenger|Challenger, best of 1"
+    },
+    {
+      "match_id": "96296607",
+      "account_id": "5278896",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 1,
+      "kills": 2,
+      "deaths": 4,
+      "assists": 9,
+      "net_worth": 34767,
+      "damage": 23630,
+      "last_hits": 233,
+      "denies": 4,
+      "assigned_lane": 6,
+      "early": {
+        "damage": 2577,
+        "denies": 2,
+        "net_worth": 6643,
+        "kills": 0,
+        "deaths": 1
+      },
+      "series_id": "ns049-eu|Challenger|Challenger, best of 1"
+    },
+    {
+      "match_id": "96296607",
+      "account_id": "1009703898",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 19,
+      "kills": 11,
+      "deaths": 5,
+      "assists": 11,
+      "net_worth": 27458,
+      "damage": 29906,
+      "last_hits": 84,
+      "denies": 9,
+      "assigned_lane": 1,
+      "early": {
+        "damage": 4215,
+        "denies": 5,
+        "net_worth": 6124,
+        "kills": 1,
+        "deaths": 1
+      },
+      "series_id": "ns049-eu|Challenger|Challenger, best of 1"
+    },
+    {
+      "match_id": "96296607",
+      "account_id": "136898005",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 14,
+      "kills": 4,
+      "deaths": 6,
+      "assists": 13,
+      "net_worth": 26366,
+      "damage": 25471,
+      "last_hits": 109,
+      "denies": 3,
+      "assigned_lane": 4,
+      "early": {
+        "damage": 5172,
+        "denies": 3,
+        "net_worth": 5644,
+        "kills": 2,
+        "deaths": 1
+      },
+      "series_id": "ns049-eu|Challenger|Challenger, best of 1"
+    },
+    {
+      "match_id": "96296607",
+      "account_id": "97533101",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 72,
+      "kills": 8,
+      "deaths": 4,
+      "assists": 11,
+      "net_worth": 32715,
+      "damage": 32970,
+      "last_hits": 120,
+      "denies": 0,
+      "assigned_lane": 4,
+      "early": {
+        "damage": 3444,
+        "denies": 0,
+        "net_worth": 5705,
+        "kills": 0,
+        "deaths": 1
+      },
+      "series_id": "ns049-eu|Challenger|Challenger, best of 1"
+    },
+    {
+      "match_id": "96296607",
+      "account_id": "483770846",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 4,
+      "kills": 2,
+      "deaths": 5,
+      "assists": 16,
+      "net_worth": 35455,
+      "damage": 34062,
+      "last_hits": 167,
+      "denies": 5,
+      "assigned_lane": 4,
+      "early": {
+        "damage": 3622,
+        "denies": 3,
+        "net_worth": 6302,
+        "kills": 0,
+        "deaths": 1
+      },
+      "series_id": "ns049-eu|Challenger|Challenger, best of 1"
+    },
+    {
+      "match_id": "96296607",
+      "account_id": "298305257",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 50,
+      "kills": 2,
+      "deaths": 3,
+      "assists": 9,
+      "net_worth": 38127,
+      "damage": 35093,
+      "last_hits": 237,
+      "denies": 6,
+      "assigned_lane": 1,
+      "early": {
+        "damage": 4102,
+        "denies": 1,
+        "net_worth": 6597,
+        "kills": 0,
+        "deaths": 1
+      },
+      "series_id": "ns049-eu|Challenger|Challenger, best of 1"
+    },
+    {
+      "match_id": "96296607",
+      "account_id": "35187362",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 63,
+      "kills": 7,
+      "deaths": 4,
+      "assists": 9,
+      "net_worth": 38063,
+      "damage": 35323,
+      "last_hits": 228,
+      "denies": 7,
+      "assigned_lane": 1,
+      "early": {
+        "damage": 6115,
+        "denies": 5,
+        "net_worth": 7553,
+        "kills": 2,
+        "deaths": 1
+      },
+      "series_id": "ns049-eu|Challenger|Challenger, best of 1"
+    },
+    {
+      "match_id": "96296607",
+      "account_id": "344946432",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 16,
+      "kills": 3,
+      "deaths": 4,
+      "assists": 14,
+      "net_worth": 36306,
+      "damage": 26468,
+      "last_hits": 84,
+      "denies": 1,
+      "assigned_lane": 6,
+      "early": {
+        "damage": 4800,
+        "denies": 0,
+        "net_worth": 6330,
+        "kills": 2,
+        "deaths": 1
+      },
+      "series_id": "ns049-eu|Challenger|Challenger, best of 1"
+    },
+    {
+      "match_id": "96296607",
+      "account_id": "87241154",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 6,
+      "kills": 3,
+      "deaths": 8,
+      "assists": 12,
+      "net_worth": 32714,
+      "damage": 22313,
+      "last_hits": 105,
+      "denies": 3,
+      "assigned_lane": 1,
+      "early": {
+        "damage": 1469,
+        "denies": 1,
+        "net_worth": 5714,
+        "kills": 0,
+        "deaths": 1
+      },
+      "series_id": "ns049-eu|Challenger|Challenger, best of 1"
+    },
+    {
+      "match_id": "96296607",
+      "account_id": "911856667",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 20,
+      "kills": 2,
+      "deaths": 8,
+      "assists": 13,
+      "net_worth": 31639,
+      "damage": 16168,
+      "last_hits": 103,
+      "denies": 11,
+      "assigned_lane": 6,
+      "early": {
+        "damage": 3894,
+        "denies": 4,
+        "net_worth": 5189,
+        "kills": 0,
+        "deaths": 2
+      },
+      "series_id": "ns049-eu|Challenger|Challenger, best of 1"
+    },
+    {
+      "match_id": "96306309",
+      "account_id": "1055638874",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 3,
+      "kills": 4,
+      "deaths": 6,
+      "assists": 15,
+      "net_worth": 40923,
+      "damage": 45799,
+      "last_hits": 122,
+      "denies": 5,
+      "assigned_lane": 1,
+      "early": {
+        "damage": 5449,
+        "denies": 2,
+        "net_worth": 5638,
+        "kills": 2,
+        "deaths": 0
+      },
+      "series_id": "ns049-eu|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96306309",
+      "account_id": "87241154",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 77,
+      "kills": 8,
+      "deaths": 4,
+      "assists": 20,
+      "net_worth": 46305,
+      "damage": 54364,
+      "last_hits": 225,
+      "denies": 1,
+      "assigned_lane": 1,
+      "early": {
+        "damage": 4578,
+        "denies": 0,
+        "net_worth": 5428,
+        "kills": 0,
+        "deaths": 2
+      },
+      "series_id": "ns049-eu|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96306309",
+      "account_id": "911856667",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 79,
+      "kills": 3,
+      "deaths": 4,
+      "assists": 26,
+      "net_worth": 42692,
+      "damage": 19781,
+      "last_hits": 106,
+      "denies": 6,
+      "assigned_lane": 6,
+      "early": {
+        "damage": 2375,
+        "denies": 3,
+        "net_worth": 6276,
+        "kills": 0,
+        "deaths": 1
+      },
+      "series_id": "ns049-eu|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96306309",
+      "account_id": "97533101",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 72,
+      "kills": 12,
+      "deaths": 8,
+      "assists": 18,
+      "net_worth": 42844,
+      "damage": 34595,
+      "last_hits": 113,
+      "denies": 4,
+      "assigned_lane": 4,
+      "early": {
+        "damage": 1535,
+        "denies": 0,
+        "net_worth": 5895,
+        "kills": 1,
+        "deaths": 2
+      },
+      "series_id": "ns049-eu|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96306309",
+      "account_id": "483770846",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 4,
+      "kills": 3,
+      "deaths": 4,
+      "assists": 13,
+      "net_worth": 46466,
+      "damage": 35238,
+      "last_hits": 240,
+      "denies": 6,
+      "assigned_lane": 4,
+      "early": {
+        "damage": 2971,
+        "denies": 2,
+        "net_worth": 7052,
+        "kills": 0,
+        "deaths": 1
+      },
+      "series_id": "ns049-eu|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96306309",
+      "account_id": "81662458",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 16,
+      "kills": 6,
+      "deaths": 8,
+      "assists": 9,
+      "net_worth": 40871,
+      "damage": 28732,
+      "last_hits": 130,
+      "denies": 2,
+      "assigned_lane": 1,
+      "early": {
+        "damage": 3391,
+        "denies": 2,
+        "net_worth": 6059,
+        "kills": 2,
+        "deaths": 0
+      },
+      "series_id": "ns049-eu|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96306309",
+      "account_id": "35187362",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 31,
+      "kills": 10,
+      "deaths": 3,
+      "assists": 15,
+      "net_worth": 58501,
+      "damage": 47878,
+      "last_hits": 295,
+      "denies": 6,
+      "assigned_lane": 6,
+      "early": {
+        "damage": 4950,
+        "denies": 1,
+        "net_worth": 8515,
+        "kills": 1,
+        "deaths": 1
+      },
+      "series_id": "ns049-eu|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96306309",
+      "account_id": "124540485",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 65,
+      "kills": 4,
+      "deaths": 5,
+      "assists": 13,
+      "net_worth": 46785,
+      "damage": 39668,
+      "last_hits": 289,
+      "denies": 11,
+      "assigned_lane": 4,
+      "early": {
+        "damage": 4088,
+        "denies": 5,
+        "net_worth": 6505,
+        "kills": 1,
+        "deaths": 1
+      },
+      "series_id": "ns049-eu|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96306309",
+      "account_id": "344946432",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 1,
+      "kills": 4,
+      "deaths": 6,
+      "assists": 22,
+      "net_worth": 43702,
+      "damage": 35270,
+      "last_hits": 161,
+      "denies": 3,
+      "assigned_lane": 1,
+      "early": {
+        "damage": 3598,
+        "denies": 2,
+        "net_worth": 6977,
+        "kills": 2,
+        "deaths": 2
+      },
+      "series_id": "ns049-eu|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96306309",
+      "account_id": "1444662928",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 15,
+      "kills": 6,
+      "deaths": 3,
+      "assists": 13,
+      "net_worth": 40172,
+      "damage": 52517,
+      "last_hits": 214,
+      "denies": 18,
+      "assigned_lane": 4,
+      "early": {
+        "damage": 4103,
+        "denies": 5,
+        "net_worth": 7474,
+        "kills": 1,
+        "deaths": 0
+      },
+      "series_id": "ns049-eu|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96306309",
+      "account_id": "298155885",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 6,
+      "kills": 3,
+      "deaths": 11,
+      "assists": 17,
+      "net_worth": 33979,
+      "damage": 29325,
+      "last_hits": 136,
+      "denies": 5,
+      "assigned_lane": 6,
+      "early": {
+        "damage": 3133,
+        "denies": 3,
+        "net_worth": 5881,
+        "kills": 3,
+        "deaths": 1
+      },
+      "series_id": "ns049-eu|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96306309",
+      "account_id": "906011648",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 52,
+      "kills": 5,
+      "deaths": 7,
+      "assists": 10,
+      "net_worth": 50803,
+      "damage": 59737,
+      "last_hits": 265,
+      "denies": 13,
+      "assigned_lane": 6,
+      "early": {
+        "damage": 4516,
+        "denies": 3,
+        "net_worth": 5845,
+        "kills": 0,
+        "deaths": 3
+      },
+      "series_id": "ns049-eu|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96316159",
+      "account_id": "1055638874",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 60,
+      "kills": 0,
+      "deaths": 6,
+      "assists": 9,
+      "net_worth": 28965,
+      "damage": 16308,
+      "last_hits": 131,
+      "denies": 2,
+      "assigned_lane": 4,
+      "early": {
+        "damage": 2721,
+        "denies": 0,
+        "net_worth": 5529,
+        "kills": 0,
+        "deaths": 1
+      },
+      "series_id": "ns049-eu|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96316159",
+      "account_id": "87241154",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 52,
+      "kills": 9,
+      "deaths": 7,
+      "assists": 22,
+      "net_worth": 38185,
+      "damage": 45152,
+      "last_hits": 205,
+      "denies": 5,
+      "assigned_lane": 1,
+      "early": {
+        "damage": 5431,
+        "denies": 2,
+        "net_worth": 6456,
+        "kills": 1,
+        "deaths": 2
+      },
+      "series_id": "ns049-eu|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96316159",
+      "account_id": "911856667",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 79,
+      "kills": 1,
+      "deaths": 4,
+      "assists": 23,
+      "net_worth": 35381,
+      "damage": 15162,
+      "last_hits": 120,
+      "denies": 2,
+      "assigned_lane": 4,
+      "early": {
+        "damage": 4249,
+        "denies": 1,
+        "net_worth": 6415,
+        "kills": 0,
+        "deaths": 0
+      },
+      "series_id": "ns049-eu|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96316159",
+      "account_id": "124540485",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 65,
+      "kills": 7,
+      "deaths": 7,
+      "assists": 4,
+      "net_worth": 43542,
+      "damage": 29822,
+      "last_hits": 231,
+      "denies": 4,
+      "assigned_lane": 1,
+      "early": {
+        "damage": 2993,
+        "denies": 1,
+        "net_worth": 8080,
+        "kills": 3,
+        "deaths": 3
+      },
+      "series_id": "ns049-eu|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96316159",
+      "account_id": "483770846",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 63,
+      "kills": 12,
+      "deaths": 3,
+      "assists": 24,
+      "net_worth": 41845,
+      "damage": 50673,
+      "last_hits": 208,
+      "denies": 1,
+      "assigned_lane": 6,
+      "early": {
+        "damage": 8331,
+        "denies": 0,
+        "net_worth": 7922,
+        "kills": 3,
+        "deaths": 2
+      },
+      "series_id": "ns049-eu|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96316159",
+      "account_id": "81662458",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 16,
+      "kills": 2,
+      "deaths": 8,
+      "assists": 8,
+      "net_worth": 34148,
+      "damage": 21563,
+      "last_hits": 110,
+      "denies": 1,
+      "assigned_lane": 1,
+      "early": {
+        "damage": 2771,
+        "denies": 1,
+        "net_worth": 5347,
+        "kills": 0,
+        "deaths": 2
+      },
+      "series_id": "ns049-eu|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96316159",
+      "account_id": "35187362",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 31,
+      "kills": 10,
+      "deaths": 2,
+      "assists": 20,
+      "net_worth": 41748,
+      "damage": 39450,
+      "last_hits": 227,
+      "denies": 0,
+      "assigned_lane": 4,
+      "early": {
+        "damage": 4673,
+        "denies": 0,
+        "net_worth": 8055,
+        "kills": 3,
+        "deaths": 1
+      },
+      "series_id": "ns049-eu|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96316159",
+      "account_id": "344946432",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 77,
+      "kills": 11,
+      "deaths": 1,
+      "assists": 18,
+      "net_worth": 33787,
+      "damage": 35716,
+      "last_hits": 116,
+      "denies": 6,
+      "assigned_lane": 1,
+      "early": {
+        "damage": 5790,
+        "denies": 3,
+        "net_worth": 6931,
+        "kills": 5,
+        "deaths": 0
+      },
+      "series_id": "ns049-eu|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96316159",
+      "account_id": "298155885",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 72,
+      "kills": 2,
+      "deaths": 11,
+      "assists": 7,
+      "net_worth": 29085,
+      "damage": 22713,
+      "last_hits": 137,
+      "denies": 10,
+      "assigned_lane": 6,
+      "early": {
+        "damage": 2966,
+        "denies": 2,
+        "net_worth": 7150,
+        "kills": 0,
+        "deaths": 3
+      },
+      "series_id": "ns049-eu|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96316159",
+      "account_id": "1444662928",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 64,
+      "kills": 3,
+      "deaths": 17,
+      "assists": 10,
+      "net_worth": 27338,
+      "damage": 30907,
+      "last_hits": 66,
+      "denies": 1,
+      "assigned_lane": 4,
+      "early": {
+        "damage": 7520,
+        "denies": 1,
+        "net_worth": 6440,
+        "kills": 1,
+        "deaths": 4
+      },
+      "series_id": "ns049-eu|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96316159",
+      "account_id": "97533101",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 6,
+      "kills": 13,
+      "deaths": 2,
+      "assists": 17,
+      "net_worth": 38055,
+      "damage": 31613,
+      "last_hits": 125,
+      "denies": 1,
+      "assigned_lane": 6,
+      "early": {
+        "damage": 3754,
+        "denies": 0,
+        "net_worth": 6921,
+        "kills": 4,
+        "deaths": 0
+      },
+      "series_id": "ns049-eu|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96316159",
+      "account_id": "906011648",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 1,
+      "kills": 5,
+      "deaths": 7,
+      "assists": 6,
+      "net_worth": 41631,
+      "damage": 35587,
+      "last_hits": 224,
+      "denies": 3,
+      "assigned_lane": 6,
+      "early": {
+        "damage": 5813,
+        "denies": 2,
+        "net_worth": 6309,
+        "kills": 0,
+        "deaths": 3
+      },
+      "series_id": "ns049-eu|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96325538",
+      "account_id": "84379844",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 6,
+      "kills": 4,
+      "deaths": 9,
+      "assists": 0,
+      "net_worth": 21460,
+      "damage": 15290,
+      "last_hits": 84,
+      "denies": 3,
+      "assigned_lane": 6,
+      "early": {
+        "damage": 2165,
+        "denies": 1,
+        "net_worth": 7114,
+        "kills": 3,
+        "deaths": 1
+      },
+      "series_id": "ns049-na|Challenger|Challenger, best of 1"
+    },
+    {
+      "match_id": "96325538",
+      "account_id": "241312861",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 10,
+      "kills": 0,
+      "deaths": 8,
+      "assists": 2,
+      "net_worth": 24561,
+      "damage": 18008,
+      "last_hits": 121,
+      "denies": 3,
+      "assigned_lane": 1,
+      "early": {
+        "damage": 2818,
+        "denies": 2,
+        "net_worth": 5604,
+        "kills": 0,
+        "deaths": 1
+      },
+      "series_id": "ns049-na|Challenger|Challenger, best of 1"
+    },
+    {
+      "match_id": "96325538",
+      "account_id": "39488687",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 77,
+      "kills": 0,
+      "deaths": 4,
+      "assists": 1,
+      "net_worth": 30344,
+      "damage": 24792,
+      "last_hits": 163,
+      "denies": 1,
+      "assigned_lane": 6,
+      "early": {
+        "damage": 3726,
+        "denies": 1,
+        "net_worth": 5564,
+        "kills": 0,
+        "deaths": 0
+      },
+      "series_id": "ns049-na|Challenger|Challenger, best of 1"
+    },
+    {
+      "match_id": "96325538",
+      "account_id": "291902996",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 52,
+      "kills": 0,
+      "deaths": 9,
+      "assists": 1,
+      "net_worth": 28788,
+      "damage": 18553,
+      "last_hits": 159,
+      "denies": 4,
+      "assigned_lane": 4,
+      "early": {
+        "damage": 4155,
+        "denies": 1,
+        "net_worth": 5312,
+        "kills": 0,
+        "deaths": 3
+      },
+      "series_id": "ns049-na|Challenger|Challenger, best of 1"
+    },
+    {
+      "match_id": "96325538",
+      "account_id": "1871217631",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 8,
+      "kills": 4,
+      "deaths": 1,
+      "assists": 18,
+      "net_worth": 31938,
+      "damage": 22154,
+      "last_hits": 162,
+      "denies": 9,
+      "assigned_lane": 1,
+      "early": {
+        "damage": 3093,
+        "denies": 4,
+        "net_worth": 6737,
+        "kills": 2,
+        "deaths": 1
+      },
+      "series_id": "ns049-na|Challenger|Challenger, best of 1"
+    },
+    {
+      "match_id": "96325538",
+      "account_id": "1285605078",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 14,
+      "kills": 14,
+      "deaths": 1,
+      "assists": 16,
+      "net_worth": 44144,
+      "damage": 34230,
+      "last_hits": 163,
+      "denies": 3,
+      "assigned_lane": 6,
+      "early": {
+        "damage": 4876,
+        "denies": 3,
+        "net_worth": 7068,
+        "kills": 3,
+        "deaths": 0
+      },
+      "series_id": "ns049-na|Challenger|Challenger, best of 1"
+    },
+    {
+      "match_id": "96325538",
+      "account_id": "278919272",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 4,
+      "kills": 0,
+      "deaths": 6,
+      "assists": 1,
+      "net_worth": 35091,
+      "damage": 25485,
+      "last_hits": 191,
+      "denies": 1,
+      "assigned_lane": 1,
+      "early": {
+        "damage": 3688,
+        "denies": 1,
+        "net_worth": 5744,
+        "kills": 0,
+        "deaths": 1
+      },
+      "series_id": "ns049-na|Challenger|Challenger, best of 1"
+    },
+    {
+      "match_id": "96325538",
+      "account_id": "225764206",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 31,
+      "kills": 5,
+      "deaths": 1,
+      "assists": 19,
+      "net_worth": 31477,
+      "damage": 27215,
+      "last_hits": 106,
+      "denies": 4,
+      "assigned_lane": 4,
+      "early": {
+        "damage": 3047,
+        "denies": 4,
+        "net_worth": 6147,
+        "kills": 0,
+        "deaths": 0
+      },
+      "series_id": "ns049-na|Challenger|Challenger, best of 1"
+    },
+    {
+      "match_id": "96325538",
+      "account_id": "244109796",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 11,
+      "kills": 7,
+      "deaths": 0,
+      "assists": 14,
+      "net_worth": 35785,
+      "damage": 25266,
+      "last_hits": 222,
+      "denies": 3,
+      "assigned_lane": 1,
+      "early": {
+        "damage": 4091,
+        "denies": 2,
+        "net_worth": 6272,
+        "kills": 1,
+        "deaths": 0
+      },
+      "series_id": "ns049-na|Challenger|Challenger, best of 1"
+    },
+    {
+      "match_id": "96325538",
+      "account_id": "308362270",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 35,
+      "kills": 1,
+      "deaths": 7,
+      "assists": 2,
+      "net_worth": 24439,
+      "damage": 20933,
+      "last_hits": 103,
+      "denies": 7,
+      "assigned_lane": 4,
+      "early": {
+        "damage": 4629,
+        "denies": 5,
+        "net_worth": 5610,
+        "kills": 0,
+        "deaths": 1
+      },
+      "series_id": "ns049-na|Challenger|Challenger, best of 1"
+    },
+    {
+      "match_id": "96325538",
+      "account_id": "25821887",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 72,
+      "kills": 10,
+      "deaths": 0,
+      "assists": 14,
+      "net_worth": 38627,
+      "damage": 38852,
+      "last_hits": 116,
+      "denies": 4,
+      "assigned_lane": 4,
+      "early": {
+        "damage": 2506,
+        "denies": 1,
+        "net_worth": 7001,
+        "kills": 1,
+        "deaths": 0
+      },
+      "series_id": "ns049-na|Challenger|Challenger, best of 1"
+    },
+    {
+      "match_id": "96325538",
+      "account_id": "1840902834",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 50,
+      "kills": 3,
+      "deaths": 2,
+      "assists": 14,
+      "net_worth": 38551,
+      "damage": 36585,
+      "last_hits": 213,
+      "denies": 4,
+      "assigned_lane": 6,
+      "early": {
+        "damage": 5231,
+        "denies": 4,
+        "net_worth": 6199,
+        "kills": 0,
+        "deaths": 2
+      },
+      "series_id": "ns049-na|Challenger|Challenger, best of 1"
+    },
+    {
+      "match_id": "96333692",
+      "account_id": "114943410",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 50,
+      "kills": 7,
+      "deaths": 4,
+      "assists": 21,
+      "net_worth": 38416,
+      "damage": 34367,
+      "last_hits": 256,
+      "denies": 4,
+      "assigned_lane": 4,
+      "early": {
+        "damage": 4876,
+        "denies": 4,
+        "net_worth": 8326,
+        "kills": 2,
+        "deaths": 1
+      },
+      "series_id": "ns049-na|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96333692",
+      "account_id": "244109796",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 31,
+      "kills": 5,
+      "deaths": 5,
+      "assists": 7,
+      "net_worth": 29113,
+      "damage": 30878,
+      "last_hits": 163,
+      "denies": 4,
+      "assigned_lane": 1,
+      "early": {
+        "damage": 3318,
+        "denies": 3,
+        "net_worth": 6235,
+        "kills": 1,
+        "deaths": 1
+      },
+      "series_id": "ns049-na|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96333692",
+      "account_id": "1730032433",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 14,
+      "kills": 9,
+      "deaths": 1,
+      "assists": 18,
+      "net_worth": 38593,
+      "damage": 44751,
+      "last_hits": 148,
+      "denies": 10,
+      "assigned_lane": 4,
+      "early": {
+        "damage": 3740,
+        "denies": 10,
+        "net_worth": 6880,
+        "kills": 0,
+        "deaths": 0
+      },
+      "series_id": "ns049-na|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96333692",
+      "account_id": "1871021649",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 27,
+      "kills": 9,
+      "deaths": 4,
+      "assists": 18,
+      "net_worth": 38697,
+      "damage": 30003,
+      "last_hits": 130,
+      "denies": 0,
+      "assigned_lane": 6,
+      "early": {
+        "damage": 4552,
+        "denies": 0,
+        "net_worth": 6027,
+        "kills": 0,
+        "deaths": 1
+      },
+      "series_id": "ns049-na|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96333692",
+      "account_id": "1871217631",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 8,
+      "kills": 0,
+      "deaths": 4,
+      "assists": 4,
+      "net_worth": 22420,
+      "damage": 19528,
+      "last_hits": 121,
+      "denies": 11,
+      "assigned_lane": 1,
+      "early": {
+        "damage": 2285,
+        "denies": 3,
+        "net_worth": 5795,
+        "kills": 0,
+        "deaths": 0
+      },
+      "series_id": "ns049-na|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96333692",
+      "account_id": "1929248273",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 16,
+      "kills": 4,
+      "deaths": 4,
+      "assists": 23,
+      "net_worth": 40083,
+      "damage": 30870,
+      "last_hits": 140,
+      "denies": 0,
+      "assigned_lane": 6,
+      "early": {
+        "damage": 4973,
+        "denies": 0,
+        "net_worth": 5797,
+        "kills": 0,
+        "deaths": 1
+      },
+      "series_id": "ns049-na|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96333692",
+      "account_id": "399289886",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 20,
+      "kills": 2,
+      "deaths": 0,
+      "assists": 26,
+      "net_worth": 38372,
+      "damage": 22962,
+      "last_hits": 152,
+      "denies": 12,
+      "assigned_lane": 1,
+      "early": {
+        "damage": 1664,
+        "denies": 4,
+        "net_worth": 7300,
+        "kills": 1,
+        "deaths": 0
+      },
+      "series_id": "ns049-na|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96333692",
+      "account_id": "1285605078",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 64,
+      "kills": 3,
+      "deaths": 7,
+      "assists": 2,
+      "net_worth": 26454,
+      "damage": 27718,
+      "last_hits": 102,
+      "denies": 2,
+      "assigned_lane": 6,
+      "early": {
+        "damage": 4403,
+        "denies": 2,
+        "net_worth": 5646,
+        "kills": 2,
+        "deaths": 2
+      },
+      "series_id": "ns049-na|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96333692",
+      "account_id": "25821887",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 19,
+      "kills": 3,
+      "deaths": 9,
+      "assists": 3,
+      "net_worth": 27132,
+      "damage": 21362,
+      "last_hits": 114,
+      "denies": 6,
+      "assigned_lane": 4,
+      "early": {
+        "damage": 3731,
+        "denies": 4,
+        "net_worth": 5692,
+        "kills": 0,
+        "deaths": 2
+      },
+      "series_id": "ns049-na|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96333692",
+      "account_id": "225764206",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 77,
+      "kills": 1,
+      "deaths": 5,
+      "assists": 2,
+      "net_worth": 25941,
+      "damage": 13120,
+      "last_hits": 142,
+      "denies": 1,
+      "assigned_lane": 4,
+      "early": {
+        "damage": 1119,
+        "denies": 0,
+        "net_worth": 5722,
+        "kills": 0,
+        "deaths": 0
+      },
+      "series_id": "ns049-na|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96333692",
+      "account_id": "1840902834",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 4,
+      "kills": 1,
+      "deaths": 6,
+      "assists": 3,
+      "net_worth": 30829,
+      "damage": 23390,
+      "last_hits": 173,
+      "denies": 4,
+      "assigned_lane": 6,
+      "early": {
+        "damage": 2983,
+        "denies": 2,
+        "net_worth": 6504,
+        "kills": 0,
+        "deaths": 0
+      },
+      "series_id": "ns049-na|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96333692",
+      "account_id": "1477660209",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 52,
+      "kills": 5,
+      "deaths": 0,
+      "assists": 16,
+      "net_worth": 43839,
+      "damage": 28380,
+      "last_hits": 233,
+      "denies": 2,
+      "assigned_lane": 1,
+      "early": {
+        "damage": 3998,
+        "denies": 1,
+        "net_worth": 7795,
+        "kills": 2,
+        "deaths": 0
+      },
+      "series_id": "ns049-na|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96341507",
+      "account_id": "1730032433",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 14,
+      "kills": 6,
+      "deaths": 10,
+      "assists": 11,
+      "net_worth": 42090,
+      "damage": 35805,
+      "last_hits": 206,
+      "denies": 7,
+      "assigned_lane": 4,
+      "early": {
+        "damage": 3463,
+        "denies": 2,
+        "net_worth": 6284,
+        "kills": 0,
+        "deaths": 2
+      },
+      "series_id": "ns049-na|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96341507",
+      "account_id": "244109796",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 65,
+      "kills": 12,
+      "deaths": 4,
+      "assists": 16,
+      "net_worth": 43951,
+      "damage": 42837,
+      "last_hits": 188,
+      "denies": 0,
+      "assigned_lane": 1,
+      "early": {
+        "damage": 3539,
+        "denies": 0,
+        "net_worth": 7817,
+        "kills": 2,
+        "deaths": 1
+      },
+      "series_id": "ns049-na|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96341507",
+      "account_id": "1871217631",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 8,
+      "kills": 5,
+      "deaths": 3,
+      "assists": 20,
+      "net_worth": 41249,
+      "damage": 24267,
+      "last_hits": 206,
+      "denies": 16,
+      "assigned_lane": 1,
+      "early": {
+        "damage": 3858,
+        "denies": 7,
+        "net_worth": 6734,
+        "kills": 1,
+        "deaths": 2
+      },
+      "series_id": "ns049-na|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96341507",
+      "account_id": "1929248273",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 16,
+      "kills": 4,
+      "deaths": 6,
+      "assists": 15,
+      "net_worth": 33683,
+      "damage": 28500,
+      "last_hits": 107,
+      "denies": 0,
+      "assigned_lane": 6,
+      "early": {
+        "damage": 5944,
+        "denies": 0,
+        "net_worth": 6856,
+        "kills": 2,
+        "deaths": 1
+      },
+      "series_id": "ns049-na|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96341507",
+      "account_id": "399289886",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 77,
+      "kills": 6,
+      "deaths": 7,
+      "assists": 12,
+      "net_worth": 35358,
+      "damage": 28461,
+      "last_hits": 159,
+      "denies": 1,
+      "assigned_lane": 1,
+      "early": {
+        "damage": 3618,
+        "denies": 1,
+        "net_worth": 6260,
+        "kills": 3,
+        "deaths": 2
+      },
+      "series_id": "ns049-na|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96341507",
+      "account_id": "1285605078",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 15,
+      "kills": 6,
+      "deaths": 4,
+      "assists": 22,
+      "net_worth": 41276,
+      "damage": 26047,
+      "last_hits": 103,
+      "denies": 1,
+      "assigned_lane": 6,
+      "early": {
+        "damage": 3248,
+        "denies": 1,
+        "net_worth": 6660,
+        "kills": 1,
+        "deaths": 1
+      },
+      "series_id": "ns049-na|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96341507",
+      "account_id": "1871021649",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 35,
+      "kills": 4,
+      "deaths": 6,
+      "assists": 12,
+      "net_worth": 34529,
+      "damage": 51658,
+      "last_hits": 171,
+      "denies": 3,
+      "assigned_lane": 6,
+      "early": {
+        "damage": 5339,
+        "denies": 2,
+        "net_worth": 6663,
+        "kills": 2,
+        "deaths": 1
+      },
+      "series_id": "ns049-na|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96341507",
+      "account_id": "1477660209",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 4,
+      "kills": 1,
+      "deaths": 6,
+      "assists": 7,
+      "net_worth": 36308,
+      "damage": 36267,
+      "last_hits": 235,
+      "denies": 1,
+      "assigned_lane": 1,
+      "early": {
+        "damage": 4014,
+        "denies": 0,
+        "net_worth": 6453,
+        "kills": 0,
+        "deaths": 0
+      },
+      "series_id": "ns049-na|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96341507",
+      "account_id": "225764206",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 31,
+      "kills": 8,
+      "deaths": 7,
+      "assists": 17,
+      "net_worth": 40814,
+      "damage": 33316,
+      "last_hits": 131,
+      "denies": 0,
+      "assigned_lane": 4,
+      "early": {
+        "damage": 4608,
+        "denies": 0,
+        "net_worth": 6549,
+        "kills": 2,
+        "deaths": 3
+      },
+      "series_id": "ns049-na|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96341507",
+      "account_id": "25821887",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 66,
+      "kills": 7,
+      "deaths": 7,
+      "assists": 15,
+      "net_worth": 41889,
+      "damage": 30906,
+      "last_hits": 205,
+      "denies": 8,
+      "assigned_lane": 4,
+      "early": {
+        "damage": 2963,
+        "denies": 1,
+        "net_worth": 7323,
+        "kills": 1,
+        "deaths": 1
+      },
+      "series_id": "ns049-na|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96341507",
+      "account_id": "114943410",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 50,
+      "kills": 8,
+      "deaths": 6,
+      "assists": 8,
+      "net_worth": 40549,
+      "damage": 38561,
+      "last_hits": 246,
+      "denies": 4,
+      "assigned_lane": 4,
+      "early": {
+        "damage": 4295,
+        "denies": 2,
+        "net_worth": 8620,
+        "kills": 3,
+        "deaths": 1
+      },
+      "series_id": "ns049-na|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96341507",
+      "account_id": "1840902834",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 52,
+      "kills": 3,
+      "deaths": 4,
+      "assists": 22,
+      "net_worth": 45139,
+      "damage": 26500,
+      "last_hits": 184,
+      "denies": 4,
+      "assigned_lane": 6,
+      "early": {
+        "damage": 4318,
+        "denies": 0,
+        "net_worth": 6383,
+        "kills": 0,
+        "deaths": 2
+      },
+      "series_id": "ns049-na|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96349946",
+      "account_id": "1730032433",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 69,
+      "kills": 3,
+      "deaths": 6,
+      "assists": 4,
+      "net_worth": 34018,
+      "damage": 39597,
+      "last_hits": 165,
+      "denies": 2,
+      "assigned_lane": 4,
+      "early": {
+        "damage": 3673,
+        "denies": 1,
+        "net_worth": 6795,
+        "kills": 0,
+        "deaths": 0
+      },
+      "series_id": "ns049-na|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96349946",
+      "account_id": "1871021649",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 27,
+      "kills": 6,
+      "deaths": 13,
+      "assists": 3,
+      "net_worth": 29550,
+      "damage": 25930,
+      "last_hits": 83,
+      "denies": 4,
+      "assigned_lane": 6,
+      "early": {
+        "damage": 3042,
+        "denies": 2,
+        "net_worth": 5378,
+        "kills": 1,
+        "deaths": 4
+      },
+      "series_id": "ns049-na|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96349946",
+      "account_id": "244109796",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 65,
+      "kills": 10,
+      "deaths": 2,
+      "assists": 18,
+      "net_worth": 34430,
+      "damage": 28282,
+      "last_hits": 216,
+      "denies": 2,
+      "assigned_lane": 1,
+      "early": {
+        "damage": 3566,
+        "denies": 1,
+        "net_worth": 6827,
+        "kills": 2,
+        "deaths": 0
+      },
+      "series_id": "ns049-na|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96349946",
+      "account_id": "1871217631",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 35,
+      "kills": 6,
+      "deaths": 3,
+      "assists": 25,
+      "net_worth": 28971,
+      "damage": 24320,
+      "last_hits": 124,
+      "denies": 6,
+      "assigned_lane": 1,
+      "early": {
+        "damage": 4785,
+        "denies": 4,
+        "net_worth": 5840,
+        "kills": 0,
+        "deaths": 0
+      },
+      "series_id": "ns049-na|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96349946",
+      "account_id": "1929248273",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 77,
+      "kills": 2,
+      "deaths": 8,
+      "assists": 8,
+      "net_worth": 28566,
+      "damage": 25444,
+      "last_hits": 127,
+      "denies": 2,
+      "assigned_lane": 6,
+      "early": {
+        "damage": 4919,
+        "denies": 2,
+        "net_worth": 6540,
+        "kills": 1,
+        "deaths": 1
+      },
+      "series_id": "ns049-na|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96349946",
+      "account_id": "114943410",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 50,
+      "kills": 1,
+      "deaths": 8,
+      "assists": 4,
+      "net_worth": 34168,
+      "damage": 41781,
+      "last_hits": 187,
+      "denies": 3,
+      "assigned_lane": 4,
+      "early": {
+        "damage": 2889,
+        "denies": 2,
+        "net_worth": 5898,
+        "kills": 0,
+        "deaths": 2
+      },
+      "series_id": "ns049-na|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96349946",
+      "account_id": "399289886",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 31,
+      "kills": 2,
+      "deaths": 13,
+      "assists": 3,
+      "net_worth": 30442,
+      "damage": 20198,
+      "last_hits": 128,
+      "denies": 3,
+      "assigned_lane": 1,
+      "early": {
+        "damage": 2985,
+        "denies": 3,
+        "net_worth": 5403,
+        "kills": 0,
+        "deaths": 2
+      },
+      "series_id": "ns049-na|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96349946",
+      "account_id": "1285605078",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 15,
+      "kills": 8,
+      "deaths": 4,
+      "assists": 27,
+      "net_worth": 35610,
+      "damage": 34615,
+      "last_hits": 118,
+      "denies": 0,
+      "assigned_lane": 6,
+      "early": {
+        "damage": 4461,
+        "denies": 0,
+        "net_worth": 6170,
+        "kills": 2,
+        "deaths": 0
+      },
+      "series_id": "ns049-na|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96349946",
+      "account_id": "25821887",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 6,
+      "kills": 12,
+      "deaths": 1,
+      "assists": 22,
+      "net_worth": 44209,
+      "damage": 35079,
+      "last_hits": 191,
+      "denies": 2,
+      "assigned_lane": 4,
+      "early": {
+        "damage": 3175,
+        "denies": 0,
+        "net_worth": 7377,
+        "kills": 1,
+        "deaths": 0
+      },
+      "series_id": "ns049-na|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96349946",
+      "account_id": "225764206",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 16,
+      "kills": 11,
+      "deaths": 3,
+      "assists": 26,
+      "net_worth": 37094,
+      "damage": 31809,
+      "last_hits": 77,
+      "denies": 3,
+      "assigned_lane": 4,
+      "early": {
+        "damage": 3098,
+        "denies": 1,
+        "net_worth": 6156,
+        "kills": 1,
+        "deaths": 1
+      },
+      "series_id": "ns049-na|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96349946",
+      "account_id": "1477660209",
+      "match_team_index": 0,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 4,
+      "kills": 2,
+      "deaths": 7,
+      "assists": 5,
+      "net_worth": 38886,
+      "damage": 37623,
+      "last_hits": 215,
+      "denies": 4,
+      "assigned_lane": 1,
+      "early": {
+        "damage": 6110,
+        "denies": 3,
+        "net_worth": 7173,
+        "kills": 0,
+        "deaths": 1
+      },
+      "series_id": "ns049-na|Finals|Finals, best of 3"
+    },
+    {
+      "match_id": "96349946",
+      "account_id": "1840902834",
+      "match_team_index": 1,
+      "team_id": null,
+      "roster_status": null,
+      "hero_id": 1,
+      "kills": 8,
+      "deaths": 3,
+      "assists": 35,
+      "net_worth": 40647,
+      "damage": 38632,
+      "last_hits": 167,
+      "denies": 0,
+      "assigned_lane": 6,
+      "early": {
+        "damage": 4604,
+        "denies": 0,
+        "net_worth": 6062,
+        "kills": 3,
+        "deaths": 1
+      },
+      "series_id": "ns049-na|Finals|Finals, best of 3"
     }
   ],
   "participation": [
@@ -113018,6 +116118,486 @@
     {
       "series_id": "ns048-na|Finals|Finals, best of 3",
       "account_id": "924812291",
+      "games_played": 3,
+      "games_in_series": 3,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-eu|Challenger|Challenger, best of 1",
+      "account_id": "1009703898",
+      "games_played": 1,
+      "games_in_series": 1,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-eu|Challenger|Challenger, best of 1",
+      "account_id": "136898005",
+      "games_played": 1,
+      "games_in_series": 1,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-eu|Challenger|Challenger, best of 1",
+      "account_id": "281768392",
+      "games_played": 1,
+      "games_in_series": 1,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-eu|Challenger|Challenger, best of 1",
+      "account_id": "298305257",
+      "games_played": 1,
+      "games_in_series": 1,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-eu|Challenger|Challenger, best of 1",
+      "account_id": "344946432",
+      "games_played": 1,
+      "games_in_series": 1,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-eu|Challenger|Challenger, best of 1",
+      "account_id": "35187362",
+      "games_played": 1,
+      "games_in_series": 1,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-eu|Challenger|Challenger, best of 1",
+      "account_id": "483770846",
+      "games_played": 1,
+      "games_in_series": 1,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-eu|Challenger|Challenger, best of 1",
+      "account_id": "5278896",
+      "games_played": 1,
+      "games_in_series": 1,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-eu|Challenger|Challenger, best of 1",
+      "account_id": "87241154",
+      "games_played": 1,
+      "games_in_series": 1,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-eu|Challenger|Challenger, best of 1",
+      "account_id": "911856667",
+      "games_played": 1,
+      "games_in_series": 1,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-eu|Challenger|Challenger, best of 1",
+      "account_id": "97533101",
+      "games_played": 1,
+      "games_in_series": 1,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-eu|Challenger|Challenger, best of 1",
+      "account_id": "984254212",
+      "games_played": 1,
+      "games_in_series": 1,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-eu|Finals|Finals, best of 3",
+      "account_id": "1055638874",
+      "games_played": 2,
+      "games_in_series": 2,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-eu|Finals|Finals, best of 3",
+      "account_id": "124540485",
+      "games_played": 2,
+      "games_in_series": 2,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-eu|Finals|Finals, best of 3",
+      "account_id": "1444662928",
+      "games_played": 2,
+      "games_in_series": 2,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-eu|Finals|Finals, best of 3",
+      "account_id": "298155885",
+      "games_played": 2,
+      "games_in_series": 2,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-eu|Finals|Finals, best of 3",
+      "account_id": "344946432",
+      "games_played": 2,
+      "games_in_series": 2,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-eu|Finals|Finals, best of 3",
+      "account_id": "35187362",
+      "games_played": 2,
+      "games_in_series": 2,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-eu|Finals|Finals, best of 3",
+      "account_id": "483770846",
+      "games_played": 2,
+      "games_in_series": 2,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-eu|Finals|Finals, best of 3",
+      "account_id": "81662458",
+      "games_played": 2,
+      "games_in_series": 2,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-eu|Finals|Finals, best of 3",
+      "account_id": "87241154",
+      "games_played": 2,
+      "games_in_series": 2,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-eu|Finals|Finals, best of 3",
+      "account_id": "906011648",
+      "games_played": 2,
+      "games_in_series": 2,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-eu|Finals|Finals, best of 3",
+      "account_id": "911856667",
+      "games_played": 2,
+      "games_in_series": 2,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-eu|Finals|Finals, best of 3",
+      "account_id": "97533101",
+      "games_played": 2,
+      "games_in_series": 2,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-eu|Qualifier|Qualifier, best of 3",
+      "account_id": "1009703898",
+      "games_played": 2,
+      "games_in_series": 2,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-eu|Qualifier|Qualifier, best of 3",
+      "account_id": "1046192556",
+      "games_played": 2,
+      "games_in_series": 2,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-eu|Qualifier|Qualifier, best of 3",
+      "account_id": "1062664388",
+      "games_played": 2,
+      "games_in_series": 2,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-eu|Qualifier|Qualifier, best of 3",
+      "account_id": "1186801441",
+      "games_played": 2,
+      "games_in_series": 2,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-eu|Qualifier|Qualifier, best of 3",
+      "account_id": "1217629348",
+      "games_played": 2,
+      "games_in_series": 2,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-eu|Qualifier|Qualifier, best of 3",
+      "account_id": "136898005",
+      "games_played": 2,
+      "games_in_series": 2,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-eu|Qualifier|Qualifier, best of 3",
+      "account_id": "281768392",
+      "games_played": 2,
+      "games_in_series": 2,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-eu|Qualifier|Qualifier, best of 3",
+      "account_id": "298305257",
+      "games_played": 2,
+      "games_in_series": 2,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-eu|Qualifier|Qualifier, best of 3",
+      "account_id": "323142724",
+      "games_played": 2,
+      "games_in_series": 2,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-eu|Qualifier|Qualifier, best of 3",
+      "account_id": "407786402",
+      "games_played": 2,
+      "games_in_series": 2,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-eu|Qualifier|Qualifier, best of 3",
+      "account_id": "5278896",
+      "games_played": 2,
+      "games_in_series": 2,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-eu|Qualifier|Qualifier, best of 3",
+      "account_id": "984254212",
+      "games_played": 2,
+      "games_in_series": 2,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-na|Challenger|Challenger, best of 1",
+      "account_id": "1285605078",
+      "games_played": 1,
+      "games_in_series": 1,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-na|Challenger|Challenger, best of 1",
+      "account_id": "1840902834",
+      "games_played": 1,
+      "games_in_series": 1,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-na|Challenger|Challenger, best of 1",
+      "account_id": "1871217631",
+      "games_played": 1,
+      "games_in_series": 1,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-na|Challenger|Challenger, best of 1",
+      "account_id": "225764206",
+      "games_played": 1,
+      "games_in_series": 1,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-na|Challenger|Challenger, best of 1",
+      "account_id": "241312861",
+      "games_played": 1,
+      "games_in_series": 1,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-na|Challenger|Challenger, best of 1",
+      "account_id": "244109796",
+      "games_played": 1,
+      "games_in_series": 1,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-na|Challenger|Challenger, best of 1",
+      "account_id": "25821887",
+      "games_played": 1,
+      "games_in_series": 1,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-na|Challenger|Challenger, best of 1",
+      "account_id": "278919272",
+      "games_played": 1,
+      "games_in_series": 1,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-na|Challenger|Challenger, best of 1",
+      "account_id": "291902996",
+      "games_played": 1,
+      "games_in_series": 1,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-na|Challenger|Challenger, best of 1",
+      "account_id": "308362270",
+      "games_played": 1,
+      "games_in_series": 1,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-na|Challenger|Challenger, best of 1",
+      "account_id": "39488687",
+      "games_played": 1,
+      "games_in_series": 1,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-na|Challenger|Challenger, best of 1",
+      "account_id": "84379844",
+      "games_played": 1,
+      "games_in_series": 1,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-na|Finals|Finals, best of 3",
+      "account_id": "114943410",
+      "games_played": 3,
+      "games_in_series": 3,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-na|Finals|Finals, best of 3",
+      "account_id": "1285605078",
+      "games_played": 3,
+      "games_in_series": 3,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-na|Finals|Finals, best of 3",
+      "account_id": "1477660209",
+      "games_played": 3,
+      "games_in_series": 3,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-na|Finals|Finals, best of 3",
+      "account_id": "1730032433",
+      "games_played": 3,
+      "games_in_series": 3,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-na|Finals|Finals, best of 3",
+      "account_id": "1840902834",
+      "games_played": 3,
+      "games_in_series": 3,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-na|Finals|Finals, best of 3",
+      "account_id": "1871021649",
+      "games_played": 3,
+      "games_in_series": 3,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-na|Finals|Finals, best of 3",
+      "account_id": "1871217631",
+      "games_played": 3,
+      "games_in_series": 3,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-na|Finals|Finals, best of 3",
+      "account_id": "1929248273",
+      "games_played": 3,
+      "games_in_series": 3,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-na|Finals|Finals, best of 3",
+      "account_id": "225764206",
+      "games_played": 3,
+      "games_in_series": 3,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-na|Finals|Finals, best of 3",
+      "account_id": "244109796",
+      "games_played": 3,
+      "games_in_series": 3,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-na|Finals|Finals, best of 3",
+      "account_id": "25821887",
+      "games_played": 3,
+      "games_in_series": 3,
+      "series_complete": true,
+      "participation": "full"
+    },
+    {
+      "series_id": "ns049-na|Finals|Finals, best of 3",
+      "account_id": "399289886",
       "games_played": 3,
       "games_in_series": 3,
       "series_complete": true,
