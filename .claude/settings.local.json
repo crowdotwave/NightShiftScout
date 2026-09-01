@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c \"import json;d=json.load\\(open\\('heroes.json'\\)\\);print\\(type\\(d\\),len\\(d\\)\\)\")",
+      "Bash(python -c ' *)",
+      "Read(//c/Users/chris/**)",
+      "Read(//c/Users/**)",
+      "Bash(gh --version)",
+      "Bash(gh auth *)",
+      "PowerShell(where.exe claude 2>&1; Write-Output \"EXITCODE:$LASTEXITCODE\")",
+      "PowerShell(cmd.exe /c \"claude --version\")",
+      "PowerShell(cmd.exe /c \"`\"C:\\\\Users\\\\chris\\\\AppData\\\\Roaming\\\\Claude\\\\claude-code\\\\2.1.219\\\\claude.exe`\" --version\")",
+      "Bash(echo \"---exit $?---\")",
+      "PowerShell(python scripts/build_site.py --out \"$env:TEMP\\\\claude\\\\C--Claude\\\\ba947bda-5aeb-4c3c-a61d-499f4a9cf506\\\\scratchpad\\\\site_check\" --banner \"Preview\")",
+      "PowerShell($s = \"$env:TEMP\\\\claude\\\\C--Claude\\\\ba947bda-5aeb-4c3c-a61d-499f4a9cf506\\\\scratchpad\"; python scripts/build_dataset.py --curated fixtures/curated-demo --out \"$s\\\\demo-dataset.json\"; if \\($?\\) { python scripts/build_site.py --dataset \"$s\\\\demo-dataset.json\" --out \"$s\\\\site_preview\" --banner \"PREVIEW, fixture data\" })",
+      "PowerShell($s = \"$env:TEMP\\\\claude\\\\C--Claude\\\\ba947bda-5aeb-4c3c-a61d-499f4a9cf506\\\\scratchpad\"; python scripts/build_site.py --dataset \"$s\\\\demo-dataset.json\" --out site_preview --banner \"PREVIEW, fixture data. Team names and handles are placeholders.\"; Get-ChildItem site_preview\\\\players | Select-Object -ExpandProperty Name)",
+      "Bash(git symbolic-ref *)",
+      "Bash(git rev-list *)",
+      "Bash(gh pr *)",
+      "Bash(python -)",
+      "Bash(python scripts/build_site.py)"
+    ]
+  }
+}
