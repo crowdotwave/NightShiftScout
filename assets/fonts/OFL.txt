@@ -1,5 +1,6 @@
 These fonts are redistributed under the SIL Open Font License 1.1.
 
+  Big Shoulders   Copyright (c) Patric King
   Chakra Petch    Copyright (c) Cadson Demak
   Barlow          Copyright (c) Jeremy Tribby
   JetBrains Mono  Copyright (c) JetBrains

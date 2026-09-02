@@ -1,371 +1,812 @@
 @import url("fonts.css");
 
-:root {
-    --bg: #0a0d0b;
-    --bg-panel: #101512;
-    --bg-panel-2: #141b17;
-    --line: #1f2e27;
-    --text: #dcece3;
-    --text-dim: #6f9384;
-    --soul: #3eeb9e;
-    --soul-bright: #7dffc4;
-    --soul-dim: #1f5c42;
-    --blood: #c24b4b;
-    --win: #3eeb9e;
-    --mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
-    --serif: "Barlow", "Helvetica Neue", Arial, sans-serif;
-    --display: "Chakra Petch", "Barlow", Arial, sans-serif;
-  }
-
-  * { box-sizing: border-box; }
-
-  body {
-    margin: 0;
-    background:
-      radial-gradient(ellipse 700px 500px at 15% -5%, rgba(62,235,158,0.10), transparent 60%),
-      radial-gradient(ellipse 500px 400px at 100% 20%, rgba(62,235,158,0.05), transparent 55%),
-      var(--bg);
-    color: var(--text);
-    font-family: var(--serif);
-    padding: 40px 24px 80px;
-  }
-
-  .wrap { max-width: 980px; margin: 0 auto; display: flex; flex-direction: column; }
-  .wrap > * { order: 5; } /* default order for anything not explicitly placed */
-
-  header {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    border-bottom: 1px solid var(--line);
-    padding: 6px 0 20px;
-    margin-bottom: 26px;
-    flex-wrap: wrap;
-    gap: 10px;
-    box-shadow: 0 1px 0 rgba(62,235,158,0.16);
-  }
-
-  h1 {
-    font-family: var(--display);
-    font-weight: 700;
-    font-size: 30px;
-    margin: 0;
-    letter-spacing: -0.3px;
-    text-transform: uppercase;
-  }
-  h1 span {
-    color: var(--soul);
-    font-style: normal;
-    text-shadow: 0 0 24px rgba(62,235,158,0.45);
-  }
-  h1 span { color: var(--soul); font-style: italic; }
-
-  .subtitle {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--text-dim);
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-  }
-
-  .panel {
-    background: var(--bg-panel);
-    border: 1px solid var(--line);
-    border-radius: 5px;
-    padding: 20px 22px;
-    margin-bottom: 20px;
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
-  }
-
-  .panel-label {
-    font-family: var(--display);
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: var(--soul);
-    margin-bottom: 10px;
-    display: block;
-  }
-
-  textarea {
-    width: 100%;
-    min-height: 190px;
-    background: #0f0d0b;
-    border: 1px solid var(--line);
-    color: var(--text);
-    font-family: var(--mono);
-    font-size: 13px;
-    line-height: 1.6;
-    padding: 14px;
-    border-radius: 2px;
-    resize: vertical;
-  }
-  textarea:focus { outline: 1px solid var(--soul); border-color: var(--soul); }
-
-  .row { display: flex; gap: 12px; align-items: center; margin-top: 14px; flex-wrap: wrap; }
-
-  button {
-    font-family: var(--display);
-    font-weight: 600;
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 11px 22px;
-    border-radius: 2px;
-    border: 1px solid var(--soul);
-    background: transparent;
-    color: var(--soul-bright);
-    cursor: pointer;
-    transition: background 0.15s, color 0.15s;
-  }
-  button:hover:not(:disabled) { background: var(--soul); color: #06110c; box-shadow: 0 0 18px rgba(62,235,158,0.35); }
-  button:disabled { opacity: 0.35; cursor: default; }
-
-  button.ghost {
-    border-color: var(--line);
-    color: var(--text-dim);
-  }
-  button.ghost:hover:not(:disabled) { background: var(--bg-panel-2); color: var(--text); }
-
-  .status {
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--text-dim);
-    min-height: 18px;
-  }
-  .status.warn { color: var(--blood); }
-
-  /* Soul motes. Deliberately scoped to focus areas only (the Stars panel
-     and the header) rather than the whole page, so they pull the eye where
-     it matters instead of becoming visual noise everywhere. */
-  .copy-id {
-    cursor: pointer;
-    border-bottom: 1px dotted var(--text-dim);
-  }
-  .copy-id:hover { color: var(--soul-bright); border-color: var(--soul-bright); }
-
-  .particle-host { position: relative; }
-  .particle-canvas {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 0;
-  }
-  .particle-host > *:not(.particle-canvas) { position: relative; z-index: 1; }
-
-  @media (prefers-reduced-motion: reduce) {
-    .particle-canvas { display: none; }
-  }
-
-  .stars-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
-    gap: 12px;
-  }
-  .star-card {
-    background: linear-gradient(160deg, rgba(62,235,158,0.09), rgba(62,235,158,0.02) 60%, transparent);
-    border: 1px solid var(--line);
-    border-radius: 4px;
-    padding: 14px 16px;
-    position: relative;
-    overflow: hidden;
-  }
-  .star-card::after {
-    content: "";
-    position: absolute;
-    top: -40px; right: -40px;
-    width: 110px; height: 110px;
-    background: radial-gradient(circle, rgba(62,235,158,0.16), transparent 70%);
-    pointer-events: none;
-  }
-  .star-cat {
-    font-family: var(--display);
-    font-weight: 600;
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 1.4px;
-    color: var(--soul);
-    display: block;
-    margin-bottom: 10px;
-  }
-  .star-val {
-    font-family: var(--mono);
-    font-size: 30px;
-    font-weight: 700;
-    color: var(--soul-bright);
-    text-shadow: 0 0 20px rgba(125,255,196,0.5);
-    line-height: 1;
-    font-variant-numeric: tabular-nums;
-  }
-  .star-name {
-    font-family: var(--display);
-    font-weight: 600;
-    font-size: 17px;
-    color: var(--text);
-    margin-top: 8px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .star-sub {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--text-dim);
-    margin-top: 4px;
-  }
-  .star-runner {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--text-dim);
-    margin-top: 9px;
-    padding-top: 8px;
-    border-top: 1px solid var(--line);
-  }
-
-  .table-scroll { overflow-x: auto; }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    font-family: var(--mono);
-    font-size: 13px;
-  }
-  thead th {
-    text-align: left;
-    font-family: var(--display);
-    font-weight: 600;
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--text-dim);
-    padding: 8px 10px;
-    border-bottom: 1px solid var(--line);
-    cursor: pointer;
-    user-select: none;
-  }
-  thead th:hover { color: var(--soul); }
-  tbody tr {
-    border-bottom: 1px solid var(--line);
-    cursor: pointer;
-  }
-  tbody tr:hover { background: var(--bg-panel-2); }
-  tbody td { padding: 10px; }
-  .rank { color: var(--text-dim); width: 34px; }
-  .souls-val { color: var(--soul-bright); font-weight: 600; font-variant-numeric: tabular-nums; text-shadow: 0 0 12px rgba(125,255,196,0.45); }
-  .player-cell { display: flex; align-items: center; gap: 8px; }
-  .player-avatar { width: 24px; height: 24px; border-radius: 3px; border: 1px solid var(--line); display: block; }
-  .player-link { color: var(--text); text-decoration: none; border-bottom: 1px dotted var(--text-dim); }
-  .player-link:hover { color: var(--soul-bright); border-color: var(--soul-bright); }
-  .player-sub { color: var(--text-dim); font-size: 11px; }
-  .win-tag { color: var(--win); text-shadow: 0 0 10px rgba(62,235,158,0.35); }
-  .loss-tag { color: var(--blood); }
-
-  .detail-row td {
-    background: #0c100d;
-    padding: 4px 10px 14px 40px;
-    font-size: 12px;
-    color: var(--text-dim);
-  }
-  .detail-row table { margin-top: 6px; }
-  .detail-row th, .detail-row td { padding: 4px 8px; border-bottom: 1px solid #182420; }
-
-  .match-card {
-    background: var(--bg-panel-2);
-    border: 1px solid var(--line);
-    border-radius: 3px;
-    padding: 14px 16px;
-    margin-bottom: 10px;
-    font-family: var(--mono);
-    font-size: 12px;
-  }
-  .match-card .match-rank {
-    color: var(--soul-bright);
-    font-weight: 700;
-    font-size: 14px;
-    margin-right: 8px;
-  }
-  .match-card .match-meta { color: var(--text-dim); margin: 4px 0 8px; }
-  .match-card .match-players { display: flex; flex-wrap: wrap; gap: 6px 14px; }
-  .match-card .match-players span { color: var(--text); }
-  .match-card .team1 { color: var(--soul-bright); }
-
-  .hidden { display: none; }
-
-  footer {
-    margin-top: 36px;
-    font-family: var(--mono);
-    font-size: 11px;
-    color: #3c5348;
-    line-height: 1.7;
-  }
-  footer a { color: var(--text-dim); }
-
 /* ---------------------------------------------------------------------------
-   Everything above is lifted verbatim from index.html so the public site and
-   the console look like one product. The duplication is deliberate: the
-   console is a standalone single file by design and must keep working when
-   opened straight off disk, so the site build does not read from it.
+   The Marquee.
 
-   Below: the public site's own additions, plus aliases mapping the player page
-   class names onto the same tokens.
+   A weekly show puts a few names in lights, and here the lights are the
+   ranking. Night ground, bulb gilt, and two neon bands (violet and teal) that
+   are used structurally rather than sprinkled: violet marks the lane phase,
+   teal marks a win. Colour owns whole regions and never tints a row at a time.
+
+   State is material. An account nobody has identified is an unlit socket. A
+   player without enough games for a ranking is an empty letter slot. Neither
+   is grey text apologising.
    --------------------------------------------------------------------------- */
+
 :root {
-  --fg: var(--text); --dim: var(--text-dim); --accent: var(--soul);
-  --loss: var(--blood); --panel: var(--bg-panel);
+  --night: #070911;
+  --night-2: #0b1020;
+  --night-3: #131b2f;
+  --rule: #24304d;
+
+  --gilt: #ffb43d;
+  --gilt-hot: #ffe6b0;
+  --gilt-dim: #7d5a1d;
+  --brass: #c8933a;
+  --oxblood: #5e1822;
+
+  --violet: #8b4bff;
+  --violet-lit: #b58cff;
+  --teal: #2bd9c4;
+
+  --ink: #f0e7d6;
+  --ink-dim: #a8926f;
+  /* There are two text tones, not three. A third, dimmer tone measured 4.75:1
+     on bare ground, which the beam then pushed under 4.5:1 wherever light fell
+     on it. Rather than keep a step that only passes in the dark, faint text is
+     the same tone as dim text and the hierarchy is carried by size and colour.
+     --hair is what the retired value became: a line tone, never text. */
+  --ink-faint: var(--ink-dim);
+  --hair: #6d6047;
+  --loss-ink: #e58275;
+
+  --sign: "Big Shoulders Display", "Barlow", Arial Narrow, sans-serif;
+  --body: "Barlow", "Helvetica Neue", Arial, sans-serif;
+  --mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+
+  /* Aliases kept so the player pages, which share this stylesheet, move into
+     the new world without their markup changing. */
+  --bg: var(--night);
+  --bg-panel: var(--night-2);
+  --bg-panel-2: var(--night-3);
+  --line: var(--rule);
+  --text: var(--ink);
+  --text-dim: var(--ink-dim);
+  --soul: var(--gilt);
+  --soul-bright: var(--gilt-hot);
+  --soul-dim: var(--gilt-dim);
+  --blood: var(--loss-ink);
+  --win: var(--teal);
+  --serif: var(--body);
+  --display: var(--sign);
 }
-main { max-width: 980px; margin: 0 auto; }
-a { color: var(--soul); }
-.lede { color: var(--text-dim); margin: 0 0 18px; max-width: 60ch; }
-.banner { background: #6b4500; color: #fff; padding: .6rem 1rem; border-radius: 6px;
-          margin-bottom: 22px; font-size: .9rem; }
-.avatar-fallback { display: inline-flex; align-items: center; justify-content: center;
-                   background: var(--bg-panel-2); border: 1px solid var(--line);
-                   border-radius: 6px; color: var(--text-dim); font-weight: 650;
-                   font-family: var(--display); flex: none; }
-.head { display: flex; gap: 16px; align-items: center; margin-bottom: 8px; }
-.head img { width: 64px; height: 64px; border-radius: 8px; }
-.sub { color: var(--text-dim); font-size: 13px; }
-.tag { display: inline-block; font-size: 10px; text-transform: uppercase; letter-spacing: .06em;
-       border: 1px solid var(--line); border-radius: 3px; padding: 1px 5px;
-       color: var(--text-dim); margin-left: 5px; vertical-align: middle;
-       font-family: var(--mono); }
-.filter { display: block; font-family: var(--display); font-size: 12px; text-transform: uppercase;
-          letter-spacing: .08em; color: var(--text-dim); margin: 0 0 14px; }
-.filter input { display: block; width: 100%; max-width: 320px; margin-top: 6px;
-                padding: 9px 12px; font-family: var(--serif); font-size: 14px; color: var(--text);
-                background: var(--bg-panel); border: 1px solid var(--line); border-radius: 4px; }
-.filter input:focus { outline: none; border-color: var(--soul-dim); }
-#filter-count { margin: 6px 0 0; min-height: 1.2em; font-family: var(--mono); font-size: 11px; }
-.scroll { overflow-x: auto; }
-td.player { display: flex; align-items: center; gap: 9px; }
-td.player img, td.player .avatar-fallback { width: 26px; height: 26px; border-radius: 5px;
-                                            font-size: 12px; }
-.rank { font-family: var(--mono); color: var(--text-dim); text-align: right; }
-.unranked td { opacity: .62; }
-.unranked-note { font-family: var(--mono); font-size: 11px; color: var(--text-dim);
-                 text-transform: none; letter-spacing: 0; }
-.stagemix { font-family: var(--mono); font-size: 11px; color: var(--text-dim); white-space: nowrap; }
-.stagemix b { color: var(--text); font-weight: 500; }
-.section-note { color: var(--text-dim); font-size: 13px; margin: 0 0 14px; max-width: 68ch; }
-.credit { margin-top: 18px; padding-top: 12px; border-top: 1px dotted var(--line); }
+
+* { box-sizing: border-box; }
+
+html {
+  background: var(--night);
+  overflow-x: clip;
+  scrollbar-color: var(--gilt-dim) var(--night-2);
+}
+
+body {
+  margin: 0;
+  padding: 0 0 96px;
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Browser surfaces belong to the design, not to the browser. */
+::selection { background: var(--gilt); color: #14100a; }
+::-webkit-scrollbar { width: 12px; height: 12px; }
+::-webkit-scrollbar-track { background: var(--night-2); }
+::-webkit-scrollbar-thumb { background: var(--gilt-dim); border: 3px solid var(--night-2); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: var(--brass); }
+input, textarea { caret-color: var(--gilt); }
+:focus-visible { outline: 2px solid var(--gilt); outline-offset: 3px; }
+a { color: var(--gilt); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+a:hover { color: var(--gilt-hot); }
+
+.wrap, main {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding-inline: 24px;
+}
+
+/* The canvas beam and dust. Fixed behind everything, drawing no content. */
+#lights {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+.wrap, main, footer { position: relative; z-index: 1; }
+
+/* ---------------------------------------------------------------- marquee - */
+
+.marquee {
+  position: relative;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding-inline: max(24px, calc(50vw - 546px));
+  padding-block: 30px 0;
+  overflow: hidden;
+  background:
+    radial-gradient(120% 150% at 50% -30%, rgba(255,180,61,0.16), transparent 62%),
+    linear-gradient(180deg, var(--night-2), var(--night) 78%);
+  border-bottom: 1px solid var(--rule);
+}
+
+.marquee-inner {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0 28px;
+  align-items: stretch;
+}
+
+/* The blade sign: the vertical name board bolted to the corner of the house. */
+/* The pylon. A blade sign is bolted to the corner of the house and runs past
+   the top of the marquee, so it is taller than the band and the band clips it.
+   The wordmark runs behind it, which is the crop: the show name is lettered
+   across the whole board and the sign stands in front of where it starts. */
+.blade {
+  position: relative;
+  z-index: 2;
+  margin-top: -30px;
+  padding-top: 42px;
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 10px 16px;
+  background: linear-gradient(180deg, var(--oxblood), #2a0c12);
+  border: 1px solid var(--brass);
+  border-top-width: 3px;
+  box-shadow: 0 18px 40px -18px rgba(0,0,0,0.9), inset 0 0 0 4px rgba(255,180,61,0.10);
+}
+.blade-word {
+  font-family: var(--sign);
+  font-weight: 800;
+  font-size: 19px;
+  letter-spacing: 0.16em;
+  line-height: 1;
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+  color: var(--gilt-hot);
+  text-shadow: 0 0 18px rgba(255,180,61,0.55);
+}
+.blade-edition {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--gilt);
+  letter-spacing: 0.06em;
+  writing-mode: vertical-rl;
+}
+.blade-bulbs {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gilt-hot);
+  box-shadow: 0 0 10px 2px rgba(255,180,61,0.75);
+}
+
+/* The soffit: bulb rails top and bottom, the house name between them. */
+.soffit { position: relative; z-index: 1; display: flex; flex-direction: column; justify-content: center; min-width: 0; }
+
+.rail {
+  height: 13px;
+  background-image:
+    radial-gradient(circle at 10px 6px, var(--gilt-hot) 0 2px, rgba(255,180,61,0.42) 2px 3.4px, transparent 4.2px);
+  background-size: 21px 13px;
+  background-repeat: repeat-x;
+  filter: drop-shadow(0 0 5px rgba(255,180,61,0.55));
+  animation: bulb-breathe 4.2s ease-in-out infinite;
+}
+/* The rails are never quite steady, and the two are never in step. Opacity
+   only, so this stays on the compositor and costs nothing. */
+@keyframes bulb-breathe { 0%, 100% { opacity: 1; } 50% { opacity: 0.84; } }
+.soffit .rail + * + .rail, .soffit .rail:last-child {
+  animation-duration: 5.3s;
+  animation-delay: -1.7s;
+}
+.blade-bulbs { animation: bulb-breathe 3.4s ease-in-out infinite; }
+.blade-bulbs:last-of-type { animation-duration: 4.7s; animation-delay: -1.2s; }
+
+.soffit-inner {
+  padding: 16px 0 18px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 4px 34px;
+}
+
+/* The show number, lettered on the right of the board the way a house puts
+   the run on the far end of the marquee. */
+.edition-plate { grid-column: 2; grid-row: 1 / span 2; align-self: center; text-align: right; }
+.ep-num {
+  display: block;
+  font-family: var(--sign);
+  font-weight: 800;
+  font-size: clamp(2rem, 4.6vw, 3.5rem);
+  line-height: 0.88;
+  color: var(--gilt);
+  text-shadow: 0 0 24px rgba(255,180,61,0.45);
+}
+.ep-sub {
+  display: block;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-dim);
+  letter-spacing: 0.04em;
+  margin-top: 7px;
+}
+
+.wordmark {
+  font-family: var(--sign);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: clamp(2.9rem, 9.4vw, 6.6rem);
+  line-height: 0.84;
+  letter-spacing: -0.012em;
+  margin: 0 0 12px -0.42em;
+  grid-column: 1;
+  color: var(--gilt-hot);
+  text-shadow:
+    0 0 2px rgba(255,230,176,0.9),
+    0 0 26px rgba(255,180,61,0.55),
+    0 0 70px rgba(255,140,30,0.30);
+  text-wrap: balance;
+}
+.wordmark .shift { color: var(--gilt); }
+.wordmark .scout {
+  display: block;
+  font-size: 0.36em;
+  letter-spacing: 0.34em;
+  font-weight: 600;
+  color: var(--brass);
+  text-shadow: none;
+  margin-top: 0.28em;
+  /* Cancels the wordmark's crop for this line only. The pylon may take a
+     bite out of NIGHT, which still reads; taking one out of SCOUT would
+     leave the product calling itself COUT. */
+  margin-left: 1.17em;
+}
+
+.house-line {
+  grid-column: 1;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink-dim);
+  margin: 0;
+  letter-spacing: 0.02em;
+  max-width: 78ch;
+}
+.house-line b { color: var(--gilt); font-weight: 500; }
+
+.lede {
+  font-family: var(--body);
+  font-size: 17px;
+  color: var(--ink-dim);
+  max-width: 68ch;
+  margin: 22px 0 30px;
+}
+.lede strong { color: var(--ink); font-weight: 600; }
+
+/* ------------------------------------------------------------ letterboard - */
+
+/* The changeable letter rows under the marquee. This is the ranking, so the
+   slot channel is real: names sit in it the way plastic letters sit in a
+   track, and a missing value leaves the channel visibly empty. */
+
+.letterboard {
+  margin: 0 0 12px;
+  border: 1px solid var(--rule);
+  border-top: 3px solid var(--brass);
+  background:
+    linear-gradient(180deg, rgba(255,180,61,0.05), transparent 38%),
+    var(--night-2);
+  box-shadow: 0 24px 60px -34px rgba(255,180,61,0.5);
+}
+
+.lb-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 13px 20px;
+  border-bottom: 1px solid var(--rule);
+  font-family: var(--sign);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gilt);
+}
+.lb-head span {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.03em;
+  text-transform: none;
+  color: var(--ink-faint);
+  font-weight: 400;
+}
+
+.slots { list-style: none; margin: 0; padding: 0; }
+
+.slot {
+  display: grid;
+  grid-template-columns: 62px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0 18px;
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(36,48,77,0.7);
+  background-image: linear-gradient(90deg, rgba(255,180,61,0.055), transparent 34%);
+  transition: background-color 0.16s ease-out;
+}
+.slot:last-child { border-bottom: 0; }
+.slot:hover, .slot:focus-within { background-color: rgba(255,180,61,0.07); }
+/* An empty channel: the account is on the board but nobody has named it. */
+.slot .lb-name .unknown { opacity: 0.72; letter-spacing: 0.06em; }
+
+/* The socket. Lit for a ranked player, dark and empty for one we cannot name. */
+.socket {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: var(--sign);
+  font-weight: 800;
+  font-size: 24px;
+  color: #1a1206;
+  background: radial-gradient(circle at 38% 32%, var(--gilt-hot), var(--gilt) 58%, #b97d1c);
+  box-shadow: 0 0 24px rgba(255,180,61,0.55), inset 0 0 0 2px rgba(255,230,176,0.55);
+}
+.socket.unlit {
+  color: var(--ink-faint);
+  background: var(--night);
+  box-shadow: inset 0 0 0 2px var(--gilt-dim), inset 0 6px 14px rgba(0,0,0,0.8);
+  font-size: 15px;
+}
+
+/* The track. Names sit in a routed channel the way plastic letters sit in a
+   marquee letterboard: a dark groove with a lit lip along the bottom. An
+   uncurated account leaves the channel visibly empty rather than saying so. */
+.lb-name {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  padding: 7px 16px 8px;
+  background: linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.22));
+  box-shadow:
+    inset 0 2px 3px rgba(0,0,0,0.85),
+    inset 0 -1px 0 rgba(255,180,61,0.22),
+    inset 1px 0 0 rgba(0,0,0,0.6);
+  font-family: var(--sign);
+  font-weight: 700;
+  font-size: clamp(1.6rem, 4.4vw, 2.5rem);
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+.lb-name a { color: var(--ink); text-decoration: none; }
+.lb-name a:hover { color: var(--gilt-hot); }
+.lb-name img, .lb-name .avatar-fallback {
+  width: 40px; height: 40px; flex: none;
+  border-radius: 3px;
+  border: 1px solid var(--gilt-dim);
+}
+
+.lb-figure { text-align: right; }
+.lb-figure .val {
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 26px;
+  color: var(--gilt-hot);
+  font-variant-numeric: tabular-nums;
+  display: block;
+  line-height: 1.1;
+}
+.lb-figure .of {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-faint);
+  white-space: nowrap;
+}
+
+/* ------------------------------------------------------------------ bill - */
+
+/* The programme bill: category, leader dots, who, figure. A theatre listing,
+   not a grid of equal cards. */
+
+.bill { margin: 0 0 8px; }
+.bill-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
+
+.bill-row {
+  display: grid;
+  grid-template-columns: minmax(9rem, auto) minmax(1.5rem, 1fr) auto;
+  align-items: baseline;
+  gap: 0 12px;
+  padding: 15px 4px 14px;
+  border-bottom: 1px solid rgba(36,48,77,0.7);
+}
+.bill-cat {
+  font-family: var(--sign);
+  font-weight: 700;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  color: var(--gilt);
+}
+.bill-dots {
+  border-bottom: 1px dotted var(--gilt-dim);
+  transform: translateY(-5px);
+  min-width: 1.5rem;
+}
+.bill-right {
+  grid-column: 3;
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.bill-who {
+  font-family: var(--sign);
+  font-weight: 700;
+  font-size: 21px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  text-align: right;
+}
+.bill-who a { color: var(--ink); text-decoration: none; }
+.bill-who a:hover { color: var(--gilt-hot); }
+.bill-who img, .bill-who .avatar-fallback {
+  width: 26px; height: 26px; border-radius: 3px; flex: none;
+  border: 1px solid var(--gilt-dim);
+}
+.bill-fig {
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 19px;
+  color: var(--gilt-hot);
+  font-variant-numeric: tabular-nums;
+}
+.bill-row > .bill-fig:last-child { grid-column: 3; justify-self: end; }
+.bill-sum {
+  grid-column: 1 / -1;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink-dim);
+  margin-top: 6px;
+  max-width: 80ch;
+  line-height: 1.65;
+}
+.bill-sum a { color: var(--brass); }
+
+/* The lane phase band is the violet one. Colour marks the section, not rows. */
+.band-violet .bill-cat { color: var(--violet-lit); }
+.band-violet .bill-dots { border-bottom-color: rgba(139,75,255,0.5); }
+.band-violet .bill-fig { color: var(--violet-lit); }
+.band-violet .section-head { border-top-color: var(--violet); }
+
+/* --------------------------------------------------------------- sections - */
+
+.section-head {
+  border-top: 3px solid var(--brass);
+  padding-top: 14px;
+  margin: 52px 0 0;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+h2 {
+  font-family: var(--sign);
+  font-weight: 800;
+  font-size: clamp(1.5rem, 3.4vw, 2.1rem);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink);
+  margin: 0;
+  font-weight: 800;
+}
+
+.section-note {
+  color: var(--ink-dim);
+  font-size: 14.5px;
+  margin: 12px 0 20px;
+  max-width: 72ch;
+}
+.section-note b { color: var(--ink); font-weight: 600; }
+
+/* ------------------------------------------------------------------ board - */
+
+/* Hidden until the filter script reveals it. Without JavaScript the complete
+   board renders and no control appears that would do nothing. */
+.filter {
+  display: none;
+  font-family: var(--sign);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--gilt);
+  margin: 0 0 6px;
+}
+.filter input {
+  display: block;
+  width: 100%;
+  max-width: 340px;
+  margin-top: 8px;
+  padding: 11px 14px;
+  font-family: var(--mono);
+  font-size: 14px;
+  color: var(--ink);
+  background: var(--night-2);
+  border: 1px solid var(--rule);
+  border-bottom: 2px solid var(--gilt-dim);
+  border-radius: 0;
+}
+.filter input::placeholder { color: var(--ink-faint); }
+.filter input:focus { outline: none; border-bottom-color: var(--gilt); background: var(--night-3); }
+#filter-count { margin: 8px 0 14px; min-height: 1.3em; font-family: var(--mono); font-size: 12px; color: var(--ink-dim); }
+
+.scroll, .table-scroll { overflow-x: auto; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--mono);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+thead th.num, thead th.rank { text-align: right; }
+thead th {
+  text-align: left;
+  font-family: var(--sign);
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--brass);
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--brass);
+  white-space: nowrap;
+}
+tbody tr { border-bottom: 1px solid rgba(36,48,77,0.65); }
+tbody td { padding: 11px 12px; }
+
+/* Relighting a row is the socket coming on, the same vocabulary the
+   letterboard uses, rather than a tint. */
+#players tbody tr { transition: background-color 0.14s ease-out; }
+#players tbody tr:hover,
+#players tbody tr:focus-within { background: rgba(255,180,61,0.10); }
+#players tbody tr td.rank { transition: color 0.14s ease-out, text-shadow 0.14s ease-out; }
+#players tbody tr:hover td.rank,
+#players tbody tr:focus-within td.rank {
+  color: var(--gilt-hot);
+  text-shadow: 0 0 16px rgba(255,180,61,0.75);
+}
+
+td.rank, th.rank {
+  font-family: var(--sign);
+  font-weight: 800;
+  font-size: 17px;
+  color: var(--gilt);
+  text-align: right;
+  width: 46px;
+}
+td.player { display: flex; align-items: center; gap: 10px; }
+td.player img, td.player .avatar-fallback {
+  width: 26px; height: 26px; border-radius: 3px; flex: none;
+  border: 1px solid var(--rule);
+}
+td.player a { color: var(--ink); text-decoration: none; border-bottom: 1px solid transparent; }
+td.player a:hover { color: var(--gilt-hot); border-bottom-color: var(--gilt-dim); }
+/* The same leader the bill uses, so a row tracks across 84 entries. */
+td.player::after {
+  content: "";
+  flex: 1 1 auto;
+  min-width: 18px;
+  margin-left: 4px;
+  border-bottom: 1px dotted rgba(200,147,58,0.30);
+  transform: translateY(-4px);
+}
+#players tbody tr:hover td.player::after,
+#players tbody tr:focus-within td.player::after { border-bottom-color: rgba(255,180,61,0.6); }
+td.num { text-align: right; }
+
+/* An unranked row is an empty letter slot, not faded-out text. */
+.unranked td { color: var(--ink-dim); }
+.unranked .rank { color: var(--gilt-dim); }
+.unranked-note {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--ink-faint);
+  letter-spacing: 0;
+}
+.unranked-note::before {
+  content: "";
+  display: inline-block;
+  width: 26px; height: 9px;
+  margin-right: 9px;
+  vertical-align: 1px;
+  background: var(--night);
+  box-shadow: inset 0 0 0 1px var(--gilt-dim);
+}
+
+.stagemix { font-size: 11.5px; color: var(--ink-faint); white-space: nowrap; }
+.stagemix b { color: var(--ink); font-weight: 500; }
+.unknown { color: var(--ink-faint); font-family: var(--mono); }
+
+.tag {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border: 1px solid var(--gilt-dim);
+  padding: 1px 6px;
+  color: var(--brass);
+  margin-left: 7px;
+  vertical-align: middle;
+}
+
+/* ------------------------------------------------- shared with player page - */
+
+.banner {
+  background: var(--oxblood);
+  border: 1px solid var(--brass);
+  color: var(--gilt-hot);
+  padding: 10px 16px;
+  margin: 22px 0 0;
+  font-family: var(--mono);
+  font-size: 13px;
+}
+
+.panel {
+  background: var(--night-2);
+  border: 1px solid var(--rule);
+  border-top: 2px solid var(--brass);
+  padding: 20px 22px;
+  margin-bottom: 20px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+}
+.card {
+  background: var(--night-2);
+  padding: 16px 18px;
+  border-radius: 0;
+}
+.card .big {
+  font-family: var(--mono);
+  font-size: 27px;
+  font-weight: 700;
+  color: var(--gilt-hot);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.15;
+}
+.card .what { font-size: 14px; margin-top: 4px; }
+.card .of { color: var(--ink-faint); font-size: 11.5px; margin-top: 4px; font-family: var(--mono); }
+
+.head { display: flex; gap: 18px; align-items: center; margin: 30px 0 8px; }
+.head img, .head .avatar-fallback {
+  width: 72px; height: 72px; border-radius: 4px;
+  border: 1px solid var(--gilt-dim); flex: none;
+}
+h1 {
+  font-family: var(--sign);
+  font-weight: 800;
+  font-size: clamp(2rem, 6vw, 3.2rem);
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  line-height: 0.95;
+  margin: 0;
+  color: var(--ink);
+}
+.sub { color: var(--ink-dim); font-size: 13.5px; font-family: var(--mono); }
+.subtitle {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+
+.avatar-fallback {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--night-3);
+  color: var(--brass);
+  font-family: var(--sign);
+  font-weight: 700;
+  flex: none;
+}
+
+.lineup { margin: 0 0 22px; }
+.lineup .who { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.lineup .who span, .lineup .who a {
+  border: 1px solid var(--rule);
+  padding: 2px 10px;
+  font-size: 12.5px;
+  font-family: var(--mono);
+}
+.lineup .who span { color: var(--ink-dim); }
+
+.match-card {
+  background: var(--night-2);
+  border: 1px solid var(--rule);
+  border-left: 1px solid var(--gilt-dim);
+  padding: 15px 17px;
+  margin-bottom: 10px;
+  font-family: var(--mono);
+  font-size: 12.5px;
+}
+.match-card .match-rank { color: var(--gilt-hot); font-weight: 700; font-size: 14px; margin-right: 8px; }
+.match-card .match-meta { color: var(--ink-dim); margin: 4px 0 8px; }
+.match-card .match-players { display: flex; flex-wrap: wrap; gap: 6px 14px; }
+.match-card .match-players span { color: var(--ink); }
+.match-card .team1 { color: var(--gilt-hot); }
+
+.detail-row td { background: var(--night); padding: 4px 12px 16px 44px; font-size: 12px; color: var(--ink-dim); }
+.detail-row table { margin-top: 6px; }
+.detail-row th, .detail-row td { padding: 4px 8px; border-bottom: 1px solid rgba(36,48,77,0.6); }
+
+.win { color: var(--teal); font-weight: 600; }
+.loss { color: var(--loss-ink); font-weight: 600; }
+.win-tag { color: var(--teal); }
+.loss-tag { color: var(--loss-ink); }
+.hidden { display: none; }
+
+footer {
+  margin-top: 56px;
+  padding-top: 20px;
+  border-top: 1px solid var(--rule);
+  color: var(--ink-dim);
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 1.8;
+}
+footer a { color: var(--brass); }
+footer p { max-width: 88ch; }
+.credit { margin-top: 18px; padding-top: 12px; border-top: 1px dotted var(--rule); }
 .credit a { word-break: break-all; }
-footer { margin-top: 46px; padding-top: 18px; border-top: 1px solid var(--line);
-         color: var(--text-dim); font-size: 12.5px; }
-.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; }
-.card { background: var(--bg-panel); border: 1px solid var(--line); border-radius: 8px;
-        padding: 14px 16px; }
-.card .big { font-size: 25px; font-weight: 650; font-family: var(--display); color: var(--soul); }
-.card .what { font-size: 13px; }
-.card .of { color: var(--text-dim); font-size: 11.5px; margin-top: 3px; font-family: var(--mono); }
-.lineup { margin: 0 0 20px; }
-.lineup .who { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 5px; }
-.lineup .who span, .lineup .who a { border: 1px solid var(--line); border-radius: 999px;
-                                    padding: 2px 10px; font-size: 12.5px; }
-.lineup .who span { color: var(--text-dim); }
-.win { color: var(--win); font-weight: 600; }
-.loss { color: var(--blood); font-weight: 600; }
-.unknown { color: var(--text-dim); font-family: var(--mono); }
-td.num { text-align: right; font-family: var(--mono); }
-h2 { font-family: var(--display); font-size: 15px; text-transform: uppercase;
-     letter-spacing: .08em; color: var(--text-dim); margin: 38px 0 12px; font-weight: 600; }
+
+/* ------------------------------------------------------------- responsive - */
+
+@media (max-width: 760px) {
+  .marquee-inner { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+  /* The pylon lies down above the board here, so nothing stands in front of
+     the wordmark and it must not crop into itself. */
+  .blade { margin-top: 0; padding-top: 8px; }
+  .wordmark { margin-left: -0.06em; }
+  .wordmark .scout { margin-left: 0; }
+  .soffit-inner { grid-template-columns: minmax(0, 1fr); }
+  .edition-plate { grid-column: 1; grid-row: auto; text-align: left; margin-bottom: 12px; }
+  .ep-sub { margin-top: 3px; }
+  .blade {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    padding: 8px 14px;
+  }
+  .blade-word, .blade-edition { writing-mode: horizontal-tb; }
+  .blade-word { font-size: 15px; }
+  .slot { grid-template-columns: 46px minmax(0, 1fr); gap: 0 14px; }
+  .socket { width: 36px; height: 36px; font-size: 19px; }
+  .lb-figure { grid-column: 2; text-align: left; margin-top: 8px; }
+  .lb-name img, .lb-name .avatar-fallback { width: 30px; height: 30px; }
+  .bill-row { grid-template-columns: minmax(0, 1fr); }
+  .bill-dots { display: none; }
+  .bill-right { grid-column: 1; justify-self: start; justify-content: flex-start; margin-top: 8px; }
+  .bill-row > .bill-fig:last-child { grid-column: 1; justify-self: start; margin-top: 8px; }
+  .bill-who { font-size: 19px; }
+  .head img, .head .avatar-fallback { width: 54px; height: 54px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
